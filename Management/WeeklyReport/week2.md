@@ -68,5 +68,5 @@ This schedule refers to the [Gantt Chart]() of this project.
 
 [^1]: Risk is any unexpected event that can affect your project — for better or for worse. Risk can affect anything: people, processes, technology, and resources. [...] Risks are events that might happen, and you may not be able to tell when.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
-[2]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
+[^2]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
