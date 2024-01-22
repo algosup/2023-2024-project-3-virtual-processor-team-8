@@ -38,6 +38,8 @@ The goal of this project is to develop a virtual processor along with an interpr
 
 [**Technical Specification:**](Technical-Specification.md) Describing the operation of the C program interpreter and its functionalities.
 
+[**Kanban Board:**](https://trello.com/b/tvbDlRaJ/algosup-project-virtual-processor) Tracking the progress of the project.
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
