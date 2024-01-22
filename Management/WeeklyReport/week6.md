@@ -66,9 +66,11 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action | Description | Owner | Status |
-| ------ | ----------- | ----- | ------ |
-| /      | /           | /     | /      |
+| Action | Note | Owner | Status | End Date |
+| ------ | ---- | ----- | ------ | -------- |
+|        |      |       |        |          |
+|        |      |       |        |          |
+|        |      |       |        |          |
 
 ---
 
