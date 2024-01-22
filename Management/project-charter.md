@@ -89,6 +89,8 @@ The following resources are essential for the successful completion of the proje
     - Testing tools and frameworks.
   - **Documentation Tools:**
     - Software for creating and maintaining project documentation.
+  - **Management Tools:**
+    - Software for managing the team.
 
 <!-- Add budget if needed -->
 
