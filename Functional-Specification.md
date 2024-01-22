@@ -12,16 +12,15 @@
         - Persona 1
         - Persona 2
     - [4) Project Organization](#4-project-organisation)
-      - [➭ Project Roles](#-project-roles)
       - [➭ Stakeholders](#-stakeholders)
       - [➭ Project Reviewers](#-project-reviewers)
-    - [5) Project Plan](#5-project-plan)
+    - [5) Project Plan](#5-Project-plan)
       - [➭ Retroplanning](#-retroplanning)
       - [➭ Milestones](#-milestones)
       - [➭ Resources / tools](#-resources-tools)
       - [➭ Assumptions/Constraints](#-assumptions-constraints)
   - [B) Functional Requirements](#c-functional-requirements)
-    - [Customers requirements (Obligatory)](#customers-requirements)
+    - [Customers requirements (Obligatory)]  (customers-requirements)
       - [➭ Objectives and loss condition](#-objectives-and-loss-condition)
       - [Operability](#operability)
       - [Reliability](#reliability)
@@ -63,6 +62,46 @@ The team is composed with 7 members each having a designated role.
 | Laurent BOUQUIN | Quality Assurance |
 | Evan UHRING | Quality Assurance |
 
+## 2.Project overview
+Our team was asked to create an emulator coded in C language, which will have to be able run an assembly code. 
+
+# 3. Project definition
+
+###  Project vision
+
+### Objectives 
+
+### Scopes 
+
+### Deliverables
+
+
+### Personas definition 
+
+#### Persona 1 :
+
+#### Persona 2 :
+
+# 4. Project organization
+
+### Stake holders
+
+### Project reviewers
+
+# Project Plan
+
+
+### Retro-planning
+
+### Milesstones
+
+### Resources / tools
+
+### Assumptions/Constraints
+
+# Functional Requirements
+
+
 
 
 
@@ -70,6 +109,6 @@ The team is composed with 7 members each having a designated role.
 
 ## Glossary 
 
-[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer. ("<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="GCC Logo" width="75"/>")
+[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer. <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="GCC Logo" width="75"/>
 
-[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems. ("<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Vs-Code-Logo.png" alt="VS Code Logo" width="75"/>")
+[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems. <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Vs-Code-Logo.png" alt="VS Code Logo" width="75"/>
