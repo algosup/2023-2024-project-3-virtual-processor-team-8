@@ -7,10 +7,10 @@
       - [➭ Vision](#-vision)
       - [➭ Objectives](#-objectives)
       - [➭ Scope](#-scope)
+      - [➭ Deliverables](#-deliverables)
       - [ Personas Definition](#2-personas-definition)
         - Persona 1
         - Persona 2
-      - [➭ Deliverables](#-deliverables)
     - [4) Project Organization](#4-project-organisation)
       - [➭ Project Roles](#-project-roles)
       - [➭ Stakeholders](#-stakeholders)
@@ -41,10 +41,10 @@
 </details>
 
 ## 1. Introduction 
-As for the overview of the project, the client (Algosup : Franck) has demanded us to create an emulator on which we will have to run an assembly ("[...].asm") file on it. The goal of the project is to create a virtual processor and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
+As for the overview of the project, the client (ALGOSUP : Franck) has demanded us to create an emulator on which we will have to run an assembly ("[...].asm") file on it. The goal of the project is to create a virtual processor and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
 As for the operating system the final product will run on MacOS and Windows, and the devices used to develop the product are :
 
-    - Apple MacBook Air 2021, equipped with the "M1" chip running on "Ventura" MacOS version.
+    - Apple MacBook Air 2021, equipped with the "M1" chip running on "Ventura 13.0" MacOS version.
 
     - Lenovo ThinkPad 2023, equipped with "13th Gen Intel(R) Core(TM) i7-1355U", running on "Windows 11 pro". 
 
@@ -62,16 +62,14 @@ The team is composed with 7 members each having a designated role.
 |  Victor LEROY | Software Engineer |
 | Laurent BOUQUIN | Quality Assurance |
 | Evan UHRING | Quality Assurance |
-    
+
+
+
 
 ## Conclusion
 
 ## Glossary 
 
-[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer.
+[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer. ("<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="GCC Logo" width="75"/>")
 
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="GCC Logo" width="75"/>
-
-[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems. 
-
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Vs-Code-Logo.png" alt="VS Code Logo" width="75"/>
+[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems. ("<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Vs-Code-Logo.png" alt="VS Code Logo" width="75"/>")
