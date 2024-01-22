@@ -93,6 +93,8 @@ Our team was asked to create an emulator coded in C language, which will have to
 
 ### <ins>Retro-planning</ins>
 
+<img src="<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="Project Plan" width="75"/>
+
 ### <ins>Milesstones</ins>
 
 ### <ins>Resources / tools</ins>
