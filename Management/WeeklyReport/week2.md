@@ -4,8 +4,15 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
-- **What was done:**
+- **Project time (hours):** 3h15
+
+### Project Summary
+
+Communication and delegation of management responsibilities to the tech lead and program manager for the week following the project manager's absence due to illness.
+
+Implementation of a written report to share project updates with the absent team members and scheduling a team meeting on Monday, 01/22/24.
+
+We have initiated the writing of the functional specifications and the definition of our assembly language.
 
 ## Project Key parameters
 
@@ -40,21 +47,19 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Quality   |        |          |
+| Component | Status | Comments                |
+| --------- | ------ | ----------------------- |
+| Scope     | On     | The project has started |
+| Schedule  | On     | All OK                  |
+| Risks     | On     | Teammates' absence      |
+| Issues    | /      | No major issues         |
+| Quality   | On     | All OK                  |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner                                            | Status |
+| ----------- | --------------------------------------- | ------------------------------------------------ | ------ |
+| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Laurent Bouquin, Ian Laurent | Closed |
 
 ## Project Schedule
 
@@ -66,9 +71,11 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action | Description | Owner | Status |
-| ------ | ----------- | ----- | ------ |
-| /      | /           | /     | /      |
+| Action                                 | Note                                  | Owner                        | Status | End Date |
+| -------------------------------------- | ------------------------------------- | ---------------------------- | ------ | -------- |
+| Team meeting                           | Share what was done the previous week | Ian Laurent, Laurent Bouquin | Doing  | 01/22/24 |
+| Continue the functional specifications |                                       | Ian Laurent                  | Doing  | 01/30/24 |
+| Assembly language definition           |                                       | Team 8                       | Doing  | 01/26/24 |
 
 ---
 
