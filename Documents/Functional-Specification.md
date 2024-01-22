@@ -2,8 +2,8 @@
 
 ## Table of content </summary>
   - [A) Introduction](#b-introduction)
-    - [2) Project Overview](#2-project-overview)
-    - [3) Project Definition](#3-project-definition)
+    - [1) Project Overview](#2-project-overview)
+    - [2) Project Definition](#3-project-definition)
       - [➭ Vision](#-vision)
       - [➭ Objectives](#-objectives)
       - [➭ Scope](#-scope)
@@ -11,21 +11,21 @@
       - [ Personas Definition](#2-personas-definition)
         - Persona 1
         - Persona 2
-    - [4) Project Organization](#4-project-organisation)
+    - [3) Project Organization](#4-project-organisation)
       - [➭ Stakeholders](#-stakeholders)
       - [➭ Project Reviewers](#-project-reviewers)
-    - [5) Project Plan](#5-Project-plan)
+    - [4) Project Plan](#5-Project-plan)
       - [➭ Retroplanning](#-retroplanning)
       - [➭ Milestones](#-milestones)
       - [➭ Resources / tools](#-resources-tools)
       - [➭ Assumptions/Constraints](#-assumptions-constraints)
   - [B) Functional Requirements](#c-functional-requirements)
-    - [Customers requirements (Obligatory)]  (customers-requirements)
+      - [➭ Customers requirements] (#Customers-requirements)
       - [➭ Objectives and loss condition](#-objectives-and-loss-condition)
       - [Operability](#operability)
       - [Reliability](#reliability)
-    - [Final Product requirements(Foundations for a MVP)](#final-product-requirements)
-    - [Emulators features break down](#1b-Emulators-features-breakdown)
+      - [Final Product requirements(Foundations for a MVP)](#final-product-requirements)
+      - [Emulators features break down](#1b-Emulators-features-breakdown)
       - [➭ Terminal](#Terminal)
       - [➭ Other](#-other)
     - [3) Use Cases Analysis](#3-use-cases-analysis)
@@ -36,10 +36,11 @@
     - [Delivery](#delivery)
     - [Maintainability](#maintainability)
     - [Security](#security)
+  - [Conclusion] (#Conclusion)
   - [D) Glossary](#glossary)
 </details>
 
-## 1. Introduction 
+### A. Introduction
 As for the overview of the project, the client (ALGOSUP : Franck) has demanded us to create an emulator on which we will have to run an assembly ("[...].asm") file on it. The goal of the project is to create a virtual processor and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
 As for the operating system the final product will run on MacOS and Windows, and the devices used to develop the product are :
 
@@ -62,48 +63,76 @@ The team is composed with 7 members each having a designated role.
 | Laurent BOUQUIN | Quality Assurance |
 | Evan UHRING | Quality Assurance |
 
-## 2.Project overview
+## <ins>2.Project overview</ins>
 Our team was asked to create an emulator coded in C language, which will have to be able run an assembly code. 
 
-# 3. Project definition
+## <ins>3. Project definition</ins>
 
-###  Project vision
+###  <ins>Project vision</ins>
 
-### Objectives 
+### <ins>Objectives</ins> 
 
-### Scopes 
+### <ins>Scopes</ins> 
 
-### Deliverables
-
-
-### Personas definition 
-
-#### Persona 1 :
-
-#### Persona 2 :
-
-# 4. Project organization
-
-### Stake holders
-
-### Project reviewers
-
-# Project Plan
+### <ins>Deliverables</ins>
 
 
-### Retro-planning
+### <ins>Personas definition</ins>
 
-### Milesstones
+#### <ins>Persona 1 :</ins>
 
-### Resources / tools
+#### <ins>Persona 2 :</ins>
 
-### Assumptions/Constraints
+## <ins>4. Project organization</ins>
 
-# Functional Requirements
+### <ins>Stake holders</ins>
+
+### <ins>Project reviewers</ins>
+
+# <ins>Project Plan</ins>
 
 
+### <ins>Retro-planning</ins>
 
+### <ins>Milesstones</ins>
 
+### <ins>Resources / tools</ins>
+
+### <ins>Assumptions/Constraints</ins>
+
+# B. Functional Requirements
+
+### <ins>Customers requirements</ins>
+
+### <ins>Objectives and loss condition</ins>
+
+### <ins>Operability</ins>
+
+### <ins>Reliability</ins>
+
+### <ins>Product requirements(Foundations for a MVP)</ins>
+
+### <ins>Emulators features break down</ins>
+
+### <ins>Terminal</ins>
+
+### <ins>other</ins>
+
+## 3. Use Cases Analysis
+
+## 4. Functional Analysis
+
+# C. Non-Functional Requirements
+
+## Response/Performance
+
+## Recovery
+
+## Delivery
+
+## Maintainability
+
+## Security
 
 ## Conclusion
 
