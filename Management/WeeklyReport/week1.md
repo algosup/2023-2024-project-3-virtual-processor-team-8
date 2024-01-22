@@ -64,11 +64,11 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action                                 | Status      | Owner       | Note                           |
-| -------------------------------------- | ----------- | ----------- | ------------------------------ |
-| Starting the functional specifications | Not started | Ian Laurent |                                |
-| Project brainstorming                  | Not started | Team 8      | Contact the customer if needed |
-| Assembly language brainstorming        | Not started | Team 8      |                                |
+| Action                                 | Note                           | Status      | Owner       | End Date |
+| -------------------------------------- | ------------------------------ | ----------- | ----------- | -------- |
+| Starting the functional specifications |                                | Not started | Ian Laurent | 01/30/24 |
+| Project brainstorming                  | Contact the customer if needed | Not started | Team 8      | 01/17/24 |
+| Assembly language brainstorming        |                                | Not started | Team 8      | 01/26/24 |
 
 ---
 
