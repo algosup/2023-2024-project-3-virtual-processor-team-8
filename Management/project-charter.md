@@ -25,11 +25,6 @@ The assembly language will include, but is not limited to, the following instruc
 - Arithmetic operations: addition, subtraction, multiplication, and division.
 - Logical operations: OR, AND, XOR, and NOT.
 
-<!-- ## Glossary
-
-- **Virtual Processor:** A simulated processor implemented in software, emulating the behavior of a physical CPU.
-- **System Call:** A request in a Unix-like operating system made via a software interrupt to the kernel for a specific service. -->
-
 ## Deliverables and Deadlines
 
 - **Functional Specification Deadline (01/30, 5pm):**
@@ -46,11 +41,11 @@ The assembly language will include, but is not limited to, the following instruc
 
 ## Team Roles
 
-- Project Manager: [Laura-Lee Hollande]()
-- Program Manager: [Ian Laurent]()
-- Technical Lead: [Pierre Gorin]()
-- Software Engineer: [Victor Leroy]() & [Manech Laguens]()
-- Quality Assurance: [Evan Uhring]() & [Laurent Bouquin]()
+- Project Manager: [Laura-Lee Hollande](https://github.com/lauraleehollande)
+- Program Manager: [Ian Laurent](https://github.com/Ianlaur)
+- Technical Lead: [Pierre Gorin](https://github.com/Pierre2103)
+- Software Engineer: [Victor Leroy](https://github.com/Victor-Leroy) & [Manech Laguens](https://github.com/Manech-Laguens)
+- Quality Assurance: [Evan Uhring](https://github.com/Evan-UHRING) & [Laurent Bouquin](https://github.com/laurentbouquin)
 
 ## Communication Plan
 
@@ -106,7 +101,8 @@ This project proposal outlines the scope, goals, and deliverables of the Virtual
 **Date: 01/16/24**
 
 ---
-[^1]:
+[^1]: A virtual processor is a representation of a physical processor core to the operating system of a logical partition that uses shared processors.
+*source : [IBM](https://www.ibm.com/docs/en/power8?topic=processors-virtual)*
 [^2]: The interpreter in the compiler checks the source code line-by-line and if an error is found on any line, it stops the execution until the error is resolved.
 *source : [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-interpreters/)*
 [^3]: An assembly language is a type of low-level programming language that is intended to communicate directly with a computer’s hardware. Unlike machine language, which consists of binary and hexadecimal characters, assembly languages are designed to be readable by humans.
@@ -115,4 +111,5 @@ This project proposal outlines the scope, goals, and deliverables of the Virtual
 *source : [Educative](https://www.educative.io/answers/what-is-the-difference-between-syntax-and-semantic-errors)*
 [^5]: A programming language is very strict and unambiguous, so a syntax error occurs when we don’t respect or follow the language vocabulary. As a result, the program can’t run, and a useful error message will print instead.
 *source : [Educative](https://www.educative.io/answers/what-is-the-difference-between-syntax-and-semantic-errors)*
-[^6]:
+[^6]: A system call is a mechanism used by programs to request services from the operating system (OS). In simpler terms, it is a way for a program to interact with the underlying system, such as accessing hardware resources or performing privileged operations.
+*source : [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-of-system-call/)*
