@@ -44,6 +44,8 @@
 | --------- | ------ | --------------- |
 | Scope     | /      | No project time |
 | Schedule  | /      | No project time |
+| Risks     | /      | No major risks  |
+| Issues    | /      | No major issues |
 | Quality   | /      | No project time |
 
 ## Project Risks and Issues (Top 5)
