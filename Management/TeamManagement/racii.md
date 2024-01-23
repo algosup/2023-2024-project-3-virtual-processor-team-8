@@ -2,7 +2,7 @@
 
 <details>
 
-<summary>💡 Key</summary>
+<summary>💡 Keys</summary>
 
 | Letter | Name        | Description                                               |
 | ------ | ----------- | --------------------------------------------------------- |
