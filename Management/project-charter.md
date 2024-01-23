@@ -56,7 +56,6 @@ The assembly language will include, but is not limited to, the following instruc
 ## Communication Plan
 
 - Regular team meetings: 2 by week.
-- Progress updates: 3 by week.
 
 ## Risks and Mitigation
 
