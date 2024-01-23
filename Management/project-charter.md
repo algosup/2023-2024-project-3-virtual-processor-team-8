@@ -47,6 +47,12 @@ The assembly language will include, but is not limited to, the following instruc
 - Software Engineer: [Victor Leroy](https://github.com/Victor-Leroy) & [Manech Laguens](https://github.com/Manech-Laguens)
 - Quality Assurance: [Evan Uhring](https://github.com/Evan-UHRING) & [Laurent Bouquin](https://github.com/laurentbouquin)
 
+## Stakeholders
+
+| Name                            | Role     | Representative | Point of contact | Influence                                                                                                                                                                                                                                                                | Expectations                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------- | -------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [ALGOSUP](https://algosup.com/) | Customer | Franck Jeannin | Mail/Slack       | The customer sets the requirements for the final product. The team seeks approval from the client for major decisions, making them the key decision-maker in the project. Their input holds the utmost significance in shaping the direction of the development process. | The customer expects the development of a reliable virtual processor and interpreter that follows the specified assembly language standards. The product should perform well, be compatible with different systems, and include features like system calls and a debugger. Clear documentation and timely communication are crucial for successful delivery. |
+
 ## Communication Plan
 
 - Regular team meetings: [Specify frequency and mode of communication]
@@ -92,7 +98,42 @@ The following resources are essential for the successful completion of the proje
   - **Management Tools:**
     - Software for managing the team.
 
-<!-- Add budget if needed -->
+## Success criteria
+
+The success of the project will be evaluated based on the following criteria:
+
+1. **Functionality:**
+   - Successful implementation of the virtual processor and interpreter with a complete set of essential assembly language instructions.
+   - Correct execution of arithmetic operations, logical operations, and control flow as specified in the functional specification.
+
+2. **Performance:**
+   - Efficient performance of the virtual processor, meeting or exceeding predefined benchmarks for speed and resource utilization.
+
+3. **Portability:**
+   - Successful development of the project in plain C language with compatibility across different systems.
+   - Seamless integration with the recommended development tools, specifically gcc as the compiler and Visual Studio Code as the IDE.
+
+4. **Reliability:**
+   - Reliable execution of assembly code with minimal errors or unexpected behavior.
+   - Robust handling of system calls for text display and the built-in debugger.
+
+5. **Documentation:**
+   - Completion of a comprehensive Functional Specification (by 01/30/2024 5 PM) and Technical Specification (by 09/02/2023 5 pm).
+   - Clear and accessible documentation for the assembly language, virtual processor, and interpreter.
+
+6. **Testing:**
+   - Execution of a thorough testing plan (by 02/16/2024 5 PM) covering unit tests, system tests, and any additional testing requirements.
+   - Timely identification and resolution of any issues discovered during testing.
+
+7. **Timeliness:**
+   - Adherence to the project schedule with the completion of the Final Product by the specified deadline (by 02/23/2024 5 PM).
+   - Timely delivery of intermediate milestones, including the Functional Specification, Technical Specification, and Test Plan.
+
+8. **Client Satisfaction:**
+   - Approval and acceptance of major decisions by the client.
+   - Ongoing collaboration and satisfaction with the development process and deliverables.
+
+This criteria for success section outlines the key benchmarks and expectations that will determine the success of the project. Adjust the details based on the specific nuances and priorities of your project.
 
 ## Conclusion
 
