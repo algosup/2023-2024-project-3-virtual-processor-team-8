@@ -18,7 +18,7 @@ We have initiated the writing of the functional specifications and the definitio
 
 <details>
 
-<summary>Glossary</summary>
+<summary>💡 Glossary</summary>
 
 1. **Schedule:**
    - **On:** The project is progressing according to the planned schedule.
@@ -73,7 +73,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 <details>
 
-<summary>Glossary</summary>
+<summary>💡 Glossary</summary>
 
 1. **Documentation KPIs:**
    - **0%:** Nothing.
