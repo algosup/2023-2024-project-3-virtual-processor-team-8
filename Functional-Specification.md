@@ -69,13 +69,28 @@ Our team was asked to create an emulator coded in C language, which will have to
 ## <ins>3. Project definition</ins>
 
 ###  <ins>Project vision</ins>
-
+The project envisions the creation of a virtual processor and interpreter, facilitating the execution of assembly code written in a custom assembly language. The virtual processor aims to provide a platform for running low-level code efficiently. 
 ### <ins>Objectives</ins> 
+Developing a virtual processor capable of executing assembly code is the principal objective.
+Being able to create an interpreter for the custom assembly language.
+It should implement a set of essential assembly instructions, including arithmetic, logical operations, and control flow.
+The team will have to ensure it's portability by developing the project in plain C language, utilizing standard libraries, and recommending specific development tools.
+To assure that the Objectives were achieved making unit tests though out the development will wrap all the code and detect as many errors in the code as possible.
 
-### <ins>Scopes</ins> 
+### <ins>Scopes</ins>  
+The project encompasses the design and development of a virtual processor, interpreter, and associated assembly language. The primary focus is to create a versatile platform capable of executing assembly code efficiently. The scope also extends to consider the potential future applications of the project, opening avenues for integration with broader systems, educational purposes, or as a foundation for building specialized computing environments.
+Develop a software able to proceed some basic commands that are written based on an assembly syntax that we developed.
 
 ### <ins>Deliverables</ins>
+We will have to make sure to deliver the final product in the deadlines that were given by the client. To ensure that the final product will be ready to present, the team has to ensure that all the milestones are achieved and done on time.
 
+As for this document (<n>Functional specification</n>), it's due date is the **01/30/24** and should contain all the information regarding the overview of the project and all the success key to deliver the final product to the client. This document must also contain the outlining of assembly language, explanation of the virtual processors and it's functions, and the interpreter's specifications.
+
+A <u>technical</u> Specification is manditory for this project, and it's due date is **02/09/24**. This document should provide insights into the implementation details, data structures, and the types of algroithms used without giving out the code. It will have to specify the technical aspects of the final product keeping it understandable for the client. Keeping terms employed understandable with explanations if needed, and clear will allow to maintain transperancy of the advancement of the project. 
+
+Testing is key to make sure that the final product is presentable to the client and meets it's expectations. These tests will be done within the team but also with outside insights such as other external individuals. These tests will be specified in a document named a <u>test plan</u>, in this document all tests that have been done on the product must be detailed with a clear understanding on what lead to the issue, it's type meaning either if it's a technical issue or other, and other detailed information to allow to keep track of the issues for the client but also within the team members.
+
+As for the <u>final product</u>, the deadline being 02/23/24, this should be the final version of the product. This version should be fully functional with all the features that was mentioned in this document. This version should obviously meet the satisfaction of the client and respond to the clients needs. This version will be tested before being presented to the client, and should include the virtual processor, interpreter and the associated tools.
 
 ### <ins>Personas definition</ins>
 
@@ -86,17 +101,27 @@ Our team was asked to create an emulator coded in C language, which will have to
 ## <ins>4. Project organization</ins>
 
 ### <ins>Stake holders</ins>
-
+The stake holders for this project is <u>ALGOSUP International software development school</u> represented by <u>Franck JEANNIN</u> backed by Eric LARCHEVEQUE, Natacha BOEZ and Jean-Philipe GRASSE.
 ### <ins>Project reviewers</ins>
 
 # <ins>Project Plan</ins>
 
 ### <ins>Retro-planning</ins>
 
-### <ins>Milesstones</ins>
+<img src="<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="Project Plan" width="75"/>
+
+### <ins>Mile-stones</ins>
+
+|Phases :|Pre-Development|||Development |||Post-Development|
+|:-|:-|:-|:-|:-|:-|:-|:-|
+|Tasks :|Functional specification|Define Assembly language|Technical specification|Test Plan|Implement Virtual Processor|Write Assembly Programs as Unit Tests|Test Phase|
+|Due Date :|01/30/24|...|02/09/24|02/16/24|...|...|...|
+|Desired end date :|01/30/24|01/02/24|01/02/24|02/16/24|02/16/24|02/16/24|02/16/24 -> Final deadline (02/23/24)
 
 ### <ins>Resources / tools</ins>
-
+environement: Vs code, Github
+test environement: 
+management enviroment: trello slack 
 ### <ins>Assumptions/Constraints</ins>
 
 # B. Functional Requirements
