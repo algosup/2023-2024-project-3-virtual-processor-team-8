@@ -141,7 +141,7 @@ This project proposal outlines the scope, goals, and deliverables of the Virtual
 
 ---
 **Project Manager: Laura-Lee Hollande**
-**Date: 01/16/24**
+**Date: 01/23/24**
 
 ---
 [^1]: A virtual processor is a representation of a physical processor core to the operating system of a logical partition that uses shared processors.
