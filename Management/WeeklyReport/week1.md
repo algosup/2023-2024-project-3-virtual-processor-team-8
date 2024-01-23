@@ -5,7 +5,10 @@
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
 - **Project time (hours):** 00h00
-- **What was done:** Create a Slack Server and a Trello for the project management.
+
+### Project Summary
+
+Create a Slack Server and a Trello for the project management.
 
 ## Project Key parameters
 
