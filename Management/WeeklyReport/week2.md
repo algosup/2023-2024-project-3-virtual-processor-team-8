@@ -65,9 +65,31 @@ We have initiated the writing of the functional specifications and the definitio
 
 This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/management/Management/TeamManagement/ganttCharter.pdf) of this project.
 
-![Week 1](image/week2.png)
+![Week 2](image/week2.png)
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
+
+## KPIs
+
+<details>
+
+<summary>Glossary</summary>
+
+1. **Documentation KPIs:**
+   - **0%:** Nothing.
+   - **10%:** Started.
+   - **70%:** Written.
+   - **100%:** Validated by the group.
+
+2. **Testing KPIs:**
+   - **Test case**: Number of test that passed.
+
+3. **Code KPIs:**
+   - **Implemented:** Has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+
+</details>
+
+![KPIs Week 2](image/kpi2.png)
 
 ## Next week Action Plan
 
