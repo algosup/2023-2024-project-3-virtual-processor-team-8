@@ -11,7 +11,7 @@
 
 <details>
 
-<summary>Glossary</summary>
+<summary>💡 Glossary</summary>
 
 1. **Schedule:**
    - **On:** The project is progressing according to the planned schedule.
@@ -63,6 +63,26 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 ![Week 1](image/week6.png)
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
+
+## KPIs
+
+<details>
+
+<summary>💡 Glossary</summary>
+
+1. **Documentation KPIs:**
+   - **0%:** Nothing.
+   - **10%:** Started.
+   - **70%:** Written.
+   - **100%:** Validated by the group.
+
+2. **Testing KPIs:**
+   - **Test case**: Number of test that passed.
+
+3. **Code KPIs:**
+   - **Implemented:** Has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+
+</details>
 
 ## Next week Action Plan
 
