@@ -4,8 +4,10 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 26h00
 - **What was done:**
+  - Redo the Trello
+  - Risk management (banque + Trello)
 
 ## Project Key parameters
 
@@ -48,13 +50,13 @@
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                       | Owner              | Status  |
+| ----------- | --------------------------------- | ------------------ | ------- |
+| Risk 1      | Bug with Trello, loose everything | Laura-Lee Hollande | Closed  |
+| Risk 2      | Potential loss of some teammates  | Laura-Lee Hollande | pending |
+| Risk 3      |                                   |                    |         |
+| Risk 4      |                                   |                    |         |
+| Risk 5      |                                   |                    |         |
 
 ## Project Schedule
 
