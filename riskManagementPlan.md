@@ -81,7 +81,7 @@ Given the complexity of the project and the importance of meeting specific miles
 - **Impact:** High
 - **Mitigation:** Regularly review and adjust project timeline as needed. Identify and address potential delays promptly.
 
-```💡 The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.``````
+💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
 
 ---
 
