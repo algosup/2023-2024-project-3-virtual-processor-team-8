@@ -69,7 +69,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ![Week 3](image/week3.png)
 
-```The current week is highlighted in red and the weeks are based on the real time weeks number.```
+⚠️ ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
 ## KPIs
 
