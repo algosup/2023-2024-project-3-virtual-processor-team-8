@@ -5,10 +5,14 @@
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
 - **Project time (hours):** 26h00
-- **What was done:**
-  - Redo the Trello
-  - Risk management (banque + Trello)
-  - Continue the functional
+
+### Project summary
+
+- Redo the Trello
+- Risk management (banque + Trello)
+- Continue the functional
+- Questionning the customer -> do we have to completely change the name of the different instructions or can we keep them as they actually are, and maybe just change some of them & Do we have to do the section parts (i.e section .data) and the interrupts? => Create our dreamed assembly
+- Research
 
 ## Project Key parameters
 
