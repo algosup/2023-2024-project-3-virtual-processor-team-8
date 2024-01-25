@@ -78,7 +78,24 @@ Given the complexity of the project and the importance of meeting specific miles
 
 ### Likelihood
 
+| Level | Meaning        | Description                                  |
+| ----- | -------------- | -------------------------------------------- |
+| A     | Almost certain | Expected to occur in most circumstances.     |
+| B     | Likely         | Will probably occur in most circumstances.   |
+| C     | Moderate       | Should occur at some time.                   |
+| D     | Unlikely       | Could occur at some time.                    |
+| E     | Rare           | May occur only in exceptional circumstances. |
+| F     | Never          | It is not foreseeable that this will occur.  |
+
 ### Impact
+
+| Level | Meaning       | Description                                                                                                                                                                | Example                                                                                                                                                           |
+| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Insignificant | The impact is negligible and has minimal consequences.                                                                                                                     | A minor software glitch.                                                                                                                                          |
+| 2     | Minor         | The impact is noticeable but does not pose a serious threat to the project.                                                                                                | Delay in the delivery of non-critical project materials.                                                                                                          |
+| 3     | Moderate      | The impact is of moderate severity and may pose a potential threat to the project's success.                                                                               | Key team member unexpectedly leaving the project.                                                                                                                 |
+| 4     | Major         | The impact is substantial and poses a severe threat to the project. It has the potential to significantly hinder or even jeopardize the achievement of project objectives. | A major security breach that compromises sensitive project information.                                                                                           |
+| 5     | Catastrophic  | The impact is of the highest severity, representing a catastrophic event that poses an existential threat to the project.                                                  | A natural disaster, such as an earthquake or flood, that completely destroys the project infrastructure, data centers, and disrupts the entire project operation. |
 
 💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
 
