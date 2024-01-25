@@ -4,12 +4,13 @@
 
 void printLines(char **lines, int linesNum);
 
-
+#define INITIAL_LINES 100
+#define LINE_LENGTH 100
 
 int main(){
-	char **lines = (char **)malloc(100 * sizeof(char *));
+	char **lines = (char **)malloc(INITIAL_LINES * sizeof(char *));
+    int linesCapacity = INITIAL_LINES;
 	int linesNum = 0;
-
 
 
 	FILE *fp;
@@ -21,18 +22,21 @@ int main(){
 		exit(1);
 	}
 	else{
-		int line = 1;
-		char *lineContent = (char *)malloc(100 * sizeof(char));
+		char *lineContent = (char *)malloc(LINE_LENGTH * sizeof(char));
 		lineContent[0] = '\0';
 		while((ch = fgetc(fp)) != EOF){
 			if (ch == '\n' || ch == '\r'){
 				if (lineContent[0] != '\0'){
-					lines[line] = (char *)malloc(100 * sizeof(char));
-					strcpy(lines[line-1], lineContent);
-				}
-				lineContent[0] = '\0';
-				line++;
-			}
+                    if (linesNum == linesCapacity){
+                        linesCapacity *= 2;
+					    lines = (char **)realloc(lines, linesCapacity * sizeof(char *));
+				    }
+				    lines[linesNum] = (char *)malloc(LINE_LENGTH * sizeof(char));
+                    strcpy(lines[linesNum], lineContent);
+                    linesNum++;
+			    }
+                lineContent[0] = '\0';
+            }
 			else{
 				if (ch != '\t'){
 				strncat(lineContent, &ch, 1);
@@ -40,17 +44,14 @@ int main(){
 			}
 
 		}
-		linesNum = line;
+        fclose(fp);
 	}
-	printLines(lines, linesNum);
-	fclose(fp);
+    printLines(lines, linesNum);
+
+    for (int i = 0; i < linesNum; i++) {
+        free(lines[i]);
+    }
+    free(lines);
+    return 0;
 }
 
-void printLines(char **lines, int linesNum){
-	int i = 0;
-	while(i < linesNum-1){
-		printf("%s\n", lines[i]);
-		i++;
-	}
-	// printf("%s\n", lines[0]);
-}
