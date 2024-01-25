@@ -99,6 +99,17 @@ Given the complexity of the project and the importance of meeting specific miles
 
 💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
 
+### Likelihood - Impact Matrice
+
+| Likelihood | Impact |     |     |     |     |
+| ---------- | ------ | --- | --- | --- | --- |
+|            | 1      | 2   | 3   | 4   | 5   |
+| A          | S      | S   | H   | H   | H   |
+| B          | M      | S   | S   | H   | H   |
+| C          | L      | M   | S   | H   | H   |
+| D          | L      | L   | M   | S   | H   |
+| E          | L      | L   | M   | S   | S   |
+
 ---
 
 [^1]: It is the process of identifying, assessing and controlling threats to an organization's capital, earnings and operations. These risks stem from a variety of sources, including financial uncertainties, legal liabilities, technology issues, strategic management errors, accidents and natural disasters.
