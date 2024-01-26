@@ -35,35 +35,35 @@ Given the complexity of the project and the importance of meeting specific miles
 
 ## Risk Identifications
 
-- Technical Risks
-  - Inadequate Site Management
+- Technical risks
+  - Inadequate site management
 <!-- - **Likelihood:** Low
 - **Impact:** Moderate
 - **Mitigation:** Ensure a well-experienced technical team for virtual processor development. Regular training and briefings. -->
-  - Communications Failure
+  - Communications failure
 <!-- - **Likelihood:** Medium
 - **Impact:** Moderate
 - **Mitigation:** Implement redundant communication systems for development coordination. Regular testing of communication tools. -->
-  - Save Failure
+  - Save failure
 <!-- - **Likelihood:** Medium
 - **Impact:** High
 - **Mitigation:** Establish backups and regularly push on Github. -->
-  - Technical Skill Gaps
+  - Technical skill gaps
 <!-- - **Likelihood:** Medium
 - **Impact:** High
 - **Mitigation:** Assess and address skill gaps within the development team. Provide necessary training or bring in external help. -->
 
-- Project Management Risks
+- Project management risks
   - Scope Creep
 <!-- - **Likelihood:** Medium
 - **Impact:** High
 - **Mitigation:** Clearly define and document project scope. Regularly review and confirm scope with stakeholders. -->
-  - Resource Constraints
+  - Resource constraints
 <!-- - **Likelihood:** Medium
 - **Impact:** High
 - **Mitigation:** Monitor resource allocation closely. Adjust project plan if resource constraints are identified. -->
 
-  - Timeline Delays
+  - timeline delays
 <!-- - **Likelihood:** Medium
 - **Impact:** High
 - **Mitigation:** Regularly review and adjust project timeline as needed. Identify and address potential delays promptly. -->
@@ -92,10 +92,10 @@ Given the complexity of the project and the importance of meeting specific miles
 | Level | Meaning       | Description                                                                                                                                                                | Example                                                                                                                                                           |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | Insignificant | The impact is negligible and has minimal consequences.                                                                                                                     | A minor software glitch.                                                                                                                                          |
-| 2     | Minor         | The impact is noticeable but does not pose a serious threat to the project.                                                                                                | Delay in the delivery of non-critical project materials.                                                                                                          |
+| 2     | Minor         | The impact is noticeable but does not pose a serious threat to the project.                                                                                                | A temporary setback in development caused by a brief team member unavailability.                                                                                                          |
 | 3     | Moderate      | The impact is of moderate severity and may pose a potential threat to the project's success.                                                                               | Key team member unexpectedly leaving the project.                                                                                                                 |
 | 4     | Major         | The impact is substantial and poses a severe threat to the project. It has the potential to significantly hinder or even jeopardize the achievement of project objectives. | A major security breach that compromises sensitive project information.                                                                                           |
-| 5     | Catastrophic  | The impact is of the highest severity, representing a catastrophic event that poses an existential threat to the project.                                                  | A natural disaster, such as an earthquake or flood, that completely destroys the project infrastructure, data centers, and disrupts the entire project operation. |
+| 5     | Catastrophic  | The impact is of the highest severity, representing a catastrophic event that poses an existential threat to the project.                                                  | A critical and irreparable flaw is discovered in the core architecture, rendering the virtual processor and interpreter unusable and requiring a complete redevelopment from scratch |
 
 💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
 
@@ -109,6 +109,20 @@ Given the complexity of the project and the importance of meeting specific miles
 | C          | L      | M   | S   | H   | H   |
 | D          | L      | L   | M   | S   | H   |
 | E          | L      | L   | M   | S   | S   |
+
+<details>
+
+<summary>💡Keys</summary>
+
+**H:** High risk, detailed research and management planning required at senior levels.
+
+**S:** Significant risk, senior management attention needed.
+
+**M:** Moderate risk, management responsibility must be specified.
+
+**L:** Low risk, manage by routine procedures.
+
+</details>
 
 ---
 
