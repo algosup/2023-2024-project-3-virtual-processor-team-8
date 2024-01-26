@@ -57,9 +57,9 @@ We have initiated the writing of the functional specifications and the definitio
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description                             | Owner                                            | Status |
-| ----------- | --------------------------------------- | ------------------------------------------------ | ------ |
-| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Laurent Bouquin, Ian Laurent | Closed |
+| Risk/Issues  | Description                             | Owner                                            | Status |
+| ------------ | --------------------------------------- | ------------------------------------------------ | ------ |
+| Issue 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Laurent Bouquin, Ian Laurent | Closed |
 
 ## Project Schedule
 
