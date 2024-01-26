@@ -3,7 +3,6 @@
 # Technical Specification
 
 ---
-
 **Title:** Virtual Processor Project - Team 8
 
 **Author:** Pierre GORIN
@@ -52,11 +51,30 @@
       - [1.3.2.2 - Installation with Github Desktop](#1322---installation-with-github-desktop)
     - [1.3.3 - Running](#133---running)
   - [1.4 - Scope](#14---scope)
+    - [1.4.1 - In Scope](#141---in-scope)
+    - [1.4.2 - Out of Scope](#142---out-of-scope)
+- [2 - Overall Description](#2---overall-description)
+  - [2.1 System Environment](#21-system-environment)
+    - [2.1.1 - Hardware](#211---hardware)
+    - [2.1.2 - Software](#212---software)
+  - [2.2 - Project Folder Structure](#22---project-folder-structure)
+  - [2.3 - Conventions](#23---conventions)
+    - [2.3.1 - Naming Conventions](#231---naming-conventions)
+      - [2.3.1.1 Folders](#2311-folders)
+      - [2.3.1.2 Files](#2312-files)
+      - [2.3.1.3 Variables](#2313-variables)
+      - [2.3.1.4 Constants](#2314-constants)
+      - [2.3.1.5 Functions](#2315-functions)
+    - [2.3.2 - Formatting Conventions](#232---formatting-conventions)
+      - [2.3.2.1 - Indentation](#2321---indentation)
+      - [2.3.2.2 - Line Length](#2322---line-length)
+      - [2.3.2.3 - Line Breaks](#2323---line-breaks)
+      - [2.3.2.4 - Comments](#2324---comments)
+  - [2.4 - Assembly Syntax](#24---assembly-syntax)
+    - [2.4.1 - Registers](#241---registers)
+      - [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
+      - [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
 - [================================================================================================](#)
-- [================================================================================================](#-1)
-- [================================================================================================](#-2)
-- [================================================================================================](#-3)
-- [================================================================================================](#-4)
     - [1.4 - Product and Technical Requirements](#14---product-and-technical-requirements)
     - [1.5 - Out of Scope](#15---out-of-scope)
           - [*(Back to top)*](#back-to-top)
@@ -75,6 +93,7 @@
           - [*(Back to top)*](#back-to-top-4)
     - [6.3 - Glossary and Terminology](#63---glossary-and-terminology)
           - [*(Back to top)*](#back-to-top-5)
+
 </details>
 
 ---
@@ -82,6 +101,7 @@
 # 1 - Overview
 
 ## 1.1 - Purpose
+
 [*(Back to top)*](#toc)
 
 ### 1.1.1 - Goals
@@ -91,6 +111,7 @@ This project aims to develop a virtual processor[^1] and an interpreter[^2] for 
 ### 1.1.2 - Objectives
 
 The project objectives are as follows:
+
 - Design a minimal assembly language with a sufficient set of instructions.
 - Develop an interpreter capable of executing assembly code.
 - Develop an interpreter capable of error-checking assembly code.
@@ -100,11 +121,13 @@ The project objectives are as follows:
 ### 1.1.3 - Success Criteria
 
 The project will be considered successful if the following criteria are met:
+
 - The interpreter is capable of executing assembly code.
 - The interpreter is compatible with the most common operating systems.
 - 50% of the set of instructions are implemented.
 
 ## 1.2 - Stakeholders
+
 [*(Back to top)*](#toc)
 
 This project is for educational purposes and is not intended for commercial use. The project team will be responsible for the development of the project and the client will be responsible for providing feedback and guidance throughout the development process.
@@ -123,17 +146,19 @@ This project is for educational purposes and is not intended for commercial use.
 
 ### 1.2.2 - Client
 
-| Name   | Role | Contact |
-| ------ | ---- | ------- |
-| ALGOSUP | Client | [Website](https://www.algosup.com/) |
-| Franck JEANNIN | ALGOSUP's Co-Founder  | [LinkedIn](https://www.linkedin.com/in/franck-jeannin/) |
-| Eric LARCHEVEQUE | ALGOSUP's Co-Founder  | [LinkedIn](https://www.linkedin.com/in/ericlarch/) |
-| Natacha BOEZ | ALGOSUP's Co-Founder  | [LinkedIn](https://www.linkedin.com/in/natacha-boez-913a33167/) |
+| Name             | Role                 | Contact                                                         |
+| ---------------- | -------------------- | --------------------------------------------------------------- |
+| ALGOSUP          | Client               | [Website](https://www.algosup.com/)                             |
+| Franck JEANNIN   | ALGOSUP's Co-Founder | [LinkedIn](https://www.linkedin.com/in/franck-jeannin/)         |
+| Eric LARCHEVEQUE | ALGOSUP's Co-Founder | [LinkedIn](https://www.linkedin.com/in/ericlarch/)              |
+| Natacha BOEZ     | ALGOSUP's Co-Founder | [LinkedIn](https://www.linkedin.com/in/natacha-boez-913a33167/) |
 
 ## 1.3 - Usage
+
 [*(Back to top)*](#toc)
 
-
+The interpreter is designed to be user-friendly and easy to use. The interpreter will be compatible with the most common operating systems and will be capable of executing assembly code and error-checking assembly code. The interpreter will be capable of displaying the output of the assembly code.
+Following are the instructions to install and run the interpreter.
 
 ### 1.3.1 - Requirements
 
@@ -168,7 +193,6 @@ https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8.git
 
 Then click on `Clone` and click on `Repository > Open in Visual Studio Code`.
 
-
 ### 1.3.3 - Running
 
 To run the interpreter, you will need to follow these steps:
@@ -180,21 +204,201 @@ To run the interpreter, you will need to follow these steps:
 <!-- TODO: Add the command(s) to run the assembly -->
 
 ## 1.4 - Scope
+
 [*(Back to top)*](#toc)
 
+### 1.4.1 - In Scope
+
+The project will include the following features:
+
+- Basic assembly language with a minimal set of instructions.
+- Interpreter capable of executing assembly code.
+- Interpreter capable of error-checking assembly code.
+- User-friendly interface.
+- Compatibility with the most common operating systems.
+
+### 1.4.2 - Out of Scope
+
+The project will not include the following features:
+
+- Advanced assembly language with a complex set of instructions.
+- Graphical user interface.
+- Debugging tools.
+- Compatibility with specific hardware configurations.
+- Compatibility with other programming languages.
+- Real-time performance analysis.
+- Advanced memory management.
+
+# 2 - Overall Description
+
+## 2.1 System Environment
+
+[*(Back to top)*](#toc)
+
+### 2.1.1 - Hardware
+
+The interpreter will be compatible with the most common hardware configurations, and will be tested on the following hardware:
+
+| Specification | Lenovo ThinkBook 14 G2 | Apple MacBook Air M1 2020 |
+| ------------- | ---------------------- | ------------------------- |
+| Processor     | Intel Core i7-1165G7   | Apple Silicon M1          |
+| RAM           | 16 GB                  | 8 GB                      |
+
+### 2.1.2 - Software
+
+The interpreter will be compatible with the most common operating systems, and will be tested on the following operating systems:
+
+| Operating System | Windows 11 Pro | macOS Sonoma |
+| ---------------- | ---------- | ------------ |
+| Version          | 22H2       | 14.3         |
+
+## 2.2 - Project Folder Structure
+
+[*(Back to top)*](#toc)
+
+The project will be organized in the following folder structure:
+
+```bash
+~ 2023-2024-project-3-virtual-processor-team-8  # Root folder
+├── Bin                                         # Binary folder
+├── Tests                                       # Tests folder
+│   ├── tests_interpreter.c                     # Interpreter tests C file
+│   ├── tests_interpreter.h                     # Interpreter tests C header file
+│   ├── tests_scraper.c                         # Scraper tests C file
+│   ├── tests_scraper.h                         # Scraper tests C header file
+│   ├── tests_parser.c                          # Parser tests C file
+│   └── tests_parser.h                          # Parser tests C header file
+├── Docs                                        # Documentation folder
+│   ├── Management                              # Management folder
+│   │   ├── Team-Management                     # Team management folder
+│   │   │   ├── Gantt-Charter.pdf               # Gantt chart file
+│   │   │   └── Racii.md                        # RACII file
+│   │   ├── Weekly-Reports                      # Weekly reports folder
+│   │   │   ├── Img                             # Images folder
+│   │   │   ├── Weekly-Report-1.md              # Weekly report file
+│   │   │   ├── Weekly-Report-2.md              # Weekly report file
+│   │   │   └── [etc...]                        # Others Weekly report file
+│   │   ├── Project-Charter.md                  # Project charter file
+│   │   └── Risk-Management-Plan.md             # Risk management plan file
+│   └── Specs                                   # Specifications folder
+│       ├── Img                                 # Images folder
+│       │   ├── Functional-Specification        # Functional specification images folder
+│       │   ├── Technical-Specification         # Technical specification images folder
+│       │   └── Test-Plan                       # Test plan images folder
+│       ├── Functional-Specification.md         # Functional specification file
+│       ├── Technical-Specification.md          # Technical specification file
+│       └── Test-Plan.md                        # Test plan file
+├── Src                                         # Source code folder
+│   ├── code.asm                                # Assembly code file
+│   ├── interpreter.c                           # Interpreter C file
+│   ├── interpreter.h                           # Interpreter C header file
+│   ├── main.c                                  # Main C file
+│   ├── main.h                                  # Main C header file
+│   ├── scraper.c                               # Parser C file
+│   ├── scraper.h                               # Parser C header file
+│   ├── parser.c                                # Parser C file
+│   ├── parser.h                                # Parser C header file
+│   └── temp                                    # Temporary folder
+├── .gitignore                                  # Git ignore file
+├── LICENSE                                     # License file
+└── README.md                                   # Readme file
+```
+
+## 2.3 - Conventions
+
+[*(Back to top)*](#toc)
+
+### 2.3.1 - Naming Conventions
+
+The project will follow the following naming conventions:
+
+#### 2.3.1.1 Folders
+
+- Folder names will be written in `Train-Case`.
+
+#### 2.3.1.2 Files
+
+- File related to documentation or managemnt will be written in `Train-Case`.
+- File related to source code will be written in `snake_case`.
+
+#### 2.3.1.3 Variables
+
+- Variable names will be written in `snake_case`.
+
+#### 2.3.1.4 Constants
+
+- Constant names will be written in `UPPER_SNAKE_CASE`.
+
+#### 2.3.1.5 Functions
+
+- Function names will be written in `camelCase`.
+
+### 2.3.2 - Formatting Conventions
+
+The project will follow the following formatting conventions:
+
+#### 2.3.2.1 - Indentation
+
+- Indentation will be done with 4 spaces.
+- Indentation will be done with spaces, not tabs.
+
+#### 2.3.2.2 - Line Length
+
+- Lines will be limited to 80 characters.
+- Lines will be limited to 120 characters for comments.
+
+#### 2.3.2.3 - Line Breaks
+
+- Break the line two spaces before a function call.
+- Break the line two spaces before a function declaration.
+- Break the line one space between each variables declaration.
+- Do not break the line between a function name and its parameters.
+- Do not break the line in an if or a switch statement.
+- Do not break the line in a for or a while loop.
+
+#### 2.3.2.4 - Comments
+
+- Comments will be written in English.
+- Comments will be written on the line above the code they refer to.
+- Comments will be written in `Sentence case`.
+
+## 2.4 - Assembly Syntax
+
+[*(Back to top)*](#toc)
+
+### 2.4.1 - Registers
+
+Question: What is a register?
+Answer: A register is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
 
 
 
+#### 2.4.1.1 - Storing an immediate value into a register
 
-# ================================================================================================
-# ================================================================================================
-# ================================================================================================
-# ================================================================================================
+It means that the value is stored directly in the register.
+We'll use the following syntax:
+
+```asm
+MOV reg, immediate_value
+```
+***`reg` is a placeholder for the register name.***
+
+####  2.4.1.2 Copying the value of a register into another register
+
+It means that the value of the first register is copied into the second register.
+We'll use the following syntax:
+
+```asm
+MOV destination_reg, source_reg
+```
+
+
+
 # ================================================================================================
 
 ### 1.4 - Product and Technical Requirements
-[*(Back to top)*](#toc)
 
+[*(Back to top)*](#toc)
 
 **Assembly Language Design:** The assembly language will be designed to be as simple as possible, with a minimal set of instructions and features. The language will be designed to be easy to learn and use for beginners, while still providing a useful tool for more advanced users.
 
@@ -221,10 +425,9 @@ Here is a list of the instructions that will be implemented in the assembly lang
 | `XOR`       | Logical XOR - Performs a bitwise exclusive OR operation on each pair of bits.                        | `XOR destination_reg, source_reg/immediate_value` |
 | `NOT`       | Logical NOT - Inverts all the bits of the operand.                                                   | `NOT destination_reg`                             |
 
-
 ### 1.5 - Out of Scope
-###### [*(Back to top)*](#toc)
 
+###### [*(Back to top)*](#toc)
 
 **GU:** Development of a GUI for the interpreter is not included.
 
@@ -237,8 +440,8 @@ Here is a list of the instructions that will be implemented in the assembly lang
 **Real-time Execution Monitoring:** Tools for real-time performance analysis are not included.
 
 ### 1.6 - Future Goals
-###### [*(Back to top)*](#toc)
 
+###### [*(Back to top)*](#toc)
 
 **Enhanced Assembly Language:** Future versions may include more complex instructions and features to expand the utility of the processor.
 
@@ -251,8 +454,8 @@ Here is a list of the instructions that will be implemented in the assembly lang
 **Integration with Other Programming Languages:** Enabling the interpreter to work with other popular programming languages.
 
 ### 1.7 - Assumptions
-###### [*(Back to top)*](#toc)
 
+###### [*(Back to top)*](#toc)
 
 **Environment:** The project assumes availability of a standard C development environment with GCC compiler.
 
@@ -268,13 +471,12 @@ Here is a list of the instructions that will be implemented in the assembly lang
 
 ## 2 - Solutions
 
-
 <!-- ### 2.1 - Existing Solution
 **Analysis:** Discussion of the current solution and its pros/cons. -->
 
 ### 2.1 - Proposed Solution
-###### [*(Back to top)*](#toc)
 
+###### [*(Back to top)*](#toc)
 
 **Components:**
 Our Solution will be composed of 2 main components:
@@ -297,7 +499,6 @@ The architecture of our solution will be composed of 3 main layers:
 **Rollback Plan:** Strategies for rollback and minimizing impact on other systems.
 
 **Alternate Solutions / Designs:** Evaluation of alternative solutions with pros/cons.
-
 
 ## 3 - Further Considerations
 
@@ -338,8 +539,8 @@ Success Evaluation
 **External References:** Similar projects or initiatives by other teams. -->
 
 ### 6.2 - References
-###### [*(Back to top)*](#toc)
 
+###### [*(Back to top)*](#toc)
 
 **Functional Specifications:** *[Click Here](../Functional-Specification.md)*
 
@@ -349,6 +550,7 @@ Success Evaluation
 **Contributions:** Recognition of key contributors. -->
 
 ### 6.3 - Glossary and Terminology
+
 ###### [*(Back to top)*](#toc)
 
 [^1]:Virtual Processor: A software emulation of a computer processor.
@@ -361,11 +563,9 @@ Success Evaluation
 
 [^5]:Low-level programming: Programming at a level close to a computer's hardware/software interface.
 
-
 <!-- 
 
 Header
 Overview
-
 
  -->
