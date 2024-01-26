@@ -176,7 +176,7 @@ void *getStructs(char **lines, int size){
 		const char *line = lines[i];
 
 		// Loop through the line character by character
-		for (int j = 0; j < strlen(line); j++){
+		for (unsigned int j = 0; j < strlen(line); j++){
 
 			// If the character is a space, comma or new line character, check if the string is an instruction, register or number
 			if (line[j] == ' ' || line[j] == ',' || line[j] == '\n'){
@@ -379,17 +379,37 @@ int switchStr(char *str){
 
 void setStruct(struct function *f, char *instruct, char *Name, char *param1, char *param2, int line){
 
-	// Set the instruction parameter of the structure
-	strcpy(f->instruction, instruct);
+	if (strcmp(instruct, "") == 0){
+		instruct = "\0";
+	}
+	else{
+		// Set the instruction parameter of the structure
+		strcpy(f->instruction, instruct);
+	}
 
-	// Set the name parameter of the structure
-	strcpy(f->name, Name);
+	if (strcmp(Name, "") == 0){
+		Name = "\0";
+	}
+	else{
+		// Set the name parameter of the structure
+		strcpy(f->name, Name);
+	}
 
-	// Set the parameter1 parameter of the structure
-	strcpy(f->parameter1, param1);
+	if (strcmp(param1, "") == 0){
+		param1 = "\0";
+	}
+	else{
+		// Set the parameter1 parameter of the structure
+		strcpy(f->parameter1, param1);
+	}
 
-	// Set the parameter2 parameter of the structure
-	strcpy(f->parameter2, param2);
+	if (strcmp(param2, "") == 0){
+		param2 = "\0";
+	}
+	else{
+		// Set the parameter2 parameter of the structure
+		strcpy(f->parameter2, param2);
+	}
 
 	// Set the line parameter of the structure
 	f->line = line;
