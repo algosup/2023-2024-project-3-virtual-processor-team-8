@@ -74,25 +74,25 @@
     - [2.4.1 - Registers](#241---registers)
       - [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
       - [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
-- [================================================================================================](#)
-    - [1.4 - Product and Technical Requirements](#14---product-and-technical-requirements)
-    - [1.5 - Out of Scope](#15---out-of-scope)
-          - [*(Back to top)*](#back-to-top)
-    - [1.6 - Future Goals](#16---future-goals)
-          - [*(Back to top)*](#back-to-top-1)
-    - [1.7 - Assumptions](#17---assumptions)
-          - [*(Back to top)*](#back-to-top-2)
-  - [2 - Solutions](#2---solutions)
-    - [2.1 - Proposed Solution](#21---proposed-solution)
-          - [*(Back to top)*](#back-to-top-3)
-  - [3 - Further Considerations](#3---further-considerations)
-  - [4 - Work](#4---work)
-  - [5 - Deliberation](#5---deliberation)
-  - [6 - End Matter](#6---end-matter)
-    - [6.2 - References](#62---references)
-          - [*(Back to top)*](#back-to-top-4)
-    - [6.3 - Glossary and Terminology](#63---glossary-and-terminology)
-          - [*(Back to top)*](#back-to-top-5)
+      - [2.4.1.3 Reading the value from the memory to a register](#2413-reading-the-value-from-the-memory-to-a-register)
+      - [2.4.1.4 Writing the value from a register to the memory](#2414-writing-the-value-from-a-register-to-the-memory)
+    - [2.4.2 - Jumping to a label](#242---jumping-to-a-label)
+      - [2.4.2.1 - Jumping unconditionally](#2421---jumping-unconditionally)
+      - [2.4.2.2 - Jumping conditionally (where "cc" is a condition code)](#2422---jumping-conditionally-where-cc-is-a-condition-code)
+    - [2.4.3 - Comparing registers](#243---comparing-registers)
+    - [2.4.4 - Calling a subroutine](#244---calling-a-subroutine)
+    - [2.4.5 - Returning from a subroutine](#245---returning-from-a-subroutine)
+    - [2.4.6 - Arithmetic operations](#246---arithmetic-operations)
+      - [2.4.6.1 - Addition](#2461---addition)
+      - [2.4.6.2 - Subtraction](#2462---subtraction)
+      - [2.4.6.3 - Multiplication](#2463---multiplication)
+      - [2.4.6.4 - Division](#2464---division)
+    - [2.4.7 - Logical operations](#247---logical-operations)
+      - [2.4.7.1 - Logical AND](#2471---logical-and)
+      - [2.4.7.2 - Logical OR](#2472---logical-or)
+      - [2.4.7.3 - Logical XOR](#2473---logical-xor)
+      - [2.4.7.3 - Logical NOT](#2473---logical-not)
+      - [2.4.8 - Comments](#248---comments)
 
 </details>
 
@@ -368,204 +368,348 @@ The project will follow the following formatting conventions:
 
 ### 2.4.1 - Registers
 
-Question: What is a register?
-Answer: A register is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
+**Question:** What is a register?
 
-
+**Answer:** A register is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
 
 #### 2.4.1.1 - Storing an immediate value into a register
 
-It means that the value is stored directly in the register.
 We'll use the following syntax:
 
 ```asm
 MOV reg, immediate_value
 ```
-***`reg` is a placeholder for the register name.***
 
-####  2.4.1.2 Copying the value of a register into another register
+Here is an example:
 
-It means that the value of the first register is copied into the second register.
+```asm
+MOV ra, 5
+```
+
+In this example, the value `5` is stored in the register `ra`.
+
+#### 2.4.1.2 Copying the value of a register into another register
+
 We'll use the following syntax:
 
 ```asm
 MOV destination_reg, source_reg
 ```
 
+Here is an example:
 
+```asm
+MOV ra, rb
+```
 
-# ================================================================================================
+In this example, the value of the register `rb` is copied into the register `ra`.
 
-### 1.4 - Product and Technical Requirements
+#### 2.4.1.3 Reading the value from the memory to a register 
 
-[*(Back to top)*](#toc)
+We'll use the following syntax:
 
-**Assembly Language Design:** The assembly language will be designed to be as simple as possible, with a minimal set of instructions and features. The language will be designed to be easy to learn and use for beginners, while still providing a useful tool for more advanced users.
+```asm
+PRF source_reg, destination_reg
+```
 
-Here is a list of the instructions that will be implemented in the assembly language:
+Here is an example:
 
-| Instruction | Description                                                                                          | Syntax                                            |
-| ----------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `MOV`       | Storing an immediate value into a register.                                                          | `MOV reg, immediate_value`                        |
-| `MOV`       | Copying the value of a register into another register.                                               | `MOV destination_reg, source_reg`                 |
-| `MOV`       | Reading the value of the memory at the address contained by a register into another register.        | `MOV destination_reg, [source_reg]`               |
-| `MOV`       | Storing the value of a register into memory at the address contained by another register.            | `MOV [destination_reg], source_reg`               |
-| `CMP`       | Comparing the content of registers.                                                                  | `CMP reg1, reg2`                                  |
-| `JMP`       | Jumping unconditionally to a label.                                                                  | `JMP label`                                       |
-| `JE`        | Jumping conditionally to a label if equal.                                                           | `JE label`                                        |
-| `Jcc`       | Jumping conditionally to a label (where "cc" is a condition code).                                   | `Jcc label`                                       |
-| `CALL`      | Calling a subroutine.                                                                                | `CALL subroutine_label`                           |
-| `RET`       | Returning from a subroutine.                                                                         | `RET`                                             |
-| `ADD`       | Addition - Adds the value of the second operand to the first operand.                                | `ADD destination_reg, source_reg/immediate_value` |
-| `SUB`       | Subtraction - Subtracts the value of the second operand from the first operand.                      | `SUB destination_reg, source_reg/immediate_value` |
-| `MUL`       | Multiplication - Multiplies the first operand by the second operand.                                 | `MUL source_reg/immediate_value`                  |
-| `DIV`       | Division - Divides the first operand by the second operand.                                          | `DIV source_reg/immediate_value`                  |
-| `OR`        | Logical OR - Combines the bits of the first operand and second operand.                              | `OR destination_reg, source_reg/immediate_value`  |
-| `AND`       | Logical AND - Compares each bit of the first operand to the corresponding bit of the second operand. | `AND destination_reg, source_reg/immediate_value` |
-| `XOR`       | Logical XOR - Performs a bitwise exclusive OR operation on each pair of bits.                        | `XOR destination_reg, source_reg/immediate_value` |
-| `NOT`       | Logical NOT - Inverts all the bits of the operand.                                                   | `NOT destination_reg`                             |
+```asm
+PRF ra, rb
+```
+In this example, the value of the register `ra` is copied into the register `rb`.
 
-### 1.5 - Out of Scope
+#### 2.4.1.4 Writing the value from a register to the memory
 
-###### [*(Back to top)*](#toc)
+We'll use the following syntax:
 
-**GU:** Development of a GUI for the interpreter is not included.
+```asm
+PRF destination_reg, source_reg
+```
 
-**Hardware-specific optimizations:** The project will not focus on optimizations for specific hardware configurations.
+Here is an example:
 
-**Advanced Assembly Features**: Complex assembly language features like threading or advanced memory management are not within the scope.
+```asm
+PRF rb, ra
+```
 
-**Cross-language Support:** Integration with languages other than C for the interpreter is not planned.
+In this example, the value of the register `rb` is copied into the register `ra`.
 
-**Real-time Execution Monitoring:** Tools for real-time performance analysis are not included.
+### 2.4.2 - Jumping to a label
 
-### 1.6 - Future Goals
+**Question:** What is jumping?
 
-###### [*(Back to top)*](#toc)
+**Answer:** Jumping is the process of transferring control from one part of a program to another.
 
-**Enhanced Assembly Language:** Future versions may include more complex instructions and features to expand the utility of the processor.
+#### 2.4.2.1 - Jumping unconditionally
 
-**GUI Development:** Developing a user-friendly GUI for easier interaction with the virtual processor.
+We'll use the following syntax:
 
-**Cross-Platform Compatibility:** Enhancements for seamless operation across different operating systems.
+```asm
+JMP label
+```
 
-**Performance Optimization:** Advanced performance optimization for specific use cases or hardware.
+Here is an example:
 
-**Integration with Other Programming Languages:** Enabling the interpreter to work with other popular programming languages.
+```asm
+JMP labelOne
+```
 
-### 1.7 - Assumptions
+In this example, the program will jump to the label `labelOne`.
 
-###### [*(Back to top)*](#toc)
+#### 2.4.2.2 - Jumping conditionally (where "cc" is a condition code)
 
-**Environment:** The project assumes availability of a standard C development environment with GCC compiler.
+We'll use the following syntax:
 
-**Standard C Libraries:** C standard libraries are assumed to not be used for the development of the interpreter.
+```asm
+Jcc label
+```
 
-**Stakeholder Engagement:** Continuous engagement and feedback from stakeholders throughout the development process.
+List of condition codes:
 
-**Technical Expertise:** The team assumes a foundational understanding of assembly language and processor architecture among its members.
+- `JE` - Jump if equal
+- `JNE` - Jump if not equal
+- `JZ` - Jump if zero
+- `JNZ` - Jump if not zero
+- `JG` - Jump if greater than
+- `JL` - Jump if less than
+- `JGE` - Jump if greater than or equal
+- `JLE` - Jump if less than or equal
 
-**Testing and Validation:** Access to sufficient resources for thorough testing and validation of the software.
+Here are some examples:
 
----
+```asm
+JE labelOne
+JNE labelTwo
+JZ labelThree
+JNZ labelFour
+JG labelFive
+JL labelSix
+JGE labelSeven
+JLE labelEight
+```
 
-## 2 - Solutions
+In these examples, the program will jump to the label :
 
-<!-- ### 2.1 - Existing Solution
-**Analysis:** Discussion of the current solution and its pros/cons. -->
+- `labelOne` if the result of the previous instruction are equal.
+- `labelTwo` if the result of the previous instruction are not equal.
+- `labelThree` if the result of the previous instruction are zero.
+- `labelFour` if the result of the previous instruction are not zero.
+- `labelFive` if the result of the previous instruction are greater than.
+- `labelSix` if the result of the previous instruction are less than.
+- `labelSeven` if the result of the previous instruction are greater than or equal.
+- `labelEight` if the result of the previous instruction are less than or equal.
 
-### 2.1 - Proposed Solution
+### 2.4.3 - Comparing registers
 
-###### [*(Back to top)*](#toc)
+**Question:** What is comparing?
 
-**Components:**
-Our Solution will be composed of 2 main components:
+**Answer:** Comparing is the process of comparing the content of registers.
 
-- The **Parser**, which will be in charge of reading the assembly code and split it into tokens. It will also be in charge of checking the syntax of the code and report any error to the user.
+We'll use the following syntax:
 
-- The **Interpreter**, which will be in charge of executing the assembly code. It will also be in charge of checking the semantics of the code and report any error to the user.
+```asm
+CMP reg1, reg2
+```
 
-**Architecture:**
-The architecture of our solution will be composed of 3 main layers:
+Here is an example:
 
-- The **User Interface**, which will be in charge of interacting with the user. It will also be in charge of displaying the output of the assembly code.
+```asm
+CMP ra, rb
+```
 
-**Test Plan:** How tests will ensure user requirements are met.
+In this example, the content of the register `ra` is compared to the content of the register `rb`.
 
-**Monitoring and Alerting Plan:** Tools and strategies for monitoring and alerting.
+### 2.4.4 - Calling a subroutine
 
-**Release / Roll-out and Deployment Plan:** Details of deployment, phased roll-out, and user communication.
+**Question:** What is a subroutine?
 
-**Rollback Plan:** Strategies for rollback and minimizing impact on other systems.
+**Answer:** A subroutine is a sequence of program instructions that performs a specific task, packaged as a unit.
 
-**Alternate Solutions / Designs:** Evaluation of alternative solutions with pros/cons.
+We'll use the following syntax:
 
-## 3 - Further Considerations
+```asm
+CALL subroutine_label
+```
 
-Impact on Other Teams, Third-party Services, Cost Analysis, Security, Privacy, Regional, Accessibility, Operational Considerations, and Risks: Detailed analysis of these aspects.
-Success Evaluation
+Here is an example:
 
-<!-- ### 3.1 - Impact
-**Analysis:** Security, performance, cost, and impact on other components. -->
+```asm
+CALL subroutineOne
+```
 
-<!-- ### 3.2 - Metrics
-**Measurement:** Metrics and tools for evaluation. -->
+In this example, the program will call the subroutine `subroutineOne`.
 
-## 4 - Work
+### 2.4.5 - Returning from a subroutine
 
-<!-- ### 4.1 - Work Estimates and Timelines
-**Breakdown:** List of tasks with resources and timelines. -->
+We'll use the following syntax:
 
-<!-- ### 4.2 - Prioritization
-**Urgency and Impact:** Categorization of tasks. -->
+```asm
+RET
+```
 
-<!-- ### 4.3 - Milestones
-**Checkpoints:** Significant points in the project timeline. -->
+### 2.4.6 - Arithmetic operations
 
-<!-- ### 4.4 - Future Work
-**Roadmap:** Tasks planned for future implementation. -->
+#### 2.4.6.1 - Addition
 
-## 5 - Deliberation
+We'll use the following syntax:
 
-<!-- ### 5.1 - Discussion
-**Debate Points:** Areas of disagreement or uncertainty. -->
+```asm
+ADD destination_reg, source_reg/immediate_value
+```
 
-<!-- ### 5.2 - Open Questions
-**Inquiries:** Questions seeking team input. -->
+Here is an example:
 
-## 6 - End Matter
+```asm
+ADD ra, rb
+ADD ra, 5
+```
 
-<!-- ### 6.1 - Related Work
-**External References:** Similar projects or initiatives by other teams. -->
+In these examples, the value of the register `rb` is added to the value of the register `ra`. In the second example, the value `5` is added to the value of the register `ra`.
 
-### 6.2 - References
+#### 2.4.6.2 - Subtraction
 
-###### [*(Back to top)*](#toc)
+We'll use the following syntax:
 
-**Functional Specifications:** *[Click Here](../Functional-Specification.md)*
+```asm
+SUB destination_reg, source_reg/immediate_value
+```
 
-**Test Plan:** *[Click Here](../Test-Plan.md)*
+Here is an example:
 
-<!-- ### 6.3 - Acknowledgments
-**Contributions:** Recognition of key contributors. -->
+```asm
+SUB ra, rb
+SUB ra, 8
+```
 
-### 6.3 - Glossary and Terminology
+In these examples, the value of the register `rb` is subtracted from the value of the register `ra`. In the second example, the value `8` is subtracted from the value of the register `ra`.
 
-###### [*(Back to top)*](#toc)
+#### 2.4.6.3 - Multiplication
 
-[^1]:Virtual Processor: A software emulation of a computer processor.
+We'll use the following syntax:
 
-[^2]:Interpreter: A program that executes instructions written in a high-level language.
+```asm
+MUL destination_reg, source_reg/immediate_value
+```
 
-[^3]:Assembly Language: A low-level programming language for a computer or other programmable device, in which each statement corresponds to a single machine instruction.
+Here is an example:
 
-[^4]:C: A general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system.
+```asm
+MUL ra, rb
+MUL ra, 3
+```
 
-[^5]:Low-level programming: Programming at a level close to a computer's hardware/software interface.
+In these examples, the value of the register `ra` is multiplied by the value of the register `rb`. In the second example, the value of the register `ra` is multiplied by the value `3`.
 
-<!-- 
+#### 2.4.6.4 - Division
 
-Header
-Overview
+We'll use the following syntax:
 
- -->
+```asm
+DIV destination_reg, source_reg/immediate_value
+```
+
+Here is an example:
+
+```asm
+DIV ra, rb
+DIV ra, 2
+```
+
+In these examples, the value of the register `ra` is divided by the value of the register `rb`. In these example, the value of the register `ra` is divided by the value `2`.
+
+### 2.4.7 - Logical operations
+
+**Question:** What is a logical operation?
+
+**Answer:** A logical operation is an operation that can be performed on one or more logical operands and that produces a logical result.
+
+#### 2.4.7.1 - Logical AND
+
+We'll use the following syntax:
+
+```asm
+AND destination_reg, source_reg/immediate_value
+```
+
+Here is an example:
+
+```asm
+AND ra, rb
+AND ra, 1
+```
+
+In these examples, the value of the register `ra` is compared to the value of the register `rb`. In the second example, the value of the register `ra` is compared to the value `1`.
+
+If the result of the comparison is true, the value `1` is stored in the register `ra`. If the result of the comparison is false, the value `0` is stored in the register `ra`.
+
+#### 2.4.7.2 - Logical OR
+
+We'll use the following syntax:
+
+```asm
+OR destination_reg, source_reg/immediate_value
+```
+
+Here is an example:
+
+```asm
+OR ra, rb
+OR ra, 4
+```
+
+In these examples, the value of the register `ra` is compared to the value of the register `rb`. In the second example, the value of the register `ra` is compared to the value `4`.
+
+If the result of the comparison is true, the value `1` is stored in the register `ra`. If the result of the comparison is false, the value `0` is stored in the register `ra`.
+
+#### 2.4.7.3 - Logical XOR
+
+We'll use the following syntax:
+
+```asm
+XOR destination_reg, source_reg/immediate_value
+```
+
+Here is an example:
+
+```asm
+XOR ra, rb
+XOR ra, 2
+```
+
+In these examples, the value of the register `ra` is compared to the value of the register `rb`. In the second example, the value of the register `ra` is compared to the value `2`.
+
+If the result of the comparison is true, the value `1` is stored in the register `ra`. If the result of the comparison is false, the value `0` is stored in the register `ra`.
+
+#### 2.4.7.3 - Logical NOT
+
+We'll use the following syntax:
+
+```asm
+NOT destination_reg
+```
+
+Here is an example:
+
+```asm
+NOT ra
+```
+
+In this example, the value of the register `ra` is inverted.
+
+If the result of the comparison is true, the value `1` is stored in the register `ra`. If the result of the comparison is false, the value `0` is stored in the register `ra`.
+
+#### 2.4.8 - Comments
+
+We'll use the following syntax:
+
+```asm
+; This is a comment
+```
+
+Here is an example:
+
+```asm
+; The following code will add 5 to the value of the register ra
+ADD ra, 5
+```
