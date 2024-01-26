@@ -109,20 +109,21 @@ void *getStructs(char **lines, int size){
 		i++;
 		str[0] = '\0';
 	}
+	return NULL;
 }
 
 int switchStr(char *str){
 	if (str == NULL){
 		return 0;
 	}
-	else if (str == "mov" || str == "prf" || str == "prt" || str == "cmp" || str == "jmp" || str == "je"  || str == "jne" || str == "jz" || str == "jnz" || str == "jg" || str == "jl" || str == "jge" || str == "jle"|| str == "call" || str == "ret" || str == "add" || str == "sub" || str == "mul" || str == "div" || str == "and" || str == "or" || str == "xor" || str == "not"){
-		return 1;
-	}
-	else if (str == "ra" || str == "rb" || str == "rc" || str == "rd"){
-		return 2;
+	else if (strcmp(str, "mov") == 0 || strcmp(str, "prf") == 0 || strcmp(str, "prt") == 0 || strcmp(str, "cmp") == 0 || strcmp(str, "jmp") == 0 || strcmp(str, "je") == 0  || strcmp(str, "jne") == 0 || strcmp(str, "jz") == 0 || strcmp(str, "jnz") == 0 || strcmp(str, "jg") == 0 || strcmp(str, "jl") == 0 || strcmp(str, "jge") == 0 || strcmp(str, "jle") == 0 || strcmp(str, "call") == 0 || strcmp(str, "ret") == 0 || strcmp(str, "add") == 0 || strcmp(str, "sub") == 0 || strcmp(str, "mul") == 0 || strcmp(str, "div") == 0 || strcmp(str, "and") == 0 || strcmp(str, "or") == 0 || strcmp(str, "xor") == 0 || strcmp(str, "not") == 0){
+        return 1;
+    }
+    else if (strcmp(str, "ra") == 0 || strcmp(str, "rb") == 0 || strcmp(str, "rc") == 0 || strcmp(str, "rd") == 0){
+        return 2;
 	}
 	else {
-		printf("Eror1: %s\n", str);
+		printf("Error1: %s\n", str);
 		return 3;
 	}
 }
