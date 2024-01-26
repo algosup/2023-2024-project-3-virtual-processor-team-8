@@ -6,7 +6,8 @@
 
 int main(){
 	int size = getSize();
-	getStructs(getLines(), size);
+	getStructs(getFile(), size);
+	// printLines(getLines(), size);
 
 	return 0;
 }

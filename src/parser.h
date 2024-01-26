@@ -2,19 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
+struct function {
+	char instruction[5];
+	char name[10];
+	char parameter1[10];
+	char parameter2[10];
+	int line;
+};
+
 void printLines(char **lines, int size);
 
-void *getLines();
+void *getFile();
 
 void *getStructs(char **lines, int size);
 
 int switchStr(char *str);
 
+void setStruct(struct function *f, char *instruction, char *name, char *parameter1, char *parameter2, int line);
 
-struct function {
-	char *instruction;
-	char *name;
-	char *parameter1;
-	char *parameter2;
-	int line;
-};
+void printStruct(struct function *f);
