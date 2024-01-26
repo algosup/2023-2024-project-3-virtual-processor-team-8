@@ -384,7 +384,7 @@ void setStruct(struct function *f, char *instruct, char *Name, char *param1, cha
 	}
 	else{
 		// Set the instruction parameter of the structure
-		strcpy(f->instruction, instruct);
+		memmove(f->instruction, f->instruction+1, strlen(f->instruction));
 	}
 
 	if (strcmp(Name, "") == 0){
@@ -392,7 +392,7 @@ void setStruct(struct function *f, char *instruct, char *Name, char *param1, cha
 	}
 	else{
 		// Set the name parameter of the structure
-		strcpy(f->name, Name);
+		memmove(f->name, f->name+1, strlen(f->name));
 	}
 
 	if (strcmp(param1, "") == 0){
@@ -400,7 +400,7 @@ void setStruct(struct function *f, char *instruct, char *Name, char *param1, cha
 	}
 	else{
 		// Set the parameter1 parameter of the structure
-		strcpy(f->parameter1, param1);
+		memmove(f->parameter1, f->parameter1+1, strlen(f->parameter1));
 	}
 
 	if (strcmp(param2, "") == 0){
@@ -408,7 +408,7 @@ void setStruct(struct function *f, char *instruct, char *Name, char *param1, cha
 	}
 	else{
 		// Set the parameter2 parameter of the structure
-		strcpy(f->parameter2, param2);
+		memmove(f->parameter2, f->parameter2+1, strlen(f->parameter2));
 	}
 
 	// Set the line parameter of the structure
