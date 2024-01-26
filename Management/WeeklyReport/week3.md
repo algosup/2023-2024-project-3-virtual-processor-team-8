@@ -14,6 +14,7 @@
 - Questionning the customer -> do we have to completely change the name of the different instructions or can we keep them as they actually are, and maybe just change some of them & Do we have to do the section parts (i.e section .data) and the interrupts? => Create our dreamed assembly
 - Research
 - Team member absence
+- compatibility problem => big issues
 
 ## Project Key parameters
 
