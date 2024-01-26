@@ -4,13 +4,13 @@
 
 
 
-struct function {
+typedef struct function {
 	char instruction[5];
 	char name[10];
 	char parameter1[10];
 	char parameter2[10];
 	int line;
-};
+}func_t;
 
 void printLines(char **lines, int size);
 

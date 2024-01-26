@@ -1,4 +1,5 @@
-#include "parser.h"
+#include "scraper.h"
+
 
 
 void printLines(char **lines, int size){
@@ -75,27 +76,20 @@ int getSize(){
 }
 
 void *getStructs(char **lines, int size){
+	func_t *functions = malloc(size * sizeof(func_t));
 	int i = 0;
 	char *str = (char *)malloc(100 * sizeof(char));
 	str[0] = '\0';
 	while(i < size){
 		struct function *func = malloc(sizeof(struct function));
 		setStruct(func, "\0", "", "", "", 0);
-		char *inst = (char *)malloc(10 * sizeof(char));
-		char *nam = (char *)malloc(20 * sizeof(char));
-		char *param1 = (char *)malloc(20 * sizeof(char));
-		char *param2 = (char *)malloc(20 * sizeof(char));
-		inst[0] = '\0';
-		nam[0] = '\0';
-		param1[0] = '\0';
-		param2[0] = '\0';
 		int reg = 0;
 		const char *line = lines[i];
 		for (int j = 0; j < strlen(line); j++){
 			if (line[j] == ' ' || line[j] == ',' || line[j] == '\n'){
 				if (str != NULL && strcmp(str, "") != 0 ){
 					int strType = switchStr(str);
-					if (strType == 1 && inst[0] == '\0'){
+					if (strType == 1){
 						setStruct(func, str, func->name, func->parameter1, func->parameter2, func->line);
 					}
 					else if (strType == 2){
@@ -130,11 +124,12 @@ void *getStructs(char **lines, int size){
 			}
 		}
 		setStruct(func, func->instruction, func->name, func->parameter1, func->parameter2, i+1);
-		printStruct(func);
+		// printStruct(func);
+		functions[i] = *func;
 		i++;
 		str[0] = '\0';
 	}
-	return 0;
+	return functions;
 }
 
 int switchStr(char *str){
