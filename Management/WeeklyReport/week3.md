@@ -56,13 +56,10 @@
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description                       | Owner              | Status  |
-| ----------- | --------------------------------- | ------------------ | ------- |
-| Risk 1      | Bug with Trello, loose everything | Laura-Lee Hollande | Closed  |
-| Risk 2      | Potential loss of some teammates  | Laura-Lee Hollande | pending |
-| Risk 3      |                                   |                    |         |
-| Risk 4      |                                   |                    |         |
-| Risk 5      |                                   |                    |         |
+| Risk/Issues  | Description                       | Owner              | Status  |
+| ------------ | --------------------------------- | ------------------ | ------- |
+| Issue 1      | Bug with Trello, loose everything | Laura-Lee Hollande | Closed  |
+| Risk 2       | Potential loss of some teammates  | Laura-Lee Hollande | pending |
 
 ## Project Schedule
 
