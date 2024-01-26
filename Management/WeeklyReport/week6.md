@@ -60,7 +60,7 @@
 
 This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/management/Management/TeamManagement/ganttCharter.pdf) of this project.
 
-![Week 1](image/week6.png)
+![Week 1](img/week6.png)
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 

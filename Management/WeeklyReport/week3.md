@@ -65,7 +65,7 @@
 
 This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/management/Management/TeamManagement/ganttCharter.pdf) of this project.
 
-![Week 3](image/week3.png)
+![Week 3](img/week3.png)
 
 ⚠️ ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
@@ -89,7 +89,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 </details>
 
-![KPIs Week 3](image/kpi3.png)
+![KPIs Week 3](img/kpi3.png)
 
 ## Next week Action Plan
 

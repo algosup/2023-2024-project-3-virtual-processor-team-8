@@ -91,8 +91,6 @@ Given the complexity of the project and the importance of meeting specific miles
 | 4     | Major         | The impact is substantial and poses a severe threat to the project. It has the potential to significantly hinder or even jeopardize the achievement of project objectives. | A major security breach that compromises sensitive project information.                                                                                           |
 | 5     | Catastrophic  | The impact is of the highest severity, representing a catastrophic event that poses an existential threat to the project.                                                  | A critical and irreparable flaw is discovered in the core architecture, rendering the virtual processor and interpreter unusable and requiring a complete redevelopment from scratch |
 
-💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
-
 ### Likelihood - Impact Matrice
 
 | Likelihood | Impact |     |     |     |     |
@@ -134,6 +132,8 @@ Given the complexity of the project and the importance of meeting specific miles
 | Technical risks          | Inadequate documentation, poorly documented code, architecture, or processes                                                             | Increased maintenance efforts, potential errors               | Enforced documentation standards, regular reviews                      | 3             | C                 | S             | 3             |
 | Technical risks          | Technology obsolescence, rapid advancements in technology making the chosen technology stack or architecture obsolete during development | Project delays, potential rework                              | Regular evaluation and updates of the technology stack                 | 2             | D                 | L             | 7             |
 
+💡 ```The likelihood and impact levels are subjective and should be assessed based on the specific context and details of your project.```
+
 ## Evaluating and Treating Potential Risks
 
 ### Risk Treatment Schedule and Plan
@@ -149,6 +149,10 @@ Given the complexity of the project and the importance of meeting specific miles
 | #7      | Technology obsolescence                   | Implement continuous monitoring of technology trends | 2 + D = L                    | 1 + D = L                   | Pierre Gorin                               | Ongoing         | - Continuous monitoring ensures early identification of technology trends <br> -Minimal impact on the project due to unexpected technology shifts                                                                                                                      |
 | #8      | Personal issue leading to team departures | Provide flexible work arrangements for team members  | 2 + D = L                    | 1 + E = L                   | Laura-Lee Hollande                         | Start if needed | - Flexible work arrangements contribute to improved the productivity for team members                                                                                                                                                                                  |
 | #9      | Resource constraints                      | Cross-train team members for resource flexibility    | 2 + E = L                    | 1 + E = L                   | Laura-Lee Hollande, Pierre Gorin           | Ongoing         | - Cross-training efforts result in increased resource flexibility <br> - Resource allocation plan adjustments lead to optimized resource utilization <br> - Minimal disruptions due to resource shortages, as identified in regular resource reviews                   |
+
+## Risk Action Plan
+
+For risks that are **High, Extreme or deemed to be unacceptable**, an evaluated and specific action plans is required to manage the risk appropriately.
 
 ---
 
