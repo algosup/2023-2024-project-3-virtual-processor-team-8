@@ -10,7 +10,7 @@ rel:
 	mul ra, 8
 	cmp ra, 2
 	je end
-	cmp ra, 8
+	cmp -9, ra
 	je tes
 tes:
 	add ra, 1

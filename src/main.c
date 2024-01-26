@@ -5,9 +5,13 @@
 
 
 int main(){
+	// Define a "size" variable base on the number of lines in the input file
 	int size = getSize();
-	getStructs(getFile(), size);
+
+	// Get the array of structures from the file
 	func_t *funcs = getStructs(getFile(), size);
+
+	// Print the array of structures
 	for (int i = 0; i < size; i++){
 		printStruct(&funcs[i]);
 	}
