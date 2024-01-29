@@ -8,6 +8,10 @@
 
 ### Project summary
 
+- Meeting
+- strcpy compatibility issues (Mac/Windows) closed, change strcpy into sprintf
+- Functional specification & assembly documentation deadline
+
 ## Project Key parameters
 
 <details>
@@ -49,13 +53,10 @@
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                                                                 | Owner                         | Status   |
+| ----------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
+| Issue 1     | Compatibility problem between Mac and Window with the strcpy()[^4] function | Laurent Bouquin, Victor Leroy | Closed   |
+| Risk 1      | Potential loss of some teammates                                            | Laura-Lee Hollande            | pending  |
 
 ## Project Schedule
 
