@@ -184,9 +184,9 @@ Not for now, exploring possibilities
 ## 9. Use Cases Analysis
 | Use Case Number | Name | Description | Actor(s) | Pre-Conditions | Flow of Events | Post-Conditions | Exit Criteria | Notes & Issues |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Launch executable file | The user wants to run an ".asm" file. | User | The processor is installed successfully on the users device. | -The user launches the ".exe" file.<br>-The processor will launch. | The user is able to give directory to the ".asm" file or drag and drop the file. | The User is able to run the processor on it's device. |- N.S.T.R. |
+| 1 | Launch executable file | The user wants to run an ".asm" file. | User | The processor is installed successfully on the users device. | -The user launches the ".exe" file.<br>-The processor will launch. | The user is able to give directory to the ".asm" file or drag and drop the file. | The User is able to run the processor on it's device. |- N.S.T.R. [^6] |
 | 2 | Running program |The users interaction with the processor will be based on the terminal.| Users | The user has the program mounted and the asm code doesn't have any errors. | The processor will locate the file and run it through the program. |- The program will return what is in the ".asm" file.| The user is able to run it's ".asm" file.| - N.S.T.R.
-| 3 | Error return | The user will run it's file in the processor. | Users | the user has the program mounted. | - The program will run the ".asm" file and detect an error | -The processor will return error.| The user's file contains an error and will display an error message on the screen.|-N.S.T.R
+| 3 | Error return | The user will run it's file in the processor. | Users | the user has the program mounted. | - The program will run the ".asm" file and detect an error (e.g. syntax error, file not found)| -The processor will return error.| The user's file contains an error and will display an error message on the screen.|-N.S.T.R
 
 
 ## 10. Functional Analysis
@@ -237,4 +237,6 @@ Maintaining transparency between the client and the team allows to understand th
 [^4]: Assembly language is a low-level programming language that allows direct communication with the computer hardware. It uses mnemonics, or symbolic names, to represent the machine code instructions that the processor can execute.
 
 [^5]: C is an imperative procedural language, supporting structured programming, lexical variable scope, and recursion, with a static type system. It was designed to be compiled to provide low-level access to memory and language constructs that map efficiently to machine instructions, all with minimal runtime support. 
+
+[^6]: Acronym for "Nothing significant to report".
 
