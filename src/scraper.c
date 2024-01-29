@@ -12,23 +12,17 @@ void printLines(char **lines, int size){
 	}
 }
 
-void printLine(char **lines, int line){
+char* getLine(char **lines, int line){
 
-	// Loop through the array line by line
-	for (int i = 0; i < line; i++){
+	// Return the line of the array of strings based on the line number
+	return lines[line-1];
 
-		// if i is equal to the line, print the line
-		if (i == line){
-			printf("%s\n", lines[i]);
-		}
-	}
 }
 
-
-void *getFile(){
+void *getFile(const char* path){
 
 	// Allocate memory for the array of lines based on the number of lines in the file
-	char **lines = (char **)malloc(getSize() * sizeof(char *));
+	char **lines = (char **)malloc(getSize(path) * sizeof(char *));
 
 
 	// Define fp as pointing to a file
@@ -38,7 +32,7 @@ void *getFile(){
 
 
 	// Open the file with a read-only mode
-	fp = fopen("./code.asm", "r");
+	fp = fopen(path, "r");
 
 	// If the file does not exist, print an error message and exit the program
 	if(fp == NULL){
@@ -110,9 +104,9 @@ void *getFile(){
 	fclose(fp);
 }
 
-int getSize(){
+int getSize(const char* path){
 	// Define fp as pointing to a file in read-only mode
-	FILE *fp = fopen("./code.asm","r");
+	FILE *fp = fopen(path, "r");
 
 	// define ch and lines to 0
 	int ch = 0;

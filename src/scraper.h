@@ -17,16 +17,16 @@ typedef struct function {
 void printLines(char **lines, int size);
 
 
-// Print the line of the array of strings given in the parameter based on the line number
-void printLine(char **lines, int line);
+// Get the line of the array of strings given in the parameter based on the line number
+char* getLine(char **lines, int line);
 
 
 // Get the file and return an array of strings containing each line of the file
-void *getFile();
+void *getFile(const char *path);
 
 
 // Get the size of the file and return an int based on the number of lines in the file
-int getSize();
+int getSize(const char *path);
 
 
 // Get an array of functions from the array of strings given in the parameter based on the size
