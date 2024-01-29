@@ -72,7 +72,7 @@ It is necessary to correctly spread out our time between each task, so we can be
 
 | Task | Subtask | Time estimation |
 |------|---------|-------------|
-|Analyse requirement specification| - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours
+|Analyze requirement specification| - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours
 | Create the test specification|  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 30 hours <br> - 10 hours <br> - 4 hours
 |Execute the test cases| - Build up the test environment <br> - Execute the test cases <br> - Update test cases status|- 10 hours <br> - 14 hours <br> - 6 hours
 |Report the bug| - Create bug reports <br> - Create bug data report | - 6 hours <br> - 6 hours
