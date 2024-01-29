@@ -1,10 +1,10 @@
 #include "tests_scraper.h"
 
 
-int getFileTEST() {
+int getFileTEST(const char *file) {
 
 	// Get the file data
-	char *li = getFile("../Src/code.asm");
+	char *li = getFile(file);
 
 	// Check that the file is not empty
 	assert(li != NULL);
@@ -13,10 +13,10 @@ int getFileTEST() {
 }
 
 
-int getLineTEST(){
+int getLineTEST(const char *file){
 
 	// Get line 2 of the file
-	char *li = getLine(getFile("../Src/code.asm"), 2);
+	char *li = getLine(getFile(file), 2);
 
 	// Check that the line is not empty
 	assert(li != NULL);
@@ -27,10 +27,10 @@ int getLineTEST(){
 	return 2;
 }
 
-int getSizeTEST() {
+int getSizeTEST(const char *file) {
 
 	// Get the size of the file
-	int size = getSize("../Src/code.asm");
+	int size = getSize(file);
 
 	// Check that the size is correct
 	assert(size == 18);
@@ -38,10 +38,10 @@ int getSizeTEST() {
 	return 1;
 }
 
-int getStructsTEST() {
+int getStructsTEST(const char *file) {
 
 	// Get the functions from the file
-	func_t *f = getStructs(getFile("../Src/code.asm"), getSize("../Src/code.asm"));
+	func_t *f = getStructs(getFile(file), getSize(file));
 
 	// Check that the functions are not empty
 	assert(f != NULL);

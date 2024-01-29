@@ -7,6 +7,8 @@
 
 int main() {
 
+	const char *file = "../Src/code.asm";
+
 	int testsPassed = 0;
 
 	printf("Running tests...\n");
@@ -17,7 +19,7 @@ int main() {
 
 	printf("testing function getFile\n");
 
-	testsPassed += getFileTEST();
+	testsPassed += getFileTEST(file);
 
 	printf("... testing getFileTEST ...\n");
 	printf("all getFile's tests passed!\n");
@@ -29,7 +31,7 @@ int main() {
 	printf("testing function getLine\n");
 	printf("... testing getLineTEST ...\n");
 
-	testsPassed += getLineTEST();
+	testsPassed += getLineTEST(file);
 
 	printf("all getLine's tests passed!\n");
 
@@ -40,7 +42,7 @@ int main() {
 	printf("testing function getSize\n");
 	printf("... testing getSizeTEST ...\n");
 
-	testsPassed += getSizeTEST();
+	testsPassed += getSizeTEST(file);
 
 	printf("all getSize's tests passed!\n");
 
@@ -51,7 +53,7 @@ int main() {
 	printf("testing function getStructs\n");
 	printf("... testing getStructsTEST ...\n");
 
-	testsPassed += getStructsTEST();
+	testsPassed += getStructsTEST(file);
 
 	printf("all getStructs's tests passed!\n");
 
