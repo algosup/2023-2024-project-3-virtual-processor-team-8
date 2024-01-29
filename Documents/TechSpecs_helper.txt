@@ -98,21 +98,26 @@
 🟩 ---> 2.4.8 Comments
 ---------------
 3 Software Architecture
--> 3.1 Scraping
----> 3.1.1 `scraper.c`
----> 3.1.2 `scraper.h`
----> 3.1.3 `scraper_test.c`
----> 3.1.4 `scraper_test.h`
--> 3.2 Parsing
----> 3.2.1 `parser.c`
----> 3.2.2 `parser.h`
----> 3.2.3 `parser_test.c`
----> 3.2.4 `parser_test.h`
--> 3.3 Interpreting
----> 3.3.1 `interpreter.c`
----> 3.3.2 `interpreter.h`
----> 3.3.3 `interpreter_test.c`
----> 3.3.4 `interpreter_test.h`
+🟨 -> 3.1 Scraping
+🟨 ---> 3.1.1 `scraper.c`
+🟩 ---> 3.1.2 `scraper.h`
+🟨 ---> 3.1.3 `scraper_test.c`
+🟩 ---> 3.1.4 `scraper_test.h`
+🟨 -> 3.2 Parsing
+🟨 ---> 3.2.1 `parser.c`
+🟩 ---> 3.2.2 `parser.h`
+🟨 ---> 3.2.3 `parser_test.c`
+🟩 ---> 3.2.4 `parser_test.h`
+🟨 -> 3.3 Interpreting
+🟨 ---> 3.3.1 `interpreter.c`
+🟩 ---> 3.3.2 `interpreter.h`
+🟨 ---> 3.3.3 `interpreter_test.c`
+🟩 ---> 3.3.4 `interpreter_test.h`
+🟨 -> 3.4 Main
+🟨 ---> 3.4.1 `main.c`
+🟩 ---> 3.4.2 `main.h`
+🟨 ---> 3.4.3 `main_test.c`
+🟩 ---> 3.4.4 `main_test.h`
 ---------------
 4 Scraper Specification
 -> 4.1 Variables

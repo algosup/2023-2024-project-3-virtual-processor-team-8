@@ -13,7 +13,7 @@
 
 **Created on:** January 22<sup>nd</sup>, 2024
 
-**Last updated:** January 26<sup>nd</sup>, 2024
+**Last updated:** January 29<sup>th</sup>, 2024
 
 ---
 
@@ -93,6 +93,27 @@
       - [2.4.7.3 - Logical XOR](#2473---logical-xor)
       - [2.4.7.3 - Logical NOT](#2473---logical-not)
       - [2.4.8 - Comments](#248---comments)
+- [3 - Software Architecture](#3---software-architecture)
+  - [3.1 - Scraping](#31---scraping)
+    - [3.1.1 - `scraper.c`](#311---scraperc)
+    - [3.1.2 - `scraper.h`](#312---scraperh)
+    - [3.1.3 - `scraper_test.c`](#313---scraper_testc)
+    - [3.1.4 - `scraper_test.h`](#314---scraper_testh)
+  - [3.2 Parsing](#32-parsing)
+    - [3.2.1 `parser.c`](#321-parserc)
+    - [3.2.2 `parser.h`](#322-parserh)
+    - [3.2.3 `parser_test.c`](#323-parser_testc)
+    - [3.2.4 `parser_test.h`](#324-parser_testh)
+  - [3.3 Interpreting](#33-interpreting)
+    - [3.3.1 `interpreter.c`](#331-interpreterc)
+    - [3.3.2 `interpreter.h`](#332-interpreterh)
+    - [3.3.3 `interpreter_test.c`](#333-interpreter_testc)
+    - [3.3.4 `interpreter_test.h`](#334-interpreter_testh)
+  - [3.4 Main](#34-main)
+    - [3.4.1 `main.c`](#341-mainc)
+    - [3.4.2 `main.h`](#342-mainh)
+    - [3.4.3 `main_test.c`](#343-main_testc)
+    - [3.4.4 `main_test.h`](#344-main_testh)
 
 </details>
 
@@ -168,6 +189,8 @@ To run your custom assembly code, you will need to install the following depende
 - [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ for Visual Studio Code is an extension for VS Code that provides IntelliSense, debugging, and code browsing support for C and C++ code.
 - [GCC](https://gcc.gnu.org/install/) - GCC, the GNU Compiler Collection, is a free collection of compilers for C, C++, Objective-C, Fortran, Ada, Go, and D programming languages.
 
+The software is developed using the 23<sup>rd</sup> version of the C language.
+
 ### 1.3.2 - Installation
 
 To install the interpreter, you will need to follow these steps:
@@ -177,6 +200,8 @@ To install the interpreter, you will need to follow these steps:
 #### 1.3.2.1 - Installation with Bash
 
 Open a terminal and run the following commands:
+
+If you are on macOS:
 
 ```bash
 git clone https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8.git
@@ -239,18 +264,19 @@ The project will not include the following features:
 
 The interpreter will be compatible with the most common hardware configurations, and will be tested on the following hardware:
 
-| Specification | Lenovo ThinkBook 14 G2 | Apple MacBook Air M1 2020 |
-| ------------- | ---------------------- | ------------------------- |
-| Processor     | Intel Core i7-1165G7   | Apple Silicon M1          |
-| RAM           | 16 GB                  | 8 GB                      |
+| Specification    | Lenovo ThinkBook 14 G2 | Lenovo ThinkPad 2023 | Apple MacBook Air M1 2020 | Apple MacBook Pro M1 2020 |
+| ---------------- | ---------------------- | -------------------- | ------------------------- | ------------------------- |
+| Processor        | Intel Core i7-1165G7   | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
+| RAM              | 16 GB                  | 16GB                 | 8 GB                      | 8 GB                      |
+| Operating System | Windows 11 Pro         | Windows 11 Pro       | macOS Ventura             | macOS Sonoma              |
 
 ### 2.1.2 - Software
 
 The interpreter will be compatible with the most common operating systems, and will be tested on the following operating systems:
 
-| Operating System | Windows 11 Pro | macOS Sonoma |
-| ---------------- | ---------- | ------------ |
-| Version          | 22H2       | 14.3         |
+| Operating System | Windows 11 Pro | macOS Ventura | macOS Sonoma |
+| ---------------- | -------------- | ------------- | ------------ |
+| Version          | 22H2           | 13.0          | 14.3         |
 
 ## 2.2 - Project Folder Structure
 
@@ -267,7 +293,9 @@ The project will be organized in the following folder structure:
 │   ├── tests_scraper.c                         # Scraper tests C file
 │   ├── tests_scraper.h                         # Scraper tests C header file
 │   ├── tests_parser.c                          # Parser tests C file
-│   └── tests_parser.h                          # Parser tests C header file
+│   ├── tests_parser.h                          # Parser tests C header file
+│   ├── tests_main.c                            # Main tests C file
+│   └── tests_main.h                            # Main tests C header file
 ├── Docs                                        # Documentation folder
 │   ├── Management                              # Management folder
 │   │   ├── Team-Management                     # Team management folder
@@ -310,7 +338,7 @@ The project will be organized in the following folder structure:
 
 ### 2.3.1 - Naming Conventions
 
-The project will follow the following naming conventions:
+Naming conventions are important to keep a clear navigation through the directories, our project will follow the following naming conventions:
 
 #### 2.3.1.1 Folders
 
@@ -318,7 +346,7 @@ The project will follow the following naming conventions:
 
 #### 2.3.1.2 Files
 
-- File related to documentation or managemnt will be written in `Train-Case`.
+- File related to documentation or management will be written in `Train-Case`.
 - File related to source code will be written in `snake_case`.
 
 #### 2.3.1.3 Variables
@@ -335,7 +363,7 @@ The project will follow the following naming conventions:
 
 ### 2.3.2 - Formatting Conventions
 
-The project will follow the following formatting conventions:
+Formatting conventions are important to keep a clear, concise and readable code, our project will follow the following formatting conventions:
 
 #### 2.3.2.1 - Indentation
 
@@ -404,7 +432,7 @@ MOV ra, rb
 
 In this example, the value of the register `rb` is copied into the register `ra`.
 
-#### 2.4.1.3 Reading the value from the memory to a register 
+#### 2.4.1.3 Reading the value from the memory to a register
 
 We'll use the following syntax:
 
@@ -417,6 +445,7 @@ Here is an example:
 ```asm
 PRF ra, rb
 ```
+
 In this example, the value of the register `ra` is copied into the register `rb`.
 
 #### 2.4.1.4 Writing the value from a register to the memory
@@ -713,3 +742,230 @@ Here is an example:
 ; The following code will add 5 to the value of the register ra
 ADD ra, 5
 ```
+
+# 3 - Software Architecture
+
+## 3.1 - Scraping
+
+[*(Back to top)*](#toc)
+
+### 3.1.1 - `scraper.c`
+
+This component is responsible for reading and processing assembly language code from a file. The primary functionalities include reading lines from a file, interpreting these lines into a structured format, and organizing the data for further processing. It utilizes a variety of functions to handle file operations, string manipulation, and data structuring.
+
+**Key Features:**
+- `printLines` and `printLine`: Functions for displaying lines from the file.
+- `getFile`: Reads the assembly code from a file and stores each line in an array.
+- `getSize`: Determines the number of lines in the file to allocate appropriate memory for line storage.
+- `getStructs`: Processes each line into a `function` struct which includes instruction, parameters, and other relevant data.
+- `switchStr`: Identifies the type of each string segment (instruction, register, or number).
+- `setStruct`: Assigns values to a `function` struct.
+- `printStruct`: Displays the contents of a `function` struct for debugging purposes.
+
+**Usage:**
+This file is used to extract and structure assembly code from a given file. It ensures that the code is ready for parsing by converting it into a series of structured commands, represented as `function` structs.
+
+**Diagram:**
+
+```mermaid
+graph TD
+    getFile["getFile - Read the file"] --> getSize["getSize - Determines number of lines"]
+    getFile --> printLines["printLines - Displays lines"]
+    getFile --> printLine["printLine - Displays a line"]
+    getFile --> getStructs["getStructs - Processes lines into structs"]
+
+    getStructs --> setStruct["setStruct - Assigns values to struct"]
+    getStructs --> switchStr["switchStr - Identifies string types"]
+    getStructs --> printStruct["printStruct - Displays struct contents"]
+
+    classDef function fill:#333,stroke:#777,stroke-width:2px;
+    class getFile,getSize,printLines,printLine,getStructs,setStruct,switchStr,printStruct function;
+```
+
+
+### 3.1.2 - `scraper.h`
+
+This header file defines the structure and the prototypes of the functions used in `scraper.c`. It includes the definition of the `function` struct, which is pivotal for representing each line of assembly code.
+
+**Key Components:**
+- `func_t`: Structure representing a line of assembly code, including its instruction, name, parameters, and line number.
+- Function declarations for `printLines`, `printLine`, `getFile`, `getSize`, `getStructs`, `switchStr`, `setStruct`, and `printStruct`.
+
+**Usage:**
+This header file is included in `scraper.c` and other components that need to interact with the scraping functionality, ensuring consistency in the data structures and function interfaces used across the project.
+
+### 3.1.3 - `scraper_test.c`
+
+Contains unit tests for the scraping functionality provided in `scraper.c`. It tests various aspects such as file reading, line extraction, string processing, and structure filling.
+
+**Test Cases:**
+- Reading files with varying number of lines and contents.
+- Correct extraction and storage of lines into an array.
+- Accurate processing of lines into `function` structs.
+- Proper identification of string types (instruction, register, number).
+
+**Usage:**
+Used for ensuring the reliability and correctness of the scraping functionality. These tests validate that the code in `scraper.c` correctly handles various scenarios and edge cases.
+
+### 3.1.4 - `scraper_test.h`
+
+This header file declares the unit tests for `scraper.c`. It includes the prototypes of the test functions used in `scraper_test.c`.
+
+**Key Components:**
+- Declarations for various test functions specific to the scraping functionality.
+
+**Usage:**
+This header file is included in `scraper_test.c` to provide a reference for the test cases. It ensures that the test suite is well-organized and each test function is properly declared.
+
+## 3.2 Parsing
+
+[*(Back to top)*](#toc)
+
+### 3.2.1 `parser.c`
+
+This component is responsible for parsing the structured assembly language code, represented as `function` structs, into a format that can be interpreted and executed. It involves analyzing the instruction, parameters, and other data from each struct and converting them into executable commands or tokens.
+
+**Key Features:**
+- `parseAssembly`: Takes an array of `function` structs and interprets each one, converting the assembly language instructions into a format that the interpreter can execute.
+- `validateInstruction`: Checks if the instructions and parameters in each `function` struct are valid within the context of the custom assembly language.
+- `extractOperands`: Extracts and categorizes operands from the assembly instruction, distinguishing between different types like registers, memory addresses, and immediate values.
+- `buildExecutableCommand`: Converts the parsed information into a command structure that can be directly used by the interpreter.
+
+**Usage:**
+This file is used to transform raw assembly language into a structured, interpretable format. It ensures that the assembly code is syntactically and semantically correct and ready for execution.
+
+### 3.2.2 `parser.h`
+
+This header file defines the prototypes of the functions used in `parser.c` and any necessary data structures or constants. It also includes any required standard or external library headers.
+
+**Key Components:**
+- Function declarations for `parseAssembly`, `validateInstruction`, `extractOperands`, and `buildExecutableCommand`.
+- Data structure definitions for storing parsed commands and operands.
+- Constants and error codes related to parsing and validation.
+
+**Usage:**
+This header file is included in `parser.c` and in other components that need to interact with the parsing functionality. It provides a clear interface and data structure definitions for parsing operations.
+
+### 3.2.3 `parser_test.c`
+
+Contains unit tests for the parsing functionality provided in `parser.c`. It tests the parsing process, including instruction validation, operand extraction, and command structure building.
+
+**Test Cases:**
+- Parsing valid and invalid assembly instructions.
+- Correct extraction and categorization of operands.
+- Building of executable command structures from parsed data.
+- Handling of different types of assembly instructions and operands.
+
+**Usage:**
+Used for ensuring the reliability and correctness of the parsing functionality. These tests validate that the code in `parser.c` accurately interprets and transforms assembly language into a structured format that the interpreter can understand.
+
+### 3.2.4 `parser_test.h`
+
+This header file declares the unit tests for `parser.c`. It includes the prototypes of the test functions used in `parser_test.c`.
+
+**Key Components:**
+- Declarations of test functions specific to the parsing functionality.
+
+**Usage:**
+This header file is included in `parser_test.c` to provide a structured approach to testing the parser. It ensures that the test suite covers all aspects of the parsing process and that each test function is properly organized.
+
+## 3.3 Interpreting
+
+### 3.3.1 `interpreter.c`
+
+This component is the heart of the virtual processor, responsible for executing the parsed assembly instructions. It simulates the behavior of a processor by interpreting and running the instructions in the context of the defined assembly language.
+
+**Key Features:**
+- `executeInstruction`: Takes a single parsed command and executes it according to the rules of the assembly language. It handles various types of instructions like arithmetic operations, memory access, and control flow changes.
+- `initializeProcessorState`: Sets up the initial state of the virtual processor, including register values and memory allocation.
+- `handleArithmeticOperations`: Specifically deals with arithmetic instructions, performing calculations and updating processor state accordingly.
+- `manageControlFlow`: Handles instructions that alter the flow of execution, like jumps and calls.
+- `simulateProgramExecution`: Runs the entire set of parsed assembly instructions, simulating the execution of an assembly program.
+
+**Usage:**
+This file is crucial for bringing the assembly code to life. It interprets each instruction and simulates its effect, essentially acting as the CPU for the virtual processor.
+
+### 3.3.2 `interpreter.h`
+
+This header file contains the function declarations and necessary data structures used in `interpreter.c`. It also includes any required standard or external library headers.
+
+**Key Components:**
+- Function prototypes for `executeInstruction`, `initializeProcessorState`, `handleArithmeticOperations`, `manageControlFlow`, and `simulateProgramExecution`.
+- Data structures representing the state of the virtual processor, including registers and memory.
+- Constants and error codes specific to the interpretation process.
+
+**Usage:**
+This header file is included in `interpreter.c` and other parts of the project that interact with the interpretation process. It provides a clear interface for the interpreter's functionality and ensures consistency in data structures across the project.
+
+### 3.3.3 `interpreter_test.c`
+
+Contains comprehensive unit tests for the interpreter functionality provided in `interpreter.c`. These tests ensure the correct execution of assembly instructions and the accurate simulation of a processor's behavior.
+
+**Test Cases:**
+- Testing the execution of various types of assembly instructions.
+- Verifying the correct initialization and updating of the processor state.
+- Checking the handling of arithmetic operations and control flow changes.
+- Ensuring the entire program execution is simulated accurately and efficiently.
+
+**Usage:**
+Used for validating the interpreter's correctness and robustness. These tests are crucial for ensuring that the virtual processor behaves as expected under various scenarios, including edge cases and complex instruction sets.
+
+### 3.3.4 `interpreter_test.h`
+
+This header file declares the testing functions and necessary structures for interpreter tests. It outlines the structure and methodology for each test case.
+
+**Key Components:**
+- Declarations of various test functions specific to the interpreter functionality.
+
+**Usage:**
+Included in `interpreter_test.c`, this header file organizes the test suite for the interpreter. It ensures a systematic approach to testing each aspect of the interpreter's functionality, from individual instruction execution to full program simulation.
+
+## 3.4 Main
+
+[*(Back to top)*](#toc)
+
+### 3.4.1 `main.c`
+
+This file serves as the entry point of the program. It integrates the components of scraping, parsing, and interpreting, providing a cohesive workflow for executing the custom assembly language. The `main.c` file orchestrates the overall process from reading the assembly code file to executing it and displaying the results.
+
+**Key Features:**
+- `main`: The primary function that drives the program. It calls functions to read the assembly file, scrape the contents into structured data, parse the data into executable instructions, and then run these instructions through the interpreter.
+- `loadAssemblyFile`: Handles the loading of the assembly file and checks for errors in file access.
+- `displayResults`: After the interpretation of the assembly code, this function displays the final state of the processor or any results of the code execution.
+- `errorHandling`: Manages errors that might occur during file reading, scraping, parsing, or interpreting, ensuring the program exits gracefully in case of any issues.
+
+**Usage:**
+The `main.c` file is the starting point for users to run the assembly interpreter. It provides a user-friendly interface to execute assembly code and observe its behavior.
+
+### 3.4.2 `main.h`
+
+This header file contains the declarations of functions and data structures used in `main.c`. It ensures that the main module interfaces correctly with other parts of the program.
+
+**Key Components:**
+- Function prototypes for `main`, `loadAssemblyFile`, `displayResults`, and `errorHandling`.
+- Data structure definitions used for managing the program's workflow and state.
+
+**Usage:**
+The `main.h` file is included in `main.c` and possibly other parts of the project if they need to interact with the main workflow. It provides a clear interface and essential declarations for the main functionality.
+
+### 3.4.3 `main_test.c`
+
+Contains unit tests for the main module of the program. These tests ensure the integrated functionality of reading, scraping, parsing, and interpreting works as expected.
+
+**Test Cases:**
+- Testing the complete workflow from file reading to execution.
+- Ensuring correct error handling and graceful exits in case of file access issues or processing errors.
+- Verifying the integration and interaction between different modules of the program.
+
+**Usage:**
+Used for validating the correctness and robustness of the entire program workflow. These tests are essential for ensuring that all components of the program work together seamlessly and efficiently.
+
+### 3.4.4 `main_test.h`
+
+This header file declares the test functions used in `main_test.c`. It organizes the test suite for the main module, ensuring comprehensive coverage of the program's primary functionalities.
+
+**Key Components:**
+- Declarations of test functions specific to the main module's workflow.
+
+**Usage:**
+Included in `main_test.c`, this header file structures the testing approach for the main module. It ensures that the program's entry point and its integration with other components are thoroughly tested and validated.
