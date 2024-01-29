@@ -70,7 +70,7 @@ void *getFile(){
 
 					// Add the line content to the array of lines
 					strncat(lineContent, &ch, 1);
-					strcpy(lines[line], lineContent);
+					sprintf(lines[line], lineContent);
 				}
 
 				// Set the line content to an empty string and pass to the next line
@@ -100,7 +100,7 @@ void *getFile(){
 			strncat(lineContent, &c, 1);
 
 			// Add the line content to the array of lines
-			strcpy(lines[line], lineContent);
+			sprintf(lines[line], lineContent);
 		}
 	}
 
@@ -379,37 +379,21 @@ int switchStr(char *str){
 
 void setStruct(struct function *f, char *instruct, char *Name, char *param1, char *param2, int line){
 
-	if (strcmp(instruct, "") == 0){
-		instruct = "\0";
-	}
-	else{
-		// Set the instruction parameter of the structure
-		strcpy(f->instruction, instruct);
-	}
+	// Set the instruction parameter of the structure
+	sprintf(f->instruction, instruct);
 
-	if (strcmp(Name, "") == 0){
-		Name = "\0";
-	}
-	else{
-		// Set the name parameter of the structure
-		strcpy(f->name, Name);
-	}
 
-	if (strcmp(param1, "") == 0){
-		param1 = "\0";
-	}
-	else{
-		// Set the parameter1 parameter of the structure
-		strcpy(f->parameter1, param1);
-	}
+	// Set the name parameter of the structure
+	sprintf(f->name, Name);
 
-	if (strcmp(param2, "") == 0){
-		param2 = "\0";
-	}
-	else{
-		// Set the parameter2 parameter of the structure
-		strcpy(f->parameter2, param2);
-	}
+
+	// Set the parameter1 parameter of the structure
+	sprintf(f->parameter1, param1);
+
+
+	// Set the parameter2 parameter of the structure
+	sprintf(f->parameter2, param2);
+
 
 	// Set the line parameter of the structure
 	f->line = line;
