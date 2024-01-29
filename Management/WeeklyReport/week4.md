@@ -4,7 +4,7 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 13h00
 - **What was done:**
 
 ## Project Key parameters
