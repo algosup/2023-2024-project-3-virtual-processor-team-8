@@ -782,6 +782,14 @@ graph TD
     class getFile,getSize,printLines,printLine,getStructs,setStruct,switchStr,printStruct function;
 ```
 
+**Diagram Explanation:**
+
+- `getFile`: This is the starting point, responsible for reading the assembly code file.
+- `getSize`: Called by `getFile` to determine the number of lines for memory allocation.
+- `printLines` and `printLine`: Debugging functions used by `getFile` to display file contents.
+- `getStructs`: Invoked after `getFile`, this function processes each line into a function struct.
+- `setStruct`, `switchStr`, and `printStruct`: These functions are used within `getStructs` for structuring data, identifying string types, and debugging respectively.
+
 
 ### 3.1.2 - `scraper.h`
 
@@ -806,6 +814,42 @@ Contains unit tests for the scraping functionality provided in `scraper.c`. It t
 
 **Usage:**
 Used for ensuring the reliability and correctness of the scraping functionality. These tests validate that the code in `scraper.c` correctly handles various scenarios and edge cases.
+
+**Diagram:**
+
+```mermaid
+graph TD
+    getFileTEST["getFileTEST - Tests file reading"] --> getFile["getFile - Reads the file"]
+
+    getLineTEST["getLineTEST - Tests line retrieval"] --> getLine["getLine - Retrieves a specific line"]
+    getLine --> getFile
+
+    getSizeTEST["getSizeTEST - Tests file size determination"] --> getSize["getSize - Determines number of lines"]
+
+    getStructsTEST["getStructsTEST - Tests struct creation from file"] --> getStructs["getStructs - Processes lines into structs"]
+    getStructs --> getFile
+    getStructs --> getSize
+
+    switchStrTEST["switchStrTEST - Tests string type identification"] --> switchStr["switchStr - Identifies string types"]
+
+    setStructTEST["setStructTEST - Tests setting struct values"] --> setStruct["setStruct - Assigns values to struct"]
+
+    classDef function fill:#333,stroke:#777,stroke-width:2px;
+    class getFileTEST,getLineTEST,getSizeTEST,getStructsTEST,switchStrTEST,setStructTEST function;
+    class getFile,getLine,getSize,getStructs,switchStr,setStruct function;
+```
+
+**Diagram Explanation:**
+- Test Functions:
+  - `getFileTEST`: Tests the `getFile` function's ability to read a file.
+  - `getLineTEST`: Tests the `getLine` function's ability to retrieve a specific line from a file. It depends on getFile.
+  - `getSizeTEST`: Tests the `getSize` function's ability to determine the correct size of the file.
+  - `getStructsTEST`: Tests the `getStructs` function's ability to process lines into structs. It depends on `getFile` and `getSize`.
+  - `switchStrTEST`: Tests the `switchStr` function's ability to correctly identify string types.
+  - `setStructTEST`: Tests the `setStruct` function's ability to correctly set values in a struct.
+  - 
+- Functionality Functions:
+  - `getFile`, `getLine`, `getSize`, `getStructs`, `switchStr`, `setStruct`: These are the core functions being tested. Each test function is designed to verify the correctness of these functions under various scenarios.
 
 ### 3.1.4 - `scraper_test.h`
 
@@ -833,6 +877,28 @@ This component is responsible for parsing the structured assembly language code,
 
 **Usage:**
 This file is used to transform raw assembly language into a structured, interpretable format. It ensures that the assembly code is syntactically and semantically correct and ready for execution.
+
+**Diagram:**
+
+```mermaid
+graph TD
+    parseAssembly["parseAssembly - Interprets function structs"] --> validateInstruction["validateInstruction - Checks instruction validity"]
+    parseAssembly --> extractOperands["extractOperands - Extracts operands"]
+    parseAssembly --> buildExecutableCommand["buildExecutableCommand - Builds executable commands"]
+
+    validateInstruction --> extractOperands
+    extractOperands --> buildExecutableCommand
+
+    classDef function fill:#333,stroke:#777,stroke-width:2px;
+    class parseAssembly,validateInstruction,extractOperands,buildExecutableCommand function;
+```
+
+**Diagram Explanation:**
+
+- **`parseAssembly`**: This function is the entry point for parsing. It takes an array of `function` structs, representing the assembly language code, and processes each struct.
+- **`validateInstruction`**: Called by `parseAssembly`, it checks if the instructions and parameters in each `function` struct are valid. This step is crucial to ensure that the assembly code adheres to the rules of the custom assembly language.
+- **`extractOperands`**: Also called by `parseAssembly`, this function handles the extraction and categorization of operands from each instruction. It distinguishes between different types like registers, memory addresses, and immediate values.
+- **`buildExecutableCommand`**: The final step in the parsing process, where `parseAssembly` uses this function to convert the parsed and validated information into a command structure. These command structures are then ready to be executed by the interpreter.
 
 ### 3.2.2 `parser.h`
 
