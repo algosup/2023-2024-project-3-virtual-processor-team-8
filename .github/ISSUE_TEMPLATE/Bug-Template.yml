@@ -1,0 +1,52 @@
+name: Bug Report
+description: Fill a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the nature of the bug, how it happened and if there is any special cases?
+      placeholder: Describe Here!
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Operating System
+      description: Wich OS (Operating System) are you using?
+      options:
+        - Windows
+        - MacOs
+        - Linux
+        - Other
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: other-os
+    attributes: 
+      label: If other was selected
+      description: Please tell us which it is.
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: dropdown
+    id: importance
+    attributes:
+      label: priority
+      description: Which priority is the typo?
+      options:
+        - Optional
+        - Can wait
+        - Should be done quickly
+        - Urgent
+      default: 0
+    validations:
+      required: true
