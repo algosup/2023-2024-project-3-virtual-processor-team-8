@@ -41,7 +41,7 @@
 </details>
 
 ### A. Introduction
-As for the overview of the project, the client (ALGOSUP : Franck) has demanded us to create an emulator on which we will have to run an assembly ("[...].asm") file on it. The goal of the project is to create a virtual processor and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
+As for the overview of the project, the client (ALGOSUP : Franck) has demanded us to create an emulator on which we will have to run an assembly[^4] ("[...].asm") file on it. The goal of the project is to create a virtual processor[^3] and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language[^5] without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
 As for the operating system the final product will run on MacOS and Windows, and the devices used to develop the product are :
 
     - Apple MacBook Air 2021, equipped with the "M1" chip running on "Ventura 13.0" MacOS version.
@@ -64,7 +64,7 @@ The team is composed with 7 members each having a designated role.
 | Evan UHRING | Quality Assurance |
 
 ## <ins>2.Project overview</ins>
-Our team was asked by ALGOSUP International software development school to create an emulator coded in C language, which will have to be able run an assembly code. 
+Our team was asked by ALGOSUP International software development school to create an emulator coded in C language[^5], which will have to be able run an assembly code. 
 
 ## <ins>3. Project definition</ins>
 
@@ -116,13 +116,14 @@ The stake holders for this project is <u>ALGOSUP International software developm
 |:-|:-|:-|:-|:-|:-|:-|:-|
 |Tasks :|Functional specification|Define Assembly language|Technical specification|Test Plan|Implement Virtual Processor|Write Assembly Programs as Unit Tests|Test Phase|
 |Due Date :|01/30/24|...|02/09/24|02/16/24|...|...|...|
-|Desired end date :|01/30/24|01/02/24|01/02/24|02/16/24|02/16/24|02/16/24|02/16/24 -> Final deadline (02/23/24)
+|Desired end date :|01/30/24|01/30/24|02/09/24|02/16/24|02/16/24|02/16/24|02/16/24 -> Final deadline (02/23/24)
 
 ### <ins>Resources / tools</ins>
 environement: Vs code, Github
 test environement: 
-management enviroment: trello slack 
+management enviroment: trello, slack 
 ### <ins>Assumptions/Constraints</ins>
+~~
 
 # B. Functional Requirements
 
@@ -131,20 +132,20 @@ The main customer requirement is to build a fully functional virtual processor t
 ### <ins>Objectives and loss condition</ins>
 The objectives are to respond to the demand of the client. Meaning that all the customers requirements are fulfilled and all mentioned aspects should be fully functional and meet the satisfaction of the client. 
 
-As for the loss condition will be if the final product is not functional.The main requirements are not up to expectations of the client is one of the other loss condition. Deadlines are another factor of loss condition, if the team doesn't manage to deliver documents and other demands from the client by it's deadlines.
+As for the loss condition will be if the     ~~        .The main requirements are not up to expectations of the client is one of the other loss condition. Deadlines are another factor of loss condition, if the team doesn't manage to deliver documents and other demands from the client by it's deadlines.
 ### <ins>Operability</ins>
-
+The virtual processor will have to run on all software devices (Windows, MacOs)~~
 ### <ins>Reliability</ins>
-
+Memory 
 ### <ins>Product requirements(Foundations for a MVP)</ins>
 The first main requirement being to define the syntax used to translate an ".ASM" file, meaning that the team has to define the main commands from assembly language to the teams syntax. This syntax defined by the team will be documented and added to the team projects Github for it to be consultable by the client.
 The following link will direct you to the document with all the syntax that has been choosen by the team : //LINK
 ### <ins>Emulators features break down</ins>
-
+Not for now, exwploring possibilites 
 ### <ins>Terminal</ins>
-
+~~ 
 ### <ins>other</ins>
-
+--
 ## 3. Use Cases Analysis
 | Use Case Number | Name | Description | Actor(s) | Pre-Conditions | Flow of Events | Post-Conditions | Exit Criteria | Notes & Issues |
 |---|---|---|---|---|---|---|---|---|
@@ -165,10 +166,11 @@ In second case scenario the users code will be stored localy so that the user wi
 Idealy the processor will be able to run the file again without any visible flaw.
 ## Delivery
 Delivery of the teams final product must be within the deadline defined by the client, this final version should be fully functional and responding to the clients needs.
+USer finding
 ## Maintainability
-The processor being an executable file and stored locally on the device of the user, the maintainability of the product is not an issue if the installation of the Final product was coorectly done taking in count the factors of mounting the program in the terminal.
+The processor being an executable* file and stored locally on the device of the user, the maintainability of the product is not an issue if the installation of the Final product was coorectly done taking in count the factors of mounting the program in the terminal.
 ## Security
-The processor is stored locally on the device of the user and the security of the rpoduct will depend on the users device, if it contains any device or if the users deviced got hacked. Due to being an downloadable file from GitHub the file will be an open source product. The team will not include any malware in the folders that will have to be downloaded by the user. These files won't be an issue in terms of security for the user.
+The processor is stored locally on the device of the user and the security of the product will depend on the users device, if it contains any device or if the users deviced got hacked. Due to being an downloadable file from GitHub the file will be an open source product. The team will not include any malware in the folders that will have to be downloaded by the user. These files won't be an issue in terms of security for the user.
 ## Conclusion
 To conclude, this project was given to the team by ALGOSUP international software development school represented by Franck JEANNIN and back with other staff members. This project's purpose is to code an processor with C language linked to the previous courses given on Assembly language. The reason being that the project will have to run an Assembly code on a virtual processor coded in C language. This project will allow all ALGOSUP students to understand how an virtual works. 
 The team will develop the virtual processor within the deadline and keeping the client informed on the advancement of the project.
