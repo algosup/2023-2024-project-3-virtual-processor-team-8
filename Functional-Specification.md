@@ -183,6 +183,7 @@ Not for now, exploring possibilities
 ## 7. Terminal
 This is how the virtual should be presented on the users device. It is a visual illustration of the product but there is a possibility that the visual might change. As to today the product will run on the terminal. 
 
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Terminal.png" alt="Terminal"/>
 
 ## 8. Other
 The developing team will have to make sure to keep an virtual processor that is compatible with as many operating systems and devices to make sure to allow a large amount of people to be able to use our product. Which is why the quality assurance team will make sure to test the compatibility of our product on as many devices as possible.
