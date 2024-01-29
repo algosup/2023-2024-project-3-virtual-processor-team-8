@@ -25,7 +25,7 @@ We were asked to create a virtual processor and an interpreter to execute a look
 
 
 ### B. Hardware and software
-During the project, we will use computers running on Windows and MAC OS. The language used is C, and the assembly language that will be executed by the programme created will be written in a .txt file.
+During the project, we will use computers running on Windows and MAC OS. The language used is C, and the assembly language that will be executed by the program created will be written in a .txt file.
 
 
 
@@ -46,11 +46,11 @@ With this collaboration, knowledge and expertise will be shared for a better qua
 
 
 ### B. Testing scope and method
-We will verify the quality of the programme, as well as every documents.
+We will verify the quality of the program, as well as every documents.
 
 For the documents, we will verify the content, as well as the syntax and the grammar, to be sure that no misunderstanding is left over, and thus having clear and readable documents for the client, and also for the team.
 
-For the programme, we will test each functionalities and verify that they correspond with what was defined in the functional specification.
+For the program, we will test each functionalities and verify that they correspond with what was defined in the functional specification.
 
 
 ### C. Tools
@@ -68,12 +68,23 @@ For the programme, we will test each functionalities and verify that they corres
 
 
 ## 4. Schedule estimation
+It is necessary to correctly spread out our time between each task, so we can be more efficient on the tests we have to do. Our total number of hours we have is 98 hours.
 
+| Task | Subtask | Time estimation |
+|------|---------|-------------|
+|Analyse requirement specification| - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours
+| Create the test specification|  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 30 hours <br> - 10 hours <br> - 4 hours
+|Execute the test cases| - Build up the test environment <br> - Execute the test cases <br> - Update test cases status|- 10 hours <br> - 14 hours <br> - 6 hours
+|Report the bug| - Create bug reports <br> - Create bug data report | - 6 hours <br> - 6 hours
+
+If this estimation is correct, we will have spent 98 hours for the quality assurance of the project, as our number of working time we have available.
 
 
 
 ## 5. Deliverables
-
+- **Test plan:** define the testing strategy and how the tests will be done.
+- **Test cases:** define all the test that will be done to be sure that the program works as intended.
+- **Bug reports:** report all the bugs that have been found during the tests.
 
 
 
