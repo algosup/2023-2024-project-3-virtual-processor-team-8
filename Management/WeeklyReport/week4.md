@@ -5,7 +5,8 @@
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
 - **Project time (hours):** 13h00
-- **What was done:**
+
+### Project summary
 
 ## Project Key parameters
 
@@ -13,15 +14,15 @@
 
 <summary>💡 Keys</summary>
 
-1. **Schedule:**
-   - **On:** The project is progressing according to the planned schedule.
-   - **At Risk:** There are concerns about meeting the scheduled deadlines or milestones.
-   - **Halted:** The project schedule has come to a temporary stop, possibly due to external factors or critical issues.
-
-2. **Scope:**
+1. **Scope:**
    - **On:** The project is proceeding within the defined scope without significant deviations.
    - **At Risk:** There are potential scope creep issues or uncertainties that may impact the project's boundaries.
    - **Halted:** The project has temporarily stopped due to scope-related challenges or changes.
+  
+2. **Schedule:**
+   - **On:** The project is progressing according to the planned schedule.
+   - **At Risk:** There are concerns about meeting the scheduled deadlines or milestones.
+   - **Halted:** The project schedule has come to a temporary stop, possibly due to external factors or critical issues.
 
 3. **Risks[^1]:**
    - **On:** The identified risks are being effectively managed, and mitigation strategies are in place.
@@ -60,7 +61,7 @@
 
 This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/management/Management/TeamManagement/ganttCharter.pdf) of this project.
 
-![Week 1](img/week4.png)
+![Week 4](img/week4.png)
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
@@ -83,6 +84,8 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **Implemented:** Has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
 
 </details>
+
+![KPIs Week 4](img/kpi4.png)
 
 ## Next week Action Plan
 

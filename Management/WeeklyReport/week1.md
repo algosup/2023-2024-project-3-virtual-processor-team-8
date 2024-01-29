@@ -16,15 +16,15 @@ Create a Slack Server and a Trello for the project management.
 
 <summary>💡 Keys</summary>
 
-1. **Schedule:**
-   - **On:** The project is progressing according to the planned schedule.
-   - **At Risk:** There are concerns about meeting the scheduled deadlines or milestones.
-   - **Halted:** The project schedule has come to a temporary stop, possibly due to external factors or critical issues.
-
-2. **Scope:**
+1. **Scope:**
    - **On:** The project is proceeding within the defined scope without significant deviations.
    - **At Risk:** There are potential scope creep issues or uncertainties that may impact the project's boundaries.
    - **Halted:** The project has temporarily stopped due to scope-related challenges or changes.
+  
+2. **Schedule:**
+   - **On:** The project is progressing according to the planned schedule.
+   - **At Risk:** There are concerns about meeting the scheduled deadlines or milestones.
+   - **Halted:** The project schedule has come to a temporary stop, possibly due to external factors or critical issues.
 
 3. **Risks[^1]:**
    - **On:** The identified risks are being effectively managed, and mitigation strategies are in place.
