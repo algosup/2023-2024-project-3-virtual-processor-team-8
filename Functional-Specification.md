@@ -100,9 +100,9 @@ As for the <u>final product</u>, the deadline being 02/23/24, this should be the
 ### **Personas definition**
 
 #### Persona 1 :
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-1.png" alt="Persona-1" width="75"/>
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-1.png" alt="Persona-1"/>
 #### Persona 2 :
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-2.png" alt="Persona-1" width="75"/>
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-2.png" alt="Persona-1"/>
 
 
 ## 3. Project organization
@@ -112,7 +112,13 @@ The stake holders for this project is <u>ALGOSUP International software developm
 
 
 ### **Project reviewers**
-
+The project reviews in team 8 are : 
+|*Name*|*Role*|
+|:-|:-|
+Evan UHRING|Quality assurance
+Laurent BOUQUIN|Quality assurance
+Laura-Lee HOLLANDE | Project Manager
+Pierre GORIN | Tech lead
 
 
 ## 4. Project Plan
@@ -140,8 +146,8 @@ management environment: trello, slack
 
 
 ### **Assumptions and constraints**
-~~
-
+Assuming that the client has a MacOs or an windows device and a compatible Os.
+The constraints can occur if the device Os is not compatible with the virtual processor, or there is an incompatibility of the version of C language between the developed product and the installed version of C in VScode of the client. Clients device runs on Linux. Clients device has a limited amount of storage and memory available. 
 
 
 # B. Functional Requirements
@@ -161,7 +167,8 @@ The virtual processor will have to run on all software devices (Windows, MacOs)~
 
 
 ## 4. Reliability
-Memory 
+
+The virtual processor relies on the internal memory of the clients device. The final product will strategically utilize the device's internal memory, specifically the Random Access Memory (RAM), optimizing task execution for heightened efficiency and responsiveness. This deliberate integration signifies a substantial advancement in enhancing computational capabilities on the client's device.
 
 
 ## 5. Product requirements
@@ -174,11 +181,11 @@ Not for now, exploring possibilities
 
 
 ## 7. Terminal
-~~ 
+This is how the virtual should be presented on the users device. It is a visual illustration of the product but there is a possibility that the visual might change. As to today the product will run on the terminal. 
 
 
 ## 8. Other
---
+The developing team will have to make sure to keep an virtual processor that is compatible with as many operating systems and devices to make sure to allow a large amount of people to be able to use our product. Which is why the quality assurance team will make sure to test the compatibility of our product on as many devices as possible.
 
 
 ## 9. Use Cases Analysis
