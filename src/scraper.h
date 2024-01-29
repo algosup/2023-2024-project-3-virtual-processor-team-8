@@ -25,6 +25,10 @@ void printLine(char **lines, int line);
 void *getFile();
 
 
+// Get the size of the file and return an int based on the number of lines in the file
+int getSize();
+
+
 // Get an array of functions from the array of strings given in the parameter based on the size
 void *getStructs(char **lines, int size);
 

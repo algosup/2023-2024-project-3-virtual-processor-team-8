@@ -27,8 +27,8 @@ void printLine(char **lines, int line){
 
 void *getFile(){
 
-	// Allocate memory for the array of lines
-	char **lines = (char **)malloc(100 * sizeof(char *));
+	// Allocate memory for the array of lines based on the number of lines in the file
+	char **lines = (char **)malloc(getSize() * sizeof(char *));
 
 
 	// Define fp as pointing to a file
