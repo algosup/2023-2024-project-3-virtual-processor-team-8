@@ -100,9 +100,9 @@ As for the <u>final product</u>, the deadline being 02/23/24, this should be the
 ### **Personas definition**
 
 #### Persona 1 :
-
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-1.png" alt="Persona-1" width="75"/>
 #### Persona 2 :
-
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-2.png" alt="Persona-1" width="75"/>
 
 
 ## 3. Project organization
