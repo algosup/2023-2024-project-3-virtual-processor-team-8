@@ -207,33 +207,32 @@ These functional requirements will demand several steps such as the import of th
 
 # C. Non-functional requirements
 ## 1. Response and Performance
-Assembly being a low level language the file will be run by the processor depending on the optimization of the code elaborated by the team. The team will make sure that the code is as optimized for the running time of the users code will be as fast as possible.
+Assembly being a low level language, the file will be run by the processor depending on the optimization of the code elaborated by the team. The team will make sure that the code is as optimized for the running time of the users code will be as fast as possible.
 
 
 ## 2. Recovery
-In first case scenario the processor should Reset to default state in case of crash.
-In second case scenario the users code will be stored locally so that the user will not have to define the directory to the file again. 
+In first case scenario the processor should reset to default state in case of crash.
+In second case scenario the user's code will be stored locally so that the user will not have to define the directory to the file again.
 Ideally the processor will be able to run the file again without any visible flaw.
 
 
 ## 3. Delivery
-Delivery of the teams final product must be within the deadline defined by the client, this final version should be fully functional and responding to the clients needs.
-USer finding
+Delivery of the team's final product must be within the deadline defined by the client, this final version should be fully functional and responding to the clients needs.
 
 
 ## 4. Maintainability
-The processor being an executable* file and stored locally on the device of the user, the maintainability of the product is not an issue if the installation of the Final product was correctly done taking in count the factors of mounting the program in the terminal.
+The processor being an executable file and stored locally on the device of the user, the maintainability of the product is not an issue if the installation of the final product was correctly done taking in count the factors of mounting the program in the terminal.
 
 
 ## 5. Security
-The processor is stored locally on the device of the user and the security of the product will depend on the users device, if it contains any device or if the users device got hacked. Due to being an downloadable file from GitHub the file will be an open source product. The team will not include any malware in the folders that will have to be downloaded by the user. These files won't be an issue in terms of security for the user.
+The processor is stored locally on the device of the user and the security of the product will depend on the user's device, if it contains any device or if the user's device got hacked. Due to being an downloadable file from GitHub, the file will be an open source product. The team will not include any malware in the folders that will have to be downloaded by the user. These files won't be an issue in terms of security for the user.
 
 
 
 # D. Conclusion
-To conclude, this project was given to the team by ALGOSUP international software development school represented by Franck JEANNIN and back with other staff members. This project's purpose is to code an processor with C language linked to the previous courses given on Assembly language. The reason being that the project will have to run an Assembly code on a virtual processor coded in C language. This project will allow all ALGOSUP students to understand how an virtual works. 
-The team will develop the virtual processor within the deadline and keeping the client informed on the advancement of the project.
-Maintaining transparency between the client and the team allows to understand the true needs of the client.
+To conclude, this project was given to the team by ALGOSUP international software development school represented by Franck JEANNIN and backed by the other staff members. This project's purpose is to code a processor with C language linked to the previous courses given on Assembly language. The reason being that the project will have to run an Assembly code on a virtual processor coded in C language. This project will allow all ALGOSUP students to understand how a virtual works. 
+The team will develop the virtual processor within the deadline and keep the client informed on the advancement of the project.
+Maintaining transparency between the client and the team will allow to understand the true needs of the client.
 
 
 
