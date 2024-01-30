@@ -25,7 +25,7 @@
 | Evan UHRING        | Quality Assurance |          |      |
 | Laura-Lee HOLLANDE | Project Manager   |          |      |
 | Ian LAURENT        | Program Manager   |          |      |
-| Pierre GORIN       | Technical Lead    |          |      |
+| Pierre GORIN       | Technical Leader  |          |      |
 | Manech LAGUENS     | Software Engineer |          |      |
 | Victor LEROY       | Software Engineer |          |      |
 
@@ -34,95 +34,96 @@
 <br><details>
 <summary><h3 id="toc"> Table of Contents <i>(Click to expand)</i></h3></summary>
 
-- [Technical Specification](#technical-specification)
-    - [Approvals](#approvals)
-- [1 - Overview](#1---overview)
-  - [1.1 - Purpose](#11---purpose)
-    - [1.1.1 - Goals](#111---goals)
-    - [1.1.2 - Objectives](#112---objectives)
-    - [1.1.3 - Success Criteria](#113---success-criteria)
-  - [1.2 - Stakeholders](#12---stakeholders)
-    - [1.2.1 - Project Team](#121---project-team)
-    - [1.2.2 - Client](#122---client)
-  - [1.3 - Usage](#13---usage)
-    - [1.3.1 - Requirements](#131---requirements)
-    - [1.3.2 - Installation](#132---installation)
-      - [1.3.2.1 - Installation with Bash](#1321---installation-with-bash)
-      - [1.3.2.2 - Installation with Github Desktop](#1322---installation-with-github-desktop)
-    - [1.3.3 - Running](#133---running)
-  - [1.4 - Scope](#14---scope)
-    - [1.4.1 - In Scope](#141---in-scope)
-    - [1.4.2 - Out of Scope](#142---out-of-scope)
-- [2 - Overall Description](#2---overall-description)
-  - [2.1 System Environment](#21-system-environment)
-    - [2.1.1 - Hardware](#211---hardware)
-    - [2.1.2 - Software](#212---software)
-  - [2.2 - Project Folder Structure](#22---project-folder-structure)
-  - [2.3 - Conventions](#23---conventions)
-    - [2.3.1 - Naming Conventions](#231---naming-conventions)
-      - [2.3.1.1 Folders](#2311-folders)
-      - [2.3.1.2 Files](#2312-files)
-      - [2.3.1.3 Variables](#2313-variables)
-      - [2.3.1.4 Constants](#2314-constants)
-      - [2.3.1.5 Functions](#2315-functions)
-    - [2.3.2 - Formatting Conventions](#232---formatting-conventions)
-      - [2.3.2.1 - Indentation](#2321---indentation)
-      - [2.3.2.2 - Line Length](#2322---line-length)
-      - [2.3.2.3 - Line Breaks](#2323---line-breaks)
-      - [2.3.2.4 - Comments](#2324---comments)
-  - [2.4 - Assembly Syntax](#24---assembly-syntax)
-    - [2.4.1 - Registers](#241---registers)
-      - [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
-      - [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
-      - [2.4.1.3 Reading the value from the memory to a register](#2413-reading-the-value-from-the-memory-to-a-register)
-      - [2.4.1.4 Writing the value from a register to the memory](#2414-writing-the-value-from-a-register-to-the-memory)
-    - [2.4.2 - Jumping to a label](#242---jumping-to-a-label)
-      - [2.4.2.1 - Jumping unconditionally](#2421---jumping-unconditionally)
-      - [2.4.2.2 - Jumping conditionally (where "cc" is a condition code)](#2422---jumping-conditionally-where-cc-is-a-condition-code)
-    - [2.4.3 - Comparing registers](#243---comparing-registers)
-    - [2.4.4 - Calling a subroutine](#244---calling-a-subroutine)
-    - [2.4.5 - Returning from a subroutine](#245---returning-from-a-subroutine)
-    - [2.4.6 - Arithmetic operations](#246---arithmetic-operations)
-      - [2.4.6.1 - Addition](#2461---addition)
-      - [2.4.6.2 - Subtraction](#2462---subtraction)
-      - [2.4.6.3 - Multiplication](#2463---multiplication)
-      - [2.4.6.4 - Division](#2464---division)
-    - [2.4.7 - Logical operations](#247---logical-operations)
-      - [2.4.7.1 - Logical AND](#2471---logical-and)
-      - [2.4.7.2 - Logical OR](#2472---logical-or)
-      - [2.4.7.3 - Logical XOR](#2473---logical-xor)
-      - [2.4.7.3 - Logical NOT](#2473---logical-not)
-      - [2.4.8 - Comments](#248---comments)
-- [3 - Software Architecture](#3---software-architecture)
-  - [3.1 - Scraping](#31---scraping)
-    - [3.1.1 - `scraper.c`](#311---scraperc)
-    - [3.1.2 - `scraper.h`](#312---scraperh)
-    - [3.1.3 - `scraper_test.c`](#313---scraper_testc)
-    - [3.1.4 - `scraper_test.h`](#314---scraper_testh)
-  - [3.2 Parsing](#32-parsing)
-    - [3.2.1 `parser.c`](#321-parserc)
-    - [3.2.2 `parser.h`](#322-parserh)
-    - [3.2.3 `parser_test.c`](#323-parser_testc)
-    - [3.2.4 `parser_test.h`](#324-parser_testh)
-  - [3.3 Interpreting](#33-interpreting)
-    - [3.3.1 `interpreter.c`](#331-interpreterc)
-    - [3.3.2 `interpreter.h`](#332-interpreterh)
-    - [3.3.3 `interpreter_test.c`](#333-interpreter_testc)
-    - [3.3.4 `interpreter_test.h`](#334-interpreter_testh)
-  - [3.4 Main](#34-main)
-    - [3.4.1 `main.c`](#341-mainc)
-    - [3.4.2 `main.h`](#342-mainh)
-    - [3.4.3 `main_test.c`](#343-main_testc)
-    - [3.4.4 `main_test.h`](#344-main_testh)
-- [4 - End Matter](#4---end-matter)
-  - [4.1 - Contributors](#41---contributors)
-  - [4.2 - Related Documents](#42---related-documents)
-  - [4.3 - License](#43---license)
-  - [4.4 - References](#44---references)
-    - [4.4.1 - Tools](#441---tools)
-    - [4.4.2 - References](#442---references)
-  - [4.5 - Glossary](#45---glossary)
-  - [4.6 - Footnotes](#46---footnotes)
+- 📄 [Technical Specification](#technical-specification)
+    - ✅ [Approvals](#approvals)
+- 🌐 [1 - Overview](#1---overview)
+  - 🎯 [1.1 - Purpose](#11---purpose)
+    - 🏆 [1.1.1 - Goals](#111---goals)
+    - 🎯 [1.1.2 - Objectives](#112---objectives)
+    - 🏁 [1.1.3 - Success Criteria](#113---success-criteria)
+  - 👥 [1.2 - Stakeholders](#12---stakeholders)
+    - 🧑‍🤝‍🧑 [1.2.1 - Project Team](#121---project-team)
+    - 🤝 [1.2.2 - Client](#122---client)
+  - 🖥️ [1.3 - Usage](#13---usage)
+    - 📋 [1.3.1 - Requirements](#131---requirements)
+    - ⚙️ [1.3.2 - Installation](#132---installation)
+      - 💻 [1.3.2.1 - Installation with Bash](#1321---installation-with-bash)
+      - 🖥️ [1.3.2.2 - Installation with GitHub Desktop](#1322---installation-with-github-desktop)
+    - ▶️ [1.3.3 - Running](#133---running)
+  - 📏 [1.4 - Scope](#14---scope)
+    - 🟢 [1.4.1 - In Scope](#141---in-scope)
+    - 🔴 [1.4.2 - Out of Scope](#142---out-of-scope)
+- 🗒️ [2 - Overall Description](#2---overall-description)
+  - 💻 [2.1 System Environment](#21-system-environment)
+    - 🖥️ [2.1.1 - Hardware](#211---hardware)
+    - 🛠️ [2.1.2 - Software](#212---software)
+  - 📁 [2.2 - Project Folder Structure](#22---project-folder-structure)
+  - 📚 [2.3 - Conventions](#23---conventions)
+    - 🖊️ [2.3.1 - Naming Conventions](#231---naming-conventions)
+      - 📂 [2.3.1.1 Folders](#2311-folders)
+      - 📄 [2.3.1.2 Files](#2312-files)
+      - 🔤 [2.3.1.3 Variables](#2313-variables)
+      - 🔠 [2.3.1.4 Constants](#2314-constants)
+      - 🔄 [2.3.1.5 Functions](#2315-functions)
+    - 🖋️ [2.3.2 - Formatting Conventions](#232---formatting-conventions)
+      - ↩️ [2.3.2.1 - Indentation](#2321---indentation)
+      - 📏 [2.3.2.2 - Line Length](#2322---line-length)
+      - 📐 [2.3.2.3 - Line Breaks](#2323---line-breaks)
+      - 💬 [2.3.2.4 - Comments](#2324---comments)
+  - 🖥️ [2.4 - Assembly Syntax](#24---assembly-syntax)
+    - 📝 [2.4.1 - Registers](#241---registers)
+      - 🔢 [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
+      - 🔀 [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
+      - 📖 [2.4.1.3 Reading the value from the memory to a register](#2413-reading-the-value-from-the-memory-to-a-register)
+      - 📝 [2.4.1.4 Writing the value from a register to the memory](#2414-writing-the-value-from-a-register-to-the-memory)
+    - ↗️ [2.4.2 - Jumping to a label](#242---jumping-to-a-label)
+      - 🏃‍♂️ [2.4.2.1 - Jumping unconditionally](#2421---jumping-unconditionally)
+      - ↪️ [2.4.2.2 - Jumping conditionally (where "cc" is a condition code)](#2422---jumping-conditionally-where-cc-is-a-condition-code)
+    - 🔍 [2.4.3 - Comparing registers](#243---comparing-registers)
+    - 📞 [2.4.4 - Calling a subroutine](#244---calling-a-subroutine)
+    - 🏁 [2.4.5 - Returning from a subroutine](#245---returning-from-a-subroutine)
+    - ➕ [2.4.6 - Arithmetic operations](#246---arithmetic-operations)
+      - ➕ [2.4.6.1 - Addition](#2461---addition)
+      - ➖ [2.4.6.2 - Subtraction](#2462---subtraction)
+      - ✖️ [2.4.6.3 - Multiplication](#2463---multiplication)
+      - ➗ [2.4.6.4 - Division](#2464---division)
+    - 🧠 [2.4.7 - Logical operations](#247---logical-operations)
+      - 🤝 [2.4.7.1 - Logical AND](#2471---logical-and)
+      - 🤲 [2.4.7.2 - Logical OR](#2472---logical-or)
+      - 💥 [2.4.7.3 - Logical XOR](#2473---logical-xor)
+      - ⛔ [2.4.7.3 - Logical NOT](#2473---logical-not)
+    - 💭 [2.4.8 - Comments](#248---comments)
+- 📐 [3 - Software Architecture](#3---software-architecture)
+  - 🖥️ [3.1 - Scraping](#31---scraping)
+    - 🗂️ [3.1.1 - `scraper.c`](#311---scraperc)
+    - 📄 [3.1.2 - `scraper.h`](#312---scraperh)
+    - ✅ [3.1.3 - `scraper_test.c`](#313---scraper_testc)
+    - 📝 [3.1.4 - `scraper_test.h`](#314---scraper_testh)
+  - 🖥️ [3.2 Parsing](#32-parsing)
+    - 🗂️ [3.2.1 `parser.c`](#321-parserc)
+    - 📄 [3.2.2 `parser.h`](#322-parserh)
+    - ✅ [3.2.3 `parser_test.c`](#323-parser_testc)
+    - 📝 [3.2.4 `parser_test.h`](#324-parser_testh)
+  - 🖥️ [3.3 Interpreting](#33-interpreting)
+    - 🗂️ [3.3.1 `interpreter.c`](#331-interpreterc)
+    - 📄 [3.3.2 `interpreter.h`](#332-interpreterh)
+    - ✅ [3.3.3 `interpreter_test.c`](#333-interpreter_testc)
+    - 📝 [3.3.4 `interpreter_test.h`](#334-interpreter_testh)
+  - 🖥️ [3.4 Main](#34-main)
+    - 🗂️ [3.4.1 `main.c`](#341-mainc)
+    - 📄 [3.4.2 `main.h`](#342-mainh)
+    - ✅ [3.4.3 `main_test.c`](#343-main_testc)
+    - 📝 [3.4.4 `main_test.h`](#344-main_testh)
+- 📚 [4 - End Matter](#4---end-matter)
+  - 👥 [4.1 - Contributors](#41---contributors)
+  - 📃 [4.2 - Related Documents](#42---related-documents)
+  - ©️ [4.3 - License](#43---license)
+  - 🔗 [4.4 - References](#44---references)
+    - 🛠️ [4.4.1 - Tools](#441---tools)
+    - 🔍 [4.4.2 - References](#442---references)
+  - 📚 [4.5 - Glossary](#45---glossary)
+  - 🔢 [4.6 - Footnotes](#46---footnotes)
+
 
 </details>
 
@@ -164,15 +165,15 @@ This project is for educational purposes and is not intended for commercial use.
 
 ### 1.2.1 - Project Team
 
-| Name               | Role              | Github                                                    |
+| Name               | Role              | GitHub                                                    |
 | ------------------ | ----------------- | --------------------------------------------------------- |
-| Laura-Lee HOLLANDE | Project Manager   | [Laura-Lee's Github](https://github.com/lauraleehollande) |
-| Ian LAURENT        | Program Manager   | [Ian's Github](https://github.com/Ianlaur)                |
-| Pierre GORIN       | Technical Lead    | [Pierre's Github](Pierre2103)                             |
-| Victor LEROY       | Software Engineer | [Victor's Github](https://github.com/Victor-Leroy)        |
-| Manech LAGUENS     | Software Engineer | [Manech's Github](https://github.com/Manech-Laguens)      |
-| Laurent BOUQUIN    | Quality Assurance | [Laurent's Github](https://github.com/Ianlaur)            |
-| Evan UHRING        | Quality Assurance | [Evan's Github](https://github.com/Evan-UHRING)           |
+| Laura-Lee HOLLANDE | Project Manager   | [Laura-Lee's GitHub](https://github.com/lauraleehollande) |
+| Ian LAURENT        | Program Manager   | [Ian's GitHub](https://github.com/Ianlaur)                |
+| Pierre GORIN       | Technical Lead    | [Pierre's GitHub](Pierre2103)                             |
+| Victor LEROY       | Software Engineer | [Victor's GitHub](https://github.com/Victor-Leroy)        |
+| Manech LAGUENS     | Software Engineer | [Manech's GitHub](https://github.com/Manech-Laguens)      |
+| Laurent BOUQUIN    | Quality Assurance | [Laurent's GitHub](https://github.com/Ianlaur)            |
+| Evan UHRING        | Quality Assurance | [Evan's GitHub](https://github.com/Evan-UHRING)           |
 
 ### 1.2.2 - Client
 
@@ -217,9 +218,9 @@ git clone https://github.com/algosup/2023-2024-project-3-virtual-processor-team-
 cd 2023-2024-project-3-virtual-processor-team-8
 ```
 
-#### 1.3.2.2 - Installation with Github Desktop
+#### 1.3.2.2 - Installation with GitHub Desktop
 
-Open Github Desktop and click on `File > Clone Repository`. Select the URL tab and enter the following URL:
+Open GitHub Desktop and click on `File > Clone Repository`. Select the URL tab and enter the following URL:
 
 ```bash
 https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8.git
@@ -278,7 +279,7 @@ The interpreter will be compatible with the most common hardware configurations,
 | Specification    | Lenovo ThinkBook 14  | Lenovo ThinkBook 14  | Lenovo ThinkPad 2023 | Apple MacBook Air M1 2020 | Apple MacBook Air M1 2020 |
 | ---------------- | -------------------- | -------------------- | -------------------- | ------------------------- | ------------------------- |
 | Processor        | Intel Core I7-1065G7 | Intel Core i7-1165G7 | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
-| RAM[^15]              | 16GB                 | 16 GB                | 16GB                 | 8 GB                      | 8 GB                      |
+| RAM[^15]         | 16GB                 | 16 GB                | 16GB                 | 8 GB                      | 8 GB                      |
 | Operating System | Windows 11 Pro       | Windows 11 Pro       | Windows 11 Pro       | macOS Ventura             | macOS Sonoma              |
 
 ### 2.1.2 - Software
@@ -296,51 +297,60 @@ The interpreter will be compatible with the most common operating systems, and w
 The project will be organized in the following folder structure:
 
 ```bash
-~ 2023-2024-project-3-virtual-processor-team-8  # Root folder
-├── Bin                                         # Binary folder
-├── Tests                                       # Tests folder
-│   ├── tests_interpreter.c                     # Interpreter tests C file
-│   ├── tests_interpreter.h                     # Interpreter tests C header file
-│   ├── tests_scraper.c                         # Scraper tests C file
-│   ├── tests_scraper.h                         # Scraper tests C header file
-│   ├── tests_parser.c                          # Parser tests C file
-│   ├── tests_parser.h                          # Parser tests C header file
-│   ├── tests_main.c                            # Main tests C file
-│   └── tests_main.h                            # Main tests C header file
-├── Docs                                        # Documentation folder
-│   ├── Management                              # Management folder
-│   │   ├── Team-Management                     # Team management folder
-│   │   │   ├── Gantt-Charter.pdf               # Gantt chart file
-│   │   │   └── Racii.md                        # RACII file
-│   │   ├── Weekly-Reports                      # Weekly reports folder
-│   │   │   ├── Img                             # Images folder
-│   │   │   ├── Weekly-Report-1.md              # Weekly report file
-│   │   │   ├── Weekly-Report-2.md              # Weekly report file
-│   │   │   └── [etc...]                        # Others Weekly report file
-│   │   ├── Project-Charter.md                  # Project charter file
-│   │   └── Risk-Management-Plan.md             # Risk management plan file
-│   └── Specs                                   # Specifications folder
-│       ├── Img                                 # Images folder
-│       │   ├── Functional-Specification        # Functional specification images folder
-│       │   ├── Technical-Specification         # Technical specification images folder
-│       │   └── Test-Plan                       # Test plan images folder
-│       ├── Functional-Specification.md         # Functional specification file
-│       ├── Technical-Specification.md          # Technical specification file
-│       └── Test-Plan.md                        # Test plan file
-├── Src                                         # Source code folder
-│   ├── code.asm                                # Assembly code file
-│   ├── interpreter.c                           # Interpreter C file
-│   ├── interpreter.h                           # Interpreter C header file
-│   ├── main.c                                  # Main C file
-│   ├── main.h                                  # Main C header file
-│   ├── scraper.c                               # Parser C file
-│   ├── scraper.h                               # Parser C header file
-│   ├── parser.c                                # Parser C file
-│   ├── parser.h                                # Parser C header file
-│   └── temp                                    # Temporary folder
-├── .gitignore                                  # Git ignore file
-├── LICENSE                                     # License file
-└── README.md                                   # Readme file
+~ 2023-2024-project-3-virtual-processor-team-8  # 📁 Root folder
+├── Bin                                         # 📁 Binary folder
+├── Tests                                       # 📁 Tests folder
+│   ├── tests_interpreter.c                     # 📄 Interpreter tests C file
+│   ├── tests_interpreter.h                     # 📄 Interpreter tests C header file
+│   ├── tests_scraper.c                         # 📄 Scraper tests C file
+│   ├── tests_scraper.h                         # 📄 Scraper tests C header file
+│   ├── tests_parser.c                          # 📄 Parser tests C file
+│   ├── tests_parser.h                          # 📄 Parser tests C header file
+│   ├── tests_main.c                            # 📄 Main tests C file
+│   └── tests_main.h                            # 📄 Main tests C header file
+├── Docs                                        # 📁 Documentation folder
+│   ├── Management                              # 📁 Management folder
+│   │   ├── Team-Management                     # 📁 Team management folder
+│   │   │   ├── Gantt-Charter.pdf               # 📙 Gantt chart file
+│   │   │   └── Racii.md                        # 📄 RACII file
+│   │   ├── Weekly-Reports                      # 📁 Weekly reports folder
+│   │   │   ├── Img                             # 📁 Images folder
+│   │   │   ├── Weekly-Report-1.md              # 📄 Weekly report file
+│   │   │   ├── Weekly-Report-2.md              # 📄 Weekly report file
+│   │   │   └── [etc...]                        # 📄 Others Weekly report file
+│   │   ├── Project-Charter.md                  # 📄 Project charter file
+│   │   └── Risk-Management-Plan.md             # 📄 Risk management plan file
+│   └── Specs                                   # 📁 Specifications folder
+│       ├── Img                                 # 📁 Images folder
+│       │   ├── Functional-Specification        # 📁 Functional specification images folder
+│       │   │   ├── 1.png                       # 🖼️ Functional specification image
+│       │   │   ├── 2.png                       # 🖼️ Functional specification image
+│       │   │   └── [etc...]                    # 🖼️ Others Functional specification image  
+│       │   ├── Technical-Specification         # 📁 Technical specification images folder
+│       │   │   ├── 1.png                       # 🖼️ Technical specification image
+│       │   │   ├── 2.png                       # 🖼️ Technical specification image
+│       │   │   └── [etc...]                    # 🖼️ Others Technical specification image
+│       │   └── Test-Plan                       # 📁 Test plan images folder
+│       │   │   ├── 1.png                       # 🖼️ Test plan image
+│       │   │   ├── 2.png                       # 🖼️ Test plan image
+│       │   │   └── [etc...]                    # 🖼️ Others Test plan image
+│       ├── Functional-Specification.md         # 📄 Functional specification file
+│       ├── Technical-Specification.md          # 📄 Technical specification file
+│       └── Test-Plan.md                        # 📄 Test plan file
+├── Src                                         # 📁 Source code folder
+│   ├── code.asm                                # 📄 Assembly code file
+│   ├── interpreter.c                           # 📄 Interpreter C file
+│   ├── interpreter.h                           # 📄 Interpreter C header file
+│   ├── main.c                                  # 📄 Main C file
+│   ├── main.h                                  # 📄 Main C header file
+│   ├── scraper.c                               # 📄 Parser C file
+│   ├── scraper.h                               # 📄 Parser C header file
+│   ├── parser.c                                # 📄 Parser C file
+│   ├── parser.h                                # 📄 Parser C header file
+│   └── temp                                    # 📁 Temporary folder
+├── .gitignore                                  # 📄 Git ignore file
+├── LICENSE                                     # 📄 License file
+└── README.md                                   # 📄 Readme file
 ```
 
 ## 2.3 - Conventions
@@ -739,7 +749,7 @@ In this example, the value of the register `ra` is inverted.
 
 If the result of the comparison is true, the value `1` is stored in the register `ra`. If the result of the comparison is false, the value `0` is stored in the register `ra`.
 
-#### 2.4.8 - Comments
+### 2.4.8 - Comments
 
 We'll use the following syntax:
 
@@ -1166,26 +1176,26 @@ Included in `main_test.c`, this header file structures the testing approach for 
 
 [*(Back to top)*](#toc)
 
-| Photos | Name | Github | LinkedIn |
-| :---: | :---: | :---: | :---: |
-| <img src="https://avatars.githubusercontent.com/u/71769490?v=4" width="100px" height="100px"> | **Laura-Lee HOLLANDE**| [![GitHub](https://img.shields.io/badge/GitHub-lauraleehollande-lightgrey?logo=github&style=flat-square)](https://github.com/lauraleehollande) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laura--Lee_Hollande-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laura-lee-hollande-278345198/) |
-| <img src="https://avatars.githubusercontent.com/u/146005340?v=4" width="100px" height="100px"> | **Ian LAURENT**| [![GitHub](https://img.shields.io/badge/GitHub-Ianlaur-lightgrey?logo=github&style=flat-square)](https://github.com/Ianlaur) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ian_Laurent-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/ian-h-laurent/) |
-| <img src="https://avatars.githubusercontent.com/u/91249863?v=4" width="100px" height="100px"> | **Pierre GORIN**| [![GitHub](https://img.shields.io/badge/GitHub-Pierre2103-lightgrey?logo=github&style=flat-square)](https://github.com/Pierre2103) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pierre_Gorin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/pierre-gorin-61a784221/) |
-| <img src="https://avatars.githubusercontent.com/u/71769489?v=4" width="100px" height="100px"> | **Laurent BOUQUIN**| [![GitHub](https://img.shields.io/badge/GitHub-laurentbouquin-lightgrey?logo=github&style=flat-square)](https://github.com/laurentbouquin) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laurent_Bouquin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laurentb22/) |
-| <img src="https://avatars.githubusercontent.com/u/146000775?v=4" width="100px" height="100px"> | **Evan UHRING**| [![GitHub](https://img.shields.io/badge/GitHub-Evan--UHRING-lightgrey?logo=github&style=flat-square)](https://github.com/Evan-UHRING) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Evan_Uhring-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/evan-uhring-72911b293/) |
-| <img src="https://avatars.githubusercontent.com/u/97166029?v=4" width="100px" height="100px"> | **Victor LEROY**| [![GitHub](https://img.shields.io/badge/GitHub-Victor--Leroy-lightgrey?logo=github&style=flat-square)](https://github.com/Victor-Leroy) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Leroy-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/victor-leroy-64baa3229/) |
-| <img src="https://avatars.githubusercontent.com/u/146005062?v=4" width="100px" height="100px"> | **Manech LAGUENS**| [![GitHub](https://img.shields.io/badge/GitHub-Manech--Laguens-lightgrey?logo=github&style=flat-square)](https://github.com/Manech-Laguens) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Manech_Laguens-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/manech-laguens-020127293/) |
+|                                             Photos                                             |          Name          |                                                                     GitHub                                                                     |                                                                                 LinkedIn                                                                                 |
+| :--------------------------------------------------------------------------------------------: | :--------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/71769490?v=4" width="100px" height="100px">  | **Laura-Lee HOLLANDE** | [![GitHub](https://img.shields.io/badge/GitHub-lauraleehollande-lightgrey?logo=github&style=flat-square)](https://github.com/lauraleehollande) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laura--Lee_Hollande-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laura-lee-hollande-278345198/) |
+| <img src="https://avatars.githubusercontent.com/u/146005340?v=4" width="100px" height="100px"> |    **Ian LAURENT**     |          [![GitHub](https://img.shields.io/badge/GitHub-Ianlaur-lightgrey?logo=github&style=flat-square)](https://github.com/Ianlaur)          |            [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ian_Laurent-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/ian-h-laurent/)             |
+| <img src="https://avatars.githubusercontent.com/u/91249863?v=4" width="100px" height="100px">  |    **Pierre GORIN**    |       [![GitHub](https://img.shields.io/badge/GitHub-Pierre2103-lightgrey?logo=github&style=flat-square)](https://github.com/Pierre2103)       |       [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pierre_Gorin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/pierre-gorin-61a784221/)        |
+| <img src="https://avatars.githubusercontent.com/u/71769489?v=4" width="100px" height="100px">  |  **Laurent BOUQUIN**   |   [![GitHub](https://img.shields.io/badge/GitHub-laurentbouquin-lightgrey?logo=github&style=flat-square)](https://github.com/laurentbouquin)   |            [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laurent_Bouquin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laurentb22/)            |
+| <img src="https://avatars.githubusercontent.com/u/146000775?v=4" width="100px" height="100px"> |    **Evan UHRING**     |     [![GitHub](https://img.shields.io/badge/GitHub-Evan--UHRING-lightgrey?logo=github&style=flat-square)](https://github.com/Evan-UHRING)      |        [![LinkedIn](https://img.shields.io/badge/LinkedIn-Evan_Uhring-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/evan-uhring-72911b293/)         |
+| <img src="https://avatars.githubusercontent.com/u/97166029?v=4" width="100px" height="100px">  |    **Victor LEROY**    |    [![GitHub](https://img.shields.io/badge/GitHub-Victor--Leroy-lightgrey?logo=github&style=flat-square)](https://github.com/Victor-Leroy)     |       [![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Leroy-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/victor-leroy-64baa3229/)        |
+| <img src="https://avatars.githubusercontent.com/u/146005062?v=4" width="100px" height="100px"> |   **Manech LAGUENS**   |  [![GitHub](https://img.shields.io/badge/GitHub-Manech--Laguens-lightgrey?logo=github&style=flat-square)](https://github.com/Manech-Laguens)   |     [![LinkedIn](https://img.shields.io/badge/LinkedIn-Manech_Laguens-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/manech-laguens-020127293/)      |
 
 
 ## 4.2 - Related Documents
 
 [*(Back to top)*](#toc)
 
-| Document | Description |
-| :---: | :---: |
+|                        Document                         |                              Description                              |
+| :-----------------------------------------------------: | :-------------------------------------------------------------------: |
 | [Functional Specification](Functional-Specification.md) | This document describes the functional specifications of the project. |
-| [Test Plan](Test-Plan.md) | This document describes the test plan of the project. |
-| [Readme](../README.md) | This document describes the project. |
+|                [Test Plan](Test-Plan.md)                |         This document describes the test plan of the project.         |
+|                 [Readme](../README.md)                  |                 This document describes the project.                  |
 
 
 ## 4.3 - License
@@ -1216,28 +1226,28 @@ In this section, you will find all the tools and references used to create this 
 
 [*(Back to top)*](#toc)
 
-| Term | Definition | What it means in this project | Additional Content |
-| :---: | :---: | :---: | :---: |
-| **Processor[^1]** | A processor is the logic circuitry that responds to and processes the basic instructions that drive a computer. | The processor is the virtual processor that will execute the assembly code. | [Wikipedia](https://en.wikipedia.org/wiki/Central_processing_unit) |
-| **Interpreter[^2]** | In computer science, an interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them previously to have been compiled into a machine language program. | The interpreter is the virtual processor that will execute the assembly code. | [Wikipedia](https://en.wikipedia.org/wiki/Interpreter_(computing)) |
-| **Assembly Language[^3]** | An assembly language is a low-level programming language for a computer, or other programmable device, in which there is a very strong (generally one-to-one) correspondence between the language and the architecture's machine code instructions. | The assembly language is the language that will be interpreted by the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Assembly_language) |
-| **C[^4]** | C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system. | C is the language used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/C_(programming_language)) |
-| **Low-Level Language[^5]** | A low-level programming language is a programming language that provides little or no abstraction from a computer's instruction set architecture. | The assembly language is a low-level language. | [Wikipedia](https://en.wikipedia.org/wiki/Low-level_programming_language) |
-| **Emulation[^6]** | In computing, emulation refers to the ability of a computer program in an electronic device to emulate (or imitate) another program or device. | The virtual processor will emulate a processor. | [Wikipedia](https://en.wikipedia.org/wiki/Emulator) |
-| **Instruction[^7]** | An instruction is an order given to a computer processor by a computer program. | The assembly language is composed of instructions. | [Wikipedia](https://en.wikipedia.org/wiki/Instruction_(computer_science)) |
-| **Operating System[^8]** | An operating system is system software that manages computer hardware, software resources, and provides common services for computer programs. | The operating system is the software that will run the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Operating_system) |
-| **Visual Studio Code[^9]** | Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux and macOS. | Visual Studio Code is the IDE[^10] used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Visual_Studio_Code) |
-| **IDE[^10]** | An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. | Visual Studio Code is the IDE used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Integrated_development_environment) |
-| **GCC[^11]** | GCC, formerly an acronym for GNU Compiler Collection, is a compiler system produced by the GNU Project supporting various programming languages. | GCC is the compiler used to compile the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) |
-| **Compiler[^12]** | A compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). | GCC is the compiler used to compile the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Compiler) |
-| **Performance Analysis[^13]** | Performance analysis is the process of assessing the performance of a computer, comparing the performance of one or more systems, or evaluating the performance of a component. | Performance analysis is the process of assessing the performance of the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) |
-| **Memory Management[^14]** | Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance. | Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance. | [Wikipedia](https://en.wikipedia.org/wiki/Memory_management) |
-| **RAM[^15]** | Random-access memory (RAM) is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code. | RAM is the memory used by the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Random-access_memory) |
-| **Naming Convention[^16]** | A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation. | A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation. | [Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_(programming)) |
-| **Register[^17]** | In computer architecture, a processor register is a quickly accessible location available to a computer's central processing unit (CPU). | Registers are used by the virtual processor to store data. | [Wikipedia](https://en.wikipedia.org/wiki/Processor_register) |
-| **Jump[^18]** | In computer science, a jump statement is a statement that unconditionally transfers program control to a designated statement. | Jump statements are used by the virtual processor to change the flow of execution. | [Wikipedia](https://en.wikipedia.org/wiki/Branch_(computer_science)) |
-| **Parsing[^19]** | Parsing, syntax analysis, or syntactic analysis is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar. | Parsing is the process of analyzing the assembly language code. | [Wikipedia](https://en.wikipedia.org/wiki/Parsing) |
-| **Operand[^20]** | In mathematics and computer programming, an operand is the object of a mathematical operation, a quantity on which an operation is performed. | Operands are used by the virtual processor to perform arithmetic operations. | [Wikipedia](https://en.wikipedia.org/wiki/Operand) |
+|             Term              |                                                                                                                     Definition                                                                                                                      |                                                                                    What it means in this project                                                                                    |                              Additional Content                               |
+| :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+|       **Processor[^1]**       |                                                                   A processor is the logic circuitry that responds to and processes the basic instructions that drive a computer.                                                                   |                                                             The processor is the virtual processor that will execute the assembly code.                                                             |      [Wikipedia](https://en.wikipedia.org/wiki/Central_processing_unit)       |
+|      **Interpreter[^2]**      |       In computer science, an interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them previously to have been compiled into a machine language program.        |                                                            The interpreter is the virtual processor that will execute the assembly code.                                                            |      [Wikipedia](https://en.wikipedia.org/wiki/Interpreter_(computing))       |
+|   **Assembly Language[^3]**   | An assembly language is a low-level programming language for a computer, or other programmable device, in which there is a very strong (generally one-to-one) correspondence between the language and the architecture's machine code instructions. |                                                      The assembly language is the language that will be interpreted by the virtual processor.                                                       |         [Wikipedia](https://en.wikipedia.org/wiki/Assembly_language)          |
+|           **C[^4]**           |                                        C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system.                                        |                                                                       C is the language used to write the virtual processor.                                                                        |      [Wikipedia](https://en.wikipedia.org/wiki/C_(programming_language))      |
+|  **Low-Level Language[^5]**   |                                                  A low-level programming language is a programming language that provides little or no abstraction from a computer's instruction set architecture.                                                  |                                                                           The assembly language is a low-level language.                                                                            |   [Wikipedia](https://en.wikipedia.org/wiki/Low-level_programming_language)   |
+|       **Emulation[^6]**       |                                                   In computing, emulation refers to the ability of a computer program in an electronic device to emulate (or imitate) another program or device.                                                    |                                                                           The virtual processor will emulate a processor.                                                                           |              [Wikipedia](https://en.wikipedia.org/wiki/Emulator)              |
+|      **Instruction[^7]**      |                                                                                   An instruction is an order given to a computer processor by a computer program.                                                                                   |                                                                         The assembly language is composed of instructions.                                                                          |   [Wikipedia](https://en.wikipedia.org/wiki/Instruction_(computer_science))   |
+|   **Operating System[^8]**    |                                                   An operating system is system software that manages computer hardware, software resources, and provides common services for computer programs.                                                    |                                                              The operating system is the software that will run the virtual processor.                                                              |          [Wikipedia](https://en.wikipedia.org/wiki/Operating_system)          |
+|  **Visual Studio Code[^9]**   |                                                                           Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux and macOS.                                                                           |                                                               Visual Studio Code is the IDE[^10] used to write the virtual processor.                                                               |         [Wikipedia](https://en.wikipedia.org/wiki/Visual_Studio_Code)         |
+|         **IDE[^10]**          |                                           An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development.                                            |                                                                 Visual Studio Code is the IDE used to write the virtual processor.                                                                  | [Wikipedia](https://en.wikipedia.org/wiki/Integrated_development_environment) |
+|         **GCC[^11]**          |                                                  GCC, formerly an acronym for GNU Compiler Collection, is a compiler system produced by the GNU Project supporting various programming languages.                                                   |                                                                     GCC is the compiler used to compile the virtual processor.                                                                      |      [Wikipedia](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)       |
+|       **Compiler[^12]**       |                                        A compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language).                                        |                                                                     GCC is the compiler used to compile the virtual processor.                                                                      |              [Wikipedia](https://en.wikipedia.org/wiki/Compiler)              |
+| **Performance Analysis[^13]** |                                   Performance analysis is the process of assessing the performance of a computer, comparing the performance of one or more systems, or evaluating the performance of a component.                                   |                                                     Performance analysis is the process of assessing the performance of the virtual processor.                                                      |  [Wikipedia](https://en.wikipedia.org/wiki/Profiling_(computer_programming))  |
+|  **Memory Management[^14]**   |                               Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance.                                |       Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance.        |         [Wikipedia](https://en.wikipedia.org/wiki/Memory_management)          |
+|         **RAM[^15]**          |                                              Random-access memory (RAM) is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code.                                              |                                                                          RAM is the memory used by the virtual processor.                                                                           |        [Wikipedia](https://en.wikipedia.org/wiki/Random-access_memory)        |
+|  **Naming Convention[^16]**   |                         A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation.                         | A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation. |  [Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_(programming))   |
+|       **Register[^17]**       |                                                      In computer architecture, a processor register is a quickly accessible location available to a computer's central processing unit (CPU).                                                       |                                                                     Registers are used by the virtual processor to store data.                                                                      |         [Wikipedia](https://en.wikipedia.org/wiki/Processor_register)         |
+|         **Jump[^18]**         |                                                           In computer science, a jump statement is a statement that unconditionally transfers program control to a designated statement.                                                            |                                                         Jump statements are used by the virtual processor to change the flow of execution.                                                          |     [Wikipedia](https://en.wikipedia.org/wiki/Branch_(computer_science))      |
+|       **Parsing[^19]**        |                  Parsing, syntax analysis, or syntactic analysis is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar.                   |                                                                   Parsing is the process of analyzing the assembly language code.                                                                   |              [Wikipedia](https://en.wikipedia.org/wiki/Parsing)               |
+|       **Operand[^20]**        |                                                    In mathematics and computer programming, an operand is the object of a mathematical operation, a quantity on which an operation is performed.                                                    |                                                            Operands are used by the virtual processor to perform arithmetic operations.                                                             |              [Wikipedia](https://en.wikipedia.org/wiki/Operand)               |
 
 
 ## 4.6 - Footnotes
