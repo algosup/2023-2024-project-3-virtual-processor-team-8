@@ -2,36 +2,36 @@
 
 ## Table of content </summary>
   - [A) Introduction](#a-introduction)
-    - [1) Project Overview](#1-project-overview)
-    - [2) Project Definition](#2-project-definition)
+    - [1) Project overview](#1-project-overview)
+    - [2) Project definition](#2-project-definition)
       - [➭ Project vision](#project-vision)
       - [➭ Objectives](#objectives)
       - [➭ Scopes](#scopes)
       - [➭ Deliverables](#deliverables)
-      - [➭ Personas Definition](#personas-definition)
-        - Persona 1
-        - Persona 2
-    - [3) Project Organization](#3-project-organisation)
+      - [➭ Personas definition](#personas-definition)
+        - [Persona 1] (#persona-1)
+        - [Persona 2] (#persona-2)
+    - [3) Project organization](#3-project-organisation)
       - [➭ Stakeholders](#stakeholders)
-      - [➭ Project Reviewers](#project-reviewers)
-    - [4) Project Plan](#4-project-plan)
+      - [➭ Project reviewers](#project-reviewers)
+    - [4) Project plan](#4-project-plan)
       - [➭ Retro-planning](#retro-planning)
       - [➭ Milestones](#milestones)
       - [➭ Resources and tools](#resources-and-tools)
       - [➭ Assumptions and constraints](#assumptions-and-constraints)
-  - [B) Functional Requirements](#b-functional-requirements)
+  - [B) Functional requirements](#b-functional-requirements)
     - [1) Customers requirements](#1-customers-requirements)
-    - [2) Objectives and loss condition](#2-objectives-and-loss-condition)
+    - [2) Objectives and loss conditions](#2-objectives-and-loss-condition)
     - [3) Operability](#3-operability)
     - [4) Reliability](#4-reliability)
     - [5) Product requirements](#5-product-requirements)
     - [6) Emulators features breakdown](#6-emulators-features-breakdown)
     - [7) Terminal](#7-terminal)
     - [8) Other](#8-other)
-    - [9) Use Cases Analysis](#9-use-cases-analysis)
-    - [10) Functional Analysis](#10-functional-analysis)
-  - [C) Non-Functional Requirements](#c-non-functional-requirements)
-    - [1) Response/Performance](#1-responseperformance)
+    - [9) Use cases analysis](#9-use-cases-analysis)
+    - [10) Functional analysis](#10-functional-analysis)
+  - [C) Non-functional requirements](#c-non-functional-requirements)
+    - [1) Response and Performance](#1-response-and-performance)
     - [2) Recovery](#2-recovery)
     - [3) Delivery](#3-delivery)
     - [4) Maintainability](#4-maintainability)
@@ -41,7 +41,7 @@
 </details>
 
 # A. Introduction
-As for the overview of the project, the client (ALGOSUP : Franck) has demanded us to create an emulator on which we will have to run an assembly[^4] ("[...].asm") file on it. The goal of the project is to create a virtual processor[^3] and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language[^5] without the use of any external library beside C standard libraries. As for the complicator the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
+As for the overview of the project, the client (ALGOSUP : Franck JEANNIN) has demanded us to create an emulator on which we will have to run an assembly[^4] ("[...].asm") file on it. The goal of the project is to create a virtual processor[^3] and an interpreter for running assembly code on that processor. The final product must be developed in plain, portable and coded in C language[^5] without the use of any external library beside C standard libraries. As for the compiler the client has recommended to use "gcc[^1]" and "Visual studio code[^2]" as IDE (integrated development environment).
 As for the operating system the final product will run on MacOS and Windows, and the devices used to develop the product are :
 
     - Apple MacBook Air 2021, equipped with the "M1" chip running on "Ventura 13.0" MacOS version.
@@ -57,14 +57,14 @@ The team is composed with 7 members each having a designated role.
 | **Name** | **Role** |
 | Laura-Lee HOLLANDE| Project Manager |
 | Ian LAURENT | Program Manager |
-| Pierre GORIN | Technical Lead |
+| Pierre GORIN | Technical Leader |
 | Manech LAGUENS | Software Engineer |
 |  Victor LEROY | Software Engineer |
 | Laurent BOUQUIN | Quality Assurance |
 | Evan UHRING | Quality Assurance |
 
 ## 1. Project overview
-Our team was asked by ALGOSUP International software development school to create an emulator coded in C language[^5], which will have to be able run an assembly code. 
+Our team was asked by ALGOSUP International software development school to create an emulator coded in C language[^5], which will have to be able to run an assembly code. 
 
 ## 2. Project definition
 
@@ -77,7 +77,7 @@ Developing a virtual processor capable of executing assembly code is the princip
 Being able to create an interpreter for the custom assembly language.
 It should implement a set of essential assembly instructions, including arithmetic, logical operations, and control flow.
 The team will have to ensure it's portability by developing the project in plain C language, utilizing standard libraries, and recommending specific development tools.
-To assure that the Objectives were achieved making unit tests though out the development will wrap all the code and detect as many errors in the code as possible.
+To assure that the objectives were achieved, making unit tests throughout the development phase will allow the team to detect as many errors in the code as possible.
 
 
 ### **Scopes**
@@ -88,37 +88,39 @@ Develop a software able to proceed some basic commands that are written based on
 ### **Deliverables**
 We will have to make sure to deliver the final product in the deadlines that were given by the client. To ensure that the final product will be ready to present, the team has to ensure that all the milestones are achieved and done on time.
 
-As for this document (<n>Functional specification</n>), it's due date is the **01/30/24** and should contain all the information regarding the overview of the project and all the success key to deliver the final product to the client. This document must also contain the outlining of assembly language, explanation of the virtual processors and it's functions, and the interpreter's specifications.
+As for this document (<n>Functional specification</n>), the due date is **01/30/24** at 5pm and should contain all the information regarding the overview of the project and all the success keys to deliver the final product to the client. This document must also contain the outlining of assembly language, explanation of the virtual processors and it's functions, and the interpreter's specifications.
 
-A <u>technical</u> Specification is mandatory for this project, and it's due date is **02/09/24**. This document should provide insights into the implementation details, data structures, and the types of algorithms used without giving out the code. It will have to specify the technical aspects of the final product keeping it understandable for the client. Keeping terms employed understandable with explanations if needed, and clear will allow to maintain transparency of the advancement of the project. 
+A <u>Technical Specification</u> is mandatory for this project, and the due date is **02/09/24** 5pm. This document should provide insights into the implementation details, data structures, and the types of algorithms used without giving out the code. It will have to specify the technical aspects of the final product keeping it understandable for the client. Keeping terms employed understandable with clear explanations if needed, will allow to maintain transparency of the advancement of the project.
 
-Testing is key to make sure that the final product is presentable to the client and meets it's expectations. These tests will be done within the team but also with outside insights such as other external individuals. These tests will be specified in a document named a <u>test plan</u>, in this document all tests that have been done on the product must be detailed with a clear understanding on what lead to the issue, it's type meaning either if it's a technical issue or other, and other detailed information to allow to keep track of the issues for the client but also within the team members.
+Testing is key to make sure that the final product is presentable to the client and meets its expectations. These tests will be done within the team but also with outside insights such as other external individuals. These tests will be specified in a document named a <u>Test plan</u>. In this document, all tests that have been done on the product must be detailed with a clear understanding on what lead to the issue, its type meaning either if it's a technical issue or other, and other detailed information to allow to keep track of the issues for the client but also within the team members.
 
-As for the <u>final product</u>, the deadline being 02/23/24, this should be the final version of the product. This version should be fully functional with all the features that was mentioned in this document. This version should obviously meet the satisfaction of the client and respond to the clients needs. This version will be tested before being presented to the client, and should include the virtual processor, interpreter and the associated tools.
+As for the <u>final product</u>, the deadline being **02/23/24**, this should be the final version of the product. This version should be fully functional with all the features that was mentioned in this document. This version should obviously meet the satisfaction of the client and respond to the client's needs. This version will be tested before being presented to the client, and should include the virtual processor, interpreter and the associated tools.
 
 
 ### **Personas definition**
 
 #### Persona 1 :
 <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-1.png" alt="Persona-1"/>
+
 #### Persona 2 :
+
 <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-2.png" alt="Persona-1"/>
 
 
 ## 3. Project organization
 
 ### **Stakeholders**
-The stake holders for this project is <u>ALGOSUP International software development school</u> represented by <u>Franck JEANNIN</u> backed by Eric LARCHEVEQUE, Natacha BOEZ and Jean-Philippe GRASSE.
+The stakeholders for this project are the staff of <u>ALGOSUP International software development school</u> represented by <u>Franck JEANNIN</u> backed by Eric LARCHEVEQUE, Natacha BOEZ and Jean-Philippe GRASSE.
 
 
 ### **Project reviewers**
-The project reviews in team 8 are : 
+The project reviewers in team 8 are : 
 |*Name*|*Role*|
 |:-|:-|
 Evan UHRING|Quality assurance
 Laurent BOUQUIN|Quality assurance
 Laura-Lee HOLLANDE | Project Manager
-Pierre GORIN | Tech lead
+Pierre GORIN | Technical leader
 
 
 ## 4. Project Plan
@@ -127,7 +129,7 @@ Pierre GORIN | Tech lead
 
 ### **Retro-planning**
 
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="Project Plan" width="75"/>
+<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Gcc-Logo.png" alt="Project Plan" />
 
 
 ### **Milestones**
@@ -140,14 +142,14 @@ Pierre GORIN | Tech lead
 
 
 ### **Resources and tools**
-environment: Vs code, Github
-test environment: 
-management environment: trello, slack 
+Development environment: VS code, GitHub
+Test environment: unit tests on VScode, test plan GitHub, Issues with GitHub issues
+Management environment: Trello, Slack 
 
 
 ### **Assumptions and constraints**
-Assuming that the client has a MacOs or an windows device and a compatible Os.
-The constraints can occur if the device Os is not compatible with the virtual processor, or there is an incompatibility of the version of C language between the developed product and the installed version of C in VScode of the client. Clients device runs on Linux. Clients device has a limited amount of storage and memory available. 
+Assuming that the client has a MacOs or a Windows device and a compatible OS.
+The constraints can occur if the device's OS is not compatible with the virtual processor, or if there is an incompatibility of the version of C language between the developed product and the installed version of C of the client. Client's device runs on Linux. Client's device has a limited amount of storage and memory available. 
 
 
 # B. Functional Requirements
@@ -156,14 +158,14 @@ The constraints can occur if the device Os is not compatible with the virtual pr
 The main customer requirement is to build a fully functional virtual processor that will be able to run an assembly code. This processor will have be in a x86 environment. 
 
 
-## 2. Objectives and loss condition
+## 2. Objectives and loss conditions
 The objectives are to respond to the demand of the client. Meaning that all the customers requirements are fulfilled and all mentioned aspects should be fully functional and meet the satisfaction of the client. 
 
-As for the loss condition will be if the     ~~        .The main requirements are not up to expectations of the client is one of the other loss condition. Deadlines are another factor of loss condition, if the team doesn't manage to deliver documents and other demands from the client by it's deadlines.
+As for the loss conditions will be determined by several factors such as, the final product being not functional, and not meeting the clients expectations. Deadlines are another factor of loss condition, if the team doesn't manage to deliver to the client within the deadlines it will be considered a deadline. 
 
 
 ## 3. Operability
-The virtual processor will have to run on all software devices (Windows, MacOs)~~
+The virtual processor will have to run on all software devices (Windows, MacOs) and any recent windows or MacOs running devices.
 
 
 ## 4. Reliability
@@ -204,7 +206,7 @@ This functional requirements will demand several steps such as the import of the
 
 
 # C. Non-functional requirements
-## 1. Response/Performance
+## 1. Response and Performance
 Assembly being a low level language the file will be run by the processor depending on the optimization of the code elaborated by the team. The team will make sure that the code is as optimized for the running time of the users code will be as fast as possible.
 
 
