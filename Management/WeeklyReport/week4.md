@@ -96,6 +96,8 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 |        |      |       |        |          |
 |        |      |       |        |          |
 
+<!-- Week 3, add problem solving -->
+
 ---
 
 [^1]: Risk is any unexpected event that can affect your project — for better or for worse. Risk can affect anything: people, processes, technology, and resources. [...] Risks are events that might happen, and you may not be able to tell when.
