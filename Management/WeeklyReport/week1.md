@@ -65,7 +65,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ⚠️ ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
-## KPIs
+## Key Performance Indicator[^3]
 
 <details>
 
@@ -102,3 +102,5 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 [^2]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
+[^3]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+*source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*
