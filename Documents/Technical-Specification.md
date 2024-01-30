@@ -13,7 +13,7 @@
 
 **Created on:** January 22<sup>nd</sup>, 2024
 
-**Last updated:** January 29<sup>th</sup>, 2024
+**Last updated:** January 30<sup>th</sup>, 2024
 
 ---
 
@@ -114,6 +114,15 @@
     - [3.4.2 `main.h`](#342-mainh)
     - [3.4.3 `main_test.c`](#343-main_testc)
     - [3.4.4 `main_test.h`](#344-main_testh)
+- [4 - End Matter](#4---end-matter)
+  - [4.1 - Contributors](#41---contributors)
+  - [4.2 - Related Documents](#42---related-documents)
+  - [4.3 - License](#43---license)
+  - [4.4 - References](#44---references)
+    - [4.4.1 - Tools](#441---tools)
+    - [4.4.2 - References](#442---references)
+  - [4.5 - Glossary](#45---glossary)
+  - [4.6 - Footnotes](#46---footnotes)
 
 </details>
 
@@ -127,17 +136,17 @@
 
 ### 1.1.1 - Goals
 
-This project aims to develop a virtual processor[^1] and an interpreter[^2] for a custom assembly language[^3]. Using only standard C[^4] libraries for wide compatibility, the primary goal is to design a minimal assembly language and build a C program interpreter capable of executing and error-checking assembly code. This solution is intended to serve educational purposes and software developers interested in low-level programming[^5] and processor emulation. The project combines technical innovation with practical application, focusing on creating a user-friendly and educational tool in the field of computer architecture.
+This project aims to develop a virtual processor[^1] and an interpreter[^2] for a custom assembly language[^3]. Using only standard C[^4] libraries for wide compatibility, the primary goal is to design a minimal assembly language and build a C program interpreter capable of executing and error-checking assembly code. This solution is intended to serve educational purposes and software developers interested in low-level programming[^5] and processor emulation[^6]. The project combines technical innovation with practical application, focusing on creating a user-friendly and educational tool in the field of computer architecture.
 
 ### 1.1.2 - Objectives
 
 The project objectives are as follows:
 
-- Design a minimal assembly language with a sufficient set of instructions.
+- Design a minimal assembly language with a sufficient set of instructions[^7].
 - Develop an interpreter capable of executing assembly code.
 - Develop an interpreter capable of error-checking assembly code.
 - Make the interpreter user-friendly and easy to use.
-- Make the interpreter compatible with a wide range of operating systems.
+- Make the interpreter compatible with a wide range of operating systems[^8].
 
 ### 1.1.3 - Success Criteria
 
@@ -185,9 +194,9 @@ Following are the instructions to install and run the interpreter.
 
 To run your custom assembly code, you will need to install the following dependencies:
 
-- [VS Code](https://code.visualstudio.com/download) - Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux and macOS.
+- [VS Code](https://code.visualstudio.com/download) - Visual Studio Code[^9] is a free source-code editor made by Microsoft for Windows, Linux and macOS.
 - [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ for Visual Studio Code is an extension for VS Code that provides IntelliSense, debugging, and code browsing support for C and C++ code.
-- [GCC](https://gcc.gnu.org/install/) - GCC, the GNU Compiler Collection, is a free collection of compilers for C, C++, Objective-C, Fortran, Ada, Go, and D programming languages.
+- [GCC](https://gcc.gnu.org/install/) - GCC[^11], the GNU Compiler Collection, is a free collection of compilers[^12] for C, C++, Objective-C, Fortran, Ada, Go, and D programming languages.
 
 The software is developed using the 23<sup>rd</sup> version of the C language.
 
@@ -251,8 +260,10 @@ The project will not include the following features:
 - Debugging tools.
 - Compatibility with specific hardware configurations.
 - Compatibility with other programming languages.
-- Real-time performance analysis.
-- Advanced memory management.
+- Real-time performance analysis[^13].
+- Advanced memory management[^14].
+
+---
 
 # 2 - Overall Description
 
@@ -264,11 +275,11 @@ The project will not include the following features:
 
 The interpreter will be compatible with the most common hardware configurations, and will be tested on the following hardware:
 
-| Specification    | Lenovo ThinkBook 14 G2 | Lenovo ThinkPad 2023 | Apple MacBook Air M1 2020 | Apple MacBook Pro M1 2020 |
-| ---------------- | ---------------------- | -------------------- | ------------------------- | ------------------------- |
-| Processor        | Intel Core i7-1165G7   | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
-| RAM              | 16 GB                  | 16GB                 | 8 GB                      | 8 GB                      |
-| Operating System | Windows 11 Pro         | Windows 11 Pro       | macOS Ventura             | macOS Sonoma              |
+| Specification    | Lenovo ThinkBook 14  | Lenovo ThinkBook 14  | Lenovo ThinkPad 2023 | Apple MacBook Air M1 2020 | Apple MacBook Air M1 2020 |
+| ---------------- | -------------------- | -------------------- | -------------------- | ------------------------- | ------------------------- |
+| Processor        | Intel Core I7-1065G7 | Intel Core i7-1165G7 | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
+| RAM[^15]              | 16GB                 | 16 GB                | 16GB                 | 8 GB                      | 8 GB                      |
+| Operating System | Windows 11 Pro       | Windows 11 Pro       | Windows 11 Pro       | macOS Ventura             | macOS Sonoma              |
 
 ### 2.1.2 - Software
 
@@ -338,7 +349,7 @@ The project will be organized in the following folder structure:
 
 ### 2.3.1 - Naming Conventions
 
-Naming conventions are important to keep a clear navigation through the directories, our project will follow the following naming conventions:
+Naming conventions[^16] are important to keep a clear navigation through the directories, our project will follow the following naming conventions:
 
 #### 2.3.1.1 Folders
 
@@ -398,7 +409,7 @@ Formatting conventions are important to keep a clear, concise and readable code,
 
 **Question:** What is a register?
 
-**Answer:** A register is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
+**Answer:** A register[^17] is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
 
 #### 2.4.1.1 - Storing an immediate value into a register
 
@@ -468,7 +479,7 @@ In this example, the value of the register `rb` is copied into the register `ra`
 
 **Question:** What is jumping?
 
-**Answer:** Jumping is the process of transferring control from one part of a program to another.
+**Answer:** Jumping[^18] is the process of transferring control from one part of a program to another.
 
 #### 2.4.2.1 - Jumping unconditionally
 
@@ -651,7 +662,7 @@ In these examples, the value of the register `ra` is divided by the value of the
 
 **Question:** What is a logical operation?
 
-**Answer:** A logical operation is an operation that can be performed on one or more logical operands and that produces a logical result.
+**Answer:** A logical operation is an operation that can be performed on one or more logical operands[^20] and that produces a logical result.
 
 #### 2.4.7.1 - Logical AND
 
@@ -742,6 +753,8 @@ Here is an example:
 ; The following code will add 5 to the value of the register ra
 ADD ra, 5
 ```
+
+---
 
 # 3 - Software Architecture
 
@@ -867,7 +880,7 @@ This header file is included in `scraper_test.c` to provide a reference for the 
 
 ### 3.2.1 `parser.c`
 
-This component is responsible for parsing the structured assembly language code, represented as `function` structs, into a format that can be interpreted and executed. It involves analyzing the instruction, parameters, and other data from each struct and converting them into executable commands or tokens.
+This component is responsible for parsing[^19] the structured assembly language code, represented as `function` structs, into a format that can be interpreted and executed. It involves analyzing the instruction, parameters, and other data from each struct and converting them into executable commands or tokens.
 
 **Key Features:**
 - `parseAssembly`: Takes an array of `function` structs and interprets each one, converting the assembly language instructions into a format that the interpreter can execute.
@@ -925,6 +938,35 @@ Contains unit tests for the parsing functionality provided in `parser.c`. It tes
 **Usage:**
 Used for ensuring the reliability and correctness of the parsing functionality. These tests validate that the code in `parser.c` accurately interprets and transforms assembly language into a structured format that the interpreter can understand.
 
+**Diagram:**
+
+```mermaid
+graph TD
+    parser_test --> parseAssemblyTest
+    parser_test --> validateInstructionTest
+    parser_test --> extractOperandsTest
+    parser_test --> buildExecutableCommandTest
+
+    parseAssemblyTest["parseAssemblyTest - Tests parsing of function structs"] --> parseAssembly["parseAssembly"]
+    validateInstructionTest["validateInstructionTest - Tests instruction validation"] --> validateInstruction["validateInstruction"]
+    extractOperandsTest["extractOperandsTest - Tests operand extraction"] --> extractOperands["extractOperands"]
+    buildExecutableCommandTest["buildExecutableCommandTest - Tests command structure building"] --> buildExecutableCommand["buildExecutableCommand"]
+
+    classDef tests fill:#333,stroke:#777,stroke-width:2px;
+    classDef functions fill:#333,stroke:#777,stroke-width:2px;
+    class parser_test,parseAssemblyTest,validateInstructionTest,extractOperandsTest,buildExecutableCommandTest tests;
+    class parseAssembly,validateInstruction,extractOperands,buildExecutableCommand functions;
+```
+
+**Diagram Explanation:**
+- Test Functions:
+  - `parseAssemblyTest`: Tests the `parseAssembly` function's ability to correctly interpret an array of function structs.
+  - `validateInstructionTest`: Tests the `validateInstruction` function to ensure it accurately checks the validity of instructions and parameters.
+  - `extractOperandsTest`: Verifies that `extractOperands` correctly extracts and categorizes operands from assembly instructions.
+  - `buildExecutableCommandTest`: Assesses `buildExecutableCommand` for its effectiveness in creating executable command structures from parsed data.
+- Functionality Functions:
+  - `parseAssembly`, `validateInstruction`, `extractOperands`, `buildExecutableCommand`: These are the core functions involved in the parsing process within `parser.c`, being tested by the respective test functions.
+
 ### 3.2.4 `parser_test.h`
 
 This header file declares the unit tests for `parser.c`. It includes the prototypes of the test functions used in `parser_test.c`.
@@ -936,6 +978,8 @@ This header file declares the unit tests for `parser.c`. It includes the prototy
 This header file is included in `parser_test.c` to provide a structured approach to testing the parser. It ensures that the test suite covers all aspects of the parsing process and that each test function is properly organized.
 
 ## 3.3 Interpreting
+
+[*(Back to top)*](#toc)
 
 ### 3.3.1 `interpreter.c`
 
@@ -950,6 +994,25 @@ This component is the heart of the virtual processor, responsible for executing 
 
 **Usage:**
 This file is crucial for bringing the assembly code to life. It interprets each instruction and simulates its effect, essentially acting as the CPU for the virtual processor.
+
+**Diagram:**
+```mermaid
+graph TD
+    simulateProgramExecution["simulateProgramExecution - Runs parsed instructions"] --> initializeProcessorState["initializeProcessorState - Sets initial processor state"]
+    simulateProgramExecution --> executeInstruction["executeInstruction - Executes a command"]
+    executeInstruction --> handleArithmeticOperations["handleArithmeticOperations - Handles arithmetic operations"]
+    executeInstruction --> manageControlFlow["manageControlFlow - Manages control flow"]
+
+    classDef functions fill:#333,stroke:#777,stroke-width:2px;
+    class simulateProgramExecution,initializeProcessorState,executeInstruction,handleArithmeticOperations,manageControlFlow functions;
+```
+
+**Diagram Explanation:**
+
+- **`simulateProgramExecution`**: This function is the starting point for executing the parsed assembly instructions. It orchestrates the overall simulation of the assembly program.
+- **`initializeProcessorState`**: Called by `simulateProgramExecution`, it sets up the initial state of the virtual processor, including register values and memory allocation, preparing the environment for instruction execution.
+- **`executeInstruction`**: A critical function called during program simulation. It takes each parsed command and executes it, handling different types of instructions.
+- **`handleArithmeticOperations`** and **`manageControlFlow`**: Both functions are utilized by `executeInstruction` to specifically deal with arithmetic and control flow instructions, respectively. They ensure that each type of instruction is executed according to the defined rules of the assembly language.
 
 ### 3.3.2 `interpreter.h`
 
@@ -975,6 +1038,40 @@ Contains comprehensive unit tests for the interpreter functionality provided in 
 
 **Usage:**
 Used for validating the interpreter's correctness and robustness. These tests are crucial for ensuring that the virtual processor behaves as expected under various scenarios, including edge cases and complex instruction sets.
+
+**Diagram:**
+
+```mermaid
+graph TD
+    interpreter_test --> executeInstructionTest
+    interpreter_test --> initializeProcessorStateTest
+    interpreter_test --> handleArithmeticOperationsTest
+    interpreter_test --> manageControlFlowTest
+    interpreter_test --> simulateProgramExecutionTest
+
+    executeInstructionTest["executeInstructionTest - Tests instruction execution"] --> executeInstruction["executeInstruction"]
+    initializeProcessorStateTest["initializeProcessorStateTest - Tests processor state initialization"] --> initializeProcessorState["initializeProcessorState"]
+    handleArithmeticOperationsTest["handleArithmeticOperationsTest - Tests arithmetic operation handling"] --> handleArithmeticOperations["handleArithmeticOperations"]
+    manageControlFlowTest["manageControlFlowTest - Tests control flow management"] --> manageControlFlow["manageControlFlow"]
+    simulateProgramExecutionTest["simulateProgramExecutionTest - Tests program execution simulation"] --> simulateProgramExecution["simulateProgramExecution"]
+
+    classDef tests fill:#333,stroke:#777,stroke-width:2px;
+    classDef functions fill:#333,stroke:#777,stroke-width:2px;
+    class interpreter_test,executeInstructionTest,initializeProcessorStateTest,handleArithmeticOperationsTest,manageControlFlowTest,simulateProgramExecutionTest tests;
+    class executeInstruction,initializeProcessorState,handleArithmeticOperations,manageControlFlow,simulateProgramExecution functions;
+```
+
+**Diagram Explanation:**
+
+- **Test Functions**:
+  - **`executeInstructionTest`**: Validates the correct execution of individual instructions by `executeInstruction`.
+  - **`initializeProcessorStateTest`**: Assesses `initializeProcessorState` for proper setup of the initial state of the virtual processor.
+  - **`handleArithmeticOperationsTest`**: Ensures that arithmetic operations are correctly handled by `handleArithmeticOperations`.
+  - **`manageControlFlowTest`**: Tests `manageControlFlow` for accurate control flow changes like jumps and calls.
+  - **`simulateProgramExecutionTest`**: Confirms that the entire set of instructions is accurately simulated by `simulateProgramExecution`.
+
+- **Functionality Functions**:
+  - **`executeInstruction`**, **`initializeProcessorState`**, **`handleArithmeticOperations`**, **`manageControlFlow`**, **`simulateProgramExecution`**: These are the core functions involved in interpreting and executing assembly instructions, each being tested for their respective functionalities.
 
 ### 3.3.4 `interpreter_test.h`
 
@@ -1002,6 +1099,31 @@ This file serves as the entry point of the program. It integrates the components
 
 **Usage:**
 The `main.c` file is the starting point for users to run the assembly interpreter. It provides a user-friendly interface to execute assembly code and observe its behavior.
+
+**Diagram:**
+
+```mermaid
+graph TD
+    main["main - Drives the program"] --> loadAssemblyFile["loadAssemblyFile - Loads assembly file"]
+    main --> displayResults["displayResults - Displays results"]
+    main --> errorHandling["errorHandling - Manages errors"]
+    loadAssemblyFile --> getFile["getFile - Reads the file"]
+    getFile --> parseAssembly["parseAssembly - Parses structured data"]
+    parseAssembly --> simulateProgramExecution["simulateProgramExecution - Executes instructions"]
+
+    classDef functions fill:#333,stroke:#777,stroke-width:2px;
+    class main,loadAssemblyFile,displayResults,errorHandling,getFile,parseAssembly,simulateProgramExecution functions;
+```
+
+**Diagram Explanation:**
+
+- **`main`**: The primary function that initiates the workflow of the program. It orchestrates the overall process of executing the custom assembly language.
+- **`loadAssemblyFile`**: Called by `main`, it handles the loading of the assembly file, ensuring that the file is accessible and ready for processing.
+- **`getFile`**: Invoked after `loadAssemblyFile`, this function reads the assembly file and prepares its contents for further processing.
+- **`parseAssembly`**: Follows `getFile`, parsing the structured data (scraped from the assembly file) into executable instructions.
+- **`simulateProgramExecution`**: Called after `parseAssembly`, it executes the parsed instructions, simulating the behavior of a processor.
+- **`displayResults`**: A function called by `main` to display the final state of the processor or the results of the code execution.
+- **`errorHandling`**: Also part of `main`, it manages any errors that might occur during the different stages of file reading, scraping, parsing, or interpreting.
 
 ### 3.4.2 `main.h`
 
@@ -1035,3 +1157,110 @@ This header file declares the test functions used in `main_test.c`. It organizes
 
 **Usage:**
 Included in `main_test.c`, this header file structures the testing approach for the main module. It ensures that the program's entry point and its integration with other components are thoroughly tested and validated.
+
+---
+
+# 4 - End Matter
+
+## 4.1 - Contributors
+
+[*(Back to top)*](#toc)
+
+| Photos | Name | Github | LinkedIn |
+| :---: | :---: | :---: | :---: |
+| <img src="https://avatars.githubusercontent.com/u/71769490?v=4" width="100px" height="100px"> | **Laura-Lee HOLLANDE**| [![GitHub](https://img.shields.io/badge/GitHub-lauraleehollande-lightgrey?logo=github&style=flat-square)](https://github.com/lauraleehollande) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laura--Lee_Hollande-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laura-lee-hollande-278345198/) |
+| <img src="https://avatars.githubusercontent.com/u/146005340?v=4" width="100px" height="100px"> | **Ian LAURENT**| [![GitHub](https://img.shields.io/badge/GitHub-Ianlaur-lightgrey?logo=github&style=flat-square)](https://github.com/Ianlaur) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ian_Laurent-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/ian-h-laurent/) |
+| <img src="https://avatars.githubusercontent.com/u/91249863?v=4" width="100px" height="100px"> | **Pierre GORIN**| [![GitHub](https://img.shields.io/badge/GitHub-Pierre2103-lightgrey?logo=github&style=flat-square)](https://github.com/Pierre2103) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pierre_Gorin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/pierre-gorin-61a784221/) |
+| <img src="https://avatars.githubusercontent.com/u/71769489?v=4" width="100px" height="100px"> | **Laurent BOUQUIN**| [![GitHub](https://img.shields.io/badge/GitHub-laurentbouquin-lightgrey?logo=github&style=flat-square)](https://github.com/laurentbouquin) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Laurent_Bouquin-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/laurentb22/) |
+| <img src="https://avatars.githubusercontent.com/u/146000775?v=4" width="100px" height="100px"> | **Evan UHRING**| [![GitHub](https://img.shields.io/badge/GitHub-Evan--UHRING-lightgrey?logo=github&style=flat-square)](https://github.com/Evan-UHRING) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Evan_Uhring-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/evan-uhring-72911b293/) |
+| <img src="https://avatars.githubusercontent.com/u/97166029?v=4" width="100px" height="100px"> | **Victor LEROY**| [![GitHub](https://img.shields.io/badge/GitHub-Victor--Leroy-lightgrey?logo=github&style=flat-square)](https://github.com/Victor-Leroy) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Leroy-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/victor-leroy-64baa3229/) |
+| <img src="https://avatars.githubusercontent.com/u/146005062?v=4" width="100px" height="100px"> | **Manech LAGUENS**| [![GitHub](https://img.shields.io/badge/GitHub-Manech--Laguens-lightgrey?logo=github&style=flat-square)](https://github.com/Manech-Laguens) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Manech_Laguens-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/manech-laguens-020127293/) |
+
+
+## 4.2 - Related Documents
+
+[*(Back to top)*](#toc)
+
+| Document | Description |
+| :---: | :---: |
+| [Functional Specification](Functional-Specification.md) | This document describes the functional specifications of the project. |
+| [Test Plan](Test-Plan.md) | This document describes the test plan of the project. |
+| [Readme](../README.md) | This document describes the project. |
+
+
+## 4.3 - License
+
+[*(Back to top)*](#toc)
+
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+
+## 4.4 - References
+
+[*(Back to top)*](#toc)
+
+In this section, you will find all the tools and references used to create this document.
+
+### 4.4.1 - Tools
+- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/)
+- [Shield.io](https://shields.io/)
+
+### 4.4.2 - References
+- [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
+- [Practical Guide to Writing Technical Specs](https://stackoverflow.blog/2020/04/06/a-practical-guide-to-writing-technical-specs/)
+- [Wikipedia Interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))
+- [Codewars - Assembly Interpreter Part I](https://www.codewars.com/kata/58e24788e24ddee28e000053/)
+- [Codewars - Assembly Interpreter Part II](https://www.codewars.com/kata/58e61f3d8ff24f774400002c)
+- [C Good Practices](https://github.com/mcinglis/c-style)
+
+## 4.5 - Glossary
+
+[*(Back to top)*](#toc)
+
+| Term | Definition | What it means in this project | Additional Content |
+| :---: | :---: | :---: | :---: |
+| **Processor[^1]** | A processor is the logic circuitry that responds to and processes the basic instructions that drive a computer. | The processor is the virtual processor that will execute the assembly code. | [Wikipedia](https://en.wikipedia.org/wiki/Central_processing_unit) |
+| **Interpreter[^2]** | In computer science, an interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them previously to have been compiled into a machine language program. | The interpreter is the virtual processor that will execute the assembly code. | [Wikipedia](https://en.wikipedia.org/wiki/Interpreter_(computing)) |
+| **Assembly Language[^3]** | An assembly language is a low-level programming language for a computer, or other programmable device, in which there is a very strong (generally one-to-one) correspondence between the language and the architecture's machine code instructions. | The assembly language is the language that will be interpreted by the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Assembly_language) |
+| **C[^4]** | C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system. | C is the language used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/C_(programming_language)) |
+| **Low-Level Language[^5]** | A low-level programming language is a programming language that provides little or no abstraction from a computer's instruction set architecture. | The assembly language is a low-level language. | [Wikipedia](https://en.wikipedia.org/wiki/Low-level_programming_language) |
+| **Emulation[^6]** | In computing, emulation refers to the ability of a computer program in an electronic device to emulate (or imitate) another program or device. | The virtual processor will emulate a processor. | [Wikipedia](https://en.wikipedia.org/wiki/Emulator) |
+| **Instruction[^7]** | An instruction is an order given to a computer processor by a computer program. | The assembly language is composed of instructions. | [Wikipedia](https://en.wikipedia.org/wiki/Instruction_(computer_science)) |
+| **Operating System[^8]** | An operating system is system software that manages computer hardware, software resources, and provides common services for computer programs. | The operating system is the software that will run the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Operating_system) |
+| **Visual Studio Code[^9]** | Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux and macOS. | Visual Studio Code is the IDE[^10] used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Visual_Studio_Code) |
+| **IDE[^10]** | An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. | Visual Studio Code is the IDE used to write the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Integrated_development_environment) |
+| **GCC[^11]** | GCC, formerly an acronym for GNU Compiler Collection, is a compiler system produced by the GNU Project supporting various programming languages. | GCC is the compiler used to compile the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) |
+| **Compiler[^12]** | A compiler is a computer program that translates computer code written in one programming language (the source language) into another language (the target language). | GCC is the compiler used to compile the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Compiler) |
+| **Performance Analysis[^13]** | Performance analysis is the process of assessing the performance of a computer, comparing the performance of one or more systems, or evaluating the performance of a component. | Performance analysis is the process of assessing the performance of the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) |
+| **Memory Management[^14]** | Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance. | Memory management is the process of controlling and coordinating computer memory, assigning portions called blocks to various running programs to optimize overall system performance. | [Wikipedia](https://en.wikipedia.org/wiki/Memory_management) |
+| **RAM[^15]** | Random-access memory (RAM) is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code. | RAM is the memory used by the virtual processor. | [Wikipedia](https://en.wikipedia.org/wiki/Random-access_memory) |
+| **Naming Convention[^16]** | A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation. | A naming convention is a set of rules for choosing the character sequence to be used for identifiers which denote variables, types, functions, and other entities in source code and documentation. | [Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_(programming)) |
+| **Register[^17]** | In computer architecture, a processor register is a quickly accessible location available to a computer's central processing unit (CPU). | Registers are used by the virtual processor to store data. | [Wikipedia](https://en.wikipedia.org/wiki/Processor_register) |
+| **Jump[^18]** | In computer science, a jump statement is a statement that unconditionally transfers program control to a designated statement. | Jump statements are used by the virtual processor to change the flow of execution. | [Wikipedia](https://en.wikipedia.org/wiki/Branch_(computer_science)) |
+| **Parsing[^19]** | Parsing, syntax analysis, or syntactic analysis is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar. | Parsing is the process of analyzing the assembly language code. | [Wikipedia](https://en.wikipedia.org/wiki/Parsing) |
+| **Operand[^20]** | In mathematics and computer programming, an operand is the object of a mathematical operation, a quantity on which an operation is performed. | Operands are used by the virtual processor to perform arithmetic operations. | [Wikipedia](https://en.wikipedia.org/wiki/Operand) |
+
+
+## 4.6 - Footnotes
+
+[*(Back to top)*](#toc)
+
+[^1]: [Wikipedia - Processor](https://en.wikipedia.org/wiki/Central_processing_unit)
+[^2]: [Wikipedia - Interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))
+[^3]: [Wikipedia - Assembly Language](https://en.wikipedia.org/wiki/Assembly_language)
+[^4]: [Wikipedia - C](https://en.wikipedia.org/wiki/C_(programming_language))
+[^5]: [Wikipedia - Low-Level Language](https://en.wikipedia.org/wiki/Low-level_programming_language)
+[^6]: [Wikipedia - Emulation](https://en.wikipedia.org/wiki/Emulator)
+[^7]: [Wikipedia - Instruction](https://en.wikipedia.org/wiki/Instruction_(computer_science))
+[^8]: [Wikipedia - Operating System](https://en.wikipedia.org/wiki/Operating_system)
+[^9]: [Wikipedia - Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code)
+[^10]: [Wikipedia - IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)
+[^11]: [Wikipedia - GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)
+[^12]: [Wikipedia - Compiler](https://en.wikipedia.org/wiki/Compiler)
+[^13]: [Wikipedia - Performance Analysis](https://en.wikipedia.org/wiki/Profiling_(computer_programming))
+[^14]: [Wikipedia - Memory Management](https://en.wikipedia.org/wiki/Memory_management)
+[^15]: [Wikipedia - RAM](https://en.wikipedia.org/wiki/Random-access_memory)
+[^16]: [Wikipedia - Naming Convention](https://en.wikipedia.org/wiki/Naming_convention_(programming))
+[^17]: [Wikipedia - Register](https://en.wikipedia.org/wiki/Processor_register)
+[^18]: [Wikipedia - Jump](https://en.wikipedia.org/wiki/Branch_(computer_science))
+[^19]: [Wikipedia - Parsing](https://en.wikipedia.org/wiki/Parsing)
+[^20]: [Wikipedia - Operand](https://en.wikipedia.org/wiki/Operand)

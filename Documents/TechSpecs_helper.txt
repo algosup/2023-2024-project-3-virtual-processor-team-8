@@ -97,7 +97,7 @@
 🟩 -----> 2.4.7.4 Bitwise NOT
 🟩 ---> 2.4.8 Comments
 ---------------
-3 Software Architecture
+3 Software Components
 🟨 -> 3.1 Scraping
 🟨 ---> 3.1.1 `scraper.c`
 🟩 ---> 3.1.2 `scraper.h`
@@ -119,45 +119,7 @@
 🟨 ---> 3.4.3 `main_test.c`
 🟩 ---> 3.4.4 `main_test.h`
 ---------------
-4 Scraper Specification
--> 4.1 Variables
--> 4.2 Functions
----> 4.2.1 `get_file`
----> 4.2.2 `get_line`
----> 4.2.3 `get_word`
----> 4.2.4 `check_syntax`
----> 4.2.5 `set_struct`
----> 4.2.6 `save_struct`
----------------
-5 Parser Specification
--> 5.1 Variables
--> 5.2 Functions
----> 5.2.1 `get_struct`
----> 5.2.2 `parse_struct`
----> 5.2.3 `switch_instruction`
----> 5.2.4 `run_instruction`
----------------
-6 Interpreter Specification
--> Variables
--> Functions
----> `run_instruction`
----> `return_value`
----------------
-7 Testing
--> 7.1 Scraper
----> 7.1.1 Test Cases 1
------> 7.1.1.1 Input
------> 7.1.1.2 Output
----> 7.1.2 Test Cases 2
------> 7.1.2.1 Input
------> 7.1.2.2 Output
----> 7.1.3 Test Cases 3
------> 7.1.3.1 Input
------> 7.1.3.2 Output
--> 7.2 Parser
--> 7.3 Interpreter
----------------
-8 End Matter
--> 8.1 References
--> 8.2 Glossary
+4 End Matter
+-> 4.1 References
+-> 4.2 Glossary
 ---------------
