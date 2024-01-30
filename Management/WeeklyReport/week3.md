@@ -90,7 +90,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ⚠️ ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
-## KPIs
+## Key Performance Indicator[^5]
 
 <details>
 
@@ -131,3 +131,5 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
 [^4]: It is a C standard library function that copies a string from one location to another.
 *source : [Geeks for Geeks](https://www.geeksforgeeks.org/strcpy-in-c/)*
+[^5]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+*source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*
