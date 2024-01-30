@@ -154,12 +154,12 @@ The constraints can occur if the device's OS is not compatible with the virtual 
 
 # B. Functional Requirements
 
-## 1. Customers requirements
-The main customer requirement is to build a fully functional virtual processor that will be able to run an assembly code. This processor will have be in a x86 environment. 
+## 1. Customer's requirements
+The main customer's requirement is to build a fully functional virtual processor that will be able to run an assembly code. This processor will have to be in x86 environment.
 
 
 ## 2. Objectives and loss conditions
-The objectives are to respond to the demand of the client. Meaning that all the customers requirements are fulfilled and all mentioned aspects should be fully functional and meet the satisfaction of the client. 
+The objectives are to respond to the demand of the client. Meaning that all the customer's requirements are fulfilled and all mentioned aspects should be fully functional and meet the satisfaction of the client. 
 
 As for the loss conditions will be determined by several factors such as, the final product being not functional, and not meeting the clients expectations. Deadlines are another factor of loss condition, if the team doesn't manage to deliver to the client within the deadlines it will be considered a deadline. 
 
@@ -170,11 +170,11 @@ The virtual processor will have to run on all software devices (Windows, MacOs) 
 
 ## 4. Reliability
 
-The virtual processor relies on the internal memory of the clients device. The final product will strategically utilize the device's internal memory, specifically the Random Access Memory (RAM), optimizing task execution for heightened efficiency and responsiveness. This deliberate integration signifies a substantial advancement in enhancing computational capabilities on the client's device.
+The virtual processor relies on the internal memory of the client's device. The final product will strategically utilize the device's internal memory, specifically the Random Access Memory (RAM), optimizing task execution for heightened efficiency and responsiveness. This deliberate integration signifies a substantial advancement in enhancing computational capabilities on the client's device.
 
 
 ## 5. Product requirements
-The first main requirement being to define the syntax used to translate an ".ASM" file, meaning that the team has to define the main commands from assembly language to the teams syntax. This syntax defined by the team will be documented and added to the team projects Github for it to be available for consultation by the client.
+The first main requirement being to define the syntax used to translate an ".asm" file, meaning that the team has to define the main commands from assembly language to the team's syntax. This syntax defined by the team will be documented and added to this team's Github repository for it to be available for consultation by the client.
 The following link will direct you to the document with all the syntax that has been chosen by the team : //LINK
 
 
@@ -183,25 +183,25 @@ Not for now, exploring possibilities
 
 
 ## 7. Terminal
-This is how the virtual should be presented on the users device. It is a visual illustration of the product but there is a possibility that the visual might change. As to today the product will run on the terminal. 
+This is how the virtual processor should be presented on the user's device. It's a visual illustration of the product but there is a possibility that the visual might change. Up to now the product will run on the terminal. 
 
 <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Terminal.png" alt="Terminal"/>
 
 ## 8. Other
-The developing team will have to make sure to keep an virtual processor that is compatible with as many operating systems and devices to make sure to allow a large amount of people to be able to use our product. Which is why the quality assurance team will make sure to test the compatibility of our product on as many devices as possible.
+The developing team will have to make sure to keep a virtual processor that is compatible with as many operating systems and devices to make sure to allow a large amount of people to be able to use our product. Which is why the quality assurance team will make sure to test the compatibility of our product on as many devices as possible.
 
 
 ## 9. Use Cases Analysis
 | Use Case Number | Name | Description | Actor(s) | Pre-Conditions | Flow of Events | Post-Conditions | Exit Criteria | Notes & Issues |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Launch executable file | The user wants to run an ".asm" file. | User | The processor is installed successfully on the users device. | -The user launches the ".exe" file.<br>-The processor will launch. | The user is able to give directory to the ".asm" file or drag and drop the file. | The User is able to run the processor on it's device. |- N.S.T.R. [^6] |
-| 2 | Running program |The users interaction with the processor will be based on the terminal.| Users | The user has the program mounted and the asm code doesn't have any errors. | The processor will locate the file and run it through the program. |- The program will return what is in the ".asm" file.| The user is able to run it's ".asm" file.| - N.S.T.R.
-| 3 | Error return | The user will run it's file in the processor. | Users | the user has the program mounted. | - The program will run the ".asm" file and detect an error (e.g. syntax error, file not found)| -The processor will return error.| The user's file contains an error and will display an error message on the screen.|-N.S.T.R
+| 1 | Launch executable file | The user wants to run an ".asm" file. | User | The processor is installed successfully on the user's device. | -The user launches the ".exe" file.<br>-The processor will launch. | The user is able to give a path to the ".asm" file or drag and drop the file. | The user is able to run the processor on its device. |- N.S.T.R. [^6] |
+| 2 | Running program |The user's interaction with the processor will be based on the terminal.| Users | The user has the program mounted and the asm code doesn't have any errors. | The processor will locate the file and run it through the program. |- The program will return what is in the ".asm" file.| The user is able to run its ".asm" file.| - N.S.T.R.
+| 3 | Error return | The user will run its file in the processor. | Users | the user has the program mounted. | - The program will run the ".asm" file and detect any error (e.g. syntax error, file not found)| -The processor will return error.| The user's file contains any error and will display an error message on the screen.|- N.S.T.R
 
 
 ## 10. Functional Analysis
-The main functional requirement of the processor is that it is able to run an ".asm" file where the client will be able to see the return of it's program. The processor will read the file and run it on the code that was elaborated by the team and show the result of the code of the user. 
-This functional requirements will demand several steps such as the import of the users file or the mounting of the processor on the device of the user.
+The main functional requirement of the processor is that it is able to run an ".asm" file where the client will be able to see the return of its program. The processor will read the file and run it on the code that was elaborated by the team and show the result of the code of the user. 
+These functional requirements will demand several steps such as the import of the user's file or the mounting of the processor on the device of the user.
 
 
 
@@ -249,4 +249,3 @@ Maintaining transparency between the client and the team allows to understand th
 [^5]: C is an imperative procedural language, supporting structured programming, lexical variable scope, and recursion, with a static type system. It was designed to be compiled to provide low-level access to memory and language constructs that map efficiently to machine instructions, all with minimal runtime support. 
 
 [^6]: Acronym for "Nothing significant to report".
-
