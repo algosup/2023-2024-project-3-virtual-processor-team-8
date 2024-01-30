@@ -1,42 +1,44 @@
 # Functional specification
 
 ## Table of content </summary>
-  - [A) Introduction](#a-introduction)
-    - [1) Project overview](#1-project-overview)
-    - [2) Project definition](#2-project-definition)
-      - [➭ Project vision](#project-vision)
-      - [➭ Objectives](#objectives)
-      - [➭ Scopes](#scopes)
-      - [➭ Deliverables](#deliverables)
-      - [➭ Personas definition](#personas-definition)
-        - [Persona 1] (#persona-1)
-        - [Persona 2] (#persona-2)
-    - [3) Project organization](#3-project-organisation)
-      - [➭ Stakeholders](#stakeholders)
-      - [➭ Project reviewers](#project-reviewers)
-    - [4) Project plan](#4-project-plan)
-      - [➭ Retro-planning](#retro-planning)
-      - [➭ Milestones](#milestones)
-      - [➭ Resources and tools](#resources-and-tools)
-      - [➭ Assumptions and constraints](#assumptions-and-constraints)
-  - [B) Functional requirements](#b-functional-requirements)
-    - [1) Customers requirements](#1-customers-requirements)
-    - [2) Objectives and loss conditions](#2-objectives-and-loss-condition)
-    - [3) Operability](#3-operability)
-    - [4) Reliability](#4-reliability)
-    - [5) Product requirements](#5-product-requirements)
-    - [6) Emulators features breakdown](#6-emulators-features-breakdown)
-    - [7) Terminal](#7-terminal)
-    - [8) Other](#8-other)
-    - [9) Use cases analysis](#9-use-cases-analysis)
-    - [10) Functional analysis](#10-functional-analysis)
-  - [C) Non-functional requirements](#c-non-functional-requirements)
-    - [1) Response and Performance](#1-response-and-performance)
-    - [2) Recovery](#2-recovery)
-    - [3) Delivery](#3-delivery)
-    - [4) Maintainability](#4-maintainability)
-    - [5) Security](#5-security)
-  - [D) Conclusion](#d-conclusion)
+- [Functional specification](#functional-specification)
+  - [Table of content ](#table-of-content-)
+- [A. Introduction](#a-introduction)
+  - [1. Project overview](#1-project-overview)
+  - [2. Project definition](#2-project-definition)
+    - [**Project vision**](#project-vision)
+    - [**Objectives**](#objectives)
+    - [**Scopes**](#scopes)
+    - [**Deliverables**](#deliverables)
+    - [**Personas definition**](#personas-definition)
+      - [Persona 1 :](#persona-1-)
+      - [Persona 2 :](#persona-2-)
+  - [3. Project organization](#3-project-organization)
+    - [**Stakeholders**](#stakeholders)
+    - [**Project reviewers**](#project-reviewers)
+  - [4. Project Plan](#4-project-plan)
+    - [**Retro-planning**](#retro-planning)
+    - [**Milestones**](#milestones)
+    - [**Resources and tools**](#resources-and-tools)
+    - [**Assumptions and constraints**](#assumptions-and-constraints)
+- [B. Functional Requirements](#b-functional-requirements)
+  - [1. Customer's requirements](#1-customers-requirements)
+  - [2. Objectives and loss conditions](#2-objectives-and-loss-conditions)
+  - [3. Operability](#3-operability)
+  - [4. Reliability](#4-reliability)
+  - [5. Product requirements](#5-product-requirements)
+  - [6. Emulators features breakdown](#6-emulators-features-breakdown)
+  - [7. Terminal](#7-terminal)
+  - [8. Other](#8-other)
+  - [9. Use Cases Analysis](#9-use-cases-analysis)
+  - [10. Functional Analysis](#10-functional-analysis)
+- [C. Non-functional requirements](#c-non-functional-requirements)
+  - [1. Response and Performance](#1-response-and-performance)
+  - [2. Recovery](#2-recovery)
+  - [3. Delivery](#3-delivery)
+  - [4. Maintainability](#4-maintainability)
+  - [5. Security](#5-security)
+- [D. Conclusion](#d-conclusion)
   - [Glossary](#glossary)
 </details>
 
@@ -129,8 +131,6 @@ Pierre GORIN | Technical leader
 
 ### **Retro-planning**
 
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Gcc-Logo.png" alt="Project Plan" />
-
 
 ### **Milestones**
 
@@ -155,7 +155,7 @@ The constraints can occur if the device's OS is not compatible with the virtual 
 # B. Functional Requirements
 
 ## 1. Customer's requirements
-The main customer's requirement is to build a fully functional virtual processor that will be able to run an assembly code. This processor will have to be in x86 environment.
+The main customer's requirement is to build a fully functional virtual processor that will be able to run an assembly code. This processor will have to be in x86 32 bits environment.
 
 
 ## 2. Objectives and loss conditions
@@ -179,7 +179,7 @@ The following link will direct you to the document with all the syntax that has 
 
 
 ## 6. Emulators features breakdown
-Not for now, exploring possibilities 
+Not for now, exploring possibilities.
 
 
 ## 7. Terminal
@@ -237,9 +237,9 @@ Maintaining transparency between the client and the team will allow to understan
 
 
 ## Glossary 
-[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer. <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Gcc-Logo.png" alt="GCC Logo" width="75"/>
+[^1]: GCC, short for GNU Compiler Collection, is a free and open-source compiler system produced by the GNU Project. It is used to compile source code from various programming languages, including C, C++, Objective-C, Fortran, Ada, and others. In simple terms, it translates the code written by developers into a format that can be understood and executed by a computer.
 
-[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems. <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Img/Vs-Code-Logo.png" alt="VS Code Logo" width="75"/>
+[^2]:  Visual Studio Code, often referred to as VS Code, is a free and open-source code editor developed by Microsoft. It supports a variety of programming languages and features, including syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can also extend its functionality using extensions. It's designed to be lightweight yet powerful, and it can be used on Windows, macOS, and Linux operating systems.
 
 [^3]: A virtual processor is a representation of a physical processor to the operating system of a logical partition that uses shared processors.
 
