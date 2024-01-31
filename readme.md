@@ -34,7 +34,7 @@ The goal of this project is to develop a virtual processor along with an interpr
 **IDE:** Visual Studio Code
 
 ## Documentation
-[**Functional Specification:**](Functional-Specification.md) Detailing the assembly language and its features.
+[**Functional Specification:**](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) Detailing the assembly language and its features.
 
 [**Technical Specification:**](Technical-Specification.md) Describing the operation of the C program interpreter and its functionalities.
 
