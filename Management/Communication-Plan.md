@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2]: for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc[^4] as a compiler and Visual Studio Code[^5] as the IDE[^6].
+The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2] for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc[^4] as a compiler and Visual Studio Code[^5] as the IDE[^6].
 
 📁 Take a look at the [Project charter](project-charter.md) for more information.
 
