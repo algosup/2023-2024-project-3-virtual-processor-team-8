@@ -4,7 +4,7 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 13h00
+- **Project time (hours):** 19h30
 
 ### Project summary
 
@@ -56,7 +56,7 @@
 | Risk/Issues | Description                                                                 | Owner                         | Status   |
 | ----------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
 | Issue 1     | Compatibility problem between Mac and Window with the strcpy()[^4] function | Laurent Bouquin, Victor Leroy | Closed   |
-| Risk 1      | Potential loss of some teammates                                            | Laura-Lee Hollande            | pending  |
+| Risk 1      | Potential loss of some teammates                                            | Laura-Lee Hollande            | Closed   |
 
 ## Project Schedule
 
