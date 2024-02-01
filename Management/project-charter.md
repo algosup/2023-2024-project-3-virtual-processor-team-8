@@ -2,14 +2,14 @@
 
 ## Project Overview
 
-The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2]: for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc as a compiler and Visual Studio Code as the IDE.
+The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2]: for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc[^4] as a compiler and Visual Studio Code as the IDE.
 
 ## Project Goals
 
 - Create a minimal assembly language for the virtual processor with essential instructions.
 - Develop a virtual processor capable of executing assembly programs written in the specified language.
-- Implement a C program to read, validate, and run assembly code, checking for semantic[^4] and syntactic errors[^5]:.
-- Introduce a virtual system call[^6]: for text display in a virtual terminal, enabling interaction with assembly code.
+- Implement a C program to read, validate, and run assembly code, checking for semantic[^5] and syntactic errors[^6].
+- Introduce a virtual system call[^7]: for text display in a virtual terminal, enabling interaction with assembly code.
 - Include features like displaying register content and a built-in debugger for effective debugging.
 
 ## Assembly Language Specifications
@@ -81,21 +81,27 @@ The assembly language will include, but is not limited to, the following instruc
 
 ## Resources
 
-- **Required Resources:**
 The following resources are essential for the successful completion of the project:
-  - **Development Environment:**
-    - Workstations for development, including appropriate hardware specifications.
-    - Software licenses for development tools and IDEs.
-  - **Collaboration Tools:**
-    - Project management tools for task tracking and team collaboration.
-    - Version control system for code management.
-  - **Testing Environment:**
-    - Hardware or virtual machines for testing the virtual processor and interpreter.
-    - Testing tools and frameworks.
-  - **Documentation Tools:**
-    - Software for creating and maintaining project documentation.
-  - **Management Tools:**
-    - Software for managing the team.
+
+- **Development Environment:**
+  - Workstations for development, including appropriate hardware specifications.
+  - Software licenses for development tools and the integrated development environment[^8].
+    - [Visual Studio Code](https://code.visualstudio.com/)[^9]
+- **Collaboration Tools:**
+  - Project management tools for task tracking and team collaboration.
+  - Version control system for code management.
+    - [Git](https://git-scm.com/)[^10]
+    - [GitHub](https://github.com/)[^11]
+- **Testing Environment:**
+  - Hardware or virtual machines for testing the virtual processor and interpreter.
+  - Testing tools and frameworks.
+- **Documentation Tools:**
+  - Software for creating and maintaining project documentation.
+    - GitHub
+- **Management Tools:**
+  - Software for managing the team
+    - [Trello](https://trello.com/home)[^12]
+    - [Slack](https://slack.com/)[^13]
 
 ## Success criteria
 
@@ -139,19 +145,29 @@ This criteria for success section outlines the key benchmarks and expectations t
 This project proposal outlines the scope, goals, and deliverables of the Virtual Processor and Interpreter project. The successful completion of this project will result in a robust system capable of executing assembly code within the specified parameters.
 
 ---
-**Project Manager: Laura-Lee Hollande**
-**Date: 01/23/24**
-
----
 [^1]: A virtual processor is a representation of a physical processor core to the operating system of a logical partition that uses shared processors.
 *source : [IBM](https://www.ibm.com/docs/en/power8?topic=processors-virtual)*
 [^2]: The interpreter in the compiler checks the source code line-by-line and if an error is found on any line, it stops the execution until the error is resolved.
 *source : [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-interpreters/)*
 [^3]: An assembly language is a type of low-level programming language that is intended to communicate directly with a computer’s hardware. Unlike machine language, which consists of binary and hexadecimal characters, assembly languages are designed to be readable by humans.
 *source : [Investopedia](https://www.investopedia.com/terms/a/assembly-language.asp)*
-[^4]: A semantic error has to do with meaning. If a program contains this kind of error, it will successfully run, but won’t output the correct result.
+[^4]: It is an optimizing compiler produced by the GNU Project supporting various programming languages, hardware architectures and operating systems.
+*source : [Wikipedia](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)*
+[^5]: A semantic error has to do with meaning. If a program contains this kind of error, it will successfully run, but won’t output the correct result.
 *source : [Educative](https://www.educative.io/answers/what-is-the-difference-between-syntax-and-semantic-errors)*
-[^5]: A programming language is very strict and unambiguous, so a syntax error occurs when we don’t respect or follow the language vocabulary. As a result, the program can’t run, and a useful error message will print instead.
+[^6]: A programming language is very strict and unambiguous, so a syntax error occurs when we don’t respect or follow the language vocabulary. As a result, the program can’t run, and a useful error message will print instead.
 *source : [Educative](https://www.educative.io/answers/what-is-the-difference-between-syntax-and-semantic-errors)*
-[^6]: A system call is a mechanism used by programs to request services from the operating system (OS). In simpler terms, it is a way for a program to interact with the underlying system, such as accessing hardware resources or performing privileged operations.
+[^7]: A system call is a mechanism used by programs to request services from the operating system (OS). In simpler terms, it is a way for a program to interact with the underlying system, such as accessing hardware resources or performing privileged operations.
 *source : [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-of-system-call/)*
+[^8]: An IDE, enables programmers to consolidate the different aspects of writing a computer program.
+*source : [Codecademy](https://www.codecademy.com/article/what-is-an-ide)*
+[^9]: It is a source-code editor developed by Microsoft for Windows, Linux and macOS.
+*source : [Wikipedia](https://en.wikipedia.org/wiki/Visual_Studio_Code)*
+[^10]: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+*source : [Git](https://git-scm.com/)*
+[^11]: It is a developer platform that allows developers to create, store, manage and share their code..
+*source : [Wikipedia](https://en.wikipedia.org/wiki/GitHub)*
+[^12]: Trello is a web-based, kanban-style, list-making application and is developed by Trello Enterprise, a subsidiary of Atlassian.
+*source : [Wikipedia](https://en.wikipedia.org/wiki/Trello)*
+[^13]: Slack is a cloud-based team communication platform developed by Slack Technologies, which is currently owned by Salesforce.
+*source : [Wikipedia](https://en.wikipedia.org/wiki/Slack_(software))*
