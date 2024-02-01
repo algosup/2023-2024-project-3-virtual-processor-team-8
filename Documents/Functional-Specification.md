@@ -102,11 +102,12 @@ As for the <u>final product</u>, the deadline being **02/23/24**, this should be
 ### **Personas definition**
 
 #### Persona 1 :
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-1.png" alt="Persona-1"/>
+
+![Persona 1](../Documents/Img/Persona-1.png)
 
 #### Persona 2 :
 
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Persona-2.png" alt="Persona-1"/>
+![Persona 2](../Documents/Img/Persona-2.png)
 
 
 ## 3. Project organization
@@ -185,7 +186,7 @@ Not for now, exploring possibilities.
 ## 7. Terminal
 This is how the virtual processor should be presented on the user's device. It's a visual illustration of the product but there is a possibility that the visual might change. Up to now the product will run on the terminal. 
 
-<img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/documents/Documents/Img/Terminal.png" alt="Terminal"/>
+![Terminal](../Documents/Img/Terminal.png)
 
 ## 8. Other
 The developing team will have to make sure to keep a virtual processor that is compatible with as many operating systems and devices to make sure to allow a large amount of people to be able to use our product. Which is why the quality assurance team will make sure to test the compatibility of our product on as many devices as possible.
