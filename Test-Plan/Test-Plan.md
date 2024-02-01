@@ -77,7 +77,7 @@ The report template for the program tells what happened during the testing, whic
 
 
 ## 3. Test plan environment
-
+Our team members have different computer OS, which are Windows and MacOs, that gives us the opportunity of testing that the program is working properly on the different OS. But also the environment is different and so the steps to be capable to test are different.
 
 
 
