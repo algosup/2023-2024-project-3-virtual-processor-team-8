@@ -85,25 +85,21 @@ The report template for the program tells what happened during the testing, whic
 It is necessary to correctly spread out our time between each task, so we can be more efficient on the tests we have to do. Our total number of hours we have is 100 hours.
 
 | Task | Subtask | Time estimation |
-|------|---------|-------------|
-|Analyze requirement specification| - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours
-| Create the test specification|  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 30 hours <br> - 12 hours <br> - 4 hours
-|Execute the test cases| - Build up the test environment <br> - Execute the test cases <br> - Update test cases status|- 10 hours <br> - 14 hours <br> - 6 hours
-|Report the bug| - Create bug reports <br> - Create bug data report | - 6 hours <br> - 6 hours
+| --- | --- | --- |
+| Analyze requirement specification | - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours |
+| Create the test specification |  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 30 hours <br> - 12 hours <br> - 4 hours |
+| Execute the test cases | - Build up the test environment <br> - Execute the test cases <br> - Update test cases status|- 10 hours <br> - 14 hours <br> - 6 hours |
+| Report the bug | - Create bug reports <br> - Create bug data report | - 6 hours <br> - 6 hours |
 
 If this estimation is correct, we will have spent 100 hours for the quality assurance of the project, as our number of working time we have available.
 
 
 
 ## 5. Deliverables
-- **Test plan:** define the testing strategy and how the tests will be done.
-- **Test cases:** define all the test that will be done to be sure that the program works as intended.
-- **Bug reports:** report all the bugs that have been found during the tests.
-
-
-
-## 6. Conclusion
-
+Multiple documents will be available for users to understand how our test are and are done.
+- Test Plan
+- Test Cases
+- Bug Reports
 
 
 
