@@ -149,10 +149,10 @@ The testing deliverables for this project are :
 ### Footnotes
 
 
-[^1]: [IBM - Virtual Processor](https://www.ibm.com/docs/en/power8?topic=processors-virtual)<br>
-[^2]: [Wikipedia - Interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))<br>
-[^3]: [Wikipedia - Compiler](https://en.wikipedia.org/wiki/Compiler)<br>
-[^4]: [Wikipedia - Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment)<br>
-[^5]: [Wikipedia - Quality Assurance](https://en.wikipedia.org/wiki/Quality_assurance)<br>
-[^6]: [Wikipedia - Github](https://en.wikipedia.org/wiki/GitHub)<br>
-[^7]: [Github - Github Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)<br>
+[^1]: [IBM - Virtual Processor](https://www.ibm.com/docs/en/power8?topic=processors-virtual)
+[^2]: [Wikipedia - Interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing))
+[^3]: [Wikipedia - Compiler](https://en.wikipedia.org/wiki/Compiler)
+[^4]: [Wikipedia - Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment)
+[^5]: [Wikipedia - Quality Assurance](https://en.wikipedia.org/wiki/Quality_assurance)
+[^6]: [Wikipedia - Github](https://en.wikipedia.org/wiki/GitHub)
+[^7]: [Github - Github Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
