@@ -2,14 +2,14 @@
 
 ## Project Overview
 
-The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2]: for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc[^4] as a compiler and Visual Studio Code as the IDE.
+The purpose of this project is to develop a virtual processor[^1] and an interpreter[^2] for executing assembly[^3] code on the proposed processor. The project will be implemented in plain, portable C language without external libraries, with the recommended use of gcc[^4] as a compiler and Visual Studio Code as the IDE.
 
 ## Project Goals
 
 - Create a minimal assembly language for the virtual processor with essential instructions.
 - Develop a virtual processor capable of executing assembly programs written in the specified language.
 - Implement a C program to read, validate, and run assembly code, checking for semantic[^5] and syntactic errors[^6].
-- Introduce a virtual system call[^7]: for text display in a virtual terminal, enabling interaction with assembly code.
+- Introduce a virtual system call[^7] for text display in a virtual terminal, enabling interaction with assembly code.
 - Include features like displaying register content and a built-in debugger for effective debugging.
 
 ## Assembly Language Specifications
