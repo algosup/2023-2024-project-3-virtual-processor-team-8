@@ -13,7 +13,7 @@
 
 **Created on:** January 22<sup>nd</sup>, 2024
 
-**Last updated:** January 30<sup>th</sup>, 2024
+**Last updated:** February 1<sup>st</sup>, 2024
 
 ---
 
@@ -34,95 +34,91 @@
 <br><details>
 <summary><h3 id="toc"> Table of Contents <i>(Click to expand)</i></h3></summary>
 
-- 📄 [Technical Specification](#technical-specification)
-    - ✅ [Approvals](#approvals)
-- 🌐 [1 - Overview](#1---overview)
-  - 🎯 [1.1 - Purpose](#11---purpose)
-    - 🏆 [1.1.1 - Goals](#111---goals)
-    - 🎯 [1.1.2 - Objectives](#112---objectives)
-    - 🏁 [1.1.3 - Success Criteria](#113---success-criteria)
-  - 👥 [1.2 - Stakeholders](#12---stakeholders)
-    - 🧑‍🤝‍🧑 [1.2.1 - Project Team](#121---project-team)
-    - 🤝 [1.2.2 - Client](#122---client)
-  - 🖥️ [1.3 - Usage](#13---usage)
-    - 📋 [1.3.1 - Requirements](#131---requirements)
-    - ⚙️ [1.3.2 - Installation](#132---installation)
-      - 💻 [1.3.2.1 - Installation with Bash](#1321---installation-with-bash)
-      - 🖥️ [1.3.2.2 - Installation with GitHub Desktop](#1322---installation-with-github-desktop)
-    - ▶️ [1.3.3 - Running](#133---running)
-  - 📏 [1.4 - Scope](#14---scope)
-    - 🟢 [1.4.1 - In Scope](#141---in-scope)
-    - 🔴 [1.4.2 - Out of Scope](#142---out-of-scope)
-- 🗒️ [2 - Overall Description](#2---overall-description)
-  - 💻 [2.1 System Environment](#21-system-environment)
-    - 🖥️ [2.1.1 - Hardware](#211---hardware)
-    - 🛠️ [2.1.2 - Software](#212---software)
-  - 📁 [2.2 - Project Folder Structure](#22---project-folder-structure)
-  - 📚 [2.3 - Conventions](#23---conventions)
-    - 🖊️ [2.3.1 - Naming Conventions](#231---naming-conventions)
-      - 📂 [2.3.1.1 Folders](#2311-folders)
-      - 📄 [2.3.1.2 Files](#2312-files)
-      - 🔤 [2.3.1.3 Variables](#2313-variables)
-      - 🔠 [2.3.1.4 Constants](#2314-constants)
-      - 🔄 [2.3.1.5 Functions](#2315-functions)
-    - 🖋️ [2.3.2 - Formatting Conventions](#232---formatting-conventions)
-      - ↩️ [2.3.2.1 - Indentation](#2321---indentation)
-      - 📏 [2.3.2.2 - Line Length](#2322---line-length)
-      - 📐 [2.3.2.3 - Line Breaks](#2323---line-breaks)
-      - 💬 [2.3.2.4 - Comments](#2324---comments)
-  - 🖥️ [2.4 - Assembly Syntax](#24---assembly-syntax)
-    - 📝 [2.4.1 - Registers](#241---registers)
-      - 🔢 [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
-      - 🔀 [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
-      - 📖 [2.4.1.3 Reading the value from the memory to a register](#2413-reading-the-value-from-the-memory-to-a-register)
-      - 📝 [2.4.1.4 Writing the value from a register to the memory](#2414-writing-the-value-from-a-register-to-the-memory)
-    - ↗️ [2.4.2 - Jumping to a label](#242---jumping-to-a-label)
-      - 🏃‍♂️ [2.4.2.1 - Jumping unconditionally](#2421---jumping-unconditionally)
-      - ↪️ [2.4.2.2 - Jumping conditionally (where "cc" is a condition code)](#2422---jumping-conditionally-where-cc-is-a-condition-code)
-    - 🔍 [2.4.3 - Comparing registers](#243---comparing-registers)
-    - 📞 [2.4.4 - Calling a subroutine](#244---calling-a-subroutine)
-    - 🏁 [2.4.5 - Returning from a subroutine](#245---returning-from-a-subroutine)
-    - ➕ [2.4.6 - Arithmetic operations](#246---arithmetic-operations)
-      - ➕ [2.4.6.1 - Addition](#2461---addition)
-      - ➖ [2.4.6.2 - Subtraction](#2462---subtraction)
-      - ✖️ [2.4.6.3 - Multiplication](#2463---multiplication)
-      - ➗ [2.4.6.4 - Division](#2464---division)
-    - 🧠 [2.4.7 - Logical operations](#247---logical-operations)
-      - 🤝 [2.4.7.1 - Logical AND](#2471---logical-and)
-      - 🤲 [2.4.7.2 - Logical OR](#2472---logical-or)
-      - 💥 [2.4.7.3 - Logical XOR](#2473---logical-xor)
-      - ⛔ [2.4.7.3 - Logical NOT](#2473---logical-not)
-    - 💭 [2.4.8 - Comments](#248---comments)
-- 📐 [3 - Software Architecture](#3---software-architecture)
-  - 🖥️ [3.1 - Scraping](#31---scraping)
-    - 🗂️ [3.1.1 - `scraper.c`](#311---scraperc)
-    - 📄 [3.1.2 - `scraper.h`](#312---scraperh)
-    - ✅ [3.1.3 - `scraper_test.c`](#313---scraper_testc)
-    - 📝 [3.1.4 - `scraper_test.h`](#314---scraper_testh)
-  - 🖥️ [3.2 Parsing](#32-parsing)
-    - 🗂️ [3.2.1 `parser.c`](#321-parserc)
-    - 📄 [3.2.2 `parser.h`](#322-parserh)
-    - ✅ [3.2.3 `parser_test.c`](#323-parser_testc)
-    - 📝 [3.2.4 `parser_test.h`](#324-parser_testh)
-  - 🖥️ [3.3 Interpreting](#33-interpreting)
-    - 🗂️ [3.3.1 `interpreter.c`](#331-interpreterc)
-    - 📄 [3.3.2 `interpreter.h`](#332-interpreterh)
-    - ✅ [3.3.3 `interpreter_test.c`](#333-interpreter_testc)
-    - 📝 [3.3.4 `interpreter_test.h`](#334-interpreter_testh)
-  - 🖥️ [3.4 Main](#34-main)
-    - 🗂️ [3.4.1 `main.c`](#341-mainc)
-    - 📄 [3.4.2 `main.h`](#342-mainh)
-    - ✅ [3.4.3 `main_test.c`](#343-main_testc)
-    - 📝 [3.4.4 `main_test.h`](#344-main_testh)
-- 📚 [4 - End Matter](#4---end-matter)
-  - 👥 [4.1 - Contributors](#41---contributors)
-  - 📃 [4.2 - Related Documents](#42---related-documents)
-  - ©️ [4.3 - License](#43---license)
-  - 🔗 [4.4 - References](#44---references)
-    - 🛠️ [4.4.1 - Tools](#441---tools)
-    - 🔍 [4.4.2 - References](#442---references)
-  - 📚 [4.5 - Glossary](#45---glossary)
-  - 🔢 [4.6 - Footnotes](#46---footnotes)
+- [Technical Specification](#technical-specification)
+    - [Approvals](#approvals)
+- [1 - Overview](#1---overview)
+  - [1.1 - Purpose](#11---purpose)
+    - [1.1.1 - Goals](#111---goals)
+    - [1.1.2 - Objectives](#112---objectives)
+    - [1.1.3 - Success Criteria](#113---success-criteria)
+  - [1.2 - Stakeholders](#12---stakeholders)
+    - [1.2.1 - Project Team](#121---project-team)
+    - [1.2.2 - Client](#122---client)
+  - [1.3 - Usage](#13---usage)
+    - [1.3.1 - Requirements](#131---requirements)
+    - [1.3.2 - Installation](#132---installation)
+      - [1.3.2.1 - Installation with Bash](#1321---installation-with-bash)
+      - [1.3.2.2 - Installation with GitHub Desktop](#1322---installation-with-github-desktop)
+    - [1.3.3 - Running](#133---running)
+  - [1.4 - Scope](#14---scope)
+    - [1.4.1 - In Scope](#141---in-scope)
+    - [1.4.2 - Out of Scope](#142---out-of-scope)
+- [2 - Overall Description](#2---overall-description)
+  - [2.1 System Environment](#21-system-environment)
+    - [2.1.1 - Hardware](#211---hardware)
+    - [2.1.2 - Software](#212---software)
+  - [2.2 - Project Folder Structure](#22---project-folder-structure)
+  - [2.3 - Conventions](#23---conventions)
+    - [2.3.1 - Naming Conventions](#231---naming-conventions)
+      - [2.3.1.1 Folders](#2311-folders)
+      - [2.3.1.2 Files](#2312-files)
+      - [2.3.1.3 Variables](#2313-variables)
+      - [2.3.1.4 Constants](#2314-constants)
+      - [2.3.1.5 Functions](#2315-functions)
+      - [2.3.1.6 Tests](#2316-tests)
+    - [2.3.2 - Formatting Conventions](#232---formatting-conventions)
+      - [2.3.2.1 - Indentation](#2321---indentation)
+      - [2.3.2.2 - Line Length](#2322---line-length)
+      - [2.3.2.3 - Line Breaks](#2323---line-breaks)
+      - [2.3.2.4 - Comments](#2324---comments)
+  - [2.4 - Assembly Syntax](#24---assembly-syntax)
+    - [2.4.1 - Registers](#241---registers)
+      - [2.4.1.1 - Storing an immediate value into a register](#2411---storing-an-immediate-value-into-a-register)
+      - [2.4.1.2 Copying the value of a register into another register](#2412-copying-the-value-of-a-register-into-another-register)
+      - [2.4.1.3 Reading the value from the memory to a register](#2413-reading-the-value-from-the-memory-to-a-register)
+      - [2.4.1.4 Writing the value from a register to the memory](#2414-writing-the-value-from-a-register-to-the-memory)
+    - [2.4.2 - Jumping to a label](#242---jumping-to-a-label)
+      - [2.4.2.1 - Jumping unconditionally](#2421---jumping-unconditionally)
+      - [2.4.2.2 - Jumping conditionally (where "cc" is a condition code)](#2422---jumping-conditionally-where-cc-is-a-condition-code)
+    - [2.4.3 - Comparing registers](#243---comparing-registers)
+    - [2.4.4 - Calling a subroutine](#244---calling-a-subroutine)
+    - [2.4.5 - Returning from a subroutine](#245---returning-from-a-subroutine)
+    - [2.4.6 - Arithmetic operations](#246---arithmetic-operations)
+      - [2.4.6.1 - Addition](#2461---addition)
+      - [2.4.6.2 - Subtraction](#2462---subtraction)
+      - [2.4.6.3 - Multiplication](#2463---multiplication)
+      - [2.4.6.4 - Division](#2464---division)
+    - [2.4.7 - Logical operations](#247---logical-operations)
+      - [2.4.7.1 - Logical AND](#2471---logical-and)
+      - [2.4.7.2 - Logical OR](#2472---logical-or)
+      - [2.4.7.3 - Logical XOR](#2473---logical-xor)
+      - [2.4.7.3 - Logical NOT](#2473---logical-not)
+    - [2.4.8 - Comments](#248---comments)
+- [3 - Software Architecture](#3---software-architecture)
+  - [3.1 Parsing](#31-parsing)
+    - [3.1.1 `parser.c`](#311-parserc)
+    - [3.1.2 `parser.h`](#312-parserh)
+    - [3.1.3 `tests_parser.c`](#313-tests_parserc)
+    - [3.1.4 `tests_parser.h`](#314-tests_parserh)
+  - [3.2 Interpreting](#32-interpreting)
+    - [3.2.1 `interpreter.c`](#321-interpreterc)
+    - [3.2.2 `interpreter.h`](#322-interpreterh)
+    - [3.2.3 `interpreter_test.c`](#323-interpreter_testc)
+    - [3.2.4 `tests_interpreter.h`](#324-tests_interpreterh)
+  - [3.3 Main](#33-main)
+    - [3.3.1 `main.c`](#331-mainc)
+    - [3.3.2 `main.h`](#332-mainh)
+    - [3.3.3 `main_test.c`](#333-main_testc)
+    - [3.3.4 `main_test.h`](#334-main_testh)
+- [4 - End Matter](#4---end-matter)
+  - [4.1 - Contributors](#41---contributors)
+  - [4.2 - Related Documents](#42---related-documents)
+  - [4.3 - License](#43---license)
+  - [4.4 - References](#44---references)
+    - [4.4.1 - Tools](#441---tools)
+    - [4.4.2 - References](#442---references)
+  - [4.5 - Glossary](#45---glossary)
+  - [4.6 - Footnotes](#46---footnotes)
 
 
 </details>
@@ -151,7 +147,7 @@ The project objectives are as follows:
 
 ### 1.1.3 - Success Criteria
 
-The project will be considered successful if the following criteria are met:
+The project will be considered successful if the following criterias are met:
 
 - The interpreter is capable of executing assembly code.
 - The interpreter is compatible with the most common operating systems.
@@ -169,7 +165,7 @@ This project is for educational purposes and is not intended for commercial use.
 | ------------------ | ----------------- | --------------------------------------------------------- |
 | Laura-Lee HOLLANDE | Project Manager   | [Laura-Lee's GitHub](https://github.com/lauraleehollande) |
 | Ian LAURENT        | Program Manager   | [Ian's GitHub](https://github.com/Ianlaur)                |
-| Pierre GORIN       | Technical Lead    | [Pierre's GitHub](Pierre2103)                             |
+| Pierre GORIN       | Technical Leader    | [Pierre's GitHub](Pierre2103)                             |
 | Victor LEROY       | Software Engineer | [Victor's GitHub](https://github.com/Victor-Leroy)        |
 | Manech LAGUENS     | Software Engineer | [Manech's GitHub](https://github.com/Manech-Laguens)      |
 | Laurent BOUQUIN    | Quality Assurance | [Laurent's GitHub](https://github.com/Ianlaur)            |
@@ -278,8 +274,8 @@ The interpreter will be compatible with the most common hardware configurations,
 
 | Specification    | Lenovo ThinkBook 14  | Lenovo ThinkBook 14  | Lenovo ThinkPad 2023 | Apple MacBook Air M1 2020 | Apple MacBook Air M1 2020 |
 | ---------------- | -------------------- | -------------------- | -------------------- | ------------------------- | ------------------------- |
-| Processor        | Intel Core I7-1065G7 | Intel Core i7-1165G7 | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
-| RAM[^15]         | 16GB                 | 16 GB                | 16GB                 | 8 GB                      | 8 GB                      |
+| Processor        | Intel Core i7-1065G7 | Intel Core i7-1165G7 | Intel Core i7-1355U  | Apple Silicon M1          | Apple Silicon M1          |
+| RAM[^15]         | 16 GB                 | 16 GB                | 16 GB                 | 8 GB                      | 8 GB                      |
 | Operating System | Windows 11 Pro       | Windows 11 Pro       | Windows 11 Pro       | macOS Ventura             | macOS Sonoma              |
 
 ### 2.1.2 - Software
@@ -297,61 +293,64 @@ The interpreter will be compatible with the most common operating systems, and w
 The project will be organized in the following folder structure:
 
 ```bash
-~ 2023-2024-project-3-virtual-processor-team-8  # 📁 Root folder
+~ 2023-2024-project-3-virtual-processor-team-8  # 🌳 Root folder
 ├── Bin                                         # 📁 Binary folder
 ├── Tests                                       # 📁 Tests folder
-│   ├── tests_interpreter.c                     # 📄 Interpreter tests C file
-│   ├── tests_interpreter.h                     # 📄 Interpreter tests C header file
-│   ├── tests_scraper.c                         # 📄 Scraper tests C file
-│   ├── tests_scraper.h                         # 📄 Scraper tests C header file
-│   ├── tests_parser.c                          # 📄 Parser tests C file
-│   ├── tests_parser.h                          # 📄 Parser tests C header file
-│   ├── tests_main.c                            # 📄 Main tests C file
-│   └── tests_main.h                            # 📄 Main tests C header file
+│   ├── Headers                                     # 📁 Tests Header folder
+│   │   ├── tests_interpreter.h                         # 📄 Interpreter test C header file
+│   │   ├── tests_main.h                                # 📄 Main test C header file
+│   │   └── tests_parser.h                              # 📄 Parser test C header file
+│   ├── tests_interpreter.c                         # 📃 Interpreter test C file
+│   ├── tests_main.c                                # 📃 Main test C file
+│   └── tests_parser.c                              # 📃 Parser test C file
 ├── Docs                                        # 📁 Documentation folder
-│   ├── Management                              # 📁 Management folder
-│   │   ├── Team-Management                     # 📁 Team management folder
-│   │   │   ├── Gantt-Charter.pdf               # 📙 Gantt chart file
-│   │   │   └── Racii.md                        # 📄 RACII file
-│   │   ├── Weekly-Reports                      # 📁 Weekly reports folder
-│   │   │   ├── Img                             # 📁 Images folder
-│   │   │   ├── Weekly-Report-1.md              # 📄 Weekly report file
-│   │   │   ├── Weekly-Report-2.md              # 📄 Weekly report file
-│   │   │   └── [etc...]                        # 📄 Others Weekly report file
-│   │   ├── Project-Charter.md                  # 📄 Project charter file
-│   │   └── Risk-Management-Plan.md             # 📄 Risk management plan file
+│   ├── Management                                  # 📁 Management folder
+│   │   ├── Team-Management                             # 📁 Team management folder
+│   │   │   ├── Gantt-Charter.pdf                           # 📖 Gantt chart file
+│   │   │   └── Racii.md                                    # 📖 RACII file
+│   │   ├── Weekly-Reports                              # 📁 Weekly reports folder
+│   │   │   ├── Img                                         # 📁 Images folder
+│   │   │   ├── Weekly-Report-1.md                          # 📖 Weekly report file
+│   │   │   ├── Weekly-Report-2.md                          # 📖 Weekly report file
+│   │   │   └── [etc...]                                    # 📖 Others Weekly report file
+│   │   ├── Project-Charter.md                          # 📖 Project charter file
+│   │   └── Risk-Management-Plan.md                     # 📖 Risk management plan file
 │   └── Specs                                   # 📁 Specifications folder
-│       ├── Img                                 # 📁 Images folder
-│       │   ├── Functional-Specification        # 📁 Functional specification images folder
-│       │   │   ├── 1.png                       # 🖼️ Functional specification image
-│       │   │   ├── 2.png                       # 🖼️ Functional specification image
-│       │   │   └── [etc...]                    # 🖼️ Others Functional specification image  
-│       │   ├── Technical-Specification         # 📁 Technical specification images folder
-│       │   │   ├── 1.png                       # 🖼️ Technical specification image
-│       │   │   ├── 2.png                       # 🖼️ Technical specification image
-│       │   │   └── [etc...]                    # 🖼️ Others Technical specification image
-│       │   └── Test-Plan                       # 📁 Test plan images folder
-│       │   │   ├── 1.png                       # 🖼️ Test plan image
-│       │   │   ├── 2.png                       # 🖼️ Test plan image
-│       │   │   └── [etc...]                    # 🖼️ Others Test plan image
-│       ├── Functional-Specification.md         # 📄 Functional specification file
-│       ├── Technical-Specification.md          # 📄 Technical specification file
-│       └── Test-Plan.md                        # 📄 Test plan file
+│       ├── Img                                     # 📁 Images folder
+│       │   ├── Functional-Specification                # 📁 Functional specification images folder
+│       │   │   ├── 1.png                                   # 🖼️ Functional specification image
+│       │   │   ├── 2.png                                   # 🖼️ Functional specification image
+│       │   │   └── [etc...]                                # 🖼️ Others Functional specification image  
+│       │   ├── Technical-Specification                 # 📁 Technical specification images folder
+│       │   │   ├── 1.png                                   # 🖼️ Technical specification image
+│       │   │   ├── 2.png                                   # 🖼️ Technical specification image
+│       │   │   └── [etc...]                                # 🖼️ Others Technical specification image
+│       │   └── Test-Plan                               # 📁 Test plan images folder
+│       │       ├── 1.png                                   # 🖼️ Test plan image
+│       │       ├── 2.png                                   # 🖼️ Test plan image
+│       │       └── [etc...]                                # 🖼️ Others Test plan image
+│       ├── Functional-Specification.md             # 📖 Functional specification file
+│       ├── Technical-Specification.md              # 📖 Technical specification file
+│       └── Test-Plan.md                            # 📖 Test plan file
 ├── Src                                         # 📁 Source code folder
-│   ├── code.asm                                # 📄 Assembly code file
-│   ├── interpreter.c                           # 📄 Interpreter C file
-│   ├── interpreter.h                           # 📄 Interpreter C header file
-│   ├── main.c                                  # 📄 Main C file
-│   ├── main.h                                  # 📄 Main C header file
-│   ├── scraper.c                               # 📄 Parser C file
-│   ├── scraper.h                               # 📄 Parser C header file
-│   ├── parser.c                                # 📄 Parser C file
-│   ├── parser.h                                # 📄 Parser C header file
-│   └── temp                                    # 📁 Temporary folder
-├── .gitignore                                  # 📄 Git ignore file
-├── LICENSE                                     # 📄 License file
-└── README.md                                   # 📄 Readme file
+│   ├── code.asm                                    # 📝 Assembly code file
+│   ├── Headers                                     # 📁 Header Folder
+│   │   ├── interpreter.h                               # 📄 Interpreter C header file
+│   │   ├── main.h                                      # 📄 Scraper C header file
+│   │   └── parser.h                                    # 📄 Parser C header file
+│   ├── interpreter.c                               # 📃 Interpreter C file
+│   ├── main.c                                      # 📃 Main C file
+│   ├── parser.c                                    # 📃 Parser C file
+│   └── temp                                        # 📁 Temporary folder
+├── .gitignore                                  # 📖 Git ignore file
+├── LICENSE                                     # 📖 License file
+└── README.md                                   # 📖 Readme file
 ```
+
+**Legend:**
+| 🌳          | 📁       | 📖        | 📃      | 📄           | 📝            | 🖼️     |
+| ----------- | ------- | --------- | ------- | ------------ | ------------- | ------ |
+| Root folder | Folders | Documents | C Files | Header Files | Assembly File | Images |
 
 ## 2.3 - Conventions
 
@@ -363,24 +362,34 @@ Naming conventions[^16] are important to keep a clear navigation through the dir
 
 #### 2.3.1.1 Folders
 
-- Folder names will be written in `Train-Case`.
+- Folder will be written in `Train-Case` and in English.
 
 #### 2.3.1.2 Files
 
-- File related to documentation or management will be written in `Train-Case`.
-- File related to source code will be written in `snake_case`.
+- File related to documentation or management will be written in `Train-Case` and in English.
+- Example: `Documentation-File.md`
+- File related to source code will be written in `snake_case` and in English.
+- Example: `source_code_file.c`
 
 #### 2.3.1.3 Variables
 
-- Variable names will be written in `snake_case`.
+- Variable will be written in `snake_case` and in English.
+- Example: `variable_name`.
 
 #### 2.3.1.4 Constants
 
-- Constant names will be written in `UPPER_SNAKE_CASE`.
+- Constant names will be written in `UPPER_SNAKE_CASE` and in English.
+- Example: `CONSTANT_NAME`.
 
 #### 2.3.1.5 Functions
 
-- Function names will be written in `camelCase`.
+- Function names will be written in `camelCase` and in English.
+- Example: `functionName`.
+
+#### 2.3.1.6 Tests
+
+- Test functions will be written in `functionName` followed by `TEST`.
+- Example: `functionNameTEST`.
 
 ### 2.3.2 - Formatting Conventions
 
@@ -393,8 +402,8 @@ Formatting conventions are important to keep a clear, concise and readable code,
 
 #### 2.3.2.2 - Line Length
 
-- Lines will be limited to 80 characters.
-- Lines will be limited to 120 characters for comments.
+- Lines will be limited to 100 characters.
+- Lines will be limited to 150 characters for comments.
 
 #### 2.3.2.3 - Line Breaks
 
@@ -417,9 +426,9 @@ Formatting conventions are important to keep a clear, concise and readable code,
 
 ### 2.4.1 - Registers
 
-**Question:** What is a register?
+***Question:** What is a register?*
 
-**Answer:** A register[^17] is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.
+***Answer:** A register[^17] is a small amount of storage available as part of a CPU. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.*
 
 #### 2.4.1.1 - Storing an immediate value into a register
 
@@ -487,9 +496,9 @@ In this example, the value of the register `rb` is copied into the register `ra`
 
 ### 2.4.2 - Jumping to a label
 
-**Question:** What is jumping?
+***Question:** What is jumping?*
 
-**Answer:** Jumping[^18] is the process of transferring control from one part of a program to another.
+***Answer:** Jumping[^18] is the process of transferring control from one part of a program to another.*
 
 #### 2.4.2.1 - Jumping unconditionally
 
@@ -522,9 +531,9 @@ List of condition codes:
 - `JZ` - Jump if zero
 - `JNZ` - Jump if not zero
 - `JG` - Jump if greater than
-- `JL` - Jump if less than
+- `JL` - Jump if lesser than
 - `JGE` - Jump if greater than or equal
-- `JLE` - Jump if less than or equal
+- `JLE` - Jump if lesser than or equal
 
 Here are some examples:
 
@@ -541,20 +550,20 @@ JLE labelEight
 
 In these examples, the program will jump to the label :
 
-- `labelOne` if the result of the previous instruction are equal.
-- `labelTwo` if the result of the previous instruction are not equal.
-- `labelThree` if the result of the previous instruction are zero.
-- `labelFour` if the result of the previous instruction are not zero.
-- `labelFive` if the result of the previous instruction are greater than.
-- `labelSix` if the result of the previous instruction are less than.
-- `labelSeven` if the result of the previous instruction are greater than or equal.
-- `labelEight` if the result of the previous instruction are less than or equal.
+- `labelOne` if the result is equal.
+- `labelTwo` if the result is not equal.
+- `labelThree` if the result is zero.
+- `labelFour` if the result is not zero.
+- `labelFive` if the result is greater than.
+- `labelSix` if the result is lesser than.
+- `labelSeven` if the result is greater than or equal.
+- `labelEight` if the result is lesser than or equal.
 
 ### 2.4.3 - Comparing registers
 
-**Question:** What is comparing?
+***Question:** What is comparing?*
 
-**Answer:** Comparing is the process of comparing the content of registers.
+***Answer:** Comparing is the process of comparing the content of registers.*
 
 We'll use the following syntax:
 
@@ -572,9 +581,9 @@ In this example, the content of the register `ra` is compared to the content of 
 
 ### 2.4.4 - Calling a subroutine
 
-**Question:** What is a subroutine?
+***Question:** What is a subroutine?*
 
-**Answer:** A subroutine is a sequence of program instructions that performs a specific task, packaged as a unit.
+***Answer:** A subroutine is a sequence of program instructions that performs a specific task, packaged as a unit.*
 
 We'll use the following syntax:
 
@@ -666,13 +675,13 @@ DIV ra, rb
 DIV ra, 2
 ```
 
-In these examples, the value of the register `ra` is divided by the value of the register `rb`. In these example, the value of the register `ra` is divided by the value `2`.
+In these examples, the value of the register `ra` is divided by the value of the register `rb`. In the second example, the value of the register `ra` is divided by the value `2`.
 
 ### 2.4.7 - Logical operations
 
-**Question:** What is a logical operation?
+***Question:** What is a logical operation?*
 
-**Answer:** A logical operation is an operation that can be performed on one or more logical operands[^20] and that produces a logical result.
+***Answer:** A logical operation is an operation that can be performed on one or more logical operands[^20] and that produces a logical result.*
 
 #### 2.4.7.1 - Logical AND
 
@@ -768,174 +777,162 @@ ADD ra, 5
 
 # 3 - Software Architecture
 
-## 3.1 - Scraping
+## 3.1 Parsing
 
 [*(Back to top)*](#toc)
 
-### 3.1.1 - `scraper.c`
-
-This component is responsible for reading and processing assembly language code from a file. The primary functionalities include reading lines from a file, interpreting these lines into a structured format, and organizing the data for further processing. It utilizes a variety of functions to handle file operations, string manipulation, and data structuring.
-
-**Key Features:**
-- `printLines` and `printLine`: Functions for displaying lines from the file.
-- `getFile`: Reads the assembly code from a file and stores each line in an array.
-- `getSize`: Determines the number of lines in the file to allocate appropriate memory for line storage.
-- `getStructs`: Processes each line into a `function` struct which includes instruction, parameters, and other relevant data.
-- `switchStr`: Identifies the type of each string segment (instruction, register, or number).
-- `setStruct`: Assigns values to a `function` struct.
-- `printStruct`: Displays the contents of a `function` struct for debugging purposes.
-
-**Usage:**
-This file is used to extract and structure assembly code from a given file. It ensures that the code is ready for parsing by converting it into a series of structured commands, represented as `function` structs.
-
-**Diagram:**
-
-```mermaid
-graph TD
-    getFile["getFile - Read the file"] --> getSize["getSize - Determines number of lines"]
-    getFile --> printLines["printLines - Displays lines"]
-    getFile --> printLine["printLine - Displays a line"]
-    getFile --> getStructs["getStructs - Processes lines into structs"]
-
-    getStructs --> setStruct["setStruct - Assigns values to struct"]
-    getStructs --> switchStr["switchStr - Identifies string types"]
-    getStructs --> printStruct["printStruct - Displays struct contents"]
-
-    classDef function fill:#333,stroke:#777,stroke-width:2px;
-    class getFile,getSize,printLines,printLine,getStructs,setStruct,switchStr,printStruct function;
-```
-
-**Diagram Explanation:**
-
-- `getFile`: This is the starting point, responsible for reading the assembly code file.
-- `getSize`: Called by `getFile` to determine the number of lines for memory allocation.
-- `printLines` and `printLine`: Debugging functions used by `getFile` to display file contents.
-- `getStructs`: Invoked after `getFile`, this function processes each line into a function struct.
-- `setStruct`, `switchStr`, and `printStruct`: These functions are used within `getStructs` for structuring data, identifying string types, and debugging respectively.
-
-
-### 3.1.2 - `scraper.h`
-
-This header file defines the structure and the prototypes of the functions used in `scraper.c`. It includes the definition of the `function` struct, which is pivotal for representing each line of assembly code.
-
-**Key Components:**
-- `func_t`: Structure representing a line of assembly code, including its instruction, name, parameters, and line number.
-- Function declarations for `printLines`, `printLine`, `getFile`, `getSize`, `getStructs`, `switchStr`, `setStruct`, and `printStruct`.
-
-**Usage:**
-This header file is included in `scraper.c` and other components that need to interact with the scraping functionality, ensuring consistency in the data structures and function interfaces used across the project.
-
-### 3.1.3 - `scraper_test.c`
-
-Contains unit tests for the scraping functionality provided in `scraper.c`. It tests various aspects such as file reading, line extraction, string processing, and structure filling.
-
-**Test Cases:**
-- Reading files with varying number of lines and contents.
-- Correct extraction and storage of lines into an array.
-- Accurate processing of lines into `function` structs.
-- Proper identification of string types (instruction, register, number).
-
-**Usage:**
-Used for ensuring the reliability and correctness of the scraping functionality. These tests validate that the code in `scraper.c` correctly handles various scenarios and edge cases.
-
-**Diagram:**
-
-```mermaid
-graph TD
-    getFileTEST["getFileTEST - Tests file reading"] --> getFile["getFile - Reads the file"]
-
-    getLineTEST["getLineTEST - Tests line retrieval"] --> getLine["getLine - Retrieves a specific line"]
-    getLine --> getFile
-
-    getSizeTEST["getSizeTEST - Tests file size determination"] --> getSize["getSize - Determines number of lines"]
-
-    getStructsTEST["getStructsTEST - Tests struct creation from file"] --> getStructs["getStructs - Processes lines into structs"]
-    getStructs --> getFile
-    getStructs --> getSize
-
-    switchStrTEST["switchStrTEST - Tests string type identification"] --> switchStr["switchStr - Identifies string types"]
-
-    setStructTEST["setStructTEST - Tests setting struct values"] --> setStruct["setStruct - Assigns values to struct"]
-
-    classDef function fill:#333,stroke:#777,stroke-width:2px;
-    class getFileTEST,getLineTEST,getSizeTEST,getStructsTEST,switchStrTEST,setStructTEST function;
-    class getFile,getLine,getSize,getStructs,switchStr,setStruct function;
-```
-
-**Diagram Explanation:**
-- Test Functions:
-  - `getFileTEST`: Tests the `getFile` function's ability to read a file.
-  - `getLineTEST`: Tests the `getLine` function's ability to retrieve a specific line from a file. It depends on getFile.
-  - `getSizeTEST`: Tests the `getSize` function's ability to determine the correct size of the file.
-  - `getStructsTEST`: Tests the `getStructs` function's ability to process lines into structs. It depends on `getFile` and `getSize`.
-  - `switchStrTEST`: Tests the `switchStr` function's ability to correctly identify string types.
-  - `setStructTEST`: Tests the `setStruct` function's ability to correctly set values in a struct.
-  - 
-- Functionality Functions:
-  - `getFile`, `getLine`, `getSize`, `getStructs`, `switchStr`, `setStruct`: These are the core functions being tested. Each test function is designed to verify the correctness of these functions under various scenarios.
-
-### 3.1.4 - `scraper_test.h`
-
-This header file declares the unit tests for `scraper.c`. It includes the prototypes of the test functions used in `scraper_test.c`.
-
-**Key Components:**
-- Declarations for various test functions specific to the scraping functionality.
-
-**Usage:**
-This header file is included in `scraper_test.c` to provide a reference for the test cases. It ensures that the test suite is well-organized and each test function is properly declared.
-
-## 3.2 Parsing
-
-[*(Back to top)*](#toc)
-
-### 3.2.1 `parser.c`
+### 3.1.1 `parser.c`
 
 This component is responsible for parsing[^19] the structured assembly language code, represented as `function` structs, into a format that can be interpreted and executed. It involves analyzing the instruction, parameters, and other data from each struct and converting them into executable commands or tokens.
 
 **Key Features:**
-- `parseAssembly`: Takes an array of `function` structs and interprets each one, converting the assembly language instructions into a format that the interpreter can execute.
-- `validateInstruction`: Checks if the instructions and parameters in each `function` struct are valid within the context of the custom assembly language.
-- `extractOperands`: Extracts and categorizes operands from the assembly instruction, distinguishing between different types like registers, memory addresses, and immediate values.
-- `buildExecutableCommand`: Converts the parsed information into a command structure that can be directly used by the interpreter.
+- `printLines` and `printLine`: Display lines from the file for review or debugging.
+- `getFile`: Opens a file and reads its contents line by line, storing each line in an array for further action.
+- `getSize`: Calculates the number of lines within the file to allocate memory appropriately.
+- `getStructs`: Transforms each line of code into a `function` struct, organizing instructions, parameters, and related data.
+- `switchStr`: Distinguishes the segments of each line by type (e.g., instruction, register, or number).
+- `setStruct`: Fill a `function` struct with the relevant data extracted from a line of code.
+- `printStruct`: Outputs the details of a `function` struct, useful for debugging and verification.
 
 **Usage:**
-This file is used to transform raw assembly language into a structured, interpretable format. It ensures that the assembly code is syntactically and semantically correct and ready for execution.
+This component is used to parse the assembly language code into a structured format that can be interpreted and executed. It is called by the main component and is responsible for the parsing process.
 
-**Diagram:**
+**Sequence Diagram:**
+
+The following diagram shows the sequence of operations involved in the parsing process.
+
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant main as main.c
+    participant getFile as getFile()
+    participant getSize as getSize()
+    participant getStructs as getStructs()
+    participant setStruct as setStruct()
+    participant switchStr as switchStr()
+    participant printStruct as printStruct()
+
+    User->>main: Execute program
+    main->>getFile: Call with file path
+    getFile->>getSize: Determine line count
+    getSize-->>getFile: Returns line count
+    getFile->>getFile: Read lines
+    getFile-->>main: Returns lines array
+    main->>getStructs: Call with lines array
+    loop For each line
+        getStructs->>switchStr: Identify string type
+        switchStr-->>getStructs: Return type (1, 2, 3)
+        getStructs->>setStruct: Populate function struct
+    end
+    getStructs-->>main: Return array of structs
+    main->>printStruct: Display structs for debugging
+    printStruct-->>User: Output struct details
+```
+
+**Sequence Diagram Explanation:**
+
+- **User starts the program execution**, which kicks off the process in `main.c`.
+- **`main.c` calls `getFile()`**, passing the path of the assembly code file to be read.
+- **`getFile()` invokes `getSize()`** to determine the number of lines in the file, which is crucial for memory allocation.
+- **Back in `getFile()`, the file is read line by line**, based on the line count obtained from `getSize()`.
+- **The lines array is returned to `main.c`** after the file has been completely read.
+- **`main.c` then calls `getStructs()`,** passing it the array of lines for processing into `function` structs.
+- **Within `getStructs()`, a loop processes each line.** For each line, `switchStr()` is called to identify the type of each string segment (instruction, register, or number).
+- **`setStruct()` is then called** to populate a `function` struct with the relevant data extracted from the line.
+- **Once all lines have been processed into `function` structs, `getStructs()` returns this array of structs to `main.c`.**
+- **`main.c` may then call `printStruct()`** to display the contents of each `function` struct, primarily for debugging purposes.
+- **The details of the `function` structs are output to the User,** completing the sequence of operations from file reading to data structuring.
+
+**Flowchart Diagram:**
 
 ```mermaid
 graph TD
-    parseAssembly["parseAssembly - Interprets function structs"] --> validateInstruction["validateInstruction - Checks instruction validity"]
-    parseAssembly --> extractOperands["extractOperands - Extracts operands"]
-    parseAssembly --> buildExecutableCommand["buildExecutableCommand - Builds executable commands"]
-
-    validateInstruction --> extractOperands
-    extractOperands --> buildExecutableCommand
-
-    classDef function fill:#333,stroke:#777,stroke-width:2px;
-    class parseAssembly,validateInstruction,extractOperands,buildExecutableCommand function;
+    A([Start]) --> B{getFile}
+    B --> C{getSize}
+    C --> D[Read File]
+    D --> E{for each line}
+    E --> F[switchStr]
+    F --> G[setStruct]
+    E --> H{All lines processed?}
+    H -->|Yes| I[Array of Structs]
+    H -->|No| E
+    I --> J[printStruct]
+    J --> K([End])
 ```
 
-**Diagram Explanation:**
+**Flowchart Explanation:**
 
-- **`parseAssembly`**: This function is the entry point for parsing. It takes an array of `function` structs, representing the assembly language code, and processes each struct.
-- **`validateInstruction`**: Called by `parseAssembly`, it checks if the instructions and parameters in each `function` struct are valid. This step is crucial to ensure that the assembly code adheres to the rules of the custom assembly language.
-- **`extractOperands`**: Also called by `parseAssembly`, this function handles the extraction and categorization of operands from each instruction. It distinguishes between different types like registers, memory addresses, and immediate values.
-- **`buildExecutableCommand`**: The final step in the parsing process, where `parseAssembly` uses this function to convert the parsed and validated information into a command structure. These command structures are then ready to be executed by the interpreter.
+- **Start:** The beginning of the program execution.
+- **getFile:** The function is called with the file path to read the assembly code from the file.
+- **getSize:** Determines the total number of lines in the file for memory allocation before reading.
+- **Read File:** The actual reading of the file line by line based on the size determined.
+- **for each line:** Iterates over each line read from the file for processing.
+- **switchStr:** Identifies the type of each segment in the line (instruction, register, or number).
+- **setStruct:** Fill a `function` struct with data extracted and identified from the line.
+- **All lines processed?:** Checks if all lines from the file have been processed into structs.
+    - If **No**, the process loops back to continue with the next line.
+    - If **Yes**, it moves forward to the next step.
+- **Array of Structs:** Once all lines are processed, an array of `function` structs is formed.
+- **printStruct:** Displays the content of each `function` struct, mainly used for debugging.
+- **End:** The end of the process.
 
-### 3.2.2 `parser.h`
+### 3.1.2 `parser.h`
 
-This header file defines the prototypes of the functions used in `parser.c` and any necessary data structures or constants. It also includes any required standard or external library headers.
+This header file defines the structure and prototypes of the functions used in `parser.c`, along with any necessary data structures, constants, and standard or external library headers required for parsing assembly language code.
 
 **Key Components:**
-- Function declarations for `parseAssembly`, `validateInstruction`, `extractOperands`, and `buildExecutableCommand`.
-- Data structure definitions for storing parsed commands and operands.
-- Constants and error codes related to parsing and validation.
+
+- **Function Declarations**:
+    - `void printLines(char **lines, int size)`: Displays lines from the file.
+    - `char* getLine(char **lines, int line)`: Retrieves a specific line from the array of lines.
+    - `void *getFile(const char *path)`: Reads the assembly code from a file and stores each line in an array.
+    - `int getSize(const char *path)`: Determines the number of lines in the file for memory allocation.
+    - `void *getStructs(char **lines, int size)`: Processes each line into a `function` struct.
+    - `int switchStr(char *str)`: Identifies the type of each string segment.
+    - `void setStruct(struct function *f, char *instruction, char *name, char *parameter1, char *parameter2, int line)`: Assigns values to a `function` struct.
+    - `void printStruct(struct function *f)`: Displays the contents of a `function` struct.
+
+- **Data Structure Definitions**:
+    - `func_t`: A structure representing a line of assembly code, including instruction, name, parameters, and line number.
 
 **Usage:**
-This header file is included in `parser.c` and in other components that need to interact with the parsing functionality. It provides a clear interface and data structure definitions for parsing operations.
+This header file is crucial for ensuring that `parser.c` and other components interact seamlessly with the parsing functionality. It defines a clear interface for parsing operations and the necessary structures for holding parsed data.
 
-### 3.2.3 `parser_test.c`
+**Class Diagram:**
+
+```mermaid
+classDiagram
+    class func_t {
+        -char instruction[5]
+        -char name[10]
+        -char parameter1[10]
+        -char parameter2[10]
+        -int line
+    }
+
+    class parser {
+        +void printLines(char **, int)
+        +char* getLine(char **, int)
+        +void* getFile(const char*)
+        +int getSize(const char*)
+        +void* getStructs(char **, int)
+        +int switchStr(char*)
+        +void setStruct(struct function*, char*, char*, char*, char*, int)
+        +void printStruct(struct function*)
+    }
+
+    func_t : Used to structure the parsed data
+    parser : Implements parsing functionality
+```
+
+**Class Diagram Explanation:**
+
+- The diagram shows the `func_t` class representing a structured format for a single line of assembly code, including fields for instruction, name, parameters, and line number.
+- The `parser` class encapsulates the parsing functionality, with methods for handling file reading (`getFile`, `getSize`), line manipulation (`printLines`, `getLine`), structuring (`getStructs`, `setStruct`), and debugging (`printStruct`).
+- The relationship between `func_t` and `parser` illustrates how parsed data is structured and managed within the parsing process.
+
+
+### 3.1.3 `tests_parser.c`
 
 Contains unit tests for the parsing functionality provided in `parser.c`. It tests the parsing process, including instruction validation, operand extraction, and command structure building.
 
@@ -948,50 +945,21 @@ Contains unit tests for the parsing functionality provided in `parser.c`. It tes
 **Usage:**
 Used for ensuring the reliability and correctness of the parsing functionality. These tests validate that the code in `parser.c` accurately interprets and transforms assembly language into a structured format that the interpreter can understand.
 
-**Diagram:**
+### 3.1.4 `tests_parser.h`
 
-```mermaid
-graph TD
-    parser_test --> parseAssemblyTest
-    parser_test --> validateInstructionTest
-    parser_test --> extractOperandsTest
-    parser_test --> buildExecutableCommandTest
-
-    parseAssemblyTest["parseAssemblyTest - Tests parsing of function structs"] --> parseAssembly["parseAssembly"]
-    validateInstructionTest["validateInstructionTest - Tests instruction validation"] --> validateInstruction["validateInstruction"]
-    extractOperandsTest["extractOperandsTest - Tests operand extraction"] --> extractOperands["extractOperands"]
-    buildExecutableCommandTest["buildExecutableCommandTest - Tests command structure building"] --> buildExecutableCommand["buildExecutableCommand"]
-
-    classDef tests fill:#333,stroke:#777,stroke-width:2px;
-    classDef functions fill:#333,stroke:#777,stroke-width:2px;
-    class parser_test,parseAssemblyTest,validateInstructionTest,extractOperandsTest,buildExecutableCommandTest tests;
-    class parseAssembly,validateInstruction,extractOperands,buildExecutableCommand functions;
-```
-
-**Diagram Explanation:**
-- Test Functions:
-  - `parseAssemblyTest`: Tests the `parseAssembly` function's ability to correctly interpret an array of function structs.
-  - `validateInstructionTest`: Tests the `validateInstruction` function to ensure it accurately checks the validity of instructions and parameters.
-  - `extractOperandsTest`: Verifies that `extractOperands` correctly extracts and categorizes operands from assembly instructions.
-  - `buildExecutableCommandTest`: Assesses `buildExecutableCommand` for its effectiveness in creating executable command structures from parsed data.
-- Functionality Functions:
-  - `parseAssembly`, `validateInstruction`, `extractOperands`, `buildExecutableCommand`: These are the core functions involved in the parsing process within `parser.c`, being tested by the respective test functions.
-
-### 3.2.4 `parser_test.h`
-
-This header file declares the unit tests for `parser.c`. It includes the prototypes of the test functions used in `parser_test.c`.
+This header file declares the unit tests for `parser.c`. It includes the prototypes of the test functions used in `tests_parser.c`.
 
 **Key Components:**
 - Declarations of test functions specific to the parsing functionality.
 
 **Usage:**
-This header file is included in `parser_test.c` to provide a structured approach to testing the parser. It ensures that the test suite covers all aspects of the parsing process and that each test function is properly organized.
+This header file is included in `tests_parser.c` to provide a structured approach to testing the parser. It ensures that the test suite covers all aspects of the parsing process and that each test function is properly organized.
 
-## 3.3 Interpreting
+## 3.2 Interpreting
 
 [*(Back to top)*](#toc)
 
-### 3.3.1 `interpreter.c`
+### 3.2.1 `interpreter.c`
 
 This component is the heart of the virtual processor, responsible for executing the parsed assembly instructions. It simulates the behavior of a processor by interpreting and running the instructions in the context of the defined assembly language.
 
@@ -1019,12 +987,12 @@ graph TD
 
 **Diagram Explanation:**
 
-- **`simulateProgramExecution`**: This function is the starting point for executing the parsed assembly instructions. It orchestrates the overall simulation of the assembly program.
-- **`initializeProcessorState`**: Called by `simulateProgramExecution`, it sets up the initial state of the virtual processor, including register values and memory allocation, preparing the environment for instruction execution.
-- **`executeInstruction`**: A critical function called during program simulation. It takes each parsed command and executes it, handling different types of instructions.
-- **`handleArithmeticOperations`** and **`manageControlFlow`**: Both functions are utilized by `executeInstruction` to specifically deal with arithmetic and control flow instructions, respectively. They ensure that each type of instruction is executed according to the defined rules of the assembly language.
+- **`simulateProgramExecution`:** This function is the starting point for executing the parsed assembly instructions. It orchestrates the overall simulation of the assembly program.
+- **`initializeProcessorState`:** Called by `simulateProgramExecution`, it sets up the initial state of the virtual processor, including register values and memory allocation, preparing the environment for instruction execution.
+- **`executeInstruction`:** A critical function called during program simulation. It takes each parsed command and executes it, handling different types of instructions.
+- **`handleArithmeticOperations`** and **`manageControlFlow`:** Both functions are utilized by `executeInstruction` to specifically deal with arithmetic and control flow instructions, respectively. They ensure that each type of instruction is executed according to the defined rules of the assembly language.
 
-### 3.3.2 `interpreter.h`
+### 3.2.2 `interpreter.h`
 
 This header file contains the function declarations and necessary data structures used in `interpreter.c`. It also includes any required standard or external library headers.
 
@@ -1036,7 +1004,7 @@ This header file contains the function declarations and necessary data structure
 **Usage:**
 This header file is included in `interpreter.c` and other parts of the project that interact with the interpretation process. It provides a clear interface for the interpreter's functionality and ensures consistency in data structures across the project.
 
-### 3.3.3 `interpreter_test.c`
+### 3.2.3 `interpreter_test.c`
 
 Contains comprehensive unit tests for the interpreter functionality provided in `interpreter.c`. These tests ensure the correct execution of assembly instructions and the accurate simulation of a processor's behavior.
 
@@ -1073,17 +1041,17 @@ graph TD
 
 **Diagram Explanation:**
 
-- **Test Functions**:
-  - **`executeInstructionTest`**: Validates the correct execution of individual instructions by `executeInstruction`.
-  - **`initializeProcessorStateTest`**: Assesses `initializeProcessorState` for proper setup of the initial state of the virtual processor.
-  - **`handleArithmeticOperationsTest`**: Ensures that arithmetic operations are correctly handled by `handleArithmeticOperations`.
-  - **`manageControlFlowTest`**: Tests `manageControlFlow` for accurate control flow changes like jumps and calls.
-  - **`simulateProgramExecutionTest`**: Confirms that the entire set of instructions is accurately simulated by `simulateProgramExecution`.
+- **Test Functions:**
+  - **`executeInstructionTest`:** Validates the correct execution of individual instructions by `executeInstruction`.
+  - **`initializeProcessorStateTest`:** Assesses `initializeProcessorState` for proper setup of the initial state of the virtual processor.
+  - **`handleArithmeticOperationsTest`:** Ensures that arithmetic operations are correctly handled by `handleArithmeticOperations`.
+  - **`manageControlFlowTest`:** Tests `manageControlFlow` for accurate control flow changes like jumps and calls.
+  - **`simulateProgramExecutionTest`:** Confirms that the entire set of instructions is accurately simulated by `simulateProgramExecution`.
 
-- **Functionality Functions**:
-  - **`executeInstruction`**, **`initializeProcessorState`**, **`handleArithmeticOperations`**, **`manageControlFlow`**, **`simulateProgramExecution`**: These are the core functions involved in interpreting and executing assembly instructions, each being tested for their respective functionalities.
+- **Functionality Functions:**
+  - **`executeInstruction`**, **`initializeProcessorState`**, **`handleArithmeticOperations`**, **`manageControlFlow`**, **`simulateProgramExecution`:** These are the core functions involved in interpreting and executing assembly instructions, each being tested for their respective functionalities.
 
-### 3.3.4 `interpreter_test.h`
+### 3.2.4 `tests_interpreter.h`
 
 This header file declares the testing functions and necessary structures for interpreter tests. It outlines the structure and methodology for each test case.
 
@@ -1091,13 +1059,13 @@ This header file declares the testing functions and necessary structures for int
 - Declarations of various test functions specific to the interpreter functionality.
 
 **Usage:**
-Included in `interpreter_test.c`, this header file organizes the test suite for the interpreter. It ensures a systematic approach to testing each aspect of the interpreter's functionality, from individual instruction execution to full program simulation.
+Included in `tests_interpreter.c`, this header file organizes the test suite for the interpreter. It ensures a systematic approach to testing each aspect of the interpreter's functionality, from individual instruction execution to full program simulation.
 
-## 3.4 Main
+## 3.3 Main
 
 [*(Back to top)*](#toc)
 
-### 3.4.1 `main.c`
+### 3.3.1 `main.c`
 
 This file serves as the entry point of the program. It integrates the components of scraping, parsing, and interpreting, providing a cohesive workflow for executing the custom assembly language. The `main.c` file orchestrates the overall process from reading the assembly code file to executing it and displaying the results.
 
@@ -1127,15 +1095,15 @@ graph TD
 
 **Diagram Explanation:**
 
-- **`main`**: The primary function that initiates the workflow of the program. It orchestrates the overall process of executing the custom assembly language.
-- **`loadAssemblyFile`**: Called by `main`, it handles the loading of the assembly file, ensuring that the file is accessible and ready for processing.
-- **`getFile`**: Invoked after `loadAssemblyFile`, this function reads the assembly file and prepares its contents for further processing.
-- **`parseAssembly`**: Follows `getFile`, parsing the structured data (scraped from the assembly file) into executable instructions.
-- **`simulateProgramExecution`**: Called after `parseAssembly`, it executes the parsed instructions, simulating the behavior of a processor.
-- **`displayResults`**: A function called by `main` to display the final state of the processor or the results of the code execution.
-- **`errorHandling`**: Also part of `main`, it manages any errors that might occur during the different stages of file reading, scraping, parsing, or interpreting.
+- **`main`:** The primary function that initiates the workflow of the program. It orchestrates the overall process of executing the custom assembly language.
+- **`loadAssemblyFile`:** Called by `main`, it handles the loading of the assembly file, ensuring that the file is accessible and ready for processing.
+- **`getFile`:** Invoked after `loadAssemblyFile`, this function reads the assembly file and prepares its contents for further processing.
+- **`parseAssembly`:** Follows `getFile`, parsing the structured data (scraped from the assembly file) into executable instructions.
+- **`simulateProgramExecution`:** Called after `parseAssembly`, it executes the parsed instructions, simulating the behavior of a processor.
+- **`displayResults`:** A function called by `main` to display the final state of the processor or the results of the code execution.
+- **`errorHandling`:** Also part of `main`, it manages any errors that might occur during the different stages of file reading, scraping, parsing, or interpreting.
 
-### 3.4.2 `main.h`
+### 3.3.2 `main.h`
 
 This header file contains the declarations of functions and data structures used in `main.c`. It ensures that the main module interfaces correctly with other parts of the program.
 
@@ -1146,7 +1114,7 @@ This header file contains the declarations of functions and data structures used
 **Usage:**
 The `main.h` file is included in `main.c` and possibly other parts of the project if they need to interact with the main workflow. It provides a clear interface and essential declarations for the main functionality.
 
-### 3.4.3 `main_test.c`
+### 3.3.3 `main_test.c`
 
 Contains unit tests for the main module of the program. These tests ensure the integrated functionality of reading, scraping, parsing, and interpreting works as expected.
 
@@ -1158,7 +1126,7 @@ Contains unit tests for the main module of the program. These tests ensure the i
 **Usage:**
 Used for validating the correctness and robustness of the entire program workflow. These tests are essential for ensuring that all components of the program work together seamlessly and efficiently.
 
-### 3.4.4 `main_test.h`
+### 3.3.4 `main_test.h`
 
 This header file declares the test functions used in `main_test.c`. It organizes the test suite for the main module, ensuring comprehensive coverage of the program's primary functionalities.
 
@@ -1221,6 +1189,7 @@ In this section, you will find all the tools and references used to create this 
 - [Codewars - Assembly Interpreter Part I](https://www.codewars.com/kata/58e24788e24ddee28e000053/)
 - [Codewars - Assembly Interpreter Part II](https://www.codewars.com/kata/58e61f3d8ff24f774400002c)
 - [C Good Practices](https://github.com/mcinglis/c-style)
+- [Naming Conventions](https://en.wikipedia.org/wiki/Naming_convention_(programming))
 
 ## 4.5 - Glossary
 
