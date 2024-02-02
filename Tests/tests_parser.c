@@ -1,4 +1,4 @@
-#include "tests_scraper.h"
+#include "tests_parser.h"
 
 
 int getFileTEST(const char *file) {

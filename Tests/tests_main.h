@@ -1,1 +1,1 @@
-#include "tests_scraper.c"
+#include "tests_parser.c"

@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <stdbool.h>
 
-#include "../Src/scraper.c"
+#include "../Src/parser.c"
 
 
 // Testing that the file is not empty
