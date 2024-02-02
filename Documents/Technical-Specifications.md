@@ -13,7 +13,7 @@
 
 **Created on:** January 22<sup>nd</sup>, 2024
 
-**Last updated:** February 1<sup>st</sup>, 2024
+**Last updated:** February 2<sup>nd</sup>, 2024
 
 ---
 
@@ -329,8 +329,8 @@ The project will be organized in the following folder structure:
 │       │       ├── 1.png                                   # 🖼️ Test plan image
 │       │       ├── 2.png                                   # 🖼️ Test plan image
 │       │       └── [etc...]                                # 🖼️ Others Test plan image
-│       ├── Functional-Specification.md             # 📖 Functional specification file
-│       ├── Technical-Specification.md              # 📖 Technical specification file
+│       ├── Functional-Specifications.md             # 📖 Functional specification file
+│       ├── Technical-Specifications.md              # 📖 Technical specification file
 │       └── Test-Plan.md                            # 📖 Test plan file
 ├── Src                                         # 📁 Source code folder
 │   ├── code.asm                                    # 📝 Assembly code file
@@ -862,6 +862,8 @@ graph TD
 
 **Flowchart Explanation:**
 
+
+
 - **Start:** The beginning of the program execution.
 - **getFile:** The function is called with the file path to read the assembly code from the file.
 - **getSize:** Determines the total number of lines in the file for memory allocation before reading.
@@ -875,7 +877,6 @@ graph TD
 - **Array of Structs:** Once all lines are processed, an array of `function` structs is formed.
 - **printStruct:** Displays the content of each `function` struct, mainly used for debugging.
 - **End:** The end of the process.
-
 ### 3.1.2 `parser.h`
 
 This header file defines the structure and prototypes of the functions used in `parser.c`, along with any necessary data structures, constants, and standard or external library headers required for parsing assembly language code.
@@ -923,6 +924,8 @@ classDiagram
 
     func_t : Used to structure the parsed data
     parser : Implements parsing functionality
+
+    parser --> func_t
 ```
 
 **Class Diagram Explanation:**
@@ -934,26 +937,34 @@ classDiagram
 
 ### 3.1.3 `tests_parser.c`
 
-Contains unit tests for the parsing functionality provided in `parser.c`. It tests the parsing process, including instruction validation, operand extraction, and command structure building.
+This component contains a suite of unit tests designed to verify the functionality implemented in `parser.c`. It focuses on ensuring the robustness and accuracy of the file reading, line processing, structuring, and validation processes integral to parsing assembly language code.
 
 **Test Cases:**
-- Parsing valid and invalid assembly instructions.
-- Correct extraction and categorization of operands.
-- Building of executable command structures from parsed data.
-- Handling of different types of assembly instructions and operands.
+
+- **File Data Retrieval (`getFileTEST`)**: Validates the ability to correctly read and retrieve data from an assembly code file, ensuring no data loss or corruption occurs during file reading.
+- **Line Retrieval Accuracy (`getLineTEST`)**: Tests the precision of retrieving specific lines from the assembly code, verifying the correct line content is accessed, especially focusing on edge cases and boundary conditions.
+- **File Size Determination (`getSizeTEST`)**: Confirms the accuracy of calculating the total number of lines in an assembly code file, which is crucial for dynamic memory allocation and data structuring.
+- **Struct Processing (`getStructsTEST`)**: Assesses the process of converting raw file lines into structured `func_t` objects, checking for completeness and correctness in the representation of assembly instructions and their components.
+- **String Type Identification (`switchStrTEST`)**: Evaluates the functionality that categorizes string segments into instructions, registers, or numerical values, ensuring proper handling and categorization critical for subsequent parsing phases.
+- **Struct Value Assignment (`setStructTEST`)**: Examines the correctness of populating `func_t` structures with parsed data, asserting that instructions and parameters are accurately assigned.
 
 **Usage:**
-Used for ensuring the reliability and correctness of the parsing functionality. These tests validate that the code in `parser.c` accurately interprets and transforms assembly language into a structured format that the interpreter can understand.
+These unit tests are critical for maintaining the integrity of the parsing process. By thoroughly testing each function within `parser.c`, developers can confidently refine and extend the parser's capabilities, knowing its foundational operations are well-verified. This suite not only aids in detecting regressions but also facilitates a test-driven development approach for future enhancements.
 
 ### 3.1.4 `tests_parser.h`
 
-This header file declares the unit tests for `parser.c`. It includes the prototypes of the test functions used in `tests_parser.c`.
+The `tests_parser.h` header file declares unit tests for `parser.c`, specifying test function prototypes that examine the parser's functionality. These tests range from file reading to data structuring, ensuring the parser operates correctly.
 
 **Key Components:**
-- Declarations of test functions specific to the parsing functionality.
+- `int getFileTEST()`: Checks file reading accuracy.
+- `int getLineTEST()`: Ensures specific lines are correctly retrieved.
+- `int getSizeTEST()`: Verifies correct file size calculation.
+- `int getStructsTEST()`: Confirms lines are properly converted into structured data.
+- `int switchStrTEST()`: Assesses correct identification of string types.
+- `int setStructTEST()`: Tests correct struct population with data.
 
 **Usage:**
-This header file is included in `tests_parser.c` to provide a structured approach to testing the parser. It ensures that the test suite covers all aspects of the parsing process and that each test function is properly organized.
+Including `tests_parser.h` in `tests_parser.c` organizes and streamlines testing, allowing for thorough validation of the parser's functionality. It's essential for ensuring parser reliability and supports the easy addition of new tests as the parser evolves.
 
 ## 3.2 Interpreting
 
