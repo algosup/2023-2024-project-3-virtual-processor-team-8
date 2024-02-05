@@ -20,12 +20,6 @@ The development of the parser code has commenced. The team is working on the imp
 
 Initial testing of the parser functionality has begun. The team is conducting tests to identify and address any potential issues early in the development process.
 
-- strcpy compatibility issues (Mac/Windows) closed, change strcpy into sprintf
-- Functional specification & assembly documentation deadline
-- The review of the technical specification is on going
-- Begin the parser code
-- Starting to test the parser
-
 ## Project Key parameters
 
 <details>
@@ -90,19 +84,29 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 <summary>💡 Keys</summary>
 
 1. **Documentation KPIs:**
-   - **0%:** Nothing.
+   - **0%:** Nothing done.
    - **10%:** Started.
-   - **70%:** Written.
+   - **70%:** Written or set up.
    - **100%:** Validated by the group.
 
 2. **Testing KPIs:**
    - **Test case:** Number of test that passed.
    - **No review:** No review was initiated.
    - **Review:** The documentation has been reviewved.
-   - **Review and fix:** The documentation has been reviewved and all the GitHub Issus are closed.
+   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues are closed.
 
-3. **Code KPIs:**
-   - **Implemented:** Has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+3. **Language KPIs:**
+   - **0%:** Nothing done.
+   - **10%:** Started.
+   - **70%:** Difined.
+   - **100%:** Validated by the group.
+
+4. **Parser KPIs:**
+   - **Not started:** We have not started working on the feature.
+   - **On going:** We have started working on the feature.
+   - **Pushed:** The feature is done and push in the ```dev branch```, ready to be tested.
+   - **Pushed and tested:** The feature is tested, ready to be merged.
+   - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
 
 </details>
 
