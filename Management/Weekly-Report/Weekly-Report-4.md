@@ -8,9 +8,23 @@
 
 ### Project summary
 
-- Meeting
+The team held its regular meeting to discuss ongoing tasks, challenges, and project updates.
+
+The previously identified compatibility issues between Mac and Windows related to `strcpy` have been successfully closed. The team implemented a solution by changing `strcpy` to `sprintf` for improved compatibility.
+
+The deadline for the functional specification and assembly documentation is over. The team succeeded to deliver the [functional specification](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) on time.
+
+The review of the technical specification is currently in progress. The team is thoroughly examining the document to ensure accuracy, completeness, and alignment with project objectives.
+
+The development of the parser code has commenced. The team is working on the implementation, considering the requirements outlined in the technical specification.
+
+Initial testing of the parser functionality has begun. The team is conducting tests to identify and address any potential issues early in the development process.
+
 - strcpy compatibility issues (Mac/Windows) closed, change strcpy into sprintf
 - Functional specification & assembly documentation deadline
+- The review of the technical specification is on going
+- Begin the parser code
+- Starting to test the parser
 
 ## Project Key parameters
 
@@ -45,17 +59,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Quality   |        |          |
+| Component | Status | Comments                                     |
+| --------- | ------ | -------------------------------------------- |
+| Scope     | On     | All Ok                                       |
+| Schedule  | On     | All Ok                                       |
+| Risks     | On     | Teammates abscence                           |
+| Issues    | On     | The issue has been solved, we are testing it |
+| Quality   | On     | All Ok                                       |
 
 ## Project Risks and Issues (Top 5)
 
 | Risk/Issues | Description                                                                 | Owner                         | Status   |
 | ----------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
 | Issue 1     | Compatibility problem between Mac and Window with the strcpy()[^4] function | Laurent Bouquin, Victor Leroy | Closed   |
+| Issue 2     | Teammates absence                                                           | Laura-Lee Hollande            | On going |
 | Risk 1      | Potential loss of some teammates                                            | Laura-Lee Hollande            | Closed   |
 
 ## Project Schedule
@@ -64,7 +81,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ![Week 4](img/week4.png)
 
-```The current week is highlighted in red and the weeks are based on the real time weeks number.```
+⚠️  ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
 ## Key Performance Indicator[^3]
 
@@ -79,7 +96,10 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **100%:** Validated by the group.
 
 2. **Testing KPIs:**
-   - **Test case**: Number of test that passed.
+   - **Test case:** Number of test that passed.
+   - **No review:** No review was initiated.
+   - **Review:** The documentation has been reviewved.
+   - **Review and fix:** The documentation has been reviewved and all the GitHub Issus are closed.
 
 3. **Code KPIs:**
    - **Implemented:** Has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
@@ -90,11 +110,11 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action                               | Note                                                                      | Owner                            | Status   | End Date   |
+| ------------------------------------ | ------------------------------------------------------------------------- | -------------------------------- | -------- | ---------- |
+| Team meeting                         | Share what was done the previous week and the goals for the upcoming week | Laura-Lee Hollande, Ian Laurent  | Planned  | 02/05/2024 |
+| Conclude the technical specification | Set time for the review and to fix the issues (if needed)                 | Pierre Gorin                     | On going | 02/09/2024 |
+| Pair programming session             | Initiate duo to work on the code                                          | Pierre Gorin, Laura-Lee Hollande | To do    | 02/09/2024 |
 
 <!-- Week 3, add problem solving -->
 
