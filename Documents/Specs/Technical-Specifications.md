@@ -27,7 +27,7 @@
 | Ian LAURENT        | Program Manager   | ✅        | 02/09/2024 |        
 | Pierre GORIN       | Technical Leader  | ✅        | 02/09/2024 |  
 | Manech LAGUENS     | Software Engineer | ✅      | 02/09/2024 |
-| Victor LEROY       | Software Engineer |          |            |
+| Victor LEROY       | Software Engineer |     ✅     |            |
 
 </div>
 
