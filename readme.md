@@ -4,6 +4,17 @@ Welcome to the GitHub repository for Team 8's Virtual Processor Project for 2023
 ## Project Overview
 The goal of this project is to develop a virtual processor along with an interpreter that executes assembly code specifically designed for this processor. The development is focused on using plain, portable C language, utilizing only the C standard libraries. This ensures wide compatibility and ease of use.
 
+## Documentation
+[**Functional Specification:**](Documents/Specs/Functional-Specifications.md) Detailing the assembly language and its features.
+
+[**Technical Specification:**](Documents/Specs/Technical-Specifications.md) Describing the operation of the C program interpreter and its functionalities.
+
+[**User Manual:**](Documents/Specs/Manual.pdf) Providing instructions for using the virtual processor and the interpreter.
+
+[**Test Plan:**](Documents/Specs/Test-Plan.md) Outlining the testing strategy and the unit tests to be performed.
+
+[**Kanban Board:**](https://trello.com/b/qN0Em06d/virtual-processor) Tracking the progress of the project.
+
 ## Key Features
 
 **Minimal Assembly Language:** Designing a custom assembly language tailored for the virtual processor.
@@ -32,13 +43,6 @@ The goal of this project is to develop a virtual processor along with an interpr
 **Compiler:** GCC (GNU Compiler Collection)
 
 **IDE:** Visual Studio Code
-
-## Documentation
-[**Functional Specification:**](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) Detailing the assembly language and its features.
-
-[**Technical Specification:**](Technical-Specification.md) Describing the operation of the C program interpreter and its functionalities.
-
-[**Kanban Board:**](https://trello.com/b/tvbDlRaJ/algosup-project-virtual-processor) Tracking the progress of the project.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
