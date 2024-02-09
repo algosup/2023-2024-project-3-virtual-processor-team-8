@@ -318,23 +318,24 @@ The project will be organized in the following folder structure:
 │   │   │   ├── Img                                         # 📁 Images folder
 │   │   │   ├── Weekly-Report-1.md                          # 📖 Weekly report file
 │   │   │   ├── Weekly-Report-2.md                          # 📖 Weekly report file
-│   │   │   └── [etc...]                                    # 📖 Others Weekly report file
+│   │   │   └── [etc...]                                    # 📖 Others Weekly report files
 │   │   ├── Project-Charter.md                          # 📖 Project charter file
-│   │   └── Risk-Management-Plan.md                     # 📖 Risk management plan file
+│   │   ├── Risk-Management-Plan.md                     # 📖 Risk management plan file
+│   │   └── [etc...]                                    # 📖 Others management files
 │   └── Specs                                   # 📁 Specifications folder
 │       ├── Img                                     # 📁 Images folder
 │       │   ├── Functional-Specifications               # 📁 Functional specification images folder
 │       │   │   ├── 1.png                                   # 🖼️ Functional specification image
 │       │   │   ├── 2.png                                   # 🖼️ Functional specification image
-│       │   │   └── [etc...]                                # 🖼️ Others Functional specification image  
+│       │   │   └── [etc...]                                # 🖼️ Others Functional specification images 
 │       │   ├── Technical-Specifications                # 📁 Technical specification images folder
 │       │   │   ├── 1.png                                   # 🖼️ Technical specification image
 │       │   │   ├── 2.png                                   # 🖼️ Technical specification image
-│       │   │   └── [etc...]                                # 🖼️ Others Technical specification image
+│       │   │   └── [etc...]                                # 🖼️ Others Technical specification images
 │       │   └── Test-Plan                               # 📁 Test plan images folder
 │       │       ├── 1.png                                   # 🖼️ Test plan image
 │       │       ├── 2.png                                   # 🖼️ Test plan image
-│       │       └── [etc...]                                # 🖼️ Others Test plan image
+│       │       └── [etc...]                                # 🖼️ Others Test plan images
 │       ├── Functional-Specifications.md            # 📖 Functional specification file
 │       ├── Manual.pdf                              # 📖 Manual of our Assembly
 │       ├── Technical-Specifications.md             # 📖 Technical specification file
