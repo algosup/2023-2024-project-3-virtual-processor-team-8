@@ -34,11 +34,15 @@ The goal of this project is to develop a virtual processor along with an interpr
 **IDE:** Visual Studio Code
 
 ## Documentation
-[**Functional Specification:**](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) Detailing the assembly language and its features.
+[**Functional Specification:**](Documents/Specs/Functional-Specifications.md) Detailing the assembly language and its features.
 
-[**Technical Specification:**](Technical-Specification.md) Describing the operation of the C program interpreter and its functionalities.
+[**Technical Specification:**](Documents/Specs/Technical-Specifications.md) Describing the operation of the C program interpreter and its functionalities.
 
-[**Kanban Board:**](https://trello.com/b/tvbDlRaJ/algosup-project-virtual-processor) Tracking the progress of the project.
+[**User Manual:**](Documents/Specs/Manual.pdf) Providing instructions for using the virtual processor and the interpreter.
+
+[**Test Plan:**](Documents/Specs/Test-Plan.md) Outlining the testing strategy and the unit tests to be performed.
+
+[**Kanban Board:**](https://trello.com/b/qN0Em06d/virtual-processor) Tracking the progress of the project.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

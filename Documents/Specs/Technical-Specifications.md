@@ -484,12 +484,12 @@ In this example, the value of the register `ra` is copied into the register `rb`
 
 We'll use the following syntax:
 ```asm
-PRF destination_reg, source_reg
+PRT destination_reg, source_reg
 ```
 
 Here is an example:
 ```asm
-PRF rb, ra
+PRT rb, ra
 ```
 
 In this example, the value of the register `rb` is copied into the register `ra`.
@@ -1501,9 +1501,9 @@ classDiagram
 
 |                        Document                         |                              Description                              |
 | :-----------------------------------------------------: | :-------------------------------------------------------------------: |
-| [Functional Specification](Functional-Specification.md) | This document describes the functional specifications of the project. |
+| [Functional Specification](Functional-Specifications.md) | This document describes the functional specifications of the project. |
 |                [Test Plan](Test-Plan.md)                |         This document describes the test plan of the project.         |
-|                 [Readme](../README.md)                  |                 This document describes the project.                  |
+|                 [Readme](../../readme.md)                  |                 This document describes the project.                  |
 
 ## 4.3 - License
 
