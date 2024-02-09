@@ -21,7 +21,7 @@
 
 | Reviewer           | Role              | Approved | Date       |
 | ------------------ | ----------------- | -------- | ---------- |
-| Laurent BOUQUIN    | Quality Assurance |          |            |
+| Laurent BOUQUIN    | Quality Assurance |  ✅        | 02/09/2024 |
 | Evan UHRING        | Quality Assurance | ✅        | 02/09/2024 |
 | Laura-Lee HOLLANDE | Project Manager   | ✅        | 02/09/2024 |
 | Ian LAURENT        | Program Manager   |          |            |
