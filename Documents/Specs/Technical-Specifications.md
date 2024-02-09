@@ -26,7 +26,7 @@
 | Laura-Lee HOLLANDE | Project Manager   | ✅        | 02/09/2024 |
 | Ian LAURENT        | Program Manager   |          |            |
 | Pierre GORIN       | Technical Leader  |          |            |
-| Manech LAGUENS     | Software Engineer |          |            |
+| Manech LAGUENS     | Software Engineer | ✅      | 02/09/2024 |
 | Victor LEROY       | Software Engineer |          |            |
 
 </div>
