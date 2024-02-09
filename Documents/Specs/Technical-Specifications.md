@@ -25,7 +25,7 @@
 | Evan UHRING        | Quality Assurance | ✅        | 02/09/2024 |
 | Laura-Lee HOLLANDE | Project Manager   | ✅        | 02/09/2024 |
 | Ian LAURENT        | Program Manager   | ✅        | 02/09/2024 |        
-| Pierre GORIN       | Technical Leader  |          |            |
+| Pierre GORIN       | Technical Leader  | ✅        | 02/09/2024 |  
 | Manech LAGUENS     | Software Engineer | ✅      | 02/09/2024 |
 | Victor LEROY       | Software Engineer |          |            |
 
