@@ -13,7 +13,7 @@
 
 **Created on:** January 22<sup>nd</sup>, 2024
 
-**Last updated:** February 2<sup>nd</sup>, 2024
+**Last updated:** February 9<sup>th</sup>, 2024
 
 ---
 
@@ -95,21 +95,25 @@
       - [2.4.7.3 - Logical NOT](#2473---logical-not)
     - [2.4.8 - Comments](#248---comments)
 - [3 - Software Architecture](#3---software-architecture)
-  - [3.1 Parsing](#31-parsing)
-    - [3.1.1 `parser.c`](#311-parserc)
-    - [3.1.2 `parser.h`](#312-parserh)
-    - [3.1.3 `tests_parser.c`](#313-tests_parserc)
-    - [3.1.4 `tests_parser.h`](#314-tests_parserh)
-  - [3.2 Interpreting](#32-interpreting)
-    - [3.2.1 `interpreter.c`](#321-interpreterc)
-    - [3.2.2 `interpreter.h`](#322-interpreterh)
-    - [3.2.3 `interpreter_test.c`](#323-interpreter_testc)
-    - [3.2.4 `tests_interpreter.h`](#324-tests_interpreterh)
-  - [3.3 Main](#33-main)
-    - [3.3.1 `main.c`](#331-mainc)
-    - [3.3.2 `main.h`](#332-mainh)
-    - [3.3.3 `main_test.c`](#333-main_testc)
-    - [3.3.4 `main_test.h`](#334-main_testh)
+  - [3.1 - Parsing](#31---parsing)
+    - [3.1.1 - `parser.c`](#311---parserc)
+    - [3.1.2 - `parser.h`](#312---parserh)
+    - [3.1.3 - `tests_parser.c`](#313---tests_parserc)
+    - [3.1.4 - `tests_parser.h`](#314---tests_parserh)
+  - [3.2 - Interpreting](#32---interpreting)
+    - [3.2.1 - `interpreter.c`](#321---interpreterc)
+    - [3.2.2 - `interpreter.h`](#322---interpreterh)
+    - [3.2.3 - `tests_interpreter.c`](#323---tests_interpreterc)
+    - [3.2.4 - `tests_interpreter.h`](#324---tests_interpreterh)
+  - [3.3 - Main](#33---main)
+    - [3.3.1 - `main.c`](#331---mainc)
+    - [3.3.2 - `main.h`](#332---mainh)
+      - [3.3.3 - `tests_main.c`](#333---tests_mainc)
+    - [3.3.4 - `tests_main.h`](#334---tests_mainh)
+    - [3.4 - Overall Flow](#34---overall-flow)
+      - [3.4.1 - Sequence Diagram](#341---sequence-diagram)
+      - [3.4.2 - Flowchart Diagram](#342---flowchart-diagram)
+      - [3.4.2 - Class Diagram](#342---class-diagram)
 - [4 - End Matter](#4---end-matter)
   - [4.1 - Contributors](#41---contributors)
   - [4.2 - Related Documents](#42---related-documents)
@@ -119,7 +123,6 @@
     - [4.4.2 - References](#442---references)
   - [4.5 - Glossary](#45---glossary)
   - [4.6 - Footnotes](#46---footnotes)
-
 
 </details>
 
@@ -232,7 +235,10 @@ To run the interpreter, you will need to follow these steps:
 2. Navigate to the `src` folder.
 3. Modify the `code.asm` file to include your custom assembly code.
 4. Open the terminal in VS Code.
-<!-- TODO: Add the command(s) to run the assembly -->
+5. Run the following command: `gcc -o main main.c `
+6. Then type this command to run code.asm file: `./main code.asm`
+
+*Note: You can use an other `.asm` file, you just need to replace `code.asm` by the name of your file.*
 
 ## 1.4 - Scope
 
@@ -317,11 +323,11 @@ The project will be organized in the following folder structure:
 │   │   └── Risk-Management-Plan.md                     # 📖 Risk management plan file
 │   └── Specs                                   # 📁 Specifications folder
 │       ├── Img                                     # 📁 Images folder
-│       │   ├── Functional-Specification                # 📁 Functional specification images folder
+│       │   ├── Functional-Specifications               # 📁 Functional specification images folder
 │       │   │   ├── 1.png                                   # 🖼️ Functional specification image
 │       │   │   ├── 2.png                                   # 🖼️ Functional specification image
 │       │   │   └── [etc...]                                # 🖼️ Others Functional specification image  
-│       │   ├── Technical-Specification                 # 📁 Technical specification images folder
+│       │   ├── Technical-Specifications                # 📁 Technical specification images folder
 │       │   │   ├── 1.png                                   # 🖼️ Technical specification image
 │       │   │   ├── 2.png                                   # 🖼️ Technical specification image
 │       │   │   └── [etc...]                                # 🖼️ Others Technical specification image
@@ -329,8 +335,9 @@ The project will be organized in the following folder structure:
 │       │       ├── 1.png                                   # 🖼️ Test plan image
 │       │       ├── 2.png                                   # 🖼️ Test plan image
 │       │       └── [etc...]                                # 🖼️ Others Test plan image
-│       ├── Functional-Specifications.md             # 📖 Functional specification file
-│       ├── Technical-Specifications.md              # 📖 Technical specification file
+│       ├── Functional-Specifications.md            # 📖 Functional specification file
+│       ├── Manual.pdf                              # 📖 Manual of our Assembly
+│       ├── Technical-Specifications.md             # 📖 Technical specification file
 │       └── Test-Plan.md                            # 📖 Test plan file
 ├── Src                                         # 📁 Source code folder
 │   ├── code.asm                                    # 📝 Assembly code file
@@ -433,13 +440,11 @@ Formatting conventions are important to keep a clear, concise and readable code,
 #### 2.4.1.1 - Storing an immediate value into a register
 
 We'll use the following syntax:
-
 ```asm
 MOV reg, immediate_value
 ```
 
 Here is an example:
-
 ```asm
 MOV ra, 5
 ```
@@ -449,13 +454,11 @@ In this example, the value `5` is stored in the register `ra`.
 #### 2.4.1.2 Copying the value of a register into another register
 
 We'll use the following syntax:
-
 ```asm
 MOV destination_reg, source_reg
 ```
 
 Here is an example:
-
 ```asm
 MOV ra, rb
 ```
@@ -465,13 +468,11 @@ In this example, the value of the register `rb` is copied into the register `ra`
 #### 2.4.1.3 Reading the value from the memory to a register
 
 We'll use the following syntax:
-
 ```asm
 PRF source_reg, destination_reg
 ```
 
 Here is an example:
-
 ```asm
 PRF ra, rb
 ```
@@ -481,13 +482,11 @@ In this example, the value of the register `ra` is copied into the register `rb`
 #### 2.4.1.4 Writing the value from a register to the memory
 
 We'll use the following syntax:
-
 ```asm
 PRF destination_reg, source_reg
 ```
 
 Here is an example:
-
 ```asm
 PRF rb, ra
 ```
@@ -503,13 +502,11 @@ In this example, the value of the register `rb` is copied into the register `ra`
 #### 2.4.2.1 - Jumping unconditionally
 
 We'll use the following syntax:
-
 ```asm
 JMP label
 ```
 
 Here is an example:
-
 ```asm
 JMP labelOne
 ```
@@ -519,7 +516,6 @@ In this example, the program will jump to the label `labelOne`.
 #### 2.4.2.2 - Jumping conditionally (where "cc" is a condition code)
 
 We'll use the following syntax:
-
 ```asm
 Jcc label
 ```
@@ -536,7 +532,6 @@ List of condition codes:
 - `JLE` - Jump if lesser than or equal
 
 Here are some examples:
-
 ```asm
 JE labelOne
 JNE labelTwo
@@ -566,13 +561,11 @@ In these examples, the program will jump to the label :
 ***Answer:** Comparing is the process of comparing the content of registers.*
 
 We'll use the following syntax:
-
 ```asm
 CMP reg1, reg2
 ```
 
 Here is an example:
-
 ```asm
 CMP ra, rb
 ```
@@ -586,13 +579,11 @@ In this example, the content of the register `ra` is compared to the content of 
 ***Answer:** A subroutine is a sequence of program instructions that performs a specific task, packaged as a unit.*
 
 We'll use the following syntax:
-
 ```asm
 CALL subroutine_label
 ```
 
 Here is an example:
-
 ```asm
 CALL subroutineOne
 ```
@@ -602,7 +593,6 @@ In this example, the program will call the subroutine `subroutineOne`.
 ### 2.4.5 - Returning from a subroutine
 
 We'll use the following syntax:
-
 ```asm
 RET
 ```
@@ -612,13 +602,11 @@ RET
 #### 2.4.6.1 - Addition
 
 We'll use the following syntax:
-
 ```asm
 ADD destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 ADD ra, rb
 ADD ra, 5
@@ -629,13 +617,11 @@ In these examples, the value of the register `rb` is added to the value of the r
 #### 2.4.6.2 - Subtraction
 
 We'll use the following syntax:
-
 ```asm
 SUB destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 SUB ra, rb
 SUB ra, 8
@@ -646,13 +632,11 @@ In these examples, the value of the register `rb` is subtracted from the value o
 #### 2.4.6.3 - Multiplication
 
 We'll use the following syntax:
-
 ```asm
 MUL destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 MUL ra, rb
 MUL ra, 3
@@ -663,13 +647,11 @@ In these examples, the value of the register `ra` is multiplied by the value of 
 #### 2.4.6.4 - Division
 
 We'll use the following syntax:
-
 ```asm
 DIV destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 DIV ra, rb
 DIV ra, 2
@@ -686,13 +668,11 @@ In these examples, the value of the register `ra` is divided by the value of the
 #### 2.4.7.1 - Logical AND
 
 We'll use the following syntax:
-
 ```asm
 AND destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 AND ra, rb
 AND ra, 1
@@ -705,13 +685,11 @@ If the result of the comparison is true, the value `1` is stored in the register
 #### 2.4.7.2 - Logical OR
 
 We'll use the following syntax:
-
 ```asm
 OR destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 OR ra, rb
 OR ra, 4
@@ -724,13 +702,11 @@ If the result of the comparison is true, the value `1` is stored in the register
 #### 2.4.7.3 - Logical XOR
 
 We'll use the following syntax:
-
 ```asm
 XOR destination_reg, source_reg/immediate_value
 ```
 
 Here is an example:
-
 ```asm
 XOR ra, rb
 XOR ra, 2
@@ -743,13 +719,11 @@ If the result of the comparison is true, the value `1` is stored in the register
 #### 2.4.7.3 - Logical NOT
 
 We'll use the following syntax:
-
 ```asm
 NOT destination_reg
 ```
 
 Here is an example:
-
 ```asm
 NOT ra
 ```
@@ -761,13 +735,11 @@ If the result of the comparison is true, the value `1` is stored in the register
 ### 2.4.8 - Comments
 
 We'll use the following syntax:
-
 ```asm
 ; This is a comment
 ```
 
 Here is an example:
-
 ```asm
 ; The following code will add 5 to the value of the register ra
 ADD ra, 5
@@ -777,11 +749,11 @@ ADD ra, 5
 
 # 3 - Software Architecture
 
-## 3.1 Parsing
+## 3.1 - Parsing
 
 [*(Back to top)*](#toc)
 
-### 3.1.1 `parser.c`
+### 3.1.1 - `parser.c`
 
 This component is responsible for parsing[^19] the structured assembly language code, represented as `function` structs, into a format that can be interpreted and executed. It involves analyzing the instruction, parameters, and other data from each struct and converting them into executable commands or tokens.
 
@@ -862,8 +834,6 @@ graph TD
 
 **Flowchart Explanation:**
 
-
-
 - **Start:** The beginning of the program execution.
 - **getFile:** The function is called with the file path to read the assembly code from the file.
 - **getSize:** Determines the total number of lines in the file for memory allocation before reading.
@@ -877,7 +847,8 @@ graph TD
 - **Array of Structs:** Once all lines are processed, an array of `function` structs is formed.
 - **printStruct:** Displays the content of each `function` struct, mainly used for debugging.
 - **End:** The end of the process.
-### 3.1.2 `parser.h`
+
+### 3.1.2 - `parser.h`
 
 This header file defines the structure and prototypes of the functions used in `parser.c`, along with any necessary data structures, constants, and standard or external library headers required for parsing assembly language code.
 
@@ -934,8 +905,7 @@ classDiagram
 - The `parser` class encapsulates the parsing functionality, with methods for handling file reading (`getFile`, `getSize`), line manipulation (`printLines`, `getLine`), structuring (`getStructs`, `setStruct`), and debugging (`printStruct`).
 - The relationship between `func_t` and `parser` illustrates how parsed data is structured and managed within the parsing process.
 
-
-### 3.1.3 `tests_parser.c`
+### 3.1.3 - `tests_parser.c`
 
 This component contains a suite of unit tests designed to verify the functionality implemented in `parser.c`. It focuses on ensuring the robustness and accuracy of the file reading, line processing, structuring, and validation processes integral to parsing assembly language code.
 
@@ -951,7 +921,7 @@ This component contains a suite of unit tests designed to verify the functionali
 **Usage:**
 These unit tests are critical for maintaining the integrity of the parsing process. By thoroughly testing each function within `parser.c`, developers can confidently refine and extend the parser's capabilities, knowing its foundational operations are well-verified. This suite not only aids in detecting regressions but also facilitates a test-driven development approach for future enhancements.
 
-### 3.1.4 `tests_parser.h`
+### 3.1.4 - `tests_parser.h`
 
 The `tests_parser.h` header file declares unit tests for `parser.c`, specifying test function prototypes that examine the parser's functionality. These tests range from file reading to data structuring, ensuring the parser operates correctly.
 
@@ -966,186 +936,545 @@ The `tests_parser.h` header file declares unit tests for `parser.c`, specifying 
 **Usage:**
 Including `tests_parser.h` in `tests_parser.c` organizes and streamlines testing, allowing for thorough validation of the parser's functionality. It's essential for ensuring parser reliability and supports the easy addition of new tests as the parser evolves.
 
-## 3.2 Interpreting
+## 3.2 - Interpreting
 
-[*(Back to top)*](#toc)
+### 3.2.1 - `interpreter.c`
 
-### 3.2.1 `interpreter.c`
+This module is the heart of the virtual processor, interpreting and executing the parsed assembly instructions. It simulates the processor's behavior, managing the state, executing instructions, and handling system calls.
 
-This component is the heart of the virtual processor, responsible for executing the parsed assembly instructions. It simulates the behavior of a processor by interpreting and running the instructions in the context of the defined assembly language.
-
-**Key Features:**
-- `executeInstruction`: Takes a single parsed command and executes it according to the rules of the assembly language. It handles various types of instructions like arithmetic operations, memory access, and control flow changes.
-- `initializeProcessorState`: Sets up the initial state of the virtual processor, including register values and memory allocation.
-- `handleArithmeticOperations`: Specifically deals with arithmetic instructions, performing calculations and updating processor state accordingly.
-- `manageControlFlow`: Handles instructions that alter the flow of execution, like jumps and calls.
-- `simulateProgramExecution`: Runs the entire set of parsed assembly instructions, simulating the execution of an assembly program.
+**Key Functions:**
+- `initializeProcessor()`: Initializes the virtual processor, setting up registers and memory to their default states.
+- `fetchInstruction()`: Retrieves the next instruction from the program based on the current value of the program counter.
+- `decodeInstruction()`: Decodes an instruction to identify the operation and operands.
+- `executeInstruction()`: Executes the decoded instruction, altering the processor's state as required.
+- Arithmetic operations: `executeADD()`, `executeSUB()`, `executeMUL()`, `executeDIV()`.
+- Logical operations: `executeAND()`, `executeOR()`, `executeXOR()`, `executeNOT()`.
+- Data movement: `executeMOV()`.
+- Control flow: `executeJMP()`, `executeJMP_COND()`, `executeCALL()`, `executeRET()`.
+- Comparison: `executeCMP()`.
+- System calls: `handleSysCall()` for operations like I/O.
 
 **Usage:**
-This file is crucial for bringing the assembly code to life. It interprets each instruction and simulates its effect, essentially acting as the CPU for the virtual processor.
+The interpreter is invoked after the assembly code has been parsed into a set of executable instructions. It processes each instruction sequentially, manipulating the processor's state (registers, memory) according to each instruction's semantics until the program terminates.
 
-**Diagram:**
+**Sequence Diagram:**
+
+The following diagram shows the sequence of operations involved in the parsing process.
+
 ```mermaid
-graph TD
-    simulateProgramExecution["simulateProgramExecution - Runs parsed instructions"] --> initializeProcessorState["initializeProcessorState - Sets initial processor state"]
-    simulateProgramExecution --> executeInstruction["executeInstruction - Executes a command"]
-    executeInstruction --> handleArithmeticOperations["handleArithmeticOperations - Handles arithmetic operations"]
-    executeInstruction --> manageControlFlow["manageControlFlow - Manages control flow"]
+sequenceDiagram
+    participant User as User
+    participant Main as Main Module
+    participant Initialize as initializeProcessor()
+    participant Fetch as fetchInstruction()
+    participant Decode as decodeInstruction()
+    participant Execute as executeInstruction()
+    participant Operations as Specific Operations
 
-    classDef functions fill:#333,stroke:#777,stroke-width:2px;
-    class simulateProgramExecution,initializeProcessorState,executeInstruction,handleArithmeticOperations,manageControlFlow functions;
+    User->>+Main: Start Program
+    Main->>+Initialize: Initialize Processor
+    Initialize-->>-Main: Processor Initialized
+    loop Execution Cycle
+        Main->>+Fetch: Fetch Next Instruction
+        Fetch-->>-Main: Instruction Fetched
+        Main->>+Decode: Decode Instruction
+        Decode-->>-Main: Instruction Decoded
+        Main->>+Execute: Execute Instruction
+        Execute->>+Operations: Perform Operation
+        alt Arithmetic Operations
+            Operations->>Operations: executeADD(), executeSUB(), etc.
+        else Logical Operations
+            Operations->>Operations: executeAND(), executeOR(), etc.
+        else Data Movement
+            Operations->>Operations: executeMOV()
+        else Control Flow
+            Operations->>Operations: executeJMP(), executeCALL(), etc.
+        else Comparison
+            Operations->>Operations: executeCMP()
+        else System Calls
+            Operations->>Operations: handleSysCall()
+        end
+        Operations-->>-Execute: Operation Performed
+        Execute-->>-Main: Instruction Executed
+    end
+    Main->>+User: Program Execution Complete
 ```
 
-**Diagram Explanation:**
+**Sequence Diagram Explanation:**
 
-- **`simulateProgramExecution`:** This function is the starting point for executing the parsed assembly instructions. It orchestrates the overall simulation of the assembly program.
-- **`initializeProcessorState`:** Called by `simulateProgramExecution`, it sets up the initial state of the virtual processor, including register values and memory allocation, preparing the environment for instruction execution.
-- **`executeInstruction`:** A critical function called during program simulation. It takes each parsed command and executes it, handling different types of instructions.
-- **`handleArithmeticOperations`** and **`manageControlFlow`:** Both functions are utilized by `executeInstruction` to specifically deal with arithmetic and control flow instructions, respectively. They ensure that each type of instruction is executed according to the defined rules of the assembly language.
+- **Start Program**: The user starts the program, initiating the execution process in the Main Module.
+- **Initialize Processor**: The `initializeProcessor()` function is called to set up the virtual processor, including initializing registers and memory to their default states.
+- **Execution Cycle**: A loop represents the continuous execution cycle of fetching, decoding, and executing instructions until the program terminates.
+- **Fetch Next Instruction**: The `fetchInstruction()` function retrieves the next instruction based on the current value of the program counter.
+- **Decode Instruction**: The `decodeInstruction()` function decodes the fetched instruction to identify the operation to be performed and its operands.
+- **Execute Instruction**: The `executeInstruction()` function executes the decoded instruction, which involves calling one of the specific operation functions.
+- **Perform Operation**: This step represents the execution of a specific operation based on the instruction type. It could be an arithmetic operation (like `executeADD()`, `executeSUB()`), a logical operation (`executeAND()`, `executeOR()`), data movement (`executeMOV()`), control flow (`executeJMP()`, `executeCALL()`), comparison (`executeCMP()`), or handling a system call (`handleSysCall()`).
+- **Operation Performed**: After the specific operation is performed, control returns to the `executeInstruction()` function.
+- **Instruction Executed**: Once the instruction is executed, the cycle repeats for the next instruction until the program completes.
+- **Program Execution Complete**: Upon completion, the program exits the execution cycle, and control returns to the user.
 
-### 3.2.2 `interpreter.h`
+**Flowchart Diagram:**
 
-This header file contains the function declarations and necessary data structures used in `interpreter.c`. It also includes any required standard or external library headers.
+```mermaid
+graph TD
+    A(Start Program) --> B(initializeProcessor)
+    B --> C(fetchInstruction)
+    C --> D(decodeInstruction)
+    D --> E(executeInstruction)
+    E --> F{Operation Type}
+    F -->|Arithmetic| G(executeADD / executeSUB / executeMUL / executeDIV)
+    F -->|Logical| H(executeAND / executeOR / executeXOR / executeNOT)
+    F -->|Data Movement| I(executeMOV)
+    F -->|Control Flow| J(executeJMP / executeJMP_COND / executeCALL / executeRET)
+    F -->|Comparison| K(executeCMP)
+    F -->|System Calls| L(handleSysCall)
+    G --> M(Update Processor State)
+    H --> M
+    I --> M
+    J --> M
+    K --> M
+    L --> M
+    M --> N{More Instructions?}
+    N -->|Yes| C
+    N -->|No| O(Program Execution Complete)
+```
+
+**Flowchart Explanation:**
+
+- **Start Program**: The execution process begins.
+- **initializeProcessor**: Initializes the virtual processor's registers and memory to their default states.
+- **fetchInstruction**: Retrieves the next instruction based on the current program counter.
+- **decodeInstruction**: Decodes the fetched instruction to identify the operation and operands.
+- **executeInstruction**: Executes the decoded instruction by determining the type of operation to perform.
+- **Operation Type**: A decision node determining the type of operation to execute, branching into specific operations:
+    - **Arithmetic Operations**: Performs addition, subtraction, multiplication, or division.
+    - **Logical Operations**: Executes logical operations like AND, OR, XOR, and NOT.
+    - **Data Movement**: Moves data between registers or from register to memory and vice versa.
+    - **Control Flow**: Handles jumps, conditional jumps, calls, and returns.
+    - **Comparison**: Compares values and sets processor flags accordingly.
+    - **System Calls**: Manages system calls for operations like input/output.
+- **Update Processor State**: After executing an operation, the processor's state is updated accordingly.
+- **More Instructions?**: A decision node checking if there are more instructions to execute.
+    - If **Yes**, it loops back to fetch the next instruction.
+    - If **No**, the program execution completes.
+
+### 3.2.2 - `interpreter.h`
+
+This header file outlines the structure and function prototypes used in `interpreter.c`, along with any necessary data structures, constants, and standard or external library headers required for interpreting and executing assembly language code.
 
 **Key Components:**
-- Function prototypes for `executeInstruction`, `initializeProcessorState`, `handleArithmeticOperations`, `manageControlFlow`, and `simulateProgramExecution`.
-- Data structures representing the state of the virtual processor, including registers and memory.
-- Constants and error codes specific to the interpretation process.
+
+- **Function Declarations**:
+    - `void initializeProcessor(void)`: Sets up the virtual processor, initializing registers and memory to their default states.
+    - `char* fetchInstruction(unsigned int programCounter)`: Retrieves the next instruction from the program.
+    - `void decodeInstruction(char* instruction, char* operation, char** operands)`: Decodes an instruction into its operation and operands.
+    - `void executeInstruction(char* operation, char** operands)`: Executes the decoded instruction, modifying the processor's state as required.
+    - Arithmetic operations:
+        - `void executeADD(char* operand1, char* operand2)`,
+        - `void executeSUB(char* operand1, char* operand2)`,
+        - `void executeMUL(char* operand1, char* operand2)`,
+        - `void executeDIV(char* operand1, char* operand2)`.
+    - Logical operations:
+        - `void executeAND(char* operand1, char* operand2)`,
+        - `void executeOR(char* operand1, char* operand2)`,
+        - `void executeXOR(char* operand1, char* operand2)`,
+        - `void executeNOT(char* operand)`.
+    - Data movement:
+        - `void executeMOV(char* destination, char* source)`.
+    - Control flow operations:
+        - `void executeJMP(unsigned int address)`,
+        - `void executeJMP_COND(unsigned int address, char* condition)`,
+        - `void executeCALL(unsigned int address)`,
+        - `void executeRET(void)`.
+    - Comparison:
+        - `void executeCMP(char* operand1, char* operand2)`.
+    - System calls:
+        - `void handleSysCall(int sysCallID)` for I/O and other system interactions.
+
+- **Data Structure Definitions**:
+    - Not specified here, but typically includes definitions for the virtual processor's architecture, such as structures representing the CPU's registers, program counter, and memory layout.
 
 **Usage:**
-This header file is included in `interpreter.c` and other parts of the project that interact with the interpretation process. It provides a clear interface for the interpreter's functionality and ensures consistency in data structures across the project.
+`interpreter.h` is essential for ensuring seamless interaction between `interpreter.c` and other components of the virtual processor application. It provides a clear interface for the interpreter's functionality, including executing assembly instructions and managing the virtual processor's state.
 
-### 3.2.3 `interpreter_test.c`
+**Class Diagram:**
 
-Contains comprehensive unit tests for the interpreter functionality provided in `interpreter.c`. These tests ensure the correct execution of assembly instructions and the accurate simulation of a processor's behavior.
+```mermaid
+classDiagram
+    class VirtualProcessor {
+        -char* registers
+        -char* memory
+        -unsigned int programCounter
+    }
+
+    class Interpreter {
+        +void initializeProcessor()
+        +char* fetchInstruction(unsigned int)
+        +void decodeInstruction(char*, char*, char**)
+        +void executeInstruction(char*, char**)
+        +void executeADD(char*, char*)
+        +void executeSUB(char*, char*)
+        +void executeMUL(char*, char*)
+        +void executeDIV(char*, char*)
+        +void executeAND(char*, char*)
+        +void executeOR(char*, char*)
+        +void executeXOR(char*, char*)
+        +void executeNOT(char*)
+        +void executeMOV(char*, char*)
+        +void executeJMP(unsigned int)
+        +void executeJMP_COND(unsigned int, char*)
+        +void executeCALL(unsigned int)
+        +void executeRET()
+        +void executeCMP(char*, char*)
+        +void handleSysCall(int)
+    }
+
+    VirtualProcessor --> Interpreter : Uses
+```
+
+**Class Diagram Explanation:**
+
+- The `VirtualProcessor` class represents the state of the virtual processor, including its registers, memory, and program counter, crucial for executing assembly instructions.
+- The `Interpreter` class encapsulates the functionality required to interpret and execute assembly instructions on the virtual processor. It includes methods for initializing the processor, fetching, decoding, and executing instructions, and performing various operations (arithmetic, logical, data movement, control flow, and system calls).
+- The relationship "Uses" indicates that the Interpreter operates on the state managed by the VirtualProcessor, manipulating it according to the semantics of each assembly instruction executed.
+
+### 3.2.3 - `tests_interpreter.c`
+
+This component hosts a comprehensive suite of unit tests dedicated to validating the functionality implemented in `interpreter.c`. These tests are meticulously designed to ascertain the interpreter's precision in executing assembly instructions and managing the virtual processor's state, thereby ensuring the integrity and reliability of the virtual processor's core operations.
 
 **Test Cases:**
-- Testing the execution of various types of assembly instructions.
-- Verifying the correct initialization and updating of the processor state.
-- Checking the handling of arithmetic operations and control flow changes.
-- Ensuring the entire program execution is simulated accurately and efficiently.
+
+- **Processor Initialization (`initializeProcessorTEST`)**: Confirms that the virtual processor is correctly initialized, with all registers and memory set to their default states, ensuring a clean starting point for program execution.
+- **Instruction Fetch Accuracy (`fetchInstructionTEST`)**: Verifies the ability to accurately fetch the next instruction based on the current value of the program counter, crucial for sequential execution.
+- **Instruction Decode Correctness (`decodeInstructionTEST`)**: Tests the precision of the instruction decoding process, ensuring that operations and operands are correctly identified from the instruction code.
+- **Instruction Execution Validation (`executeInstructionTEST`)**: Examines the execution of instructions, confirming that the processor's state is correctly altered according to the semantics of each instruction.
+    - Arithmetic Operations: `executeADDTEST`, `executeSUBTEST`, `executeMULTEST`, `executeDIVTEST`.
+    - Logical Operations: `executeANDTEST`, `executeORTEST`, `executeXORTEST`, `executeNOTTEST`.
+    - Data Movement: `executeMOVTEST`.
+    - Control Flow: `executeJMPTEST`, `executeJMP_CONDTEST`, `executeCALLTEST`, `executeRETTEST`.
+    - Comparison: `executeCMPTEST`.
+- **System Call Handling (`handleSysCallTEST`)**: Ensures that system calls are correctly managed, facilitating operations like I/O as per the virtual processor's specification.
+- **Error Handling (`errorHandlingTEST`)**: Validates the interpreter's ability to gracefully handle errors encountered during instruction execution, such as invalid instructions or memory access violations.
 
 **Usage:**
-Used for validating the interpreter's correctness and robustness. These tests are crucial for ensuring that the virtual processor behaves as expected under various scenarios, including edge cases and complex instruction sets.
+These unit tests play an indispensable role in safeguarding the functionality of the interpreter. By rigorously testing each component within `interpreter.c`, developers are empowered to enhance the interpreter's capabilities with the assurance of its foundational correctness. This not only aids in identifying regressions early but also advocates for a test-driven development methodology for introducing new features or optimizations.
 
-**Diagram:**
+### 3.2.4 - `tests_interpreter.h`
 
-```mermaid
-graph TD
-    interpreter_test --> executeInstructionTest
-    interpreter_test --> initializeProcessorStateTest
-    interpreter_test --> handleArithmeticOperationsTest
-    interpreter_test --> manageControlFlowTest
-    interpreter_test --> simulateProgramExecutionTest
-
-    executeInstructionTest["executeInstructionTest - Tests instruction execution"] --> executeInstruction["executeInstruction"]
-    initializeProcessorStateTest["initializeProcessorStateTest - Tests processor state initialization"] --> initializeProcessorState["initializeProcessorState"]
-    handleArithmeticOperationsTest["handleArithmeticOperationsTest - Tests arithmetic operation handling"] --> handleArithmeticOperations["handleArithmeticOperations"]
-    manageControlFlowTest["manageControlFlowTest - Tests control flow management"] --> manageControlFlow["manageControlFlow"]
-    simulateProgramExecutionTest["simulateProgramExecutionTest - Tests program execution simulation"] --> simulateProgramExecution["simulateProgramExecution"]
-
-    classDef tests fill:#333,stroke:#777,stroke-width:2px;
-    classDef functions fill:#333,stroke:#777,stroke-width:2px;
-    class interpreter_test,executeInstructionTest,initializeProcessorStateTest,handleArithmeticOperationsTest,manageControlFlowTest,simulateProgramExecutionTest tests;
-    class executeInstruction,initializeProcessorState,handleArithmeticOperations,manageControlFlow,simulateProgramExecution functions;
-```
-
-**Diagram Explanation:**
-
-- **Test Functions:**
-  - **`executeInstructionTest`:** Validates the correct execution of individual instructions by `executeInstruction`.
-  - **`initializeProcessorStateTest`:** Assesses `initializeProcessorState` for proper setup of the initial state of the virtual processor.
-  - **`handleArithmeticOperationsTest`:** Ensures that arithmetic operations are correctly handled by `handleArithmeticOperations`.
-  - **`manageControlFlowTest`:** Tests `manageControlFlow` for accurate control flow changes like jumps and calls.
-  - **`simulateProgramExecutionTest`:** Confirms that the entire set of instructions is accurately simulated by `simulateProgramExecution`.
-
-- **Functionality Functions:**
-  - **`executeInstruction`**, **`initializeProcessorState`**, **`handleArithmeticOperations`**, **`manageControlFlow`**, **`simulateProgramExecution`:** These are the core functions involved in interpreting and executing assembly instructions, each being tested for their respective functionalities.
-
-### 3.2.4 `tests_interpreter.h`
-
-This header file declares the testing functions and necessary structures for interpreter tests. It outlines the structure and methodology for each test case.
+The `tests_interpreter.h` header file articulates the declarations of unit tests for `interpreter.c`, outlining the prototypes for functions that scrutinize the interpreter's execution of assembly instructions and management of the virtual processor's state.
 
 **Key Components:**
-- Declarations of various test functions specific to the interpreter functionality.
+- `int initializeProcessorTEST()`: Evaluates the initialization process of the virtual processor.
+- `int fetchInstructionTEST()`: Confirms the accuracy of instruction fetching.
+- `int decodeInstructionTEST()`: Tests the correctness of the instruction decoding mechanism.
+- `int executeInstructionTEST()`: Assesses the execution of instructions and the consequent modifications to the processor's state.
+- Arithmetic Operations Tests: `int executeADDTEST()`, `int executeSUBTEST()`, etc.
+- Logical Operations Tests: `int executeANDTEST()`, `int executeORTEST()`, etc.
+- Data Movement Test: `int executeMOVTEST()`.
+- Control Flow Tests: `int executeJMPTEST()`, `int executeCALLTEST()`, etc.
+- Comparison Test: `int executeCMPTEST()`.
+- System Call Handling Test: `int handleSysCallTEST()`.
+- Error Handling Test: `int errorHandlingTEST()`.
 
 **Usage:**
-Included in `tests_interpreter.c`, this header file organizes the test suite for the interpreter. It ensures a systematic approach to testing each aspect of the interpreter's functionality, from individual instruction execution to full program simulation.
+Incorporating `tests_interpreter.h` into `tests_interpreter.c` facilitates a structured and methodical approach to testing, ensuring comprehensive verification of the interpreter's functionality. It is pivotal for maintaining the reliability of the interpreter and supports the iterative enhancement of the virtual processor by laying a robust foundation for test-driven development.
 
-## 3.3 Main
+## 3.3 - Main
 
-[*(Back to top)*](#toc)
+### 3.3.1 - `main.c`
 
-### 3.3.1 `main.c`
-
-This file serves as the entry point of the program. It integrates the components of scraping, parsing, and interpreting, providing a cohesive workflow for executing the custom assembly language. The `main.c` file orchestrates the overall process from reading the assembly code file to executing it and displaying the results.
+This component acts as the entry point for the virtual processor program, coordinating the parsing of assembly code, initializing the interpreter, and managing the execution of the parsed instructions.
 
 **Key Features:**
-- `main`: The primary function that drives the program. It calls functions to read the assembly file, scrape the contents into structured data, parse the data into executable instructions, and then run these instructions through the interpreter.
-- `loadAssemblyFile`: Handles the loading of the assembly file and checks for errors in file access.
-- `displayResults`: After the interpretation of the assembly code, this function displays the final state of the processor or any results of the code execution.
-- `errorHandling`: Manages errors that might occur during file reading, scraping, parsing, or interpreting, ensuring the program exits gracefully in case of any issues.
+- `main(int argc, char* argv[])`: Parses command-line arguments to read assembly file paths and initiates the execution process.
+- `loadAssemblyCode(const char* filePath)`: Opens and reads the specified assembly code file, preparing it for parsing.
+- `parseCode(char* assemblyCode)`: Utilizes the parser to convert raw assembly code into a format that can be executed by the interpreter.
+- `initializeInterpreter()`: Sets up the interpreter, including initializing the virtual processor's state.
+- `executeProgram()`: Runs the parsed assembly program, managing instruction execution in sequence.
+- `displayFinalState()`: Outputs the final state of the virtual processor, including the values of registers and any relevant memory content.
 
 **Usage:**
-The `main.c` file is the starting point for users to run the assembly interpreter. It provides a user-friendly interface to execute assembly code and observe its behavior.
+`main.c` orchestrates the overall process of executing an assembly language program on the virtual processor. It integrates the parser and interpreter modules, handling file input, execution, and outputting the execution results.
 
-**Diagram:**
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant Main as main(argc, argv[])
+    participant Load as loadAssemblyCode(filePath)
+    participant Parse as parseCode(assemblyCode)
+    participant Initialize as initializeInterpreter()
+    participant Execute as executeProgram()
+    participant Display as displayFinalState()
+
+    User->>+Main: Start with command-line arguments
+    Main->>+Load: Provide file path
+    Load-->>-Main: Assembly code loaded
+    Main->>+Parse: Pass raw assembly code
+    Parse-->>-Main: Code parsed into executable format
+    Main->>+Initialize: Initialize interpreter
+    Initialize-->>-Main: Interpreter and processor initialized
+    Main->>+Execute: Execute parsed program
+    Execute-->>-Main: Program execution complete
+    Main->>+Display: Request final state
+    Display-->>-Main: Final state displayed
+    Main-->>-User: Program ends
+```
+
+**Sequence Diagram Explanation:**
+
+- **Start with command-line arguments**: The user initiates the program execution by running `main.c`, passing any necessary command-line arguments, typically including the path to the assembly code file to be executed.
+- **Provide file path**: The `main` function calls `loadAssemblyCode`, providing the file path obtained from the command-line arguments.
+- **Assembly code loaded**: The `loadAssemblyCode` function opens the specified file, reads its contents into memory, and returns the raw assembly code to the `main` function.
+- **Pass raw assembly code**: The `main` function then passes this raw assembly code to `parseCode` for parsing.
+- **Code parsed into executable format**: The `parseCode` function analyzes the raw assembly code, converting it into a structured format that can be interpreted, such as a series of instruction objects or tokens.
+- **Initialize interpreter**: With the code parsed, `main` invokes `initializeInterpreter` to set up the interpreter, including initializing the virtual processor's state (registers, memory, etc.).
+- **Execute parsed program**: Once initialization is complete, `main` calls `executeProgram` to run the parsed assembly program. This function manages the sequential execution of instructions.
+- **Program execution complete**: After executing all instructions, control returns to `main`, indicating the program has finished running.
+- **Request final state**: Finally, `main` calls `displayFinalState` to output the final state of the virtual processor, such as the values of registers and any relevant portions of memory.
+- **Final state displayed**: The final state of the processor is displayed to the user, marking the end of the program's execution.
+
+### 3.3.2 - `main.h`
+
+This header file establishes the interface for the `main` module, outlining the structure and prototypes of functions utilized in `main.c`, along with any essential data structures, constants, and dependencies necessary for the execution flow of the virtual processor application.
+
+**Key Components:**
+
+- **Function Declarations**:
+    - `int main(int argc, char* argv[])`: Entry point of the program, handling command-line arguments.
+    - `void loadAssemblyCode(const char* filePath)`: Reads assembly code from the specified file path into memory.
+    - `void parseCode(const char* assemblyCode)`: Transforms raw assembly code into a structured format for execution.
+    - `void initializeInterpreter()`: Prepares the interpreter by initializing the virtual processor's state.
+    - `void executeProgram()`: Executes the structured assembly code, simulating the program run.
+    - `void displayFinalState()`: Outputs the final state of the virtual processor after execution.
+
+- **Data Structure Definitions**:
+    - Not explicitly defined here but implies the use of structures for managing the execution state, such as processor registers and memory layout.
+
+**Usage:**
+`main.h` serves as a crucial link between `main.c` and the rest of the virtual processor components, facilitating a smooth execution process. It ensures that the functionalities within the `main` module are correctly exposed and accessible to other parts of the application, thereby supporting a cohesive and modular architecture.
+
+**Class Diagram:**
+
+```mermaid
+classDiagram
+    class ExecutionState {
+        -char* registers
+        -char* memory
+        -unsigned int programCounter
+    }
+
+    class MainModule {
+        +int main(argc, argv)
+        +void loadAssemblyCode(filePath)
+        +void parseCode(assemblyCode)
+        +void initializeInterpreter()
+        +void executeProgram()
+        +void displayFinalState()
+    }
+
+    ExecutionState <.. MainModule: Manages
+```
+
+**Class Diagram Explanation:**
+
+- The `ExecutionState` class symbolizes the virtual processor's operational state, encapsulating elements like registers, memory, and the program counter essential for running assembly code.
+- The `MainModule` class embodies the core functionalities of the main application process, from initializing and parsing assembly code to executing it and displaying the processor's final state.
+- The "Manages" relationship indicates that the `MainModule` oversees the modification and observation of the `ExecutionState`, reflecting the changes induced by the execution of assembly code and enabling the visualization of execution outcomes.
+
+#### 3.3.3 - `tests_main.c`
+
+This component houses a comprehensive suite of integration tests for the `main` module, aimed at validating the seamless operation of the entire virtual processor system from the initial parsing of assembly language code through to its execution.
+
+**Test Cases:**
+
+- **Full Program Execution (`executeFullProgramTest`)**: Confirms the system's capability to accurately execute an entire assembly language program, ensuring the outputs and final processor state match expected results.
+- **Syntax and Instruction Error Detection (`syntaxAndInstructionErrorTest`)**: Tests the system's ability to identify and handle syntax errors or invalid instructions, ensuring robust error management.
+- **Integration with Parser and Interpreter (`parserInterpreterIntegrationTest`)**: Verifies the effective integration and interaction between the `main` module, parser, and interpreter, ensuring instructions are correctly processed and executed.
+
+**Usage:**
+These integration tests are vital for ensuring the correct functioning of the virtual processor application as a unified entity. They scrutinize the interplay between different components—namely the parser, interpreter, and `main` module—to detect any discrepancies or failures, thereby facilitating a comprehensive quality assurance process.
+
+### 3.3.4 - `tests_main.h`
+
+This header file delineates the structure for integration testing of the `main` module, outlining prototypes for testing functions that scrutinize the application's execution flow. It is designed to ensure that the virtual processor executes assembly code as intended, from parsing through to execution.
+
+**Key Components:**
+- Prototypes for integration tests outlined in `tests_main.c`, designed to assess various aspects of the `main` module's functionality and its interactions within the virtual processor system.
+- Any necessary preliminary definitions or setup required for executing the tests, ensuring a controlled and consistent testing environment.
+
+**Usage:**
+`tests_main.h` organizes the integration tests for the `main` module, enabling systematic verification of its operational integrity within the context of the virtual processor application. It is instrumental in maintaining the reliability of the application and supporting ongoing development and refinement.
+
+### 3.4 - Overall Flow
+
+The following diagrams illustrate the overall flow of the virtual processor application, encompassing the parsing and interpreting processes, as well as the main module's orchestration of the entire execution.
+
+#### 3.4.1 - Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Main
+    participant LoadCode
+    participant ParseCode
+    participant InitializeInterpreter
+    participant FetchInstruction
+    participant DecodeInstruction
+    participant ExecuteInstruction
+    participant DisplayState
+    participant GetFile
+    participant GetSize
+    participant GetStructs
+    participant SetStruct
+    participant SwitchStr
+    participant PrintStruct
+    participant Operations
+
+    User->>+Main: Start with command-line arguments
+    Main->>+GetFile: loadAssemblyCode(filePath)
+    GetFile->>+GetSize: Determine line count
+    GetSize-->>-GetFile: Line count
+    GetFile-->>-Main: Assembly code loaded
+    Main->>+ParseCode: parseCode(assemblyCode)
+    loop Each Line
+        ParseCode->>+GetStructs: Convert lines to structs
+        GetStructs->>+SwitchStr: Identify string type
+        SwitchStr-->>-GetStructs: Type Identified
+        GetStructs->>+SetStruct: Populate struct
+        SetStruct-->>-GetStructs: Struct Populated
+    end
+    GetStructs-->>-ParseCode: Structs Array
+    ParseCode-->>-Main: Code parsed into executable format
+    Main->>+InitializeInterpreter: Initialize interpreter
+    InitializeInterpreter-->>-Main: Interpreter and processor initialized
+    loop Execution Cycle
+        Main->>+FetchInstruction: Fetch Next Instruction
+        FetchInstruction-->>-Main: Instruction Fetched
+        Main->>+DecodeInstruction: Decode Instruction
+        DecodeInstruction-->>-Main: Instruction Decoded
+        Main->>+ExecuteInstruction: Execute Instruction
+        ExecuteInstruction->>+Operations: Perform Operation
+        alt Arithmetic Operations
+            Operations->>Operations: executeADD(), executeSUB(), etc.
+        else Logical Operations
+            Operations->>Operations: executeAND(), executeOR(), etc.
+        else Data Movement
+            Operations->>Operations: executeMOV()
+        else Control Flow
+            Operations->>Operations: executeJMP(), executeCALL(), etc.
+        else Comparison
+            Operations->>Operations: executeCMP()
+        else System Calls
+            Operations->>Operations: handleSysCall()
+        end
+        Operations-->>-ExecuteInstruction: Operation Performed
+        ExecuteInstruction-->>-Main: Instruction Executed
+    end
+    Main->>+DisplayState: Display Final State
+    DisplayState-->>-Main: Final State Displayed
+    Main-->>-User: Program Ends
+```
+
+#### 3.4.2 - Flowchart Diagram
 
 ```mermaid
 graph TD
-    main["main - Drives the program"] --> loadAssemblyFile["loadAssemblyFile - Loads assembly file"]
-    main --> displayResults["displayResults - Displays results"]
-    main --> errorHandling["errorHandling - Manages errors"]
-    loadAssemblyFile --> getFile["getFile - Reads the file"]
-    getFile --> parseAssembly["parseAssembly - Parses structured data"]
-    parseAssembly --> simulateProgramExecution["simulateProgramExecution - Executes instructions"]
-
-    classDef functions fill:#333,stroke:#777,stroke-width:2px;
-    class main,loadAssemblyFile,displayResults,errorHandling,getFile,parseAssembly,simulateProgramExecution functions;
+    A(Start Program) --> B[Load Assembly Code]
+    B --> C[Parse Assembly Code]
+    C -->|For each line| D[Convert Line to Struct]
+    D --> E[Identify String Type]
+    E --> F[Populate Struct]
+    F --> G[All lines processed?]
+    G -->|Yes| H[Initialize Interpreter]
+    G -->|No| D
+    H --> I[Fetch Next Instruction]
+    I --> J[Decode Instruction]
+    J --> K[Execute Instruction]
+    K --> L{Check Operation Type}
+    L -->|Arithmetic| M[Perform Arithmetic Op]
+    L -->|Logical| N[Perform Logical Op]
+    L -->|Data Movement| O[Perform Data Movement]
+    L -->|Control Flow| P[Perform Control Flow Op]
+    L -->|Comparison| Q[Perform Comparison]
+    L -->|System Calls| R[Handle System Call]
+    M --> S[Update Processor State]
+    N --> S
+    O --> S
+    P --> S
+    Q --> S
+    R --> S
+    S --> T{More Instructions?}
+    T -->|Yes| I
+    T -->|No| U[Display Final State]
+    U --> V(End Program)
 ```
 
-**Diagram Explanation:**
+#### 3.4.2 - Class Diagram
 
-- **`main`:** The primary function that initiates the workflow of the program. It orchestrates the overall process of executing the custom assembly language.
-- **`loadAssemblyFile`:** Called by `main`, it handles the loading of the assembly file, ensuring that the file is accessible and ready for processing.
-- **`getFile`:** Invoked after `loadAssemblyFile`, this function reads the assembly file and prepares its contents for further processing.
-- **`parseAssembly`:** Follows `getFile`, parsing the structured data (scraped from the assembly file) into executable instructions.
-- **`simulateProgramExecution`:** Called after `parseAssembly`, it executes the parsed instructions, simulating the behavior of a processor.
-- **`displayResults`:** A function called by `main` to display the final state of the processor or the results of the code execution.
-- **`errorHandling`:** Also part of `main`, it manages any errors that might occur during the different stages of file reading, scraping, parsing, or interpreting.
+```mermaid
+classDiagram
+    class func_t {
+        -char instruction[5]
+        -char name[10]
+        -char parameter1[10]
+        -char parameter2[10]
+        -int line
+    }
 
-### 3.3.2 `main.h`
+    class Parser {
+        +void printLines(char **, int)
+        +char* getLine(char **, int)
+        +void* getFile(const char*)
+        +int getSize(const char*)
+        +void* getStructs(char **, int)
+        +int switchStr(char*)
+        +void setStruct(struct function*, char*, char*, char*, char*, int)
+        +void printStruct(struct function*)
+    }
 
-This header file contains the declarations of functions and data structures used in `main.c`. It ensures that the main module interfaces correctly with other parts of the program.
+    class VirtualProcessor {
+        -char* registers
+        -char* memory
+        -unsigned int programCounter
+    }
 
-**Key Components:**
-- Function prototypes for `main`, `loadAssemblyFile`, `displayResults`, and `errorHandling`.
-- Data structure definitions used for managing the program's workflow and state.
+    class Interpreter {
+        +void initializeProcessor()
+        +char* fetchInstruction(unsigned int)
+        +void decodeInstruction(char*, char*, char**)
+        +void executeInstruction(char*, char**)
+        +void executeADD(char*, char*)
+        +void executeSUB(char*, char*)
+        +void executeMUL(char*, char*)
+        +void executeDIV(char*, char*)
+        +void executeAND(char*, char*)
+        +void executeOR(char*, char*)
+        +void executeXOR(char*, char*)
+        +void executeNOT(char*)
+        +void executeMOV(char*, char*)
+        +void executeJMP(unsigned int)
+        +void executeJMP_COND(unsigned int, char*)
+        +void executeCALL(unsigned int)
+        +void executeRET()
+        +void executeCMP(char*, char*)
+        +void handleSysCall(int)
+    }
 
-**Usage:**
-The `main.h` file is included in `main.c` and possibly other parts of the project if they need to interact with the main workflow. It provides a clear interface and essential declarations for the main functionality.
+    class MainModule {
+        +int main(argc, argv)
+        +void loadAssemblyCode(filePath)
+        +void parseCode(assemblyCode)
+        +void initializeInterpreter()
+        +void executeProgram()
+        +void displayFinalState()
+    }
 
-### 3.3.3 `main_test.c`
-
-Contains unit tests for the main module of the program. These tests ensure the integrated functionality of reading, scraping, parsing, and interpreting works as expected.
-
-**Test Cases:**
-- Testing the complete workflow from file reading to execution.
-- Ensuring correct error handling and graceful exits in case of file access issues or processing errors.
-- Verifying the integration and interaction between different modules of the program.
-
-**Usage:**
-Used for validating the correctness and robustness of the entire program workflow. These tests are essential for ensuring that all components of the program work together seamlessly and efficiently.
-
-### 3.3.4 `main_test.h`
-
-This header file declares the test functions used in `main_test.c`. It organizes the test suite for the main module, ensuring comprehensive coverage of the program's primary functionalities.
-
-**Key Components:**
-- Declarations of test functions specific to the main module's workflow.
-
-**Usage:**
-Included in `main_test.c`, this header file structures the testing approach for the main module. It ensures that the program's entry point and its integration with other components are thoroughly tested and validated.
+    func_t --> Parser : Data Structure
+    Parser --> VirtualProcessor : Parses to
+    VirtualProcessor --> Interpreter : Executed by
+    Interpreter --> MainModule : Managed by
+    MainModule --> Parser : Uses
+```
 
 ---
 
@@ -1165,7 +1494,6 @@ Included in `main_test.c`, this header file structures the testing approach for 
 | <img src="https://avatars.githubusercontent.com/u/97166029?v=4" width="100px" height="100px">  |    **Victor LEROY**    |    [![GitHub](https://img.shields.io/badge/GitHub-Victor--Leroy-lightgrey?logo=github&style=flat-square)](https://github.com/Victor-Leroy)     |       [![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Leroy-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/victor-leroy-64baa3229/)        |
 | <img src="https://avatars.githubusercontent.com/u/146005062?v=4" width="100px" height="100px"> |   **Manech LAGUENS**   |  [![GitHub](https://img.shields.io/badge/GitHub-Manech--Laguens-lightgrey?logo=github&style=flat-square)](https://github.com/Manech-Laguens)   |     [![LinkedIn](https://img.shields.io/badge/LinkedIn-Manech_Laguens-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/manech-laguens-020127293/)      |
 
-
 ## 4.2 - Related Documents
 
 [*(Back to top)*](#toc)
@@ -1175,7 +1503,6 @@ Included in `main_test.c`, this header file structures the testing approach for 
 | [Functional Specification](Functional-Specification.md) | This document describes the functional specifications of the project. |
 |                [Test Plan](Test-Plan.md)                |         This document describes the test plan of the project.         |
 |                 [Readme](../README.md)                  |                 This document describes the project.                  |
-
 
 ## 4.3 - License
 
@@ -1228,7 +1555,6 @@ In this section, you will find all the tools and references used to create this 
 |         **Jump[^18]**         |                                                           In computer science, a jump statement is a statement that unconditionally transfers program control to a designated statement.                                                            |                                                         Jump statements are used by the virtual processor to change the flow of execution.                                                          |     [Wikipedia](https://en.wikipedia.org/wiki/Branch_(computer_science))      |
 |       **Parsing[^19]**        |                  Parsing, syntax analysis, or syntactic analysis is the process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar.                   |                                                                   Parsing is the process of analyzing the assembly language code.                                                                   |              [Wikipedia](https://en.wikipedia.org/wiki/Parsing)               |
 |       **Operand[^20]**        |                                                    In mathematics and computer programming, an operand is the object of a mathematical operation, a quantity on which an operation is performed.                                                    |                                                            Operands are used by the virtual processor to perform arithmetic operations.                                                             |              [Wikipedia](https://en.wikipedia.org/wiki/Operand)               |
-
 
 ## 4.6 - Footnotes
 
