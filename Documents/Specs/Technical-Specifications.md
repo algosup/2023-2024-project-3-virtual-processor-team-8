@@ -19,15 +19,15 @@
 
 ### Approvals
 
-| Reviewer           | Role              | Approved | Date |
-| ------------------ | ----------------- | -------- | ---- |
-| Laurent BOUQUIN    | Quality Assurance |          |      |
-| Evan UHRING        | Quality Assurance |          |      |
-| Laura-Lee HOLLANDE | Project Manager   |          |      |
-| Ian LAURENT        | Program Manager   |          |      |
-| Pierre GORIN       | Technical Leader  |          |      |
-| Manech LAGUENS     | Software Engineer |          |      |
-| Victor LEROY       | Software Engineer |          |      |
+| Reviewer           | Role              | Approved | Date       |
+| ------------------ | ----------------- | -------- | ---------- |
+| Laurent BOUQUIN    | Quality Assurance |          |            |
+| Evan UHRING        | Quality Assurance |          |            |
+| Laura-Lee HOLLANDE | Project Manager   | ✅        | 02/09/2024 |
+| Ian LAURENT        | Program Manager   |          |            |
+| Pierre GORIN       | Technical Leader  |          |            |
+| Manech LAGUENS     | Software Engineer |          |            |
+| Victor LEROY       | Software Engineer |          |            |
 
 </div>
 
