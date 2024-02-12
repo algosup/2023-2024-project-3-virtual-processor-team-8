@@ -12,7 +12,7 @@ The team held its regular meeting to discuss ongoing tasks, challenges, and proj
 
 The previously identified compatibility issues between Mac and Windows related to `strcpy` have been successfully closed. The team implemented a solution by changing `strcpy` to `sprintf` for improved compatibility.
 
-The deadline for the functional specification and assembly documentation is over. The team succeeded to deliver the [functional specification](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) on time.
+The deadline for the functional specification and assembly documentation are over. The team succeeded to deliver the [functional specification](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Functional-Specification.md) on time.
 
 The review of the technical specification is currently in progress. The team is thoroughly examining the document to ensure accuracy, completeness, and alignment with project objectives.
 
