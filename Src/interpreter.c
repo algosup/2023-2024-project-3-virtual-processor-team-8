@@ -142,22 +142,6 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers){
 	}
 }
 
-int executeADD(char *parameter1, char *parameter2, reg_t *registers){
-
-	int isRegister2 = isRegister(parameter2);
-
-	if (isRegister2 == 0){
-		int value = getRegisterValue(registers, parameter1) + atoi(parameter2);
-		changeRegister(value, registers, parameter1);
-		return value;
-	}
-	else{
-		int value = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
-		changeRegister(value, registers, parameter1);
-		return value;
-	}
-}
-
 int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
 
 }
