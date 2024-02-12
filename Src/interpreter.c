@@ -5,7 +5,7 @@
 
 // void redirectToFunction(func_t *func, reg_t *regs){
 // 	if (strcmp(func->instruction, "add") == 0){
-// 		add(func->parameter1, func->parameter2, regs);
+// 		executeADD(func->parameter1, func->parameter2, regs);
 // 	}
 // 	else if (strcmp(func->instruction, "sub") == 0){
 // 		subtract(func->parameter1, func->parameter2);
@@ -17,7 +17,7 @@
 // 		divide(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "mov") == 0){
-// 		move(func->parameter1, func->parameter2);
+// 		executeMOV(func->parameter1, func->parameter2, regs);
 // 	}
 // 	else if (strcmp(func->instruction, "jmp") == 0){
 // 		jump(func->parameter1);
@@ -47,7 +47,7 @@
 // 		jle(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "call") == 0){
-// 		calling(func->parameter1);
+// 		call(func->parameter1);
 // 	}
 // 	else if (strcmp(func->instruction, "ret") == 0){
 // 		returns();
@@ -126,7 +126,7 @@ int getRegisterValue(reg_t *regs, char *regist){
 	}
 }
 
-int add(char *parameter1, char *parameter2, reg_t *registers){
+int executeADD(char *parameter1, char *parameter2, reg_t *registers){
 
 	int isRegister2 = isRegister(parameter2);
 
@@ -139,5 +139,46 @@ int add(char *parameter1, char *parameter2, reg_t *registers){
 		int value = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
 		changeRegister(value, registers, parameter1);
 		return value;
+	}
+}
+
+int executeADD(char *parameter1, char *parameter2, reg_t *registers){
+
+	int isRegister2 = isRegister(parameter2);
+
+	if (isRegister2 == 0){
+		int value = getRegisterValue(registers, parameter1) + atoi(parameter2);
+		changeRegister(value, registers, parameter1);
+		return value;
+	}
+	else{
+		int value = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
+		changeRegister(value, registers, parameter1);
+		return value;
+	}
+}
+
+int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
+
+}
+
+int executeMUL(char *parameter1, char *parameter2, reg_t *registers){
+
+}
+
+int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
+
+}
+
+
+void *executeMOV(char *parameter1, char *parameter2, reg_t *regs){
+
+	int isRegister2 = isRegister(parameter2);
+
+	if (isRegister2 == 0){
+		changeRegister(atoi(parameter2), regs, parameter1);
+	}
+	else{
+		changeRegister(getRegisterValue(regs, parameter2), regs, parameter1);
 	}
 }

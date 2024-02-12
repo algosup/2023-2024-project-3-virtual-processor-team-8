@@ -17,4 +17,9 @@ void *changeRegister(int value, reg_t *regs, char *regist);
 
 int getRegisterValue(reg_t *regs, char *regist);
 
-int add(char *parameter1, char *parameter2, reg_t *registers);
+int executeADD(char *parameter1, char *parameter2, reg_t *registers);
+
+
+
+
+void *executeMOV(char *parameter1, char *parameter2, reg_t *regs);

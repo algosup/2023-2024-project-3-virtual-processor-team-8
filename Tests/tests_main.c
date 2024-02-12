@@ -87,9 +87,53 @@ int main() {
 	printf("testing function add\n");
 	printf("... testing addTEST ...\n");
 
-	testsPassed += addTEST();
+	testsPassed += executeADDTEST();
 
 	printf("all add's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeSUB\n");
+	printf("... testing executeSUBTEST ...\n");
+
+	testsPassed += executeSUBTEST();
+
+	printf("all executeSUB's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeMUL\n");
+	printf("... testing executeMULTEST ...\n");
+
+	testsPassed += executeMULTEST();
+
+	printf("all executeMUL's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeDIV\n");
+	printf("... testing executeDIVTEST ...\n");
+
+	testsPassed += executeDIVTEST();
+
+	printf("all executeDIv's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeMOV\n");
+	printf("... testing executeMOVTEST ...\n");
+
+	testsPassed += executeMOVTEST();
+
+	printf("all executeMOV's tests passed!\n");
 
 
 	printf("====================================================\n");
