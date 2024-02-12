@@ -10,7 +10,8 @@ int main() {
 	const char *file = "../Src/code.asm";
 
 	int testsPassed = 0;
-
+/*
+*/
 	printf("Running tests...\n");
 
 
@@ -78,6 +79,17 @@ int main() {
 	testsPassed += setStructTEST();
 
 	printf("all setStruct's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function add\n");
+	printf("... testing addTEST ...\n");
+
+	testsPassed += addTEST();
+
+	printf("all add's tests passed!\n");
 
 
 	printf("====================================================\n");
