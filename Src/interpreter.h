@@ -19,6 +19,12 @@ int getRegisterValue(reg_t *regs, char *regist);
 
 int executeADD(char *parameter1, char *parameter2, reg_t *registers);
 
+int executeSUB(char *parameter1, char *parameter2, reg_t *registers);
+
+int executeMUL(char *parameter1, char *parameter2, reg_t *registers);
+
+int executeDIV(char *parameter1, char *parameter2, reg_t *registers);
+
 
 
 
