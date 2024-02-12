@@ -4,7 +4,7 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 3h15
 
 ### Project summary
 
@@ -41,23 +41,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status | Comments             |
+| --------- | ------ | -------------------- |
+| Scope     | On     | All Ok               |
+| Schedule  | On     | All Ok               |
+| Risks     | On     | Team mates's absence |
+| Issues    | /      | No major issue       |
+| Quality   | On     | All Ok               |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner                                        | Status   |
+| ----------- | --------------------------------------- | -------------------------------------------- | -------- |
+| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Evan Uhring, Ian Laurent | On going |
+| Issue 2     | Teammates absence                       | Laura-Lee Hollande                           | Closed   |
 
 ## Project Schedule
 
