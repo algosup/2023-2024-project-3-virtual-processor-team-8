@@ -61,10 +61,10 @@ For the program, as asked by the client, we will create multiple assembly langua
 As an help for the QAs[^5], files will be created to help them to test the program. Those files will be named based on the file they are testing and will contains tests for each function that can be tested (functions only used to print things can't be tested).
 
 We have decided to give to each issue that we find a different level of importance. Those level of importance will help us to tell if the issue is important or not, and thus helping us having a better organization. The different level of importance are :
-- ${\color{green}Optional \space (P4)}$
-- ${\color{yellow}Can \space wait \space (P3)}$
-- ${\color{orange}Should \space be \space done \space quickly \space (P2)}$
-- ${\color{red}Urgent \space (P1)}$
+- ${\color{green}Optional \space (P4)}$ (Task not important but can be done if there is time left)
+- ${\color{yellow}Can \space wait \space (P3)}$ (Task not important but should be done)
+- ${\color{orange}Should \space be \space done \space quickly \space (P2)}$ (Task that alter the quality of the project)
+- ${\color{red}Urgent \space (P1)}$ (Task that alter the quality of the project and can't wait)
 
 Their name are explicit to help us understand much quicker the importance of the issue.
 
