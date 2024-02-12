@@ -22,7 +22,7 @@ int executeSUBTEST(){
 	reg_t registers = {35, 334, 390, 38};
 
 
-	assert(executeSUB("ra", "12", &registers) == 13);
+	assert(executeSUB("ra", "12", &registers) == 23);
 	assert(executeSUB("rb", "34", &registers) == 300);
 	assert(executeSUB("rc", "45", &registers) == 345);
 	assert(executeSUB("rd", "3", &registers) == 35);
