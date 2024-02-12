@@ -93,7 +93,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **Test case:** Number of test that passed.
    - **No review:** No review was initiated.
    - **Review:** The documentation has been reviewved.
-   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues are closed.
+   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues[^3] are closed.
 
 3. **Language KPIs:**
    - **0%:** Nothing done.
@@ -130,3 +130,5 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
 [^3]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
 *source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*
+[^4]: GitHub issue is a tool to track ideas, feedback, tasks, or bugs for work on GitHub.
+*source : [Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)*
