@@ -20,6 +20,8 @@ Started the technical specification phase, outlining the detailed technical aspe
 
 Initiated discussions with the customer regarding potential modifications to the assembly language instructions and the inclusion of sections like .data and interrupts.
 
+Set up the template for GitHub Issue[^2].
+
 - **Questionning the customer:**
 
   - **Questions:** Do we have to completely change the name of the different instructions or can we keep them as they actually are, and maybe just change some of them & Do we have to do the section parts (i.e section .data) and the interrupts?
@@ -49,12 +51,12 @@ We encounter a compatibility problem between Mac and Windows, not solved for the
    - **At Risk:** There are concerns about meeting the scheduled deadlines or milestones.
    - **Halted:** The project schedule has come to a temporary stop, possibly due to external factors or critical issues.
 
-3. **Risks[^2]:**
+3. **Risks[^3]:**
    - **On:** The identified risks are being effectively managed, and mitigation strategies are in place.
    - **At Risk:** New risks have emerged, or existing risks are not being adequately addressed.
    - **Halted:** The project has stopped or is on hold due to high-risk factors that need resolution.
 
-4. **Issues[^3]:**
+4. **Issues[^4]:**
    - **On:** Issues are being promptly addressed, and resolution is progressing well.
    - **At Risk:** There are issues that pose a threat to the project's progress and need attention.
    - **Halted:** The project has come to a stop due to critical unresolved issues.
@@ -78,7 +80,7 @@ We encounter a compatibility problem between Mac and Windows, not solved for the
 
 | Risk/Issues | Description                                                                 | Owner                         | Status   |
 | ----------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
-| Issue 1     | Compatibility problem between Mac and Window with the strcpy()[^4] function | Laurent Bouquin, Victor Leroy | On going |
+| Issue 1     | Compatibility problem between Mac and Window with the strcpy()[^5] function | Laurent Bouquin, Victor Leroy | On going |
 | Issue 2     | Bug with Trello, loose everything                                           | Laura-Lee Hollande            | Closed   |
 | Risk 1      | Potential loss of some teammates                                            | Laura-Lee Hollande            | pending  |
 
@@ -90,7 +92,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ⚠️ ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
-## Key Performance Indicator[^5]
+## Key Performance Indicator[^6]
 
 <details>
 
@@ -138,11 +140,13 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 [^1]: It is the process of identifying, assessing and controlling threats to an organization's capital, earnings and operations. These risks stem from a variety of sources, including financial uncertainties, legal liabilities, technology issues, strategic management errors, accidents and natural disasters.
 *source : [TechTarget](https://www.techtarget.com/searchsecurity/definition/What-is-risk-management-and-why-is-it-important)*
-[^2]: Risk is any unexpected event that can affect your project — for better or for worse. Risk can affect anything: people, processes, technology, and resources. [...] Risks are events that might happen, and you may not be able to tell when.
+[^2]: GitHub issue is a tool to track ideas, feedback, tasks, or bugs for work on GitHub.
+*source : [Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)*
+[^3]: Risk is any unexpected event that can affect your project — for better or for worse. Risk can affect anything: people, processes, technology, and resources. [...] Risks are events that might happen, and you may not be able to tell when.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
-[^3]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
+[^4]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
-[^4]: It is a C standard library function that copies a string from one location to another.
+[^5]: It is a C standard library function that copies a string from one location to another.
 *source : [Geeks for Geeks](https://www.geeksforgeeks.org/strcpy-in-c/)*
-[^5]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+[^6]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
 *source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*

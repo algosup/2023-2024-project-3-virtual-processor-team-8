@@ -4,9 +4,13 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 3h15
 
 ### Project summary
+
+The team held its regular meeting to discuss on the following tasks and share the information with the teammates who were missing the previous week.
+
+The deadline for the technical specification. The team succeeded to deliver the [technical specification](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Specs/Technical-Specifications.md) on time.
 
 ## Project Key parameters
 
@@ -41,23 +45,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status  | Comments                                         |
+| --------- | ------- | ------------------------------------------------ |
+| Scope     | On      | All Ok                                           |
+| Schedule  | At risk | Starting to have some delays in different fields |
+| Risks     | On      | Team mates's absence                             |
+| Issues    | /       | No major issue                                   |
+| Quality   | On      | All Ok                                           |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner                           | Status   |
+| ----------- | --------------------------------------- | ------------------------------- | -------- |
+| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Evan Uhring | On going |
+| Issue 2     | Teammates absence                       | Laura-Lee Hollande              | Closed   |
 
 ## Project Schedule
 
@@ -104,11 +105,10 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action           | Note                                                                      | Owner                           | Status   | End Date |
+| ---------------- | ------------------------------------------------------------------------- | ------------------------------- | -------- | -------- |
+| Team meeting     | Share what was done the previous week and the goals for the upcoming week | Laura-Lee Hollande, Evan Uhring | On going | 02/12/24 |
+| Pair programming | Continue to work on the code using pair programming                       | All the team                    | On going | 02/23/24 |
 
 ---
 
