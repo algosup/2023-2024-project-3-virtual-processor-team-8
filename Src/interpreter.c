@@ -8,70 +8,70 @@
 // 		executeADD(func->parameter1, func->parameter2, regs);
 // 	}
 // 	else if (strcmp(func->instruction, "sub") == 0){
-// 		subtract(func->parameter1, func->parameter2);
+// 		executeSUB(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "mul") == 0){
-// 		multiply(func->parameter1, func->parameter2);
+// 		executeMUL(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "div") == 0){
-// 		divide(func->parameter1, func->parameter2);
+// 		executeDIV(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "mov") == 0){
 // 		executeMOV(func->parameter1, func->parameter2, regs);
 // 	}
 // 	else if (strcmp(func->instruction, "jmp") == 0){
-// 		jump(func->parameter1);
+// 		executeJMP(func->parameter1);
 // 	}
 // 	else if (strcmp(func->instruction, "je") == 0){
-// 		je(func->parameter1, func->parameter2);
+// 		executeJE(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jne") == 0){
-// 		jne(func->parameter1, func->parameter2);
+// 		executeJNE(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jz") == 0){
-// 		jz(func->parameter1, func->parameter2);
+// 		executeJZ(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jnz") == 0){
-// 		jnz(func->parameter1, func->parameter2);
+// 		executeJNZ(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jg") == 0){
-// 		jg(func->parameter1, func->parameter2);
+// 		executeJG(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jge") == 0){
-// 		jge(func->parameter1, func->parameter2);
+// 		executeJGE(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jl") == 0){
-// 		jl(func->parameter1, func->parameter2);
+// 		executeJL(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "jle") == 0){
-// 		jle(func->parameter1, func->parameter2);
+// 		executeJLE(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "call") == 0){
-// 		call(func->parameter1);
+// 		executeCALL(func->parameter1);
 // 	}
 // 	else if (strcmp(func->instruction, "ret") == 0){
-// 		returns();
+// 		executeRET();
 // 	}
 // 	else if (strcmp(func->instruction, "cmp") == 0){
 // 		executeCMP(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "prf") == 0){
-// 		pointerFrom(func->parameter1, func->parameter2);
+// 		executePRF(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "prt") == 0){
-// 		PointerTo(func->parameter1, func->parameter2);
+// 		executePRT(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "and") == 0){
-// 		AND(func->parameter1, func->parameter2);
+// 		executeAND(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "or") == 0){
-// 		OR(func->parameter1, func->parameter2);
+// 		executeOR(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "xor") == 0){
-// 		XOR(func->parameter1, func->parameter2);
+// 		executeXOR(func->parameter1, func->parameter2);
 // 	}
 // 	else if (strcmp(func->instruction, "not") == 0){
-// 		NOT(func->parameter1);
+// 		executeNOT(func->parameter1);
 // 	}
 // }
 
