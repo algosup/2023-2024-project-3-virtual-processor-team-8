@@ -10,9 +10,9 @@ Status :
 - Working
 
 Impact :
-- Low
-- Medium
-- High
+- Low (not necessary)
+- Medium (good to have)
+- High (needs to be done)
 
 <br>
 
@@ -36,36 +36,36 @@ Impact :
 | ID | Name | Description | Instruction necessary | Expected result | Actual result | Status | Impact |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 2.1 | Shows registers | The interpreter can show the value in the registers | --- | The interpreter outputs all registers with their value | --- | To test | High |
-| 2.2 | Copy a value | The interpreter can copy a value to a register | mov 'register', 'value' | The interpreter shows registers with changed values after reading the instruction | --- | To test | High |
-| 2.3 | Copy a register's value | The interpreter can copy the value of a register (register2) to an other register (register1) | mov 'register1', 'register2' | The interpreter shows tow registers with the same value after reading the instruction | --- | To test | High |
-| 2.4 | Copy the value to the memory | The interpreter can copy a value to the memory at the address given by a register | prt 'register', 'value' |  | --- | To test | High |
-| 2.5 | Copy the value of a register to the memory | The interpreter can copy the value of a register (register2) to the memory at the address given by a register (register1) | prt 'register1', 'register2' |  | --- | To test | High |
-| 2.6 | Copy the value of the memory | The interpreter can copy the value of the memory at the address given by a register (register2) to an other register (register1) | prf 'register1', 'register2' |  | --- | To test | High |
-| 2.7 | Comparing register to a value | The interpreter can compare the value of a register to a value | cmp 'register', 'value' |  | --- | To test | High |
-| 2.8 | Comparing registers | The interpreter can compare the value of a register (register1) to a value of an other register (register2) | cmp 'register1', 'register2' |  | --- | To test | High |
-| 2.9 | Unconditional jump | Jump to the called function | jmp 'function |  | --- | To test | High |
-| 2.10 | "If equal" jump | After a compare, jump to the called function if the values of the compare were equal | je 'function' |  | --- | To test | High |
-| 2.11 | "If not equal" jump | After a compare, jump to the called function if the values of the compare were not equal | jne 'function' |  | --- | To test | High |
-| 2.12 | "If zero" jump | After instructions, jump to the called function if the value of the destination register on the previous line is zero | jz 'function' |  | --- | To test | High |
-| 2.13 | "If not zero" jump | After instructions, jump to the called function if the value of the destination register on the previous line is not zero | jnz 'function' |  | --- | To test | High |
-| 2.14 | "If greater" jump | After a compare, jump to the called function if the first value of the compare is greater than the second value of the compare | jg 'function' |  | --- | To test | High |
-| 2.15 | "If less" jump | After a compare, jump to the called function if the first value of the compare is less than the second value of the compare | jl 'function' |  | --- | To test | High |
-| 2.16 | "If not greater" jump | After a compare, jump to the called function if the first value of the compare is not greater than the second value of the compare | jng 'function' |  | --- | To test | High |
-| 2.17 | "If not less" jump | After a compare, jump to the called function if the first value of the compare is not less than the second value of the compare | jnl 'function' |  | --- | To test | High |
-| 2.18 | Call a function | The interpreter will do the function that is called | call 'function' |  | --- | To test | High |
-| 2.19 | Return | The interpreter will go back to the function where the function was called | ret |  | --- | To test | High |
-| 2.20 | Add a value | The interpreter can add a given value to a register | add 'register', 'value' |  | --- | To test | High |
-| 2.21 | Add a register | The interpreter can add the value of a register (register2) to the other register (register1) | add 'register1', 'register2' |  | --- | To test | High |
-| 2.22 | Subtract a value | The interpreter can subtract a given value to a register | sub 'register', 'value' |  | --- | To test | High |
-| 2.23 | Subtract a register | The interpreter can subtract the value of a register (register2) to the other register (register1) | sub 'register1', 'register2' |  | --- | To test | High |
-| 2.24 | Multiply a value | The interpreter can multiply a given value to a register | mul 'register', 'value' |  | --- | To test | High |
-| 2.25 | Multiply a register | The interpreter can multiply the value of a register (register2) to the other register (register1) | mul 'register1', 'register2' |  | --- | To test | High |
-| 2.26 | Divide a value | The interpreter can divide a given value to a register | div 'register', 'value' |  | --- | To test | High |
-| 2.27 | Divide a register | The interpreter can divide the value of a register (register2) to the other register (register1) | div 'register1', 'register2' |  | --- | To test | High |
-| 2.28 | OR operation with a value | The interpreter can do the OR operation with a given value to a register | or 'register', 'value' |  | --- | To test | High |
-| 2.29 | OR operation with a register | The interpreter can do the OR operation with a register (register2) to the other register (register1) | or 'register1', 'register2' |  | --- | To test | High |
-| 2.30 | XOR operation with a value | The interpreter can do the XOR operation with a given value to a register | xor 'register', 'value' |  | --- | To test | High |
-| 2.31 | XOR operation with a register | The interpreter can do the XOR operation with a register (register2) to the other register (register1) | xor 'register1', 'register2' |  | --- | To test | High |
-| 2.32 | AND operation with a value | The interpreter can do the AND operation with a given value to a register | and 'register', 'value' |  | --- | To test | High |
-| 2.33 | AND operation with a register | The interpreter can do the AND operation with a register (register2) to the other register (register1) | and 'register1', 'register2' |  | --- | To test | High |
-| 2.34 | NOT operation | The interpreter can do the NOT operation to a register (register1) | not 'register' |  | --- | To test | High |
+| 2.2 | Copy a value | The interpreter can copy a value to a register | mov 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.3 | Copy a register's value | The interpreter can copy the value of a register (register2) to an other register (register1) | mov 'register1', 'register2' | The interpreter shows two registers with the same value after reading the instruction | --- | To test | High |
+| 2.4 | Copy the value to the memory | The interpreter can copy a value to the memory at the address given by a register | prt 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.5 | Copy the value of a register to the memory | The interpreter can copy the value of a register (register2) to the memory at the address given by a register (register1) | prt 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.6 | Copy the value of the memory | The interpreter can copy the value of the memory at the address given by a register (register2) to an other register (register1) | prf 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.7 | Comparing register to a value | The interpreter can compare the value of a register to a value | cmp 'register', 'value' | Return a value depending on the result of the comparison, if it is equal, higher or less | --- | To test | High |
+| 2.8 | Comparing registers | The interpreter can compare the value of a register (register1) to a value of an other register (register2) | cmp 'register1', 'register2' | Return a value depending on the result of the comparison, if it is equal, higher or less | --- | To test | High |
+| 2.9 | Unconditional jump | Jump to the called function | jmp 'function | The interpreter execute correctly the function it is supposed to jump to | --- | To test | High |
+| 2.10 | "If equal" jump | After a compare, jump to the called function if the values of the compare were equal | je 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison | --- | To test | High |
+| 2.11 | "If not equal" jump | After a compare, jump to the called function if the values of the compare were not equal | jne 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.12 | "If zero" jump | After instructions, jump to the called function if the value of the destination register on the previous line is zero | jz 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison | --- | To test | High |
+| 2.13 | "If not zero" jump | After instructions, jump to the called function if the value of the destination register on the previous line is not zero | jnz 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.14 | "If greater" jump | After a compare, jump to the called function if the first value of the compare is greater than the second value of the compare | jg 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.15 | "If less" jump | After a compare, jump to the called function if the first value of the compare is less than the second value of the compare | jl 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.16 | "If not greater" jump | After a compare, jump to the called function if the first value of the compare is not greater than the second value of the compare | jng 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.17 | "If not less" jump | After a compare, jump to the called function if the first value of the compare is not less than the second value of the compare | jnl 'function' | The interpreter execute correctly the function it is supposed to jump to after doing the correct comparison  | --- | To test | High |
+| 2.18 | Call a function | The interpreter will do the function that is called | call 'function' | The interpreter execute correctly the function it is supposed to do | --- | To test | High |
+| 2.19 | Return | The interpreter will go back to the function where the function was called | ret | The interpreter returns to the correct function where the function it is has been called | --- | To test | High |
+| 2.20 | Add a value | The interpreter can add a given value to a register | add 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.21 | Add a register | The interpreter can add the value of a register (register2) to the other register (register1) | add 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.22 | Subtract a value | The interpreter can subtract a given value to a register | sub 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.23 | Subtract a register | The interpreter can subtract the value of a register (register2) to the other register (register1) | sub 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.24 | Multiply a value | The interpreter can multiply a given value to a register | mul 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.25 | Multiply a register | The interpreter can multiply the value of a register (register2) to the other register (register1) | mul 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.26 | Divide a value | The interpreter can divide a given value to a register | div 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.27 | Divide a register | The interpreter can divide the value of a register (register2) to the other register (register1) | div 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.28 | OR operation with a value | The interpreter can do the OR operation with a given value to a register | or 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.29 | OR operation with a register | The interpreter can do the OR operation with a register (register2) to the other register (register1) | or 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.30 | XOR operation with a value | The interpreter can do the XOR operation with a given value to a register | xor 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.31 | XOR operation with a register | The interpreter can do the XOR operation with a register (register2) to the other register (register1) | xor 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.32 | AND operation with a value | The interpreter can do the AND operation with a given value to a register | and 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.33 | AND operation with a register | The interpreter can do the AND operation with a register (register2) to the other register (register1) | and 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
+| 2.34 | NOT operation | The interpreter can do the NOT operation to a register (register1) | not 'register' | The interpreter shows registers with correct changed values after reading the instruction | --- | To test | High |
