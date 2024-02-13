@@ -20,3 +20,21 @@ int executeMOVTEST();
 
 // Testing the comparison of two numbers
 int executeCMPTEST();
+
+// Testing the pointing to the right function
+int executePRTTEST();
+
+// Testing the pointing from the right function
+int executePFRTEST();
+
+// Testing the AND function
+int executeANDTEST();
+
+// Testing the OR function
+int executeORTEST();
+
+// Testing the XOR function
+int executeXORTEST();
+
+// Testing the NOT function
+int executeNOTTEST();

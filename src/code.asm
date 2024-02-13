@@ -1,4 +1,4 @@
-prf ra, [rb]
+prf [ra], rb
 mov rb, 0
 cmp ra, 0
 jmp end

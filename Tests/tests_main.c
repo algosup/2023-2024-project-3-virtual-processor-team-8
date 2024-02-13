@@ -151,6 +151,28 @@ int main() {
 	printf("====================================================\n");
 
 
+	printf("testing function executePRT\n");
+	printf("... testing executePRTTEST ...\n");
+
+	testsPassed += executePRTTEST();
+
+	printf("all executePRT's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executePRF\n");
+	printf("... testing executePRFTEST ...\n");
+
+	testsPassed += executePRFTEST();
+
+	printf("all executePRF's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
 
 	printf("%d tests passed!\n", testsPassed);
 	return 0;

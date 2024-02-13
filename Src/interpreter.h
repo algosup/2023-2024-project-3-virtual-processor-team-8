@@ -47,3 +47,11 @@ void *executeMOV(char *parameter1, char *parameter2, reg_t *regs);
 
 // Compare the two parameters
 int executeCMP(char *parameter1, char *parameter2, reg_t *regs);
+
+
+// Set parameter1 value to the value contained at the address contained in parameter2
+void executePRT(char *parameter1, char *parameter2, reg_t *registers);
+
+
+// Set the value of the address at contained by parameter1 to the value of parameter2
+void executePRF(char *parameter1, char *parameter2, reg_t *registers);

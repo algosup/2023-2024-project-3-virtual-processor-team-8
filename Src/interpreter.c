@@ -92,6 +92,9 @@ int isRegister(char *parameter){
 	else if (strcmp(parameter, "rd") == 0){
 		return 1;
 	}
+	else if (parameter[0] == '['){
+		return 2;
+	}
 	else{
 		return 0;
 	}
@@ -156,6 +159,33 @@ int getRegisterValue(reg_t *regs, char *regist){
 
 	// Check if the register to get the value from is rd
 	else if (strcmp(regist, "rd") == 0){
+
+		// Return the value of the register rd
+		return regs->rd;
+	}
+	// Check if the register to get the value from is ra
+	else if (strcmp(regist, "[ra]") == 0){
+
+		// Return the value of the register ra
+		return regs->ra;
+	}
+
+	// Check if the register to get the value from is rb
+	else if (strcmp(regist, "[rb]") == 0){
+
+		// Return the value of the register rb
+		return regs->rb;
+	}
+
+	// Check if the register to get the value from is rc
+	else if (strcmp(regist, "[rc]") == 0){
+
+		// Return the value of the register rc
+		return regs->rc;
+	}
+
+	// Check if the register to get the value from is rd
+	else if (strcmp(regist, "[rd]") == 0){
 
 		// Return the value of the register rd
 		return regs->rd;
@@ -429,5 +459,37 @@ int executeCMP(char *parameter1, char *parameter2, reg_t *registers){
 		// Return 0 if the parameters are not equal, greater, or lesser
 		return 0;
 	}
+
+}
+
+void executePRT(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Get the value of the first parameter
+	int value_1 = getRegisterValue(registers, parameter1);
+
+	// Get the value of the second parameter that is an address
+	int address_2 = getRegisterValue(registers, parameter2);
+
+	// Get the value of the register at the address
+	int value_2 = *(int *)address_2;
+
+	// Change the value of the register at the address to the value of the first parameter
+	changeRegister(value_2, registers, parameter1);
+
+}
+
+void executePRF(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Get the value of the first parameter that is an address
+	int address_1 = getRegisterValue(registers, parameter1);
+
+	// Get the value of the second parameter
+	int value_2 = getRegisterValue(registers, parameter2);
+
+	// Get the value of the register at the address
+	int *value_1 = (int *)address_1;
+
+	// Change the value of the first parameter to the value of the second parameter
+	*value_1 = value_2;
 
 }
