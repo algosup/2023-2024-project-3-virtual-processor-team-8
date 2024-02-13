@@ -85,12 +85,12 @@ int main() {
 	printf("====================================================\n");
 
 
-	printf("testing function add\n");
-	printf("... testing addTEST ...\n");
+	printf("testing function executeADD\n");
+	printf("... testing executeADDTEST ...\n");
 
 	testsPassed += executeADDTEST();
 
-	printf("all add's tests passed!\n");
+	printf("all executeADD's tests passed!\n");
 
 
 	printf("====================================================\n");
@@ -123,7 +123,7 @@ int main() {
 
 	testsPassed += executeDIVTEST();
 
-	printf("all executeDIv's tests passed!\n");
+	printf("all executeDIV's tests passed!\n");
 
 
 	printf("====================================================\n");
@@ -135,6 +135,17 @@ int main() {
 	testsPassed += executeMOVTEST();
 
 	printf("all executeMOV's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeCMP\n");
+	printf("... testing executeCMPTEST ...\n");
+
+	testsPassed += executeCMPTEST();
+
+	printf("all executeCMP's tests passed!\n");
 
 
 	printf("====================================================\n");
