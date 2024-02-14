@@ -533,10 +533,10 @@ void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
 	changeRegister(value_1 ^ value_2, registers, parameter1);
 }
 
-void executeNOT(char *parameter1, reg_t *registers){
+unsigned int executeNOT(unsigned int *parameter1, reg_t *registers){
 
 	// Get the value of the first parameter
-	int value_1 = getRegisterValue(registers, parameter1);
+	unsigned int value_1 = getRegisterValue(registers, parameter1);
 
 	// Change the value of the first parameter to the value of the first parameter not
 	changeRegister(~value_1, registers, parameter1);

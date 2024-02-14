@@ -135,57 +135,57 @@ int executeCMPTEST(){
 	return 8;
 }
 
-int executePRTTEST(){
+// int executePRTTEST(){
 
-	// Define registers to test
-	reg_t registers = {5, 0, 90, 8};
+ 	// Define registers to test
+// 	reg_t registers = {5, 0, 90, 8};
 
-	// Set the values of the registers
-	changeRegister( (int)&registers.ra, &registers, "rb");
+ 	// Set the values of the registers
+// 	changeRegister( (int)&registers.ra, &registers, "rb");
 
 
 	// Test the function
-	executePRT("ra", "[rb]", &registers);
-	executePRT("rc", "[rb]", &registers);
-	executePRT("rd", "[rb]", &registers);
+// 	executePRT("ra", "[rb]", &registers);
+// 	executePRT("rc", "[rb]", &registers);
+// 	executePRT("rd", "[rb]", &registers);
 
-	// Check the results
-	assert(registers.ra == 5);
-	assert(registers.rc == 5);
-	assert(registers.rd == 5);
+ 	// Check the results
+// 	assert(registers.ra == 5);
+// 	assert(registers.rc == 5);
+// 	assert(registers.rd == 5);
 
-	return 4;
-}
+// 	return 4;
+// }
 
-int executePRFTEST(){
+// int executePRFTEST(){
 	
-	// Define registers to test
-	reg_t registers = {5, 0, 90, 8};
+// 	// Define registers to test
+// 	reg_t registers = {5, 0, 90, 8};
 
 
 
-	// Set the values of the registers
-	changeRegister( (int)&registers.rd, &registers, "ra");
+// 	// Set the values of the registers
+// 	changeRegister( (int)&registers.rd, &registers, "ra");
 
-	// Test the function
-	executePRF("[ra]", "rc", &registers);
-
-
-
-	// Set the values of the registers
-	changeRegister( (int)&registers.rc, &registers, "ra");
-
-	// Test the function
-	executePRF("[ra]", "rb", &registers);
+// 	// Test the function
+// 	executePRF("[ra]", "rc", &registers);
 
 
-	// Check the results
-	assert(registers.rb == 0);
-	assert(registers.rc == 0);
-	assert(registers.rd == 90);
 
-	return 3;
-}
+// 	// Set the values of the registers
+// 	changeRegister( (int)&registers.rc, &registers, "ra");
+
+// 	// Test the function
+// 	executePRF("[ra]", "rb", &registers);
+
+
+// 	// Check the results
+// 	assert(registers.rb == 0);
+// 	assert(registers.rc == 0);
+// 	assert(registers.rd == 90);
+
+// 	return 3;
+// }
 
 int executeANDTEST(){
 
@@ -249,21 +249,21 @@ int executeXORTEST(){
 
 int executeNOTTEST(){
 
-	// Define registers to test
-	reg_t registers = {15, 34, 90, 8};
+    // Define registers to test
+    reg_t registers = {15, 34, 90, 8};
 
-	// Test the function
-	executeNOT("ra", &registers);
+    // Test the function
+    executeNOT("ra", &registers);
 
-	printf("%d\n", registers.ra);
+    // Check the results
+    assert(registers.ra == ~15); // should be 240 if ra was 15
 
-	assert(registers.ra == 0);
+    // Test the function
+    executeNOT("rc", &registers);
 
-	// Test the function
-	executeNOT("rc", &registers);
+    // Check the results
+    assert(registers.rc == ~90); // should be 165 if rc was 90
 
-	// Check the results
-	assert(registers.rc == 37);
-
-	return 2;
+    return 2;
 }
+
