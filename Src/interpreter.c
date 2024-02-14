@@ -125,7 +125,7 @@ int executeJMP(char *parameter){
 	int position = getPosition(fs, parameter, getSize("./code.asm"));
 
 	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
+	return position;
 }
 
 
