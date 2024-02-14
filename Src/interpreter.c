@@ -190,6 +190,9 @@ int getRegisterValue(reg_t *regs, char *regist){
 		// Return the value of the register rd
 		return regs->rd;
 	}
+	else {
+		return atoi(regist);
+	}
 }
 
 int executeADD(char *parameter1, char *parameter2, reg_t *registers){

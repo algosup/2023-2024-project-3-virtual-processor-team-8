@@ -190,24 +190,80 @@ int executePRFTEST(){
 int executeANDTEST(){
 
 	// Define registers to test
-	reg_t registers = {5, 34, 90, 8};
-
-	changeRegister( (int)&registers.rd, &registers, "ra");
+	reg_t registers = {15, 34, 90, 8};
 
 	// Test the function
-	executeAND("ra", "5", &registers);
+	executeAND("ra", "15", &registers);
 
-	// Set the values of the registers
-	changeRegister( (int)&registers.rc, &registers, "ra");
-
+	assert(registers.ra == 15);
 
 	// Test the function
 	executeAND("ra", "rc", &registers);
 
 	// Check the results
-	assert(registers.ra == 0);
-	assert(registers.rc == 8);
-	assert(registers.rd == 8);
+	assert(registers.ra == 10);
+	assert(registers.rc == 90);
 
 	return 3;
+}
+
+int executeORTEST(){
+
+	// Define registers to test
+	reg_t registers = {15, 34, 90, 8};
+
+	// Test the function
+	executeOR("ra", "15", &registers);
+
+	assert(registers.ra == 15);
+
+	// Test the function
+	executeOR("ra", "rc", &registers);
+
+	// Check the results
+	assert(registers.ra == 95);
+	assert(registers.rc == 90);
+
+	return 3;
+}
+
+int executeXORTEST(){
+
+	// Define registers to test
+	reg_t registers = {15, 34, 90, 8};
+
+	// Test the function
+	executeXOR("ra", "15", &registers);
+
+	assert(registers.ra == 0);
+
+	// Test the function
+	executeXOR("ra", "rc", &registers);
+
+	// Check the results
+	assert(registers.ra == 90);
+	assert(registers.rc == 90);
+
+	return 3;
+}
+
+int executeNOTTEST(){
+
+	// Define registers to test
+	reg_t registers = {15, 34, 90, 8};
+
+	// Test the function
+	executeNOT("ra", &registers);
+
+	printf("%d\n", registers.ra);
+
+	assert(registers.ra == 0);
+
+	// Test the function
+	executeNOT("rc", &registers);
+
+	// Check the results
+	assert(registers.rc == 37);
+
+	return 2;
 }

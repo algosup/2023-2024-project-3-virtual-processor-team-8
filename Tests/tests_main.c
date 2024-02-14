@@ -173,6 +173,50 @@ int main() {
 	printf("====================================================\n");
 
 
+	printf("testing function executeAND\n");
+	printf("... testing executeANDTEST ...\n");
+
+	testsPassed += executeANDTEST();
+
+	printf("all executeAND's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeOR\n");
+	printf("... testing executeORTEST ...\n");
+
+	testsPassed += executeORTEST();
+
+	printf("all executeOR's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeXOR\n");
+	printf("... testing executeXORTEST ...\n");
+
+	testsPassed += executeXORTEST();
+
+	printf("all executeXOR's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
+	printf("testing function executeNOT\n");
+	printf("... testing executeNOTTEST ...\n");
+
+	testsPassed += executeNOTTEST();
+
+	printf("all executeNOT's tests passed!\n");
+
+
+	printf("====================================================\n");
+
+
 
 	printf("%d tests passed!\n", testsPassed);
 	return 0;
