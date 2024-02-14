@@ -135,57 +135,57 @@ int executeCMPTEST(){
 	return 8;
 }
 
-// int executePRTTEST(){
+int executePRTTEST(){
 
- 	// Define registers to test
-// 	reg_t registers = {5, 0, 90, 8};
+	// Define registers to test
+	reg_t registers = {5, 0, 90, 8};
 
- 	// Set the values of the registers
-// 	changeRegister( (int)&registers.ra, &registers, "rb");
+	// Set the values of the registers
+	changeRegister( (int)&registers.ra, &registers, "rb");
 
 
 	// Test the function
-// 	executePRT("ra", "[rb]", &registers);
-// 	executePRT("rc", "[rb]", &registers);
-// 	executePRT("rd", "[rb]", &registers);
+	executePRT("ra", "[rb]", &registers);
+	executePRT("rc", "[rb]", &registers);
+	executePRT("rd", "[rb]", &registers);
 
- 	// Check the results
-// 	assert(registers.ra == 5);
-// 	assert(registers.rc == 5);
-// 	assert(registers.rd == 5);
+	// Check the results
+	assert(registers.ra == 5);
+	assert(registers.rc == 5);
+	assert(registers.rd == 5);
 
-// 	return 4;
-// }
+	return 4;
+}
 
-// int executePRFTEST(){
+int executePRFTEST(){
 	
-// 	// Define registers to test
-// 	reg_t registers = {5, 0, 90, 8};
+	// Define registers to test
+	reg_t registers = {5, 0, 90, 8};
 
 
 
-// 	// Set the values of the registers
-// 	changeRegister( (int)&registers.rd, &registers, "ra");
+	// Set the values of the registers
+	changeRegister( (int)&registers.rd, &registers, "ra");
 
-// 	// Test the function
-// 	executePRF("[ra]", "rc", &registers);
-
-
-
-// 	// Set the values of the registers
-// 	changeRegister( (int)&registers.rc, &registers, "ra");
-
-// 	// Test the function
-// 	executePRF("[ra]", "rb", &registers);
+	// Test the function
+	executePRF("[ra]", "rc", &registers);
 
 
-// 	// Check the results
-// 	assert(registers.rb == 0);
-// 	assert(registers.rc == 0);
-// 	assert(registers.rd == 90);
 
-// 	return 3;
-// }
+	// Set the values of the registers
+	changeRegister( (int)&registers.rc, &registers, "ra");
+
+	// Test the function
+	executePRF("[ra]", "rb", &registers);
+
+
+	// Check the results
+	assert(registers.rb == 0);
+	assert(registers.rc == 0);
+	assert(registers.rd == 90);
+
+	return 3;
+}
 
 int executeANDTEST(){
 
