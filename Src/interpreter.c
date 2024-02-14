@@ -725,3 +725,19 @@ unsigned int executeNOT(char *parameter1, reg_t *registers){
 	// Change the value of the first parameter to the value of the first parameter not
 	changeRegister(~value_1, registers, parameter1);
 }
+
+
+void printRegisters(reg_t *regs){
+
+	// Print the value of the register ra
+	printf("ra: %d\n", regs->ra);
+
+	// Print the value of the register rb
+	printf("rb: %d\n", regs->rb);
+
+	// Print the value of the register rc
+	printf("rc: %d\n", regs->rc);
+
+	// Print the value of the register rd
+	printf("rd: %d\n", regs->rd);
+}
