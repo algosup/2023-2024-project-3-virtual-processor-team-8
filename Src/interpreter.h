@@ -10,7 +10,7 @@ typedef struct reg{
 
 
 // Check the instruction and execute the corresponding function
-void redirectToFunction(func_t *func);
+int redirectToFunction(func_t *func, reg_t *regs, int i);
 
 
 // Check if the parameter is a register
@@ -55,3 +55,49 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers);
 
 // Set the value of the address at contained by parameter1 to the value of parameter2
 void executePRF(char *parameter1, char *parameter2, reg_t *registers);
+
+
+// Set the parameter 1 to the value of the parameter 1 AND the value of the parameter 2
+void executeAND(char *parameter1, char *parameter2, reg_t *registers);
+
+
+// Set the parameter 1 to the value of the parameter 1 OR the value of the parameter 2
+void executeOR(char *parameter1, char *parameter2, reg_t *registers);
+
+
+// Set the parameter 1 to the value of the parameter 1 XOR the value of the parameter 2
+void executeXOR(char *parameter1, char *parameter2, reg_t *registers);
+
+
+// Set the parameter 1 to the value of NOT parameter 1
+unsigned int executeNOT(char *parameter1, reg_t *registers);
+
+
+
+
+
+
+
+int executeJMP(char *parameter);
+
+int executeJE(char *parameter);
+
+int executeJNE(char *parameter);
+
+int executeJZ(char *parameter);
+
+int executeJNZ(char *parameter);
+
+int executeJG(char *parameter);
+
+int executeJL(char *parameter);
+
+int executeJGE(char *parameter);
+
+int executeJLE(char *parameter);
+
+int executeCALL(char *parameter1, int line);
+
+int executeRET();
+
+void endProgram();
