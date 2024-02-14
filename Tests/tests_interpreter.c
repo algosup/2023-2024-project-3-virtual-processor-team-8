@@ -186,3 +186,28 @@ int executePRFTEST(){
 
 	return 3;
 }
+
+int executeANDTEST(){
+
+	// Define registers to test
+	reg_t registers = {5, 34, 90, 8};
+
+	changeRegister( (int)&registers.rd, &registers, "ra");
+
+	// Test the function
+	executeAND("ra", "5", &registers);
+
+	// Set the values of the registers
+	changeRegister( (int)&registers.rc, &registers, "ra");
+
+
+	// Test the function
+	executeAND("ra", "rc", &registers);
+
+	// Check the results
+	assert(registers.ra == 0);
+	assert(registers.rc == 8);
+	assert(registers.rd == 8);
+
+	return 3;
+}

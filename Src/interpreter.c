@@ -493,3 +493,48 @@ void executePRF(char *parameter1, char *parameter2, reg_t *registers){
 	*value_1 = value_2;
 
 }
+
+void executeAND(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Get the value of the first parameter
+	int value_1 = getRegisterValue(registers, parameter1);
+
+	// Get the value of the second parameter
+	int value_2 = getRegisterValue(registers, parameter2);
+
+	// Change the value of the first parameter to the value of the first parameter and the value of the second parameter
+	changeRegister(value_1 & value_2, registers, parameter1);
+}
+
+void executeOR(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Get the value of the first parameter
+	int value_1 = getRegisterValue(registers, parameter1);
+
+	// Get the value of the second parameter
+	int value_2 = getRegisterValue(registers, parameter2);
+
+	// Change the value of the first parameter to the value of the first parameter or the value of the second parameter
+	changeRegister(value_1 | value_2, registers, parameter1);
+}
+
+void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Get the value of the first parameter
+	int value_1 = getRegisterValue(registers, parameter1);
+
+	// Get the value of the second parameter
+	int value_2 = getRegisterValue(registers, parameter2);
+
+	// Change the value of the first parameter to the value of the first parameter xor the value of the second parameter
+	changeRegister(value_1 ^ value_2, registers, parameter1);
+}
+
+void executeNOT(char *parameter1, reg_t *registers){
+
+	// Get the value of the first parameter
+	int value_1 = getRegisterValue(registers, parameter1);
+
+	// Change the value of the first parameter to the value of the first parameter not
+	changeRegister(~value_1, registers, parameter1);
+}
