@@ -67,10 +67,10 @@ Their name are explicit to help us understand much quicker the importance of the
 To report issues, we will use a functionality of Github[^6], called Github Issue[^7]. It helps us to do reports faster, and to have reports easier to read. We have decided to make two types templates for the reports, one for the documents and one for the program.
 
 The report template for the typographical errors tells which document is concerned, what are the errors and what is its priority. 
-![Typographical Error report template](Images/Typographical-Error-Report-Template.png)
+![Typographical Error report template](Img/Test-Plan/Typographical-Error-Report-Template.png)
 
 The report template for the bugs tells what happened during the testing, which operating system was used, and a way to tell which operating system was used if it was not in the selection box, the log outputs for more precise information and its priority.
-![Bug report template](Images/Bug-Report-Template.png)
+![Bug report template](Img/Test-Plan/Bug-Report-Template.png)
 
 
 ### D. Test criteria
@@ -102,11 +102,11 @@ It is necessary to correctly spread out our time between each task, so we can be
 | Task | Subtask | Time estimation |
 | --- | --- | --- |
 | Analyze requirement specification | - Review functional specifications <br> - Review technical specification| - 6 hours <br> - 6 hours |
-| Create the test specification |  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 30 hours <br> - 12 hours <br> - 4 hours |
+| Create the test specifications |  - Create the test plan <br> - Create test cases <br> - Review the test cases|- 20 hours <br> - 12 hours <br> - 4 hours |
 | Execute the test cases | - Build up the test environment <br> - Execute the test cases <br> - Update test cases status|- 10 hours <br> - 14 hours <br> - 6 hours |
 | Report the bug | - Create bug reports <br> - Create bug data report | - 6 hours <br> - 6 hours |
 
-If this estimation is correct, we will have spent 100 hours for the quality assurance of the project, as our number of working time we have available.
+If this estimation is correct, we will have spent 90 hours for the quality assurance of the project, as our number of working time we have available.
 
 
 
