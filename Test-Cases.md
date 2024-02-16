@@ -66,6 +66,7 @@ Impact :
 | 2.29 | AND operation with a value | The interpreter can do the AND operation with a given value to a register | and 'register', 'value' | The interpreter shows registers with correct changed values after reading the instruction | Same as expected result | Working | High |
 | 2.30 | AND operation with a register | The interpreter can do the AND operation with a register (register2) to the other register (register1) | and 'register1', 'register2' | The interpreter shows registers with correct changed values after reading the instruction | Same as expected result | Working | High |
 | 2.31 | NOT operation | The interpreter can do the NOT operation to a register (register1) | not 'register' | The interpreter shows registers with correct changed values after reading the instruction | Same as expected result | Working | High |
+| 2.32 | End of program | The interpreter ends the program when arriving at the instruction end written on the last line | end | The interpreter shows at the end the instruction end with the different value of the registers and stop | Same as expected result | Working | Medium |
 
 <br>
 
@@ -73,4 +74,4 @@ Impact :
 
 | ID | Name | Description | Expected result | Actual result | Status | Impact |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 3.1 | Execute | The complete program is capable of executing and compiling an .asm file and output the final result of it by showing the value of each register | Successfully execute an .asm file and outputs the correct value of each register | --- | To test | High |
+| 3.1 | Execute | The complete program is capable of executing and compiling an .asm file and output the final result of it by showing the value of each register | Successfully execute an .asm file and outputs the correct value of each register | Same as expected result | Working | High |
