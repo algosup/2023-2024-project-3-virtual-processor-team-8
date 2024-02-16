@@ -4,9 +4,17 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 9h15
 
 ### Project summary
+
+The team held its regular meeting to discuss on the following tasks and share the information with the teammates who were missing the previous week.
+
+We also held a code presentation and organize a code review to discuss about the code.
+
+The deadline for the technical specification. The team succeeded to deliver the [technical specification](link) on time.
+
+We managed some files name issues and updated the gitignore.
 
 ## Project Key parameters
 
@@ -41,23 +49,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status | Comments       |
+| --------- | ------ | -------------- |
+| Scope     | On     | All Ok         |
+| Schedule  | On     | No delays      |
+| Risks     | /      | No major risk  |
+| Issues    | /      | No major issue |
+| Quality   | On     | All Ok         |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner                           | Status |
+| ----------- | --------------------------------------- | ------------------------------- | ------ |
+| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Evan Uhring | Closed |
+| Issue 1     | file name problem src/Src               | Laurent Bouquin                 | Closed |
 
 ## Project Schedule
 
@@ -91,12 +96,13 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **70%:** Difined.
    - **100%:** Validated by the group.
 
-4. **Parser KPIs:**
+4. **Parser & Interpreter KPIs:**
    - **Not started:** We have not started working on the feature.
    - **On going:** We have started working on the feature.
    - **Pushed:** The feature is done and push in the ```dev branch```, ready to be tested.
    - **Pushed and tested:** The feature is tested, ready to be merged.
    - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+   - **Instrustions:** Number of instructions that worked and was tested.
 
 </details>
 
@@ -104,11 +110,12 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action                                        | Note                         | Owner                                                      | Status | End Date |
+| --------------------------------------------- | ---------------------------- | ---------------------------------------------------------- | ------ | -------- |
+| Writing the usage instructions                | Need to be done and reviewed | Ian Laurent, Pierre Gorin, Evan Uhring                     | To do  | 02/23/24 |
+| Iniate some test of our code with other teams |                              | Laurent Bouquin                                            | To do  | 02/23/24 |
+| Finish the last instructions and test         |                              | Victor Leroy, Manech Laguens, Laurent Bouquin, Evan Uhring | Doing  | 02/23/24 |
+| Merge our work in the main branch             |                              | Pierre Gorin, Laura-Lee Hollande                           | To do  | 02/23/24 |
 
 ---
 
