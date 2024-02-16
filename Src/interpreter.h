@@ -2,26 +2,59 @@
 
 // Define a structure to hold the registers and their values
 typedef struct reg{
+
+	// register ra
 	int ra;
+
+	// register rb
 	int rb;
+
+	// register rc
 	int rc;
+
+	// register rd
 	int rd;
+
 }reg_t;
 
+
+// Define a structure to hold the state of comparison
 typedef struct state{
+
+	// 1 if the two parameters are equal
 	int equal;
+
+	// 1 if the first parameter is greater than the second
 	int greater;
+
+	// 1 if the first parameter is lesser than the second
 	int lesser;
+
 }state_t;
 
+
+// Define a structure to hold the called status and the line where the function was called
 typedef struct called{
+
+	// 1 if the function was called
 	int called;
+
+	// The line where the function was called
 	int line;
+
 }call_t;
 
 
+// Go through the array of structures and execute the corresponding function
+void goThrough(const char *file, reg_t registers);
+
+
+// Get the position of the function in the array of structures
+int getPosition(func_t *func, char *object, int size);
+
+
 // Check the instruction and execute the corresponding function
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call);
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file);
 
 
 // Check if the parameter is a register
@@ -84,33 +117,45 @@ void executeXOR(char *parameter1, char *parameter2, reg_t *registers);
 unsigned int executeNOT(char *parameter1, reg_t *registers);
 
 
+// Jump to the line given in the parameter
+int executeJMP(char *parameter, const char *file);
 
 
-
-
-
-int executeJMP(char *parameter);
-
+// Jump to the line given in the parameter if the two parameters are equal
 int executeJE(char *parameter);
 
+
+// Jump to the line given in the parameter if the two parameters are not equal
 int executeJNE(char *parameter);
 
-int executeJZ(char *parameter);
 
-int executeJNZ(char *parameter);
-
+// Jump to the line given in the parameter if the first parameter is greater than the second
 int executeJG(char *parameter);
 
+
+// Jump to the line given in the parameter if the first parameter is lesser than the second
 int executeJL(char *parameter);
 
+
+// Jump to the line given in the parameter if the first parameter is greater than or equal to the second
 int executeJGE(char *parameter);
 
+
+// Jump to the line given in the parameter if the first parameter is lesser than or equal to the second
 int executeJLE(char *parameter);
 
-int executeCALL(char *parameter1, int line, call_t *call);
 
+// Call the function given in the parameter
+int executeCALL(char *parameter1, int line, call_t *call, const char* file);
+
+
+// Return to the line where the function was called
 int executeRET(call_t *call);
 
+
+// End the program
 void executeEND(reg_t *regs);
 
+
+// Print the registers
 void printRegisters(reg_t *regs);

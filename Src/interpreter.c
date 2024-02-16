@@ -1,15 +1,43 @@
 #include "interpreter.h"
 
-bool is_in_a_function = false;
+
+void goThrough(const char* file, reg_t registers){
+
+	// Define a "size" variable base on the number of lines in the input file
+	int size = getSize(file);
+
+	// Get the array of structures from the file
+	func_t *funcs = getStructs(getFile(file), size);
+
+	// Define the state of comparison
+	state_t state = {0, 0, 0};
+
+	// Define the state of the call
+	call_t call = {0, 0};
+	
+	// Define the current line
+	int input = 0;
+
+	// Go through the array of structures and execute the corresponding function until the end
+	while (input <= size){
+
+		// Get the next line to execute depending on the result of the function
+		input = redirectToFunction(&funcs[input], &registers, input, &state, &call, file);
+		// printf("ra: %d - rb: %d - rc: %d - rd: %d\n", registers.ra, registers.rb, registers.rc, registers.rd);
+	}
+}
 
 
-// void goThrough(reg_t *regs, int line){
-
-// }
 
 int getPosition(func_t *func, char *object, int size){
+
+	// Loop through the array of structures
 	for (int i = 1; i < size; i++){
+
+		// Check if the name of the function is equal to the object
 		if (strcmp(func[i].name, object) == 0){
+
+			// Return the line where the function is
 			return func[i].line;
 		}
 	}
@@ -19,149 +47,320 @@ int getPosition(func_t *func, char *object, int size){
 
 
 
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call){
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file){
+
+	// Print the struct function
 	printStruct(func);
+
+	// Check if the instruction is "add"
 	if (strcmp(func->instruction, "add") == 0){
+
+		// Execute the function add
 		executeADD(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "sub"
 	else if (strcmp(func->instruction, "sub") == 0){
+
+		// Execute the function sub
 		executeSUB(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "mul"
 	else if (strcmp(func->instruction, "mul") == 0){
+
+		// Execute the function mul
 		executeMUL(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "div"
 	else if (strcmp(func->instruction, "div") == 0){
+
+		// Execute the function div
 		executeDIV(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "mov"
 	else if (strcmp(func->instruction, "mov") == 0){
+
+		// Execute the function mov
 		executeMOV(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "jmp"
 	else if (strcmp(func->instruction, "jmp") == 0){
-		return executeJMP(func->parameter1);
+
+		// Execute the function jmp and return the line to jump to
+		return executeJMP(func->parameter1, file);
 	}
+
+	// Check if the instruction is "je"
 	else if (strcmp(func->instruction, "je") == 0){
+
+		// If the previous comparison was equal
 		if (state->equal == 1){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was not equal
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "jne"
 	else if (strcmp(func->instruction, "jne") == 0){
+
+		// If the previous comparison was not equal
 		if (state->equal == 0){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was equal
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "jg"
 	else if (strcmp(func->instruction, "jg") == 0){
+
+		// If the previous comparison was greater
 		if (state->greater == 1){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was not greater
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "jge"
 	else if (strcmp(func->instruction, "jge") == 0){
+
+		// If the previous comparison was greater or equal
 		if (state->greater == 1 || state->equal == 1){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was not greater or equal
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "jl"
 	else if (strcmp(func->instruction, "jl") == 0){
+
+		// If the previous comparison was lesser
 		if (state->lesser == 1){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was not lesser²
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "jle"
 	else if (strcmp(func->instruction, "jle") == 0){
+
+		// If the previous comparison was lesser or equal
 		if (state->lesser == 1 || state->equal == 1){
-			return executeJMP(func->parameter1);
+
+			// Execute the function jmp and return the line to jump to
+			return executeJMP(func->parameter1, file);
 		}
+
+		// If the previous comparison was not lesser or equal
 		else {
+
+			// Return the next line
 			return i + 1;
 		}
 	}
+
+	// Check if the instruction is "call"
 	else if (strcmp(func->instruction, "call") == 0){
-		return executeCALL(func->parameter1, i, call);
+
+		// Execute the function call and return the line to jump to
+		return executeCALL(func->parameter1, i, call, file);
 	}
+
+	// Check if the instruction is "cmp"
 	else if (strcmp(func->instruction, "cmp") == 0){
+
+		// Execute the function cmp and get the state of the comparison
 		int cmp_value = executeCMP(func->parameter1, func->parameter2, regs);
+
+		// If the parameter1 is equal to the parameter2
 		if (cmp_value == 1){
 			state->equal = 1;
 			state->greater = 0;
 			state->lesser = 0;
 		}
+
+		// If the parameter1 is greater than the parameter2
 		else if (cmp_value == 2){
 			state->equal = 0;
 			state->greater = 1;
 			state->lesser = 0;
 		}
+
+		// If the parameter1 is lesser than the parameter2
 		else if (cmp_value == 3){
 			state->equal = 0;
 			state->greater = 0;
 			state->lesser = 1;
 		}
 		else {
+
+			// If the parameters are not equal, greater, or lesser
 			state->equal = 0;
 			state->greater = 0;
 			state->lesser = 0;
 		}
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "prf"
 	else if (strcmp(func->instruction, "prf") == 0){
+
+		// Execute the function prf
 		executePRF(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "prt"
 	else if (strcmp(func->instruction, "prt") == 0){
+
+		// Execute the function prt
 		executePRT(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "and"
 	else if (strcmp(func->instruction, "and") == 0){
+
+		// Execute the function and
 		executeAND(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "or"
 	else if (strcmp(func->instruction, "or") == 0){
+
+		// Execute the function or
 		executeOR(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "xor"
 	else if (strcmp(func->instruction, "xor") == 0){
+
+		// Execute the function xor
 		executeXOR(func->parameter1, func->parameter2, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "not"
 	else if (strcmp(func->instruction, "not") == 0){
+
+		// Execute the function not
 		executeNOT(func->parameter1, regs);
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// Check if the instruction is "end"
 	else if (strcmp(func->instruction, "end") == 0){
+
+		// Execute the function end
 		executeEND(regs);
+
+		// Return the next line
 		return i + 1;
 	}
+	
+	// Check if the instruction is "ret"
 	else if (strcmp(func->instruction, "ret") == 0){
+
+		// Execute the function ret
 		return executeRET(call);
 	}
+
+	// Check if the instruction is "function"
 	else if (func->name != NULL){
-		is_in_a_function = true;
+
+		// Set the state to in a function
+		// is_in_a_function = true;
+
+		// Return the next line
 		return i + 1;
 	}
+
+	// If the instruction is not valid or null
 	else {
+
+		// Return the next line
 		return i + 1;
 	}
 }
 
 
-int executeJMP(char *parameter){
+int executeJMP(char *parameter, const char* file){
 
+	// Get the list of structures from the file
 	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
 
 	// Get the position of the function to jump to
@@ -172,31 +371,44 @@ int executeJMP(char *parameter){
 }
 
 
-int executeCALL(char *parameter1, int line, call_t *call){
+int executeCALL(char *parameter1, int line, call_t *call, const char* file){
 
+	// Get the list of structures from the file
 	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
 
-
+	// Set the call to called
 	call->called = 1;
+
+	// Set the line of the call to the current line
 	call->line = line;
 
 
 	// Get the position of the function to jump to
 	int position = getPosition(fs, parameter1, getSize("./code.asm"));
 
+	// Set the current line to the line of the function to jump to
 	return position;
 }
 
 int executeRET(call_t *call){
-	printf("called: %d\n", call->called);
+
+	// If the call was called
 	if (call->called == 1){
+
+		// Set the call to not called
 		call->called = 0;
+
+		// Return the line after the call
 		return call->line+1;
 	}
 }
 
 void executeEND(reg_t *regs){
+
+	// Print the registers
 	printRegisters(regs);
+
+	// Exit the program
 	exit(0);
 }
 
@@ -227,21 +439,33 @@ int isRegister(char *parameter){
 
 	// Check if the parameter is a register
 	if (strcmp(parameter, "ra") == 0){
+
+		// Return 1 if the parameter is a register
 		return 1;
 	}
 	else if (strcmp(parameter, "rb") == 0){
+
+		// Return 1 if the parameter is a register
 		return 1;
 	}
 	else if (strcmp(parameter, "rc") == 0){
+
+		// Return 1 if the parameter is a register
 		return 1;
 	}
 	else if (strcmp(parameter, "rd") == 0){
+
+		// Return 1 if the parameter is a register
 		return 1;
 	}
 	else if (parameter[0] == '['){
+
+		// Return 2 if the parameter is an address
 		return 2;
 	}
 	else{
+
+		// Return 0 if the parameter is not a register
 		return 0;
 	}
 }
