@@ -342,6 +342,9 @@ int switchStr(char *str){
 	else if (strcmp(str, "not") == 0){
 		return 1;
 	}
+	else if (strcmp(str, "end") == 0){
+		return 1;
+	}
 
 	// If string is a register, return 2
 	else if (strcmp(str, "ra") == 0){

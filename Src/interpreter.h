@@ -8,9 +8,20 @@ typedef struct reg{
 	int rd;
 }reg_t;
 
+typedef struct state{
+	int equal;
+	int greater;
+	int lesser;
+}state_t;
+
+typedef struct called{
+	int called;
+	int line;
+}call_t;
+
 
 // Check the instruction and execute the corresponding function
-int redirectToFunction(func_t *func, reg_t *regs, int i);
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call);
 
 
 // Check if the parameter is a register
@@ -96,8 +107,10 @@ int executeJGE(char *parameter);
 
 int executeJLE(char *parameter);
 
-int executeCALL(char *parameter1, int line);
+int executeCALL(char *parameter1, int line, call_t *call);
 
-int executeRET();
+int executeRET(call_t *call);
 
-void endProgram();
+void executeEND(reg_t *regs);
+
+void printRegisters(reg_t *regs);

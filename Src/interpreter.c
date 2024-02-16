@@ -19,7 +19,7 @@ int getPosition(func_t *func, char *object, int size){
 
 
 
-int redirectToFunction(func_t *func, reg_t *regs, int i){
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call){
 	printStruct(func);
 	if (strcmp(func->instruction, "add") == 0){
 		executeADD(func->parameter1, func->parameter2, regs);
@@ -45,34 +45,78 @@ int redirectToFunction(func_t *func, reg_t *regs, int i){
 		return executeJMP(func->parameter1);
 	}
 	else if (strcmp(func->instruction, "je") == 0){
-		return executeJE(func->parameter1);
+		if (state->equal == 1){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "jne") == 0){
-		return executeJNE(func->parameter1);
-	}
-	else if (strcmp(func->instruction, "jz") == 0){
-		return executeJZ(func->parameter1);
-	}
-	else if (strcmp(func->instruction, "jnz") == 0){
-		return executeJNZ(func->parameter1);
+		if (state->equal == 0){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "jg") == 0){
-		return executeJG(func->parameter1);
+		if (state->greater == 1){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "jge") == 0){
-		return executeJGE(func->parameter1);
+		if (state->greater == 1 || state->equal == 1){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "jl") == 0){
-		return executeJL(func->parameter1);
+		if (state->lesser == 1){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "jle") == 0){
-		return executeJLE(func->parameter1);
+		if (state->lesser == 1 || state->equal == 1){
+			return executeJMP(func->parameter1);
+		}
+		else {
+			return i + 1;
+		}
 	}
 	else if (strcmp(func->instruction, "call") == 0){
-		return executeCALL(func->parameter1, i);
+		return executeCALL(func->parameter1, i, call);
 	}
 	else if (strcmp(func->instruction, "cmp") == 0){
-		executeCMP(func->parameter1, func->parameter2, regs);
+		int cmp_value = executeCMP(func->parameter1, func->parameter2, regs);
+		if (cmp_value == 1){
+			state->equal = 1;
+			state->greater = 0;
+			state->lesser = 0;
+		}
+		else if (cmp_value == 2){
+			state->equal = 0;
+			state->greater = 1;
+			state->lesser = 0;
+		}
+		else if (cmp_value == 3){
+			state->equal = 0;
+			state->greater = 0;
+			state->lesser = 1;
+		}
+		else {
+			state->equal = 0;
+			state->greater = 0;
+			state->lesser = 0;
+		}
 		return i + 1;
 	}
 	else if (strcmp(func->instruction, "prf") == 0){
@@ -99,17 +143,16 @@ int redirectToFunction(func_t *func, reg_t *regs, int i){
 		executeNOT(func->parameter1, regs);
 		return i + 1;
 	}
+	else if (strcmp(func->instruction, "end") == 0){
+		executeEND(regs);
+		return i + 1;
+	}
 	else if (strcmp(func->instruction, "ret") == 0){
-		if (is_in_a_function){
-			is_in_a_function = false;
-			return executeRET();
-		}
-		else {
-			endProgram();
-		}
+		return executeRET(call);
 	}
 	else if (func->name != NULL){
 		is_in_a_function = true;
+		return i + 1;
 	}
 	else {
 		return i + 1;
@@ -129,112 +172,31 @@ int executeJMP(char *parameter){
 }
 
 
-int executeJE(char *parameter){
+int executeCALL(char *parameter1, int line, call_t *call){
 
 	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
 
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
 
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
+	call->called = 1;
+	call->line = line;
 
-int executeJNE(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
 
 	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
+	int position = getPosition(fs, parameter1, getSize("./code.asm"));
 
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
+	return position;
 }
 
-int executeJZ(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
+int executeRET(call_t *call){
+	printf("called: %d\n", call->called);
+	if (call->called == 1){
+		call->called = 0;
+		return call->line+1;
+	}
 }
 
-int executeJNZ(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-int executeJG(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-
-int executeJL(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-
-int executeJGE(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-
-int executeJLE(char *parameter){
-
-	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
-
-	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-
-int executeCALL(char *parameter1, int line){
-	// Get the position of the function to jump to
-	// int position = getPosition(fs, parameter1, getSize("./code.asm"));
-
-	// Set the current line to the line of the function to jump to
-	// line = fs[position].line;
-}
-
-int executeRET(){
-	// Return the line of the function to jump to
-	// return line;
-}
-
-void endProgram(){
+void executeEND(reg_t *regs){
+	printRegisters(regs);
 	exit(0);
 }
 
@@ -351,28 +313,28 @@ int getRegisterValue(reg_t *regs, char *regist){
 	else if (strcmp(regist, "[ra]") == 0){
 
 		// Return the value of the register ra
-		return regs->ra;
+		return (int)&regs->ra;
 	}
 
 	// Check if the register to get the value from is rb
 	else if (strcmp(regist, "[rb]") == 0){
 
 		// Return the value of the register rb
-		return regs->rb;
+		return (int)&regs->rb;
 	}
 
 	// Check if the register to get the value from is rc
 	else if (strcmp(regist, "[rc]") == 0){
 
 		// Return the value of the register rc
-		return regs->rc;
+		return (int)&regs->rc;
 	}
 
 	// Check if the register to get the value from is rd
 	else if (strcmp(regist, "[rd]") == 0){
 
 		// Return the value of the register rd
-		return regs->rd;
+		return (int)&regs->rd;
 	}
 	else {
 		return atoi(regist);
@@ -728,6 +690,8 @@ unsigned int executeNOT(char *parameter1, reg_t *registers){
 
 
 void printRegisters(reg_t *regs){
+
+	printf("=======================================\n");
 
 	// Print the value of the register ra
 	printf("ra: %d\n", regs->ra);
