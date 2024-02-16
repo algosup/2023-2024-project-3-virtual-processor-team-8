@@ -27,7 +27,7 @@ Impact :
 | 1.5 | Recognize instructions or functions | The parser can differentiate the instructions and the functions | The parser outputs "instruction: 'name' " if it is an instruction or "function: 'name' " if it is a function | Same as expected result | Working | High |
 | 1.6 | Storing the lines | The parser can store every line independently | The parser store each line in a structure array, then outputs them one by one | Same as expected result | Working | High |
 | 1.7 | Detect syntax error | The parser can detect if there is a syntax error | The parser outputs an error if it is found in the assembly code | --- | To test | Medium |
-| 1.8 | Detect commentaries | The parser can detect if a commentary is written | The parser works as if no commentaries were written | --- | To test | Low |
+| 1.8 | Detect commentaries | The parser can detect if a commentary is written | The parser works as if no commentaries were written | Same as expected result | Working | Low |
 
 <br>
 
