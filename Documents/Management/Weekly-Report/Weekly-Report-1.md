@@ -89,12 +89,13 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **70%:** Difined.
    - **100%:** Validated by the group.
 
-4. **Parser KPIs:**
+4. **Parser & Interpreter KPIs:**
    - **Not started:** We have not started working on the feature.
    - **On going:** We have started working on the feature.
    - **Pushed:** The feature is done and push in the ```dev branch```, ready to be tested.
    - **Pushed and tested:** The feature is tested, ready to be merged.
    - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+   - **Instrustions:** Number of instructions that worked and was tested.
 
 </details>
 
