@@ -37,17 +37,10 @@ During the project, we will use computers running on Windows and MAC OS. The lan
 
 ### A. Quality assurance team
 
-For this project, we will collaborate with team 7's QAs[^5], for a total of 4 QAs[^5] :
+For this project, are team is composed of 2 QAs[^5] :
 
-From team 8 :
 - Laurent BOUQUIN
 - Evan UHRING
-
-From team 7 :
-- Abderrazaq MAKRAN
-- Raphaël PROUDHON
-
-With this collaboration, knowledge and expertise will be shared for a better quality of testing, and thus having more results to help our project solving problems and assuring a better quality. It will allow each group to have the point of view of the other group, and thus having multiple testing methods and results for a better quality of testing of the project.
 
 
 ### B. Testing scope and method
