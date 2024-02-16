@@ -21,6 +21,8 @@ char* getLine(char **lines, int line){
 
 void *getFile(const char* path){
 
+	bool comments = false;
+
 	// Allocate memory for the array of lines based on the number of lines in the file
 	char **lines = (char **)malloc(getSize(path) * sizeof(char *));
 
@@ -55,6 +57,7 @@ void *getFile(const char* path){
 
 			// Check if the character is a new line character
 			if (ch == '\n' || ch == '\r'){
+				comments = false;
 
 				// If the line content is not an empty string, add the line content to the array of lines
 				if (lineContent[0] != '\0'){
@@ -76,8 +79,13 @@ void *getFile(const char* path){
 			else{
 
 				// Add the character to the line content as long as the character is not a tab character
-				if (ch != '\t'){
-				strncat(lineContent, &ch, 1);
+				if (ch != '\t' && comments == false){
+					if (ch == ';'){
+						comments = true;
+					}
+					else{
+						strncat(lineContent, &ch, 1);
+					}
 				}
 			}
 
