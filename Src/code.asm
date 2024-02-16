@@ -18,7 +18,8 @@ rel:
 	je nd
 	call ess
 tes:
-	add rc, 1
+	add rc, 1 ; test
 	mul rc, 178
+	; here is another test
 	prt rd, ra
 end

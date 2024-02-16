@@ -45,3 +45,11 @@ void setStruct(struct function *f, char *instruction, char *name, char *paramete
 
 // Prints the struct function
 void printStruct(struct function *f);
+
+
+// Get the position of the function in the array of structures
+int getPosition(func_t *func, char *object, int size);
+
+
+// Check if a syntax error is present in the array of structures
+void checkSyntax(func_t *functions, int size)

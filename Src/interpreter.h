@@ -49,10 +49,6 @@ typedef struct called{
 void goThrough(const char *file, reg_t registers);
 
 
-// Get the position of the function in the array of structures
-int getPosition(func_t *func, char *object, int size);
-
-
 // Check the instruction and execute the corresponding function
 int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file);
 

@@ -6,8 +6,8 @@ void printLines(char **lines, int size){
 	int i = 0;
 
 	// Print the array line by line
-	while(i < size){
-		printf("%s\n", lines[i]);
+	while(i < size-1){
+		printf("%s", lines[i]);
 		i++;
 	}
 }
@@ -60,7 +60,7 @@ void *getFile(const char* path){
 				comments = false;
 
 				// If the line content is not an empty string, add the line content to the array of lines
-				if (lineContent[0] != '\0'){
+				if (lineContent[0] != '\0' && lineContent != NULL){
 
 					// Allocate memory for the line
 					lines[line] = (char *)malloc(100 * sizeof(char));
@@ -68,23 +68,39 @@ void *getFile(const char* path){
 					// Add the line content to the array of lines
 					strncat(lineContent, &ch, 1);
 					sprintf(lines[line], lineContent);
-				}
 
-				// Set the line content to an empty string and pass to the next line
-				lineContent[0] = '\0';
-				line++;
+					
+
+					// Set the line content to an empty string and pass to the next line
+					lineContent[0] = '\0';
+					line++;
+				}
+				else {
+					// Allocate memory for the line
+					lines[line] = (char *)malloc(5 * sizeof(char));
+
+					// Add the line content to the array of lines
+					strncat(lineContent, &ch, 1);
+					sprintf(lines[line], lineContent);
+					
+					// Set the line content to an empty string and pass to the next line
+					lineContent[0] = '\0';
+					line++;
+				}
 			}
 
 			// If the character is not a new line character, add the character to the line content
 			else{
 
 				// Add the character to the line content as long as the character is not a tab character
-				if (ch != '\t' && comments == false){
-					if (ch == ';'){
-						comments = true;
-					}
-					else{
-						strncat(lineContent, &ch, 1);
+				if (ch != '\t'){
+					if (comments == false){
+						if (ch == ';'){
+							comments = true;
+						}
+						else{
+							strncat(lineContent, &ch, 1);
+						}
 					}
 				}
 			}
@@ -169,10 +185,13 @@ void *getStructs(char **lines, int size){
 		struct function *func = malloc(sizeof(struct function));
 
 		// Set the structure parameters to default ones
-		setStruct(func, "\0", "", "", "", 0);
+		setStruct(func, "\0", "\0", "\0", "\0", 0);
 
 		// Declare a register count variable
 		int reg = 0;
+
+		// Declare a instruction state variable
+		int inst = 0;
 
 		// Get one line from the array of lines using the line "i" and store it in the line variable
 		const char *line = lines[i];
@@ -189,43 +208,34 @@ void *getStructs(char **lines, int size){
 					// get the type of string using the switchStr function that return 1 for instruction, 2 for register, 3 for number and 4 for syntax error
 					int strType = switchStr(str);
 
-					// If the string is an instruction, set the instruction parameter of the structure
-					if (strType == 1){
-						setStruct(func, str, func->name, func->parameter1, func->parameter2, func->line);
-					}
+					// If the string is an instruction, register or number, set the parameter of the structure based on the instruction state
+					if (strType == 1 || strType == 2 || strType == 3 || strType == 4){
 
-					// If the string is a register, set the parameter1 or parameter2 parameter of the structure
-					else if (strType == 2){
+						// If the string is an instruction, set the instruction parameter of the structure
+						if (inst == 0){
 
-						// If the register count is 0, set the parameter1 parameter of the structure
-						if (reg == 0){
+							// Set the instruction parameter of the structure
+							setStruct(func, str, func->name, func->parameter1, func->parameter2, func->line);
+							inst++;
+						}
+
+						// If the string is a register, set the parameter1 parameter of the structure
+						else if (inst == 1){
+
+							// Set the parameter1 parameter of the structure
 							setStruct(func, func->instruction, func->name, str, func->parameter2, func->line);
-
-							// Increment the register count by 1
-							reg++;
+							inst++;
 						}
 
-						// If the register count is not 0, set the parameter2 parameter of the structure
-						else{
+						// If the string is a number, set the parameter2 parameter of the structure
+						else if (inst == 2){
+							// Set the parameter2 parameter of the structure
 							setStruct(func, func->instruction, func->name, func->parameter1, str, func->line);
+							inst++;
 						}
 					}
-
-					// If the string is a number, set the parameter1 or parameter2 parameter of the structure
-					else if (strType == 3){
-
-						// If the register count is 0, set the parameter1 parameter of the structure
-						if (reg == 0){
-							setStruct(func, func->instruction, func->name, str, func->parameter2, func->line);
-
-							// Increment the register count by 1
-							reg++;
-						}
-
-						// If the register count is not 0, set the parameter2 parameter of the structure
-						else{
-							setStruct(func, func->instruction, func->name, func->parameter1, str, func->line);
-						}
+					else {
+						setStruct(func, "", "", "", "", func->line);
 					}
 				}
 
@@ -376,9 +386,9 @@ int switchStr(char *str){
 		return 3;
 	}
 
-	// If none of the above, it should be a syntax error, return 4
+	// If none of the above, it should be a function call, then return 4
 	else {
-		return 3;
+		return 4;
 	}
 }
 
@@ -405,7 +415,6 @@ void setStruct(struct function *f, char *instruct, char *Name, char *param1, cha
 }
 
 void printStruct(struct function *f){
-
 	// Print the structure parameter by parameter
 	printf("==========================================================\n");
 	printf("Instruction: %s\n", f->instruction);
@@ -413,4 +422,86 @@ void printStruct(struct function *f){
 	printf("Parameter 1: %s\n", f->parameter1);
 	printf("Parameter 2: %s\n", f->parameter2);
 	printf("Line: %d\n", f->line);
+}
+
+
+
+int getPosition(func_t *func, char *object, int size){
+
+	// Loop through the array of structures
+	for (int i = 1; i < size; i++){
+
+		// Check if the name of the function is equal to the object
+		if (strcmp(func[i].name, object) == 0){
+
+			// Return the line where the function is
+			return func[i].line;
+		}
+	}
+	return -1;
+}
+
+
+
+
+void checkSyntax(func_t *functions, int size){
+
+	// Loop through the array of structures
+	for (int i = 0; i < size; i++){
+		int str_type_inst = switchStr(functions[i].instruction);
+		int str_type_name = switchStr(functions[i].name);
+		int str_type_param1 = switchStr(functions[i].parameter1);
+		int str_type_param2 = switchStr(functions[i].parameter2);
+
+		if (str_type_inst == 0 && str_type_name == 0 && str_type_param1 == 0 && str_type_param2 == 0){
+			continue;
+		}
+
+		// printf("Instruction: %d - name: %d - param1: %d - param2: %d\n", str_type_inst, str_type_name, str_type_param1, str_type_param2);
+
+		// If the instruction is not an instruction, print an error message
+		if (str_type_inst != 1 && str_type_name == 0){
+			printf("Syntax error at line %d: %s is not an instruction\n", functions[i].line, functions[i].instruction);
+			exit(1);
+		}
+
+		// If the name is not a function call, print an error message
+		if (str_type_name != 4){
+			int pos = getPosition(functions, functions[i].name, size);
+			if (pos == -1){
+				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].name);
+			exit(1);
+			}
+		}
+
+		// If the parameter1 is not a register or number, print an error message
+		if (str_type_param1 != 2 && str_type_param1 != 3 && str_type_param1 != 4 && str_type_param1 != 0){
+			printf("Syntax error at line %d: %s is not a register or number at parameter1\n", functions[i].line, functions[i].parameter1);
+			exit(1);
+		}
+
+		// If the parameter2 is not a register or number, print an error message
+		if (str_type_param2 != 2 && str_type_param2 != 3 && str_type_param2 != 0){
+			printf("Syntax error at line %d: %s is not a register or number at parameter2\n", functions[i].line, functions[i].parameter2);
+			exit(1);
+		}
+
+		// If the instruction is a function call, check if the parameters are correct
+		if (str_type_param1 == 4){
+			int pos = getPosition(functions, functions[i].parameter1, size);
+			if (pos == -1){
+				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter1);
+			exit(1);
+			}
+		}
+
+		// If the instruction is a function call, check if the parameters are correct
+		if (str_type_param2 == 4){
+			int pos = getPosition(functions, functions[i].parameter2, size);
+			if (pos == -1){
+				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter2);
+			exit(1);
+			}
+		}
+	}
 }

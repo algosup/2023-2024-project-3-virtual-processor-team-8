@@ -18,6 +18,8 @@ void goThrough(const char* file, reg_t registers){
 	// Define the current line
 	int input = 0;
 
+	checkSyntax(funcs, size);
+
 	// Go through the array of structures and execute the corresponding function until the end
 	while (input <= size){
 
@@ -26,23 +28,6 @@ void goThrough(const char* file, reg_t registers){
 		// printf("ra: %d - rb: %d - rc: %d - rd: %d\n", registers.ra, registers.rb, registers.rc, registers.rd);
 	}
 }
-
-
-
-int getPosition(func_t *func, char *object, int size){
-
-	// Loop through the array of structures
-	for (int i = 1; i < size; i++){
-
-		// Check if the name of the function is equal to the object
-		if (strcmp(func[i].name, object) == 0){
-
-			// Return the line where the function is
-			return func[i].line;
-		}
-	}
-}
-
 
 
 
