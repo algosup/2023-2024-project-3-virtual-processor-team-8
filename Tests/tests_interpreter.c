@@ -145,9 +145,9 @@ int executePRTTEST(){
 
 
 	// Test the function
-	executePRT("ra", "[rb]", &registers);
-	executePRT("rc", "[rb]", &registers);
-	executePRT("rd", "[rb]", &registers);
+	executePRT("ra", "rb", &registers);
+	executePRT("rc", "rb", &registers);
+	executePRT("rd", "rb", &registers);
 
 	// Check the results
 	assert(registers.ra == 5);
@@ -168,7 +168,7 @@ int executePRFTEST(){
 	changeRegister( (int)&registers.rd, &registers, "ra");
 
 	// Test the function
-	executePRF("[ra]", "rc", &registers);
+	executePRF("ra", "rc", &registers);
 
 
 
@@ -176,7 +176,7 @@ int executePRFTEST(){
 	changeRegister( (int)&registers.rc, &registers, "ra");
 
 	// Test the function
-	executePRF("[ra]", "rb", &registers);
+	executePRF("ra", "rb", &registers);
 
 
 	// Check the results
