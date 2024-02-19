@@ -52,4 +52,4 @@ int getPosition(func_t *func, char *object, int size);
 
 
 // Check if a syntax error is present in the array of structures
-void checkSyntax(func_t *functions, int size)
+void checkSyntax(func_t *functions, int size);
