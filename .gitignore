@@ -54,5 +54,4 @@ dkms.conf
 
 .vscode/
 Tests/test
-src/git/
-Tests/test
+Src/git/
