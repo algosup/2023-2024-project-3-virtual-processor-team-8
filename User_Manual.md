@@ -7,6 +7,12 @@ You will find all the files needed to run the virtual processor in our [GitHub r
 
 2. Installation pack
 
-## Run processor
+## cmd file
 
-## Delete from device
+## Path to the file .asm
+
+## Example of use
+
+## Syntax description
+
+## Syntax snippets
