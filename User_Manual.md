@@ -9,9 +9,11 @@ You will find all the files needed to run the virtual processor in our [GitHub r
 
 ## cmd file
 
+![WIP]
+
 ## Path to the file .asm
 
-## Example of use
+![WIP]
 
 ## Syntax description
 
