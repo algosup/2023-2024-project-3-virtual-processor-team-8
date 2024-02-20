@@ -55,6 +55,8 @@ Here is a list of all the instructions and registers available. It is important 
 
 #### Pointers
 
+- `PRT` : Set the value of the first operand to the address of the second one
+- `PRF` : Set the value of the first operand to the value at the address of the second one
 
 ### Registers
 
