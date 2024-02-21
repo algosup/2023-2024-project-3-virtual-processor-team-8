@@ -10,7 +10,7 @@ typedef struct function {
 	char name[10];
 	char parameter1[10];
 	char parameter2[10];
-	int line;
+	unsigned int line;
 }func_t;
 
 
@@ -98,11 +98,11 @@ typedef struct used{
 
 
 // Print the lines of the array of strings given in the parameter based on the size
-void printLines(char **lines, int size);
+void printLines(char **lines, unsigned int size);
 
 
 // Get the line of the array of strings given in the parameter based on the line number
-char* getLine(char **lines, int line);
+char* getLine(char **lines, unsigned int line);
 
 
 // Get the file and return an array of strings containing each line of the file
@@ -110,20 +110,20 @@ void *getFile(const char *path);
 
 
 // Get the size of the file and return an int based on the number of lines in the file
-int getSize(const char *path);
+unsigned int getSize(const char *path);
 
 
 // Get an array of functions from the array of strings given in the parameter based on the size
-void *getStructs(char **lines, int size);
+void *getStructs(char **lines, unsigned int size);
 
 
 // Returns an int based on what the string is
 // e.g. "add" returns 1 because it is an instruction and "ra" returns 2 because it is a register
-int switchStr(char *str);
+unsigned int switchStr(char *str);
 
 
 // Allows the program to modify a struct function
-void setStruct(struct function *f, char *instruction, char *name, char *parameter1, char *parameter2, int line);
+void setStruct(struct function *f, char *instruction, char *name, char *parameter1, char *parameter2, unsigned int line);
 
 
 // Prints the struct function
@@ -131,11 +131,11 @@ void printStruct(struct function *f);
 
 
 // Get the position of the function in the array of structures
-int getPosition(func_t *func, char *object, int size);
+int getPosition(func_t *func, char *object, unsigned int size);
 
 
 // Check if a syntax error is present in the array of structures
-void checkSyntax(func_t *functions, int size, used_t *registers_used);
+void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used);
 
 
 // Check if the parameter is a register

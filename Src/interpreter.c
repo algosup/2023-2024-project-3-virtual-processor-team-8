@@ -39,7 +39,7 @@ void goThrough(const char* file, reg_t registers){
 
 
 
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file, used_t *registers_used){
+unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file, used_t *registers_used){
 
 	// Print the struct function
 	// printStruct(func);
@@ -473,20 +473,20 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 }
 
 
-int executeJMP(char *parameter, const char* file){
+unsigned int executeJMP(char *parameter, const char* file){
 
 	// Get the list of structures from the file
 	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
 
 	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter, getSize("./code.asm"));
+	unsigned int position = getPosition(fs, parameter, getSize("./code.asm"));
 
 	// Set the current line to the line of the function to jump to
 	return position;
 }
 
 
-int executeCALL(char *parameter1, int line, call_t *call, const char* file){
+unsigned int executeCALL(char *parameter1, int line, call_t *call, const char* file){
 
 	// Get the list of structures from the file
 	func_t *fs = getStructs(getFile("./code.asm"), getSize("./code.asm"));
@@ -499,13 +499,13 @@ int executeCALL(char *parameter1, int line, call_t *call, const char* file){
 
 
 	// Get the position of the function to jump to
-	int position = getPosition(fs, parameter1, getSize("./code.asm"));
+	unsigned int position = getPosition(fs, parameter1, getSize("./code.asm"));
 
 	// Set the current line to the line of the function to jump to
 	return position;
 }
 
-int executeRET(call_t *call){
+unsigned int executeRET(call_t *call){
 
 	// If the call was called
 	if (call->called == 1){
@@ -551,7 +551,7 @@ void executeEND(reg_t *regs, used_t *registers_used){
 
 
 
-void *changeRegister(int value, reg_t *regs, char *regist){
+void *changeRegister(unsigned int value, reg_t *regs, char *regist){
 
 	// Check if the register to change is ra
 	if (strcmp(regist, "ra") == 0){
@@ -739,7 +739,7 @@ void *changeRegister(int value, reg_t *regs, char *regist){
 	return regs;
 }
 
-int getRegisterValue(reg_t *regs, char *regist){
+unsigned int getRegisterValue(reg_t *regs, char *regist){
 
 	// Check if the register to get the value from is ra
 	if (strcmp(regist, "ra") == 0){
@@ -1106,11 +1106,11 @@ int getRegisterValue(reg_t *regs, char *regist){
 	}
 
 	else {
-		return atoi(regist);
+		return (unsigned int)atoi(regist);
 	}
 }
 
-int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1123,7 +1123,7 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	if (isRegister2 == 0){
 
 		// Add the value of the second parameter to the value of the first parameter
-		int value = getRegisterValue(registers, parameter1) + atoi(parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) + atoi(parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1136,7 +1136,7 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	else{
 
 		// Add the value of the second parameter to the value of the first parameter
-		int value = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1146,7 +1146,7 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	}
 }
 
-int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1158,7 +1158,7 @@ int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	if (isRegister2 == 0){
 
 		// Subtract the value of the second parameter from the value of the first parameter
-		int value = getRegisterValue(registers, parameter1) - atoi(parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) - atoi(parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1171,7 +1171,7 @@ int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	else{
 
 		// Subtract the value of the second parameter from the value of the first parameter
-		int value = getRegisterValue(registers, parameter1) - getRegisterValue(registers, parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) - getRegisterValue(registers, parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1181,7 +1181,7 @@ int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	}
 }
 
-int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1194,7 +1194,7 @@ int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	if (isRegister2 == 0){
 
 		// Multiply the value of the first parameter by the value of the second parameter
-		int value = getRegisterValue(registers, parameter1) * atoi(parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) * atoi(parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1207,7 +1207,7 @@ int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	else{
 
 		// Multiply the value of the first parameter by the value of the second parameter
-		int value = getRegisterValue(registers, parameter1) * getRegisterValue(registers, parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) * getRegisterValue(registers, parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1217,7 +1217,7 @@ int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	}
 }
 
-int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1229,7 +1229,7 @@ int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	if (isRegister2 == 0){
 
 		// Divide the value of the first parameter by the value of the second parameter
-		int value = getRegisterValue(registers, parameter1) / atoi(parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) / atoi(parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1242,7 +1242,7 @@ int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	else{
 
 		// Divide the value of the first parameter by the value of the second parameter
-		int value = getRegisterValue(registers, parameter1) / getRegisterValue(registers, parameter2);
+		unsigned int value = getRegisterValue(registers, parameter1) / getRegisterValue(registers, parameter2);
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
@@ -1265,7 +1265,7 @@ void *executeMOV(char *parameter1, char *parameter2, reg_t *regs, used_t *regist
 	if (isRegister2 == 0){
 
 		// Change the value of the first parameter to the value of the second parameter
-		changeRegister(atoi(parameter2), regs, parameter1);
+		changeRegister((unsigned int)atoi(parameter2), regs, parameter1);
 	}
 
 	// If the second parameter is a register
@@ -1277,7 +1277,7 @@ void *executeMOV(char *parameter1, char *parameter2, reg_t *regs, used_t *regist
 }
 
 
-int executeCMP(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeCMP(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the parameters are registers
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1401,7 +1401,7 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
-	int value_1 = getRegisterValue(registers, parameter1);
+	unsigned int value_1 = getRegisterValue(registers, parameter1);
 
 	// Get the value of the second parameter that is an address
 	int address_2 = getRegisterValue(registers, parameter2);
@@ -1423,7 +1423,7 @@ void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	int address_1 = getRegisterValue(registers, parameter1);
 
 	// Get the value of the second parameter
-	int value_2 = getRegisterValue(registers, parameter2);
+	unsigned int value_2 = getRegisterValue(registers, parameter2);
 
 	// Get the value of the register at the address
 	int *value_1 = (int *)address_1;
@@ -1439,10 +1439,10 @@ void executeAND(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
-	int value_1 = getRegisterValue(registers, parameter1);
+	unsigned int value_1 = getRegisterValue(registers, parameter1);
 
 	// Get the value of the second parameter
-	int value_2 = getRegisterValue(registers, parameter2);
+	unsigned int value_2 = getRegisterValue(registers, parameter2);
 
 	// Change the value of the first parameter to the value of the first parameter and the value of the second parameter
 	changeRegister(value_1 & value_2, registers, parameter1);
@@ -1454,10 +1454,10 @@ void executeOR(char *parameter1, char *parameter2, reg_t *registers, used_t *reg
 	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
-	int value_1 = getRegisterValue(registers, parameter1);
+	unsigned int value_1 = getRegisterValue(registers, parameter1);
 
 	// Get the value of the second parameter
-	int value_2 = getRegisterValue(registers, parameter2);
+	unsigned int value_2 = getRegisterValue(registers, parameter2);
 
 	// Change the value of the first parameter to the value of the first parameter or the value of the second parameter
 	changeRegister(value_1 | value_2, registers, parameter1);
@@ -1469,10 +1469,10 @@ void executeXOR(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
-	int value_1 = getRegisterValue(registers, parameter1);
+	unsigned int value_1 = getRegisterValue(registers, parameter1);
 
 	// Get the value of the second parameter
-	int value_2 = getRegisterValue(registers, parameter2);
+	unsigned int value_2 = getRegisterValue(registers, parameter2);
 
 	// Change the value of the first parameter to the value of the first parameter xor the value of the second parameter
 	changeRegister(value_1 ^ value_2, registers, parameter1);

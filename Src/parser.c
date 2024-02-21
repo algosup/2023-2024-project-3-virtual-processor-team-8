@@ -2,7 +2,7 @@
 
 
 
-void printLines(char **lines, int size){
+void printLines(char **lines, unsigned int size){
 	int i = 0;
 
 	// Print the array line by line
@@ -12,7 +12,7 @@ void printLines(char **lines, int size){
 	}
 }
 
-char* getLine(char **lines, int line){
+char* getLine(char **lines, unsigned int line){
 
 	// Return the line of the array of strings based on the line number
 	return lines[line-1];
@@ -128,13 +128,13 @@ void *getFile(const char* path){
 	fclose(fp);
 }
 
-int getSize(const char* path){
+unsigned int getSize(const char* path){
 	// Define fp as pointing to a file in read-only mode
 	FILE *fp = fopen(path, "r");
 
 	// define ch and lines to 0
-	int ch = 0;
-	int lines = 1;
+	char ch;
+	unsigned int lines = 1;
 	
 	// If the file does not exist, return 0
 	if (fp == NULL){
@@ -162,7 +162,7 @@ int getSize(const char* path){
 	return lines;
 }
 
-void *getStructs(char **lines, int size){
+void *getStructs(char **lines, unsigned int size){
 
 	// Allocate memory for the array of structures when declaring it
 	func_t *functions = malloc(size * sizeof(func_t));
@@ -281,7 +281,7 @@ void *getStructs(char **lines, int size){
 	return functions;
 }
 
-int switchStr(char *str){
+unsigned int switchStr(char *str){
 
 	// Compare the string to all the instructions, registers
 
@@ -391,7 +391,7 @@ int switchStr(char *str){
 	}
 }
 
-void setStruct(struct function *f, char *instruct, char *Name, char *param1, char *param2, int line){
+void setStruct(struct function *f, char *instruct, char *Name, char *param1, char *param2, unsigned int line){
 
 	// Set the instruction parameter of the structure
 	sprintf(f->instruction, instruct);
@@ -425,10 +425,10 @@ void printStruct(struct function *f){
 
 
 
-int getPosition(func_t *func, char *object, int size){
+int getPosition(func_t *func, char *object, unsigned int size){
 
 	// Loop through the array of structures
-	for (int i = 1; i < size; i++){
+	for (unsigned int i = 1; i < size; i++){
 
 		// Check if the name of the function is equal to the object
 		if (strcmp(func[i].name, object) == 0){
@@ -443,10 +443,10 @@ int getPosition(func_t *func, char *object, int size){
 
 
 
-void checkSyntax(func_t *functions, int size, used_t *registers_used){
+void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used){
 
 	// Loop through the array of structures
-	for (int i = 0; i < size; i++){
+	for (unsigned int i = 0; i < size; i++){
 		int str_type_inst = switchStr(functions[i].instruction);
 		int str_type_name = switchStr(functions[i].name);
 		int str_type_param1 = switchStr(functions[i].parameter1);
@@ -476,7 +476,7 @@ void checkSyntax(func_t *functions, int size, used_t *registers_used){
 
 		// If the name is not a function call, print an error message
 		if (str_type_name != 4){
-			int pos = getPosition(functions, functions[i].name, size);
+			unsigned int pos = getPosition(functions, functions[i].name, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].name);
 			exit(1);
@@ -497,7 +497,7 @@ void checkSyntax(func_t *functions, int size, used_t *registers_used){
 
 		// If the instruction is a function call, check if the parameters are correct
 		if (str_type_param1 == 4){
-			int pos = getPosition(functions, functions[i].parameter1, size);
+			unsigned int pos = getPosition(functions, functions[i].parameter1, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter1);
 			exit(1);
@@ -506,7 +506,7 @@ void checkSyntax(func_t *functions, int size, used_t *registers_used){
 
 		// If the instruction is a function call, check if the parameters are correct
 		if (str_type_param2 == 4){
-			int pos = getPosition(functions, functions[i].parameter2, size);
+			unsigned int pos = getPosition(functions, functions[i].parameter2, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter2);
 			exit(1);
@@ -548,7 +548,7 @@ int isRegister(char *parameter, used_t *registers_used){
 
 int isANumber(char *str){
 	// If isnumber returns 1, that means the string is a number, then return 3
-	if (strspn(str, "-0123456789") == strlen(str) && (str != NULL || strcmp(str, "") != 0)){
+	if (strspn(str, "0123456789") == strlen(str) && (str != NULL || strcmp(str, "") != 0)){
 		return 1;
 	}
 	else {

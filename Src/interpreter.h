@@ -4,82 +4,82 @@
 typedef struct reg{
 
 	// register ra
-	int ra;
+	unsigned int ra;
 
 	// register rb
-	int rb;
+	unsigned int rb;
 
 	// register rc
-	int rc;
+	unsigned int rc;
 
 	// register rd
-	int rd;
+	unsigned int rd;
 
 	// register re
-	int re;
+	unsigned int re;
 
 	// register rf
-	int rf;
+	unsigned int rf;
 
 	// register rg
-	int rg;
+	unsigned int rg;
 
 	// register rh
-	int rh;
+	unsigned int rh;
 
 	// register ri
-	int ri;
+	unsigned int ri;
 
 	// register rj
-	int rj;
+	unsigned int rj;
 
 	// register rk
-	int rk;
+	unsigned int rk;
 
 	// register rl
-	int rl;
+	unsigned int rl;
 
 	// register rm
-	int rm;
+	unsigned int rm;
 
 	// register rn
-	int rn;
+	unsigned int rn;
 
 	// register ro
-	int ro;
+	unsigned int ro;
 
 	// register rp
-	int rp;
+	unsigned int rp;
 
 	// register rq
-	int rq;
+	unsigned int rq;
 
 	// register rr
-	int rr;
+	unsigned int rr;
 
 	// register rs
-	int rs;
+	unsigned int rs;
 
 	// register rt
-	int rt;
+	unsigned int rt;
 
 	// register ru
-	int ru;
+	unsigned int ru;
 
 	// register rv
-	int rv;
+	unsigned int rv;
 
 	// register rw
-	int rw;
+	unsigned int rw;
 
 	// register rx
-	int rx;
+	unsigned int rx;
 
 	// register ry
-	int ry;
+	unsigned int ry;
 
 	// register rz
-	int rz;
+	unsigned int rz;
 
 }reg_t;
 
@@ -116,31 +116,31 @@ void goThrough(const char *file, reg_t registers);
 
 
 // Check the instruction and execute the corresponding function
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file, used_t *registers_used);
+unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file, used_t *registers_used);
 
 
 // Change the value of the register
-void *changeRegister(int value, reg_t *regs, char *regist);
+void *changeRegister(unsigned int value, reg_t *regs, char *regist);
 
 
 // Get the value of the defined register
-int getRegisterValue(reg_t *regs, char *regist);
+unsigned int getRegisterValue(reg_t *regs, char *regist);
 
 
 // Make an addition between the two parameters
-int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a subtraction between the two parameters
-int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a multiplication between the two parameters
-int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a division between the two parameters
-int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Move the value to the first parameter, from the second parameter
@@ -148,7 +148,7 @@ void *executeMOV(char *parameter1, char *parameter2, reg_t *regs, used_t *regist
 
 
 // Compare the two parameters
-int executeCMP(char *parameter1, char *parameter2, reg_t *regs, used_t *registers_used);
+unsigned int executeCMP(char *parameter1, char *parameter2, reg_t *regs, used_t *registers_used);
 
 
 // Set parameter1 value to the value contained at the address contained in parameter2
@@ -176,39 +176,39 @@ unsigned int executeNOT(char *parameter1, reg_t *registers, used_t *registers_us
 
 
 // Jump to the line given in the parameter
-int executeJMP(char *parameter, const char *file);
+unsigned int executeJMP(char *parameter, const char *file);
 
 
 // Jump to the line given in the parameter if the two parameters are equal
-int executeJE(char *parameter);
+unsigned int executeJE(char *parameter);
 
 
 // Jump to the line given in the parameter if the two parameters are not equal
-int executeJNE(char *parameter);
+unsigned int executeJNE(char *parameter);
 
 
 // Jump to the line given in the parameter if the first parameter is greater than the second
-int executeJG(char *parameter);
+unsigned int executeJG(char *parameter);
 
 
 // Jump to the line given in the parameter if the first parameter is lesser than the second
-int executeJL(char *parameter);
+unsigned int executeJL(char *parameter);
 
 
 // Jump to the line given in the parameter if the first parameter is greater than or equal to the second
-int executeJGE(char *parameter);
+unsigned int executeJGE(char *parameter);
 
 
 // Jump to the line given in the parameter if the first parameter is lesser than or equal to the second
-int executeJLE(char *parameter);
+unsigned int executeJLE(char *parameter);
 
 
 // Call the function given in the parameter
-int executeCALL(char *parameter1, int line, call_t *call, const char* file);
+unsigned int executeCALL(char *parameter1, int line, call_t *call, const char* file);
 
 
 // Return to the line where the function was called
-int executeRET(call_t *call);
+unsigned int executeRET(call_t *call);
 
 
 // End the program
