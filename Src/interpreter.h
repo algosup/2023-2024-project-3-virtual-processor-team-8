@@ -116,7 +116,7 @@ void goThrough(const char *file, reg_t registers);
 
 
 // Check the instruction and execute the corresponding function
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file);
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file, used_t *registers_used);
 
 
 // Change the value of the register
@@ -128,51 +128,51 @@ int getRegisterValue(reg_t *regs, char *regist);
 
 
 // Make an addition between the two parameters
-int executeADD(char *parameter1, char *parameter2, reg_t *registers);
+int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a subtraction between the two parameters
-int executeSUB(char *parameter1, char *parameter2, reg_t *registers);
+int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a multiplication between the two parameters
-int executeMUL(char *parameter1, char *parameter2, reg_t *registers);
+int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Make a division between the two parameters
-int executeDIV(char *parameter1, char *parameter2, reg_t *registers);
+int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Move the value to the first parameter, from the second parameter
-void *executeMOV(char *parameter1, char *parameter2, reg_t *regs);
+void *executeMOV(char *parameter1, char *parameter2, reg_t *regs, used_t *registers_used);
 
 
 // Compare the two parameters
-int executeCMP(char *parameter1, char *parameter2, reg_t *regs);
+int executeCMP(char *parameter1, char *parameter2, reg_t *regs, used_t *registers_used);
 
 
 // Set parameter1 value to the value contained at the address contained in parameter2
-void executePRT(char *parameter1, char *parameter2, reg_t *registers);
+void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Set the value of the address at contained by parameter1 to the value of parameter2
-void executePRF(char *parameter1, char *parameter2, reg_t *registers);
+void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Set the parameter 1 to the value of the parameter 1 AND the value of the parameter 2
-void executeAND(char *parameter1, char *parameter2, reg_t *registers);
+void executeAND(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Set the parameter 1 to the value of the parameter 1 OR the value of the parameter 2
-void executeOR(char *parameter1, char *parameter2, reg_t *registers);
+void executeOR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Set the parameter 1 to the value of the parameter 1 XOR the value of the parameter 2
-void executeXOR(char *parameter1, char *parameter2, reg_t *registers);
+void executeXOR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Set the parameter 1 to the value of NOT parameter 1
-unsigned int executeNOT(char *parameter1, reg_t *registers);
+unsigned int executeNOT(char *parameter1, reg_t *registers, used_t *registers_used);
 
 
 // Jump to the line given in the parameter
@@ -212,8 +212,8 @@ int executeRET(call_t *call);
 
 
 // End the program
-void executeEND(reg_t *regs);
+void executeEND(reg_t *regs, used_t *registers_used);
 
 
 // Print the registers
-void printRegisters(reg_t *regs);
+void printRegisters(reg_t *regs, used_t *used);

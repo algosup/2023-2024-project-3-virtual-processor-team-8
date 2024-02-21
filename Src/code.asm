@@ -20,6 +20,7 @@ rel:
 tes:
 	add rc, 1 ; test
 	mul rc, 178
+	mov rz, 8
 	; here is another test
 	prt rd, ra
 end

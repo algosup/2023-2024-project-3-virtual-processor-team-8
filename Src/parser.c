@@ -371,17 +371,9 @@ int switchStr(char *str){
 		return 1;
 	}
 
+
 	// If string is a register, return 2
-	else if (strcmp(str, "ra") == 0){
-		return 2;
-	}
-	else if (strcmp(str, "rb") == 0){
-		return 2;
-	}
-	else if (strcmp(str, "rc") == 0){
-		return 2;
-	}
-	else if (strcmp(str, "rd") == 0){
+	else if (str[0] == 'r' && strspn(str, "abcdefghijklmnopqrstuvwxyz") == 2 && strlen(str) == 2){
 		return 2;
 	}
 	else if (str[0] == '['){
@@ -389,7 +381,7 @@ int switchStr(char *str){
 	}
 
 	// If isnumber returns 1, that means the string is a number, then return 3
-	else if (strspn(str, "-0123456789") == strlen(str)){
+	else if (strspn(str, "0123456789") == strlen(str)){
 		return 3;
 	}
 
@@ -451,7 +443,7 @@ int getPosition(func_t *func, char *object, int size){
 
 
 
-void checkSyntax(func_t *functions, int size){
+void checkSyntax(func_t *functions, int size, used_t *registers_used){
 
 	// Loop through the array of structures
 	for (int i = 0; i < size; i++){
@@ -461,7 +453,7 @@ void checkSyntax(func_t *functions, int size){
 		int str_type_param2 = switchStr(functions[i].parameter2);
 		
 		// If the first parameter is not a register, print an error message
-		if (strcmp(functions[i].parameter1, "") != 0 && isRegister(functions[i].parameter1) == 3){
+		if (strcmp(functions[i].parameter1, "") != 0 && isRegister(functions[i].parameter1, registers_used) == 3){
 			
 			// Print an error message
 			printf("Syntax error at line %d: the first parameter should be a register but is the number %s\n", functions[i].line, functions[i].parameter1);
@@ -525,13 +517,17 @@ void checkSyntax(func_t *functions, int size){
 
 
 
-int isRegister(char *parameter){
+int isRegister(char *parameter, used_t *registers_used){
+
 
 	// Check if the parameter is a register
-	if (parameter[0] == 'r' && strspn(parameter, "abcdefghijklmnopqrstuvwxyz") == 1 && strlen(parameter) == 2){
+	if (parameter[0] == 'r' && strspn(parameter, "abcdefghijklmnopqrstuvwxyz") == 2 && strlen(parameter) == 2){
+
+		// Update the used registers
+		updateUsedregister(registers_used, parameter);
+
 		// Return 1 if the parameter is a register
 		return 1;
-	
 	}
 	else if (parameter[0] == '['){
 
@@ -557,5 +553,177 @@ int isANumber(char *str){
 	}
 	else {
 		return 0;
+	}
+}
+
+void updateUsedregister(used_t *regs, char* reg){
+
+	// If ra is used in the program
+	if (strcmp(reg, "ra") == 0){
+
+		// Set the a parameter of the structure to 1
+		regs->a = 1;
+	}
+
+	// If rb is used in the program
+	else if (strcmp(reg, "rb") == 0){
+
+		// Set the b parameter of the structure to 1
+		regs->b = 1;
+	}
+
+	// If rc is used in the program
+	else if (strcmp(reg, "rc") == 0){
+
+		// Set the c parameter of the structure to 1
+		regs->c = 1;
+	}
+
+	// If rd is used in the program
+	else if (strcmp(reg, "rd") == 0){
+
+		// Set the d parameter of the structure to 1
+		regs->d = 1;
+	}
+
+	// If re is used in the program
+	else if (strcmp(reg, "re") == 0){
+
+		// Set the e parameter of the structure to 1
+		regs->e = 1;
+	}
+
+	// If rf is used in the program
+	else if (strcmp(reg, "rf") == 0){
+
+		// Set the f parameter of the structure to 1
+		regs->f = 1;
+	}
+
+	// If rg is used in the program
+	else if (strcmp(reg, "rg") == 0){
+
+		// Set the g parameter of the structure to 1
+		regs->g = 1;
+	}
+
+	// If rh is used in the program
+	else if (strcmp(reg, "rh") == 0){
+
+		// Set the h parameter of the structure to 1
+		regs->h = 1;
+	}
+
+	// If ri is used in the program
+	else if (strcmp(reg, "ri") == 0){
+
+		// Set the i parameter of the structure to 1
+		regs->i = 1;
+	}
+
+	// If rj is used in the program
+	else if (strcmp(reg, "rj") == 0){
+
+		// Set the j parameter of the structure to 1
+		regs->j = 1;
+	}
+
+	// If rk is used in the program
+	else if (strcmp(reg, "rk") == 0){
+
+		// Set the k parameter of the structure to 1
+		regs->k = 1;
+	}
+
+	// If rl is used in the program
+	else if (strcmp(reg, "rl") == 0){
+
+		// Set the l parameter of the structure to 1
+		regs->l = 1;
+	}
+
+	// If rm is used in the program
+	else if (strcmp(reg, "rm") == 0){
+
+		// Set the m parameter of the structure to 1
+		regs->m = 1;
+	}
+
+	// If rn is used in the program
+	else if (strcmp(reg, "rn") == 0){
+		// Set the n parameter of the structure to 1
+		regs->n = 1;
+	}
+
+	// If ro is used in the program
+	else if (strcmp(reg, "ro") == 0){
+		// Set the o parameter of the structure to 1
+		regs->o = 1;
+	}
+
+	// If rp is used in the program
+	else if (strcmp(reg, "rp") == 0){
+		// Set the p parameter of the structure to 1
+		regs->p = 1;
+	}
+
+	// If rq is used in the program
+	else if (strcmp(reg, "rq") == 0){
+		// Set the q parameter of the structure to 1
+		regs->q = 1;
+	}
+
+	// If rr is used in the program
+	else if (strcmp(reg, "rr") == 0){
+		// Set the r parameter of the structure to 1
+		regs->r = 1;
+	}
+
+	// If rs is used in the program
+	else if (strcmp(reg, "rs") == 0){
+		// Set the s parameter of the structure to 1
+		regs->s = 1;
+	}
+
+	// If rt is used in the program
+	else if (strcmp(reg, "rt") == 0){
+		// Set the t parameter of the structure to 1
+		regs->t = 1;
+	}
+
+	// If ru is used in the program
+	else if (strcmp(reg, "ru") == 0){
+		// Set the u parameter of the structure to 1
+		regs->u = 1;
+	}
+
+	// If rv is used in the program
+	else if (strcmp(reg, "rv") == 0){
+		// Set the v parameter of the structure to 1
+		regs->v = 1;
+	}
+
+	// If rw is used in the program
+	else if (strcmp(reg, "rw") == 0){
+		// Set the w parameter of the structure to 1
+		regs->w = 1;
+	}
+
+	// If rx is used in the program
+	else if (strcmp(reg, "rx") == 0){
+		// Set the x parameter of the structure to 1
+		regs->x = 1;
+	}
+
+	// If ry is used in the program
+	else if (strcmp(reg, "ry") == 0){
+		// Set the y parameter of the structure to 1
+		regs->y = 1;
+	}
+
+	// If rz is used in the program
+	else if (strcmp(reg, "rz") == 0){
+		// Set the z parameter of the structure to 1
+		regs->z = 1;
 	}
 }

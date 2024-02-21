@@ -6,6 +6,9 @@ void goThrough(const char* file, reg_t registers){
 	// Define a "size" variable base on the number of lines in the input file
 	int size = getSize(file);
 
+	// Define the state of the comparison
+	used_t registers_used = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 	// Get the array of structures from the file
 	func_t *funcs = getStructs(getFile(file), size);
 
@@ -19,7 +22,7 @@ void goThrough(const char* file, reg_t registers){
 	int input = 0;
 
 	// Check if the syntax of the array of structures is correct
-	checkSyntax(funcs, size);
+	checkSyntax(funcs, size, &registers_used);
 
 
 	printf("============================================================\n");
@@ -28,15 +31,15 @@ void goThrough(const char* file, reg_t registers){
 	while (input <= size){
 
 		// Get the next line to execute depending on the result of the function
-		input = redirectToFunction(&funcs[input], &registers, input, &state, &call, file);
-		// printf("ra: %d - rb: %d - rc: %d - rd: %d\n", registers.ra, registers.rb, registers.rc, registers.rd);
+		input = redirectToFunction(&funcs[input], &registers, input, &state, &call, file, &registers_used);
 	}
+
 }
 
 
 
 
-int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file){
+int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file, used_t *registers_used){
 
 	// Print the struct function
 	// printStruct(func);
@@ -48,7 +51,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Adding %s to %s\n", func->parameter2, func->parameter1);
 
 		// Execute the function add
-		executeADD(func->parameter1, func->parameter2, regs);
+		executeADD(func->parameter1, func->parameter2, regs, registers_used);
+
+		updateUsedregister(registers_used, func-> parameter1);
+		updateUsedregister(registers_used, func-> parameter2);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -65,7 +71,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Subtracting %s from %s\n", func->parameter2, func->parameter1);
 
 		// Execute the function sub
-		executeSUB(func->parameter1, func->parameter2, regs);
+		executeSUB(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -82,7 +88,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Multiplying %s by %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function mul
-		executeMUL(func->parameter1, func->parameter2, regs);
+		executeMUL(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -99,7 +105,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Dividing %s by %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function div
-		executeDIV(func->parameter1, func->parameter2, regs);
+		executeDIV(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -116,7 +122,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting %s to %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function mov
-		executeMOV(func->parameter1, func->parameter2, regs);
+		executeMOV(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -287,7 +293,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Comparing %s to %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function cmp and get the state of the comparison
-		int cmp_value = executeCMP(func->parameter1, func->parameter2, regs);
+		int cmp_value = executeCMP(func->parameter1, func->parameter2, regs, registers_used);
 
 		// If the parameter1 is equal to the parameter2
 		if (cmp_value == 1){
@@ -330,7 +336,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting the value at the address of %s to %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function prf
-		executePRF(func->parameter1, func->parameter2, regs);
+		executePRF(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -347,7 +353,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting the value of %s to the value at the address of %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function prt
-		executePRT(func->parameter1, func->parameter2, regs);
+		executePRT(func->parameter1, func->parameter2, regs, registers_used);
 
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
 		printf("============================================================\n");
@@ -363,7 +369,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting %s to %s and %s\n", func->parameter1, func->parameter1, func->parameter2);
 
 		// Execute the function and
-		executeAND(func->parameter1, func->parameter2, regs);
+		executeAND(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -380,7 +386,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting %s to %s or %s\n", func->parameter1, func->parameter1, func->parameter2);
 
 		// Execute the function or
-		executeOR(func->parameter1, func->parameter2, regs);
+		executeOR(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -397,7 +403,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting %s to %s xor %s\n", func->parameter1, func->parameter1, func->parameter2);
 
 		// Execute the function xor
-		executeXOR(func->parameter1, func->parameter2, regs);
+		executeXOR(func->parameter1, func->parameter2, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -414,7 +420,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Setting %s to not %s\n", func->parameter1, func->parameter1);
 
 		// Execute the function not
-		executeNOT(func->parameter1, regs);
+		executeNOT(func->parameter1, regs, registers_used);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -431,7 +437,7 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		printf("Ending the program\n");
 
 		// Execute the function end
-		executeEND(regs);
+		executeEND(regs, registers_used);
 
 		// Return the next line
 		return i + 1;
@@ -512,10 +518,10 @@ int executeRET(call_t *call){
 	}
 }
 
-void executeEND(reg_t *regs){
+void executeEND(reg_t *regs, used_t *registers_used){
 
 	// Print the registers
-	printRegisters(regs);
+	printRegisters(regs, registers_used);
 
 	// Exit the program
 	exit(0);
@@ -762,6 +768,161 @@ int getRegisterValue(reg_t *regs, char *regist){
 		// Return the value of the register rd
 		return regs->rd;
 	}
+
+	// Check if the register to get the value from is re
+	else if (strcmp(regist, "re") == 0){
+
+		// Return the value of the register re
+		return regs->re;
+	}
+
+	// Check if the register to get the value from is rf
+	else if (strcmp(regist, "rf") == 0){
+
+		// Return the value of the register rf
+		return regs->rf;
+	}
+
+	// Check if the register to get the value from is rg
+	else if (strcmp(regist, "rg") == 0){
+
+		// Return the value of the register rg
+		return regs->rg;
+	}
+
+	// Check if the register to get the value from is rh
+	else if (strcmp(regist, "rh") == 0){
+
+		// Return the value of the register rh
+		return regs->rh;
+	}
+
+	// Check if the register to get the value from is ri
+	else if (strcmp(regist, "ri") == 0){
+
+		// Return the value of the register ri
+		return regs->ri;
+	}
+
+	// Check if the register to get the value from is rj
+	else if (strcmp(regist, "rj") == 0){
+
+		// Return the value of the register rj
+		return regs->rj;
+	}
+
+	// Check if the register to get the value from is rk
+	else if (strcmp(regist, "rk") == 0){
+
+		// Return the value of the register rk
+		return regs->rk;
+	}
+
+	// Check if the register to get the value from is rl
+	else if (strcmp(regist, "rl") == 0){
+
+		// Return the value of the register rl
+		return regs->rl;
+	}
+
+	// Check if the register to get the value from is rm
+	else if (strcmp(regist, "rm") == 0){
+
+		// Return the value of the register rm
+		return regs->rm;
+	}
+
+	// Check if the register to get the value from is rn
+	else if (strcmp(regist, "rn") == 0){
+
+		// Return the value of the register rn
+		return regs->rn;
+	}
+
+	// Check if the register to get the value from is ro
+	else if (strcmp(regist, "ro") == 0){
+
+		// Return the value of the register ro
+		return regs->ro;
+	}
+
+	// Check if the register to get the value from is rp
+	else if (strcmp(regist, "rp") == 0){
+
+		// Return the value of the register rp
+		return regs->rp;
+	}
+
+	// Check if the register to get the value from is rq
+	else if (strcmp(regist, "rq") == 0){
+
+		// Return the value of the register rq
+		return regs->rq;
+	}
+
+	// Check if the register to get the value from is rr
+	else if (strcmp(regist, "rr") == 0){
+
+		// Return the value of the register rr
+		return regs->rr;
+	}
+
+	// Check if the register to get the value from is rs
+	else if (strcmp(regist, "rs") == 0){
+
+		// Return the value of the register rs
+		return regs->rs;
+	}
+
+	// Check if the register to get the value from is rt
+	else if (strcmp(regist, "rt") == 0){
+
+		// Return the value of the register rt
+		return regs->rt;
+	}
+
+	// Check if the register to get the value from is ru
+	else if (strcmp(regist, "ru") == 0){
+
+		// Return the value of the register ru
+		return regs->ru;
+	}
+
+	// Check if the register to get the value from is rv
+	else if (strcmp(regist, "rv") == 0){
+
+		// Return the value of the register rv
+		return regs->rv;
+	}
+
+	// Check if the register to get the value from is rw
+	else if (strcmp(regist, "rw") == 0){
+
+		// Return the value of the register rw
+		return regs->rw;
+	}
+
+	// Check if the register to get the value from is rx
+	else if (strcmp(regist, "rx") == 0){
+
+		// Return the value of the register rx
+		return regs->rx;
+	}
+
+	// Check if the register to get the value from is ry
+	else if (strcmp(regist, "ry") == 0){
+
+		// Return the value of the register ry
+		return regs->ry;
+	}
+
+	// Check if the register to get the value from is rz
+	else if (strcmp(regist, "rz") == 0){
+
+		// Return the value of the register rz
+		return regs->rz;
+	}
+
 	// Check if the register to get the value from is ra
 	else if (strcmp(regist, "[ra]") == 0){
 
@@ -789,18 +950,173 @@ int getRegisterValue(reg_t *regs, char *regist){
 		// Return the value of the register rd
 		return (int)&regs->rd;
 	}
+
+	// Check if the register to get the value from is re
+	else if (strcmp(regist, "[re]") == 0){
+
+		// Return the value of the register re
+		return (int)&regs->re;
+	}
+
+	// Check if the register to get the value from is rf
+	else if (strcmp(regist, "[rf]") == 0){
+
+		// Return the value of the register rf
+		return (int)&regs->rf;
+	}
+
+	// Check if the register to get the value from is rg
+	else if (strcmp(regist, "[rg]") == 0){
+
+		// Return the value of the register rg
+		return (int)&regs->rg;
+	}
+
+	// Check if the register to get the value from is rh
+	else if (strcmp(regist, "[rh]") == 0){
+
+		// Return the value of the register rh
+		return (int)&regs->rh;
+	}
+
+	// Check if the register to get the value from is ri
+	else if (strcmp(regist, "[ri]") == 0){
+
+		// Return the value of the register ri
+		return (int)&regs->ri;
+	}
+
+	// Check if the register to get the value from is rj
+	else if (strcmp(regist, "[rj]") == 0){
+
+		// Return the value of the register rj
+		return (int)&regs->rj;
+	}
+
+	// Check if the register to get the value from is rk
+	else if (strcmp(regist, "[rk]") == 0){
+
+		// Return the value of the register rk
+		return (int)&regs->rk;
+	}
+
+	// Check if the register to get the value from is rl
+	else if (strcmp(regist, "[rl]") == 0){
+
+		// Return the value of the register rl
+		return (int)&regs->rl;
+	}
+
+	// Check if the register to get the value from is rm
+	else if (strcmp(regist, "[rm]") == 0){
+
+		// Return the value of the register rm
+		return (int)&regs->rm;
+	}
+
+	// Check if the register to get the value from is rn
+	else if (strcmp(regist, "[rn]") == 0){
+
+		// Return the value of the register rn
+		return (int)&regs->rn;
+	}
+
+	// Check if the register to get the value from is ro
+	else if (strcmp(regist, "[ro]") == 0){
+
+		// Return the value of the register ro
+		return (int)&regs->ro;
+	}
+
+	// Check if the register to get the value from is rp
+	else if (strcmp(regist, "[rp]") == 0){
+
+		// Return the value of the register rp
+		return (int)&regs->rp;
+	}
+
+	// Check if the register to get the value from is rq
+	else if (strcmp(regist, "[rq]") == 0){
+
+		// Return the value of the register rq
+		return (int)&regs->rq;
+	}
+
+	// Check if the register to get the value from is rr
+	else if (strcmp(regist, "[rr]") == 0){
+
+		// Return the value of the register rr
+		return (int)&regs->rr;
+	}
+
+	// Check if the register to get the value from is rs
+	else if (strcmp(regist, "[rs]") == 0){
+
+		// Return the value of the register rs
+		return (int)&regs->rs;
+	}
+
+	// Check if the register to get the value from is rt
+	else if (strcmp(regist, "[rt]") == 0){
+
+		// Return the value of the register rt
+		return (int)&regs->rt;
+	}
+
+	// Check if the register to get the value from is ru
+	else if (strcmp(regist, "[ru]") == 0){
+
+		// Return the value of the register ru
+		return (int)&regs->ru;
+	}
+
+	// Check if the register to get the value from is rv
+	else if (strcmp(regist, "[rv]") == 0){
+
+		// Return the value of the register rv
+		return (int)&regs->rv;
+	}
+
+	// Check if the register to get the value from is rw
+	else if (strcmp(regist, "[rw]") == 0){
+
+		// Return the value of the register rw
+		return (int)&regs->rw;
+	}
+
+	// Check if the register to get the value from is rx
+	else if (strcmp(regist, "[rx]") == 0){
+
+		// Return the value of the register rx
+		return (int)&regs->rx;
+	}
+
+	// Check if the register to get the value from is ry
+	else if (strcmp(regist, "[ry]") == 0){
+
+		// Return the value of the register ry
+		return (int)&regs->ry;
+	}
+
+	// Check if the register to get the value from is rz
+	else if (strcmp(regist, "[rz]") == 0){
+
+		// Return the value of the register rz
+		return (int)&regs->rz;
+	}
+
 	else {
 		return atoi(regist);
 	}
 }
 
-int executeADD(char *parameter1, char *parameter2, reg_t *registers){
+int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Check if the second parameter is a register
-	int isRegister2 = isRegister(parameter2);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 
 	// If the second parameter is not a register
@@ -830,13 +1146,13 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers){
 	}
 }
 
-int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
+int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Check if the second parameter is a register
-	int isRegister2 = isRegister(parameter2);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
@@ -865,13 +1181,13 @@ int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
 	}
 }
 
-int executeMUL(char *parameter1, char *parameter2, reg_t *registers){
+int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Check if the second parameter is a register
-	int isRegister2 = isRegister(parameter2);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 
 	// If the second parameter is not a register
@@ -901,13 +1217,13 @@ int executeMUL(char *parameter1, char *parameter2, reg_t *registers){
 	}
 }
 
-int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
+int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Check if the second parameter is a register
-	int isRegister2 = isRegister(parameter2);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
@@ -937,13 +1253,13 @@ int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
 }
 
 
-void *executeMOV(char *parameter1, char *parameter2, reg_t *regs){
+void *executeMOV(char *parameter1, char *parameter2, reg_t *regs, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Check if the second parameter is a register
-	int isRegister2 = isRegister(parameter2);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
@@ -961,11 +1277,11 @@ void *executeMOV(char *parameter1, char *parameter2, reg_t *regs){
 }
 
 
-int executeCMP(char *parameter1, char *parameter2, reg_t *registers){
+int executeCMP(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the parameters are registers
-	int isRegister1 = isRegister(parameter1);
-	int isRegister2 = isRegister(parameter2);
+	int isRegister1 = isRegister(parameter1, registers_used);
+	int isRegister2 = isRegister(parameter2, registers_used);
 
 
 	// If the parameters are not registers
@@ -1079,10 +1395,10 @@ int executeCMP(char *parameter1, char *parameter2, reg_t *registers){
 
 }
 
-void executePRT(char *parameter1, char *parameter2, reg_t *registers){
+void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
@@ -1098,10 +1414,10 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers){
 
 }
 
-void executePRF(char *parameter1, char *parameter2, reg_t *registers){
+void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter that is an address
 	int address_1 = getRegisterValue(registers, parameter1);
@@ -1117,10 +1433,10 @@ void executePRF(char *parameter1, char *parameter2, reg_t *registers){
 
 }
 
-void executeAND(char *parameter1, char *parameter2, reg_t *registers){
+void executeAND(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
@@ -1132,10 +1448,10 @@ void executeAND(char *parameter1, char *parameter2, reg_t *registers){
 	changeRegister(value_1 & value_2, registers, parameter1);
 }
 
-void executeOR(char *parameter1, char *parameter2, reg_t *registers){
+void executeOR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
@@ -1147,10 +1463,10 @@ void executeOR(char *parameter1, char *parameter2, reg_t *registers){
 	changeRegister(value_1 | value_2, registers, parameter1);
 }
 
-void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
+void executeXOR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
@@ -1162,10 +1478,10 @@ void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
 	changeRegister(value_1 ^ value_2, registers, parameter1);
 }
 
-unsigned int executeNOT(char *parameter1, reg_t *registers){
+unsigned int executeNOT(char *parameter1, reg_t *registers, used_t *registers_used){
 
 	// Check if the first parameter is a register
-	int isRegister1 = isRegister(parameter1);
+	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Get the value of the first parameter
 	unsigned int value_1 = getRegisterValue(registers, parameter1);
@@ -1175,85 +1491,137 @@ unsigned int executeNOT(char *parameter1, reg_t *registers){
 }
 
 
-void printRegisters(reg_t *regs){
+void printRegisters(reg_t *regs, used_t *used){
 
 	printf("============================================================\n");
 
-	// Print the value of the register ra
-	printf("ra: %d\n", regs->ra);
+	if (used->a == 1){
+		// Print the value of the register ra
+		printf("ra: %d\n", regs->ra);
+	}
 
-	// Print the value of the register rb
-	printf("rb: %d\n", regs->rb);
+	if (used->b == 1){
+		// Print the value of the register rb
+		printf("rb: %d\n", regs->rb);
+	}
 
-	// Print the value of the register rc
-	printf("rc: %d\n", regs->rc);
+	if (used->c == 1){
+		// Print the value of the register rc
+		printf("rc: %d\n", regs->rc);
+	}
 
-	// Print the value of the register rd
-	printf("rd: %d\n", regs->rd);
+	if (used->d == 1){
+		// Print the value of the register rd
+		printf("rd: %d\n", regs->rd);
+	}
 
-	// Print the value of the register re
-	printf("re: %d\n", regs->re);
+	if (used->e == 1){
+		// Print the value of the register re
+		printf("re: %d\n", regs->re);
+	}
 
-	// Print the value of the register rf
-	printf("rf: %d\n", regs->rf);
+	if (used->f == 1){
+		// Print the value of the register rf
+		printf("rf: %d\n", regs->rf);
+	}
 
-	// Print the value of the register rg
-	printf("rg: %d\n", regs->rg);
+	if (used->g == 1){
+		// Print the value of the register rg
+		printf("rg: %d\n", regs->rg);
+	}
 
-	// Print the value of the register rh
-	printf("rh: %d\n", regs->rh);
+	if (used->h == 1){
+		// Print the value of the register rh
+		printf("rh: %d\n", regs->rh);
+	}
 
-	// Print the value of the register ri
-	printf("ri: %d\n", regs->ri);
+	if (used->i == 1){
+		// Print the value of the register ri
+		printf("ri: %d\n", regs->ri);
+	}
 
-	// Print the value of the register rj
-	printf("rj: %d\n", regs->rj);
+	if (used->j == 1){
+		// Print the value of the register rj
+		printf("rj: %d\n", regs->rj);
+	}
 
-	// Print the value of the register rk
-	printf("rk: %d\n", regs->rk);
+	if (used->k == 1){
+		// Print the value of the register rk
+		printf("rk: %d\n", regs->rk);
+	}
 
-	// Print the value of the register rl
-	printf("rl: %d\n", regs->rl);
+	if (used->l == 1){
+		// Print the value of the register rl
+		printf("rl: %d\n", regs->rl);
+	}
 
-	// Print the value of the register rm
-	printf("rm: %d\n", regs->rm);
+	if (used->m == 1){
+		// Print the value of the register rm
+		printf("rm: %d\n", regs->rm);
+	}
 
-	// Print the value of the register rn
-	printf("rn: %d\n", regs->rn);
+	if (used->n == 1){
+		// Print the value of the register rn
+		printf("rn: %d\n", regs->rn);
+	}
 
-	// Print the value of the register ro
-	printf("ro: %d\n", regs->ro);
+	if (used->o == 1){
+		// Print the value of the register ro
+		printf("ro: %d\n", regs->ro);
+	}
 
-	// Print the value of the register rp
-	printf("rp: %d\n", regs->rp);
+	if (used->p == 1){
+		// Print the value of the register rp
+		printf("rp: %d\n", regs->rp);
+	}
 
-	// Print the value of the register rq
-	printf("rq: %d\n", regs->rq);
+	if (used->q == 1){
+		// Print the value of the register rq
+		printf("rq: %d\n", regs->rq);
+	}
 
-	// Print the value of the register rr
-	printf("rr: %d\n", regs->rr);
+	if (used->r == 1){
+		// Print the value of the register rr
+		printf("rr: %d\n", regs->rr);
+	}
 
-	// Print the value of the register rs
-	printf("rs: %d\n", regs->rs);
+	if (used->s == 1){
+		// Print the value of the register rs
+		printf("rs: %d\n", regs->rs);
+	}
 
-	// Print the value of the register rt
-	printf("rt: %d\n", regs->rt);
+	if (used->t == 1){
+		// Print the value of the register rt
+		printf("rt: %d\n", regs->rt);
+	}
 
-	// Print the value of the register ru
-	printf("ru: %d\n", regs->ru);
+	if (used->u == 1){
+		// Print the value of the register ru
+		printf("ru: %d\n", regs->ru);
+	}
 
-	// Print the value of the register rv
-	printf("rv: %d\n", regs->rv);
+	if (used->v == 1){
+		// Print the value of the register rv
+		printf("rv: %d\n", regs->rv);
+	}
 
-	// Print the value of the register rw
-	printf("rw: %d\n", regs->rw);
+	if (used->w == 1){
+		// Print the value of the register rw
+		printf("rw: %d\n", regs->rw);
+	}
 
-	// Print the value of the register rx
-	printf("rx: %d\n", regs->rx);
+	if (used->x == 1){
+		// Print the value of the register rx
+		printf("rx: %d\n", regs->rx);
+	}
 
-	// Print the value of the register ry
-	printf("ry: %d\n", regs->ry);
+	if (used->y == 1){
+		// Print the value of the register ry
+		printf("ry: %d\n", regs->ry);
+	}
 
-	// Print the value of the register rz
-	printf("rz: %d\n", regs->rz);
+	if (used->z == 1){
+		// Print the value of the register rz
+		printf("rz: %d\n", regs->rz);
+	}
 }
