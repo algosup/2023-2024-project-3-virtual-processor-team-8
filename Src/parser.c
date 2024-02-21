@@ -528,25 +528,10 @@ void checkSyntax(func_t *functions, int size){
 int isRegister(char *parameter){
 
 	// Check if the parameter is a register
-	if (strcmp(parameter, "ra") == 0){
-
+	if (parameter[0] == 'r' && strspn(parameter, "abcdefghijklmnopqrstuvwxyz") == 1 && strlen(parameter) == 2){
 		// Return 1 if the parameter is a register
 		return 1;
-	}
-	else if (strcmp(parameter, "rb") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (strcmp(parameter, "rc") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (strcmp(parameter, "rd") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
+	
 	}
 	else if (parameter[0] == '['){
 

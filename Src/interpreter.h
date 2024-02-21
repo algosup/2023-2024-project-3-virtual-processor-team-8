@@ -15,6 +15,72 @@ typedef struct reg{
 	// register rd
 	int rd;
 
+	// register re
+	int re;
+
+	// register rf
+	int rf;
+
+	// register rg
+	int rg;
+
+	// register rh
+	int rh;
+
+	// register ri
+	int ri;
+
+	// register rj
+	int rj;
+
+	// register rk
+	int rk;
+
+	// register rl
+	int rl;
+
+	// register rm
+	int rm;
+
+	// register rn
+	int rn;
+
+	// register ro
+	int ro;
+
+	// register rp
+	int rp;
+
+	// register rq
+	int rq;
+
+	// register rr
+	int rr;
+
+	// register rs
+	int rs;
+
+	// register rt
+	int rt;
+
+	// register ru
+	int ru;
+
+	// register rv
+	int rv;
+
+	// register rw
+	int rw;
+
+	// register rx
+	int rx;
+
+	// register ry
+	int ry;
+
+	// register rz
+	int rz;
+
 }reg_t;
 
 

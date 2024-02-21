@@ -7,7 +7,7 @@
 int main(){
 
 	// Define the registers
-	reg_t registers = {0, 0, 0, 0};
+	reg_t registers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
 	// Define the file path

@@ -18,7 +18,11 @@ void goThrough(const char* file, reg_t registers){
 	// Define the current line
 	int input = 0;
 
+	// Check if the syntax of the array of structures is correct
 	checkSyntax(funcs, size);
+
+
+	printf("============================================================\n");
 
 	// Go through the array of structures and execute the corresponding function until the end
 	while (input <= size){
@@ -35,13 +39,20 @@ void goThrough(const char* file, reg_t registers){
 int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file){
 
 	// Print the struct function
-	printStruct(func);
+	// printStruct(func);
 
 	// Check if the instruction is "add"
 	if (strcmp(func->instruction, "add") == 0){
 
+		// Print the function add
+		printf("Adding %s to %s\n", func->parameter2, func->parameter1);
+
 		// Execute the function add
 		executeADD(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -50,8 +61,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "sub"
 	else if (strcmp(func->instruction, "sub") == 0){
 
+		// Print the function sub
+		printf("Subtracting %s from %s\n", func->parameter2, func->parameter1);
+
 		// Execute the function sub
 		executeSUB(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -60,8 +78,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "mul"
 	else if (strcmp(func->instruction, "mul") == 0){
 
+		// Print the function mul
+		printf("Multiplying %s by %s\n", func->parameter1, func->parameter2);
+
 		// Execute the function mul
 		executeMUL(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -70,8 +95,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "div"
 	else if (strcmp(func->instruction, "div") == 0){
 
+		// Print the function div
+		printf("Dividing %s by %s\n", func->parameter1, func->parameter2);
+
 		// Execute the function div
 		executeDIV(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -80,8 +112,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "mov"
 	else if (strcmp(func->instruction, "mov") == 0){
 
+		// Print the function mov
+		printf("Setting %s to %s\n", func->parameter1, func->parameter2);
+
 		// Execute the function mov
 		executeMOV(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -89,6 +128,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 
 	// Check if the instruction is "jmp"
 	else if (strcmp(func->instruction, "jmp") == 0){
+
+		// Print the function jmp
+		printf("Jumping to %s\n", func->parameter1);
+		printf("============================================================\n");
 
 		// Execute the function jmp and return the line to jump to
 		return executeJMP(func->parameter1, file);
@@ -99,6 +142,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 
 		// If the previous comparison was equal
 		if (state->equal == 1){
+
+			// Print the function je
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
 
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
@@ -118,6 +165,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		// If the previous comparison was not equal
 		if (state->equal == 0){
 
+			// Print the function jne
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
+
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
 		}
@@ -135,6 +186,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 
 		// If the previous comparison was greater
 		if (state->greater == 1){
+
+			// Print the function jg
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
 
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
@@ -154,6 +209,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		// If the previous comparison was greater or equal
 		if (state->greater == 1 || state->equal == 1){
 
+			// Print the function jge
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
+
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
 		}
@@ -171,6 +230,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 
 		// If the previous comparison was lesser
 		if (state->lesser == 1){
+
+			// Print the function jl
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
 
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
@@ -190,6 +253,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 		// If the previous comparison was lesser or equal
 		if (state->lesser == 1 || state->equal == 1){
 
+			// Print the function jle
+			printf("Jumping to %s\n", func->parameter1);
+			printf("============================================================\n");
+
 			// Execute the function jmp and return the line to jump to
 			return executeJMP(func->parameter1, file);
 		}
@@ -205,12 +272,19 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "call"
 	else if (strcmp(func->instruction, "call") == 0){
 
+		// Print the function call
+		printf("Calling %s\n", func->parameter1);
+		printf("============================================================\n");
+
 		// Execute the function call and return the line to jump to
 		return executeCALL(func->parameter1, i, call, file);
 	}
 
 	// Check if the instruction is "cmp"
 	else if (strcmp(func->instruction, "cmp") == 0){
+
+		// Print the function cmp
+		printf("Comparing %s to %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function cmp and get the state of the comparison
 		int cmp_value = executeCMP(func->parameter1, func->parameter2, regs);
@@ -243,6 +317,8 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 			state->lesser = 0;
 		}
 
+		printf("============================================================\n");
+
 		// Return the next line
 		return i + 1;
 	}
@@ -251,7 +327,14 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	else if (strcmp(func->instruction, "prf") == 0){
 
 		// Execute the function prf
+		printf("Setting the value at the address of %s to %s\n", func->parameter1, func->parameter2);
+
+		// Execute the function prf
 		executePRF(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -260,8 +343,14 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "prt"
 	else if (strcmp(func->instruction, "prt") == 0){
 
+		// Print the function prt
+		printf("Setting the value of %s to the value at the address of %s\n", func->parameter1, func->parameter2);
+
 		// Execute the function prt
 		executePRT(func->parameter1, func->parameter2, regs);
+
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -271,7 +360,14 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	else if (strcmp(func->instruction, "and") == 0){
 
 		// Execute the function and
+		printf("Setting %s to %s and %s\n", func->parameter1, func->parameter1, func->parameter2);
+
+		// Execute the function and
 		executeAND(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -280,8 +376,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "or"
 	else if (strcmp(func->instruction, "or") == 0){
 
+		// Print the function or
+		printf("Setting %s to %s or %s\n", func->parameter1, func->parameter1, func->parameter2);
+
 		// Execute the function or
 		executeOR(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -290,8 +393,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "xor"
 	else if (strcmp(func->instruction, "xor") == 0){
 
+		// Print the function xor
+		printf("Setting %s to %s xor %s\n", func->parameter1, func->parameter1, func->parameter2);
+
 		// Execute the function xor
 		executeXOR(func->parameter1, func->parameter2, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -300,8 +410,15 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	// Check if the instruction is "not"
 	else if (strcmp(func->instruction, "not") == 0){
 
+		// Print the function not
+		printf("Setting %s to not %s\n", func->parameter1, func->parameter1);
+
 		// Execute the function not
 		executeNOT(func->parameter1, regs);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
 
 		// Return the next line
 		return i + 1;
@@ -309,6 +426,9 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 
 	// Check if the instruction is "end"
 	else if (strcmp(func->instruction, "end") == 0){
+
+		// Print the function end
+		printf("Ending the program\n");
 
 		// Execute the function end
 		executeEND(regs);
@@ -319,6 +439,10 @@ int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t 
 	
 	// Check if the instruction is "ret"
 	else if (strcmp(func->instruction, "ret") == 0){
+
+		// Print the function ret
+		printf("Returning to the line after the call\n");
+		printf("============================================================\n");
 
 		// Execute the function ret
 		return executeRET(call);
@@ -449,6 +573,160 @@ void *changeRegister(int value, reg_t *regs, char *regist){
 
 		// Change the value of the register rd
 		regs->rd = value;
+	}
+
+	// Check if the register to change is re
+	else if (strcmp(regist, "re") == 0){
+
+		// Change the value of the register re
+		regs->re = value;
+	}
+
+	// Check if the register to change is rf
+	else if (strcmp(regist, "rf") == 0){
+
+		// Change the value of the register rf
+		regs->rf = value;
+	}
+
+	// Check if the register to change is rg
+	else if (strcmp(regist, "rg") == 0){
+
+		// Change the value of the register rg
+		regs->rg = value;
+	}
+
+	// Check if the register to change is rh
+	else if (strcmp(regist, "rh") == 0){
+
+		// Change the value of the register rh
+		regs->rh = value;
+	}
+
+	// Check if the register to change is ri
+	else if (strcmp(regist, "ri") == 0){
+
+		// Change the value of the register ri
+		regs->ri = value;
+	}
+
+	// Check if the register to change is rj
+	else if (strcmp(regist, "rj") == 0){
+
+		// Change the value of the register rj
+		regs->rj = value;
+	}
+
+	// Check if the register to change is rk
+	else if (strcmp(regist, "rk") == 0){
+
+		// Change the value of the register rk
+		regs->rk = value;
+	}
+
+	// Check if the register to change is rl
+	else if (strcmp(regist, "rl") == 0){
+
+		// Change the value of the register rl
+		regs->rl = value;
+	}
+
+	// Check if the register to change is rm
+	else if (strcmp(regist, "rm") == 0){
+
+		// Change the value of the register rm
+		regs->rm = value;
+	}
+
+	// Check if the register to change is rn
+	else if (strcmp(regist, "rn") == 0){
+
+		// Change the value of the register rn
+		regs->rn = value;
+	}
+
+	// Check if the register to change is ro
+	else if (strcmp(regist, "ro") == 0){
+
+		// Change the value of the register ro
+		regs->ro = value;
+	}
+
+	// Check if the register to change is rp
+	else if (strcmp(regist, "rp") == 0){
+
+		// Change the value of the register rp
+		regs->rp = value;
+	}
+
+	// Check if the register to change is rq
+	else if (strcmp(regist, "rq") == 0){
+
+		// Change the value of the register rq
+		regs->rq = value;
+	}
+
+	// Check if the register to change is rr
+	else if (strcmp(regist, "rr") == 0){
+
+		// Change the value of the register rr
+		regs->rr = value;
+	}
+
+	// Check if the register to change is rs
+	else if (strcmp(regist, "rs") == 0){
+
+		// Change the value of the register rs
+		regs->rs = value;
+	}
+
+	// Check if the register to change is rt
+	else if (strcmp(regist, "rt") == 0){
+
+		// Change the value of the register rt
+		regs->rt = value;
+	}
+
+	// Check if the register to change is ru
+	else if (strcmp(regist, "ru") == 0){
+
+		// Change the value of the register ru
+		regs->ru = value;
+	}
+
+	// Check if the register to change is rv
+	else if (strcmp(regist, "rv") == 0){
+
+		// Change the value of the register rv
+		regs->rv = value;
+	}
+
+	// Check if the register to change is rw
+	else if (strcmp(regist, "rw") == 0){
+
+		// Change the value of the register rw
+		regs->rw = value;
+	}
+
+	// Check if the register to change is rx
+	else if (strcmp(regist, "rx") == 0){
+
+		// Change the value of the register rx
+		regs->rx = value;
+	}
+
+	// Check if the register to change is ry
+	else if (strcmp(regist, "ry") == 0){
+
+		// Change the value of the register ry
+		regs->ry = value;
+	}
+
+	// Check if the register to change is rz
+	else if (strcmp(regist, "rz") == 0){
+
+		// Change the value of the register rz
+		regs->rz = value;
 	}
 
 	// Return the registers
@@ -627,8 +905,6 @@ int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1);
-
-	printf("isRegister1: %d\n", isRegister1);
 
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
@@ -901,7 +1177,7 @@ unsigned int executeNOT(char *parameter1, reg_t *registers){
 
 void printRegisters(reg_t *regs){
 
-	printf("=======================================\n");
+	printf("============================================================\n");
 
 	// Print the value of the register ra
 	printf("ra: %d\n", regs->ra);
@@ -914,4 +1190,70 @@ void printRegisters(reg_t *regs){
 
 	// Print the value of the register rd
 	printf("rd: %d\n", regs->rd);
+
+	// Print the value of the register re
+	printf("re: %d\n", regs->re);
+
+	// Print the value of the register rf
+	printf("rf: %d\n", regs->rf);
+
+	// Print the value of the register rg
+	printf("rg: %d\n", regs->rg);
+
+	// Print the value of the register rh
+	printf("rh: %d\n", regs->rh);
+
+	// Print the value of the register ri
+	printf("ri: %d\n", regs->ri);
+
+	// Print the value of the register rj
+	printf("rj: %d\n", regs->rj);
+
+	// Print the value of the register rk
+	printf("rk: %d\n", regs->rk);
+
+	// Print the value of the register rl
+	printf("rl: %d\n", regs->rl);
+
+	// Print the value of the register rm
+	printf("rm: %d\n", regs->rm);
+
+	// Print the value of the register rn
+	printf("rn: %d\n", regs->rn);
+
+	// Print the value of the register ro
+	printf("ro: %d\n", regs->ro);
+
+	// Print the value of the register rp
+	printf("rp: %d\n", regs->rp);
+
+	// Print the value of the register rq
+	printf("rq: %d\n", regs->rq);
+
+	// Print the value of the register rr
+	printf("rr: %d\n", regs->rr);
+
+	// Print the value of the register rs
+	printf("rs: %d\n", regs->rs);
+
+	// Print the value of the register rt
+	printf("rt: %d\n", regs->rt);
+
+	// Print the value of the register ru
+	printf("ru: %d\n", regs->ru);
+
+	// Print the value of the register rv
+	printf("rv: %d\n", regs->rv);
+
+	// Print the value of the register rw
+	printf("rw: %d\n", regs->rw);
+
+	// Print the value of the register rx
+	printf("rx: %d\n", regs->rx);
+
+	// Print the value of the register ry
+	printf("ry: %d\n", regs->ry);
+
+	// Print the value of the register rz
+	printf("rz: %d\n", regs->rz);
 }

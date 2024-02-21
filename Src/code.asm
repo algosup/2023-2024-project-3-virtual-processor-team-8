@@ -23,3 +23,8 @@ tes:
 	; here is another test
 	prt rd, ra
 end
+
+	mov ra, 0
+mov rb, 0
+mov rc, 0
+mov rd, 0
