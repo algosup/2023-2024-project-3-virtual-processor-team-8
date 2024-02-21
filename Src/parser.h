@@ -53,3 +53,11 @@ int getPosition(func_t *func, char *object, int size);
 
 // Check if a syntax error is present in the array of structures
 void checkSyntax(func_t *functions, int size);
+
+
+// Check if the parameter is a register
+int isRegister(char *parameter);
+
+
+// Check if the parameter is a number
+int isANumber(char *str);

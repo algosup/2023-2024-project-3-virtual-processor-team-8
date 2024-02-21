@@ -420,40 +420,6 @@ void executeEND(reg_t *regs){
 
 
 
-int isRegister(char *parameter){
-
-	// Check if the parameter is a register
-	if (strcmp(parameter, "ra") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (strcmp(parameter, "rb") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (strcmp(parameter, "rc") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (strcmp(parameter, "rd") == 0){
-
-		// Return 1 if the parameter is a register
-		return 1;
-	}
-	else if (parameter[0] == '['){
-
-		// Return 2 if the parameter is an address
-		return 2;
-	}
-	else{
-
-		// Return 0 if the parameter is not a register
-		return 0;
-	}
-}
 
 void *changeRegister(int value, reg_t *regs, char *regist){
 
@@ -552,6 +518,9 @@ int getRegisterValue(reg_t *regs, char *regist){
 
 int executeADD(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
 
@@ -585,6 +554,9 @@ int executeADD(char *parameter1, char *parameter2, reg_t *registers){
 
 int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
 
@@ -616,6 +588,9 @@ int executeSUB(char *parameter1, char *parameter2, reg_t *registers){
 }
 
 int executeMUL(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
 
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
@@ -650,6 +625,11 @@ int executeMUL(char *parameter1, char *parameter2, reg_t *registers){
 
 int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
+	printf("isRegister1: %d\n", isRegister1);
+
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
 
@@ -682,6 +662,9 @@ int executeDIV(char *parameter1, char *parameter2, reg_t *registers){
 
 
 void *executeMOV(char *parameter1, char *parameter2, reg_t *regs){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
 
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2);
@@ -822,6 +805,9 @@ int executeCMP(char *parameter1, char *parameter2, reg_t *registers){
 
 void executePRT(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
 
@@ -837,6 +823,9 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers){
 }
 
 void executePRF(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
 
 	// Get the value of the first parameter that is an address
 	int address_1 = getRegisterValue(registers, parameter1);
@@ -854,6 +843,9 @@ void executePRF(char *parameter1, char *parameter2, reg_t *registers){
 
 void executeAND(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
 
@@ -865,6 +857,9 @@ void executeAND(char *parameter1, char *parameter2, reg_t *registers){
 }
 
 void executeOR(char *parameter1, char *parameter2, reg_t *registers){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
 
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
@@ -878,6 +873,9 @@ void executeOR(char *parameter1, char *parameter2, reg_t *registers){
 
 void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
 
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
+
 	// Get the value of the first parameter
 	int value_1 = getRegisterValue(registers, parameter1);
 
@@ -889,6 +887,9 @@ void executeXOR(char *parameter1, char *parameter2, reg_t *registers){
 }
 
 unsigned int executeNOT(char *parameter1, reg_t *registers){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1);
 
 	// Get the value of the first parameter
 	unsigned int value_1 = getRegisterValue(registers, parameter1);

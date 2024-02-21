@@ -53,10 +53,6 @@ void goThrough(const char *file, reg_t registers);
 int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file);
 
 
-// Check if the parameter is a register
-int isRegister(char *parameter);
-
-
 // Change the value of the register
 void *changeRegister(int value, reg_t *regs, char *regist);
 

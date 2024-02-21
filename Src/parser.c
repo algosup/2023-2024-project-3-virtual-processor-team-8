@@ -205,6 +205,7 @@ void *getStructs(char **lines, int size){
 				// If the string is not null or empty, check if it is an instruction, register or number
 				if (str != NULL && strcmp(str, "") != 0 ){
 
+
 					// get the type of string using the switchStr function that return 1 for instruction, 2 for register, 3 for number and 4 for syntax error
 					int strType = switchStr(str);
 
@@ -213,6 +214,12 @@ void *getStructs(char **lines, int size){
 
 						// If the string is an instruction, set the instruction parameter of the structure
 						if (inst == 0){
+
+							
+							if (strlen(str) > 4){
+								printf("Syntax error at line %d: %s is not an instruction\n", i+1, str);
+								exit(1);
+							}
 
 							// Set the instruction parameter of the structure
 							setStruct(func, str, func->name, func->parameter1, func->parameter2, func->line);
@@ -452,6 +459,16 @@ void checkSyntax(func_t *functions, int size){
 		int str_type_name = switchStr(functions[i].name);
 		int str_type_param1 = switchStr(functions[i].parameter1);
 		int str_type_param2 = switchStr(functions[i].parameter2);
+		
+		// If the first parameter is not a register, print an error message
+		if (strcmp(functions[i].parameter1, "") != 0 && isRegister(functions[i].parameter1) == 3){
+			
+			// Print an error message
+			printf("Syntax error at line %d: the first parameter should be a register but is the number %s\n", functions[i].line, functions[i].parameter1);
+
+			// Exit the program
+			exit(1);
+		}
 
 		if (str_type_inst == 0 && str_type_name == 0 && str_type_param1 == 0 && str_type_param2 == 0){
 			continue;
@@ -503,5 +520,57 @@ void checkSyntax(func_t *functions, int size){
 			exit(1);
 			}
 		}
+	}
+}
+
+
+
+int isRegister(char *parameter){
+
+	// Check if the parameter is a register
+	if (strcmp(parameter, "ra") == 0){
+
+		// Return 1 if the parameter is a register
+		return 1;
+	}
+	else if (strcmp(parameter, "rb") == 0){
+
+		// Return 1 if the parameter is a register
+		return 1;
+	}
+	else if (strcmp(parameter, "rc") == 0){
+
+		// Return 1 if the parameter is a register
+		return 1;
+	}
+	else if (strcmp(parameter, "rd") == 0){
+
+		// Return 1 if the parameter is a register
+		return 1;
+	}
+	else if (parameter[0] == '['){
+
+		// Return 2 if the parameter is an address
+		return 2;
+	}
+	else if (isANumber(parameter) == 1){
+
+		// Return 3 if the parameter is a number
+		return 3;
+	}
+	else{
+
+		// Return 0 if the parameter is not a register
+		return 0;
+	}
+}
+
+int isANumber(char *str){
+	// If isnumber returns 1, that means the string is a number, then return 3
+	if (strspn(str, "-0123456789") == strlen(str) && (str != NULL || strcmp(str, "") != 0)){
+		return 1;
+	}
+	else {
+		return 0;
 	}
 }
