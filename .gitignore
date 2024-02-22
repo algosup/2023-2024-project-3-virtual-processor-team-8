@@ -54,3 +54,4 @@ dkms.conf
 .vscode/
 Tests/test
 Src/git/
+path.txt
