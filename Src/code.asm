@@ -1,3 +1,4 @@
+
 mov ra, [rc]
 prf ra, rb
 mov rb, 0
@@ -29,3 +30,4 @@ end
 mov rb, 0
 mov rc, 0
 mov rd, 0
+

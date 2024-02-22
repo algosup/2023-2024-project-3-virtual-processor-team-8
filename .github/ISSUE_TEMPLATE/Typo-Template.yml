@@ -1,0 +1,34 @@
+name: Typographical Error report
+description: Fill a typo report
+title: "[Typo]: "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: doc-name
+    attributes:
+      label: Which document is concerned?
+      description: In which document was the typo found?
+      placeholder: Give document name Here!
+    validations:
+      required: true
+  - type: textarea
+    id: typo-descr
+    attributes:
+      label: What is the typo?
+      description: Describe the nature of the typo, the line it appears in, and what you think would be better?
+      placeholder: Explain Here!
+    validations:
+      required: true
+  - type: dropdown
+    id: importance
+    attributes:
+      label: priority
+      description: Which priority is the typo?
+      options:
+        - Optional
+        - Can wait
+        - Should be done quickly
+        - Urgent
+      default: 0
+    validations:
+      required: true

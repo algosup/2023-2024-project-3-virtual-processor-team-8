@@ -1,5 +1,13 @@
 #include <stdbool.h>
 
+#define MAX_VMEMORY 256
+
+// Contact data structure
+typedef struct
+{
+    int vaddress;
+} VMemory;
+
 // Define a structure to hold the registers and their values
 typedef struct reg{
 
@@ -116,7 +124,7 @@ void goThrough(const char *file, reg_t registers);
 
 
 // Check the instruction and execute the corresponding function
-unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file, used_t *registers_used);
+unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char *file, used_t *registers_used, VMemory Vmemory[]);
 
 
 // Change the value of the register
@@ -152,11 +160,11 @@ unsigned int executeCMP(char *parameter1, char *parameter2, reg_t *regs, used_t 
 
 
 // Set parameter1 value to the value contained at the address contained in parameter2
-void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]);
 
 
 // Set the value of the address at contained by parameter1 to the value of parameter2
-void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]);
 
 
 // Set the parameter 1 to the value of the parameter 1 AND the value of the parameter 2
