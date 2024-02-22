@@ -18,9 +18,10 @@ void goThrough(const char* file, reg_t registers){
 	// Define the state of the call
 	call_t call = {0, 0};
 	
+
 	// Define the virtual memory
 	VMemory Vmemory[MAX_VMEMORY];
-
+  
 	// Define the current line
 	int input = 0;
 
@@ -34,6 +35,7 @@ void goThrough(const char* file, reg_t registers){
 	while (input <= size){
 
 		// Get the next line to execute depending on the result of the function
+
 		input = redirectToFunction(&funcs[input], &registers, input, &state, &call, file, &registers_used, Vmemory);
 	}
 
@@ -43,6 +45,7 @@ void goThrough(const char* file, reg_t registers){
 
 
 unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state, call_t *call, const char* file, used_t *registers_used, VMemory Vmemory[]){
+
 
 	// Print the struct function
 	// printStruct(func);
