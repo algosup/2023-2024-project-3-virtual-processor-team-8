@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <math.h>
 
 #define MAX_VMEMORY 256
 
@@ -149,6 +150,10 @@ unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, us
 
 // Make a division between the two parameters
 unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+
+
+// Make a square root of the second parameter and set the value to the first
+unsigned int executeSQR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
 
 
 // Move the value to the first parameter, from the second parameter

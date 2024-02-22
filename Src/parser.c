@@ -355,6 +355,9 @@ unsigned int switchStr(char *str){
 	else if (strcmp(str, "div") == 0){
 		return 1;
 	}
+	else if (strcmp(str, "sqr") == 0){
+		return 1;
+	}
 	else if (strcmp(str, "and") == 0){
 		return 1;
 	}

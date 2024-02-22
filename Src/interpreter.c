@@ -122,6 +122,23 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		return i + 1;
 	}
 
+	// Check if the instruction is "div"
+	else if (strcmp(func->instruction, "sqr") == 0){
+
+		// Print the function div
+		printf("Setting %s to the square root of %s\n", func->parameter1, func->parameter2);
+
+		// Execute the function div
+		executeSQR(func->parameter1, func->parameter2, regs, registers_used);
+
+		// Print the value of the register
+		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
+		printf("============================================================\n");
+
+		// Return the next line
+		return i + 1;
+	}
+
 	// Check if the instruction is "mov"
 	else if (strcmp(func->instruction, "mov") == 0){
 
@@ -1073,6 +1090,41 @@ unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Divide the value of the first parameter by the value of the second parameter
 		unsigned int value = getRegisterValue(registers, parameter1) / getRegisterValue(registers, parameter2);
+
+		// Change the value of the first parameter to the new value
+		changeRegister(value, registers, parameter1);
+
+		// Return the value
+		return value;
+	}
+}
+
+unsigned int executeSQR(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+
+	// Check if the first parameter is a register
+	int isRegister1 = isRegister(parameter1, registers_used);
+
+	// Check if the second parameter is a register
+	int isRegister2 = isRegister(parameter2, registers_used);
+
+	// If the second parameter is not a register
+	if (isRegister2 == 0){
+
+		// Divide the value of the first parameter by the value of the second parameter
+		unsigned int value = (unsigned int)sqrt(atoi(parameter2));
+
+		// Change the value of the first parameter to the new value
+		changeRegister(value, registers, parameter1);
+
+		// Return the value
+		return value;
+	}
+
+	// If the second parameter is a register
+	else{
+
+		// Divide the value of the first parameter by the value of the second parameter
+		unsigned int value = (unsigned int)sqrt(getRegisterValue(registers, parameter2));
 
 		// Change the value of the first parameter to the new value
 		changeRegister(value, registers, parameter1);
