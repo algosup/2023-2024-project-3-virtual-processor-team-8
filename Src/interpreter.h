@@ -1,6 +1,6 @@
 #include <stdbool.h>
 
-#define MAX_VMEMORY 100
+#define MAX_VMEMORY 256
 
 // Contact data structure
 typedef struct
