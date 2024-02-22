@@ -12,7 +12,7 @@ The team held its regular meeting to discuss on the following tasks and share th
 
 We also held a code presentation and organize a code review to discuss about the code.
 
-The deadline for the technical specification. The team succeeded to deliver the [technical specification](link) on time.
+The deadline for the test plan. The team succeeded to deliver the [test plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Specs/Test-Plan.md) on time.
 
 We managed some files name issues and updated the gitignore.
 
