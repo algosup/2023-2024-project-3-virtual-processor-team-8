@@ -25,6 +25,7 @@ void goThrough(const char* file, reg_t registers){
 	// Define the current line
 	int input = 0;
 
+
 	// Check if the syntax of the array of structures is correct
 	checkSyntax(funcs, size, &registers_used);
 
@@ -457,7 +458,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("============================================================\n");
 
 		// Execute the function ret
-		return executeRET(call);
+		return executeRET(call, i);
 	}
 
 	// Check if the instruction is "function"
@@ -511,7 +512,7 @@ unsigned int executeCALL(char *parameter1, int line, call_t *call, const char* f
 	return position;
 }
 
-unsigned int executeRET(call_t *call){
+unsigned int executeRET(call_t *call, int line){
 
 	// If the call was called
 	if (call->called == 1){
@@ -521,6 +522,11 @@ unsigned int executeRET(call_t *call){
 
 		// Return the line after the call
 		return call->line+1;
+	}
+	else {
+
+		// Return the next line
+		return line + 1;
 	}
 }
 
