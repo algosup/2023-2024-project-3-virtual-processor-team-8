@@ -216,7 +216,7 @@ unsigned int executeCALL(char *parameter1, int line, call_t *call, const char* f
 
 
 // Return to the line where the function was called
-unsigned int executeRET(call_t *call);
+unsigned int executeRET(call_t *call, int line);
 
 
 // End the program
