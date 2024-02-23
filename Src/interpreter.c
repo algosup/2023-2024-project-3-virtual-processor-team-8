@@ -13,7 +13,7 @@ void goThrough(const char* file, reg_t registers){
 	func_t *funcs = getStructs(getFile(file), size);
 
 	// Define the state of comparison
-	state_t state = {0, 0, 0};
+	state_t state = {-1, -1, -1};
 
 	// Define the state of the call
 	call_t call = {0, 0};

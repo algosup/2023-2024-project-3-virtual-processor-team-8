@@ -229,6 +229,12 @@ void *getStructs(char **lines, unsigned int size){
 						// If the string is a register, set the parameter1 parameter of the structure
 						else if (inst == 1){
 
+							if (strlen(str) > 10){
+								printf("Syntax error at line %d: %s is too long to be a valid name\n", i+1, str);
+								printf("A label can't be longer than 10 characters but is now %d characters long\n", strlen(str));
+								exit(1);
+							}
+
 							// Set the parameter1 parameter of the structure
 							setStruct(func, func->instruction, func->name, str, func->parameter2, func->line);
 							inst++;
@@ -236,6 +242,13 @@ void *getStructs(char **lines, unsigned int size){
 
 						// If the string is a number, set the parameter2 parameter of the structure
 						else if (inst == 2){
+
+							if (strlen(str) > 10){
+								printf("Syntax error at line %d: %s is too long to be a valid name\n", i+1, str);
+								printf("A label can't be longer than 10 characters but is now %d characters long\n", strlen(str));
+								exit(1);
+							}
+
 							// Set the parameter2 parameter of the structure
 							setStruct(func, func->instruction, func->name, func->parameter1, str, func->line);
 							inst++;
