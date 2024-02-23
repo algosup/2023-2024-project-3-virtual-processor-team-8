@@ -71,8 +71,6 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 <details>
 
-![KPIs Week 8](img/kpi8.png)
-
 <summary>💡 Keys</summary>
 
 1. **Documentation KPIs:**
@@ -101,6 +99,10 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
 
 </details>
+
+This KPIs refers to the [cumulative KPIs](https://docs.google.com/spreadsheets/d/1_-OPSj577hdU58cxgzBR1Y8urz92UQi0AUktgfbjqTI/edit?usp=sharing) of this project.
+
+![KPIs Week 8](img/kpi8.png)
 
 ## Next week Action Plan
 
