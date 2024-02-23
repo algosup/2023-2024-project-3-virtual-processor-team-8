@@ -6,7 +6,7 @@
 // Contact data structure
 typedef struct
 {
-    int vaddress;
+    unsigned int vaddress;
 } VMemory;
 
 // Define a structure to hold the registers and their values
@@ -165,11 +165,11 @@ unsigned int executeCMP(char *parameter1, char *parameter2, reg_t *regs, used_t 
 
 
 // Set parameter1 value to the value contained at the address contained in parameter2
-void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]);
+void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[], int line);
 
 
 // Set the value of the address at contained by parameter1 to the value of parameter2
-void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]);
+void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[], int line);
 
 
 // Set the parameter 1 to the value of the parameter 1 AND the value of the parameter 2

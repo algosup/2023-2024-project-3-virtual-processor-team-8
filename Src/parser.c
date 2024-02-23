@@ -210,7 +210,7 @@ void *getStructs(char **lines, unsigned int size){
 					int strType = switchStr(str);
 
 					// If the string is an instruction, register or number, set the parameter of the structure based on the instruction state
-					if (strType == 1 || strType == 2 || strType == 3 || strType == 4){
+					if (strType == 1 || strType == 2 || strType == 3 || strType == 4 || strType == 5){
 
 						// If the string is an instruction, set the instruction parameter of the structure
 						if (inst == 0){
@@ -388,9 +388,13 @@ unsigned int switchStr(char *str){
 		return 3;
 	}
 
+	else if (str[0] == '-' && strspn(str, "abcdefghijklmnopqrstuvwxyz") == 0){
+		return 4;
+	}
+
 	// If none of the above, it should be a function call, then return 4
 	else {
-		return 4;
+		return 5;
 	}
 }
 
@@ -454,7 +458,7 @@ void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used){
 		int str_type_name = switchStr(functions[i].name);
 		int str_type_param1 = switchStr(functions[i].parameter1);
 		int str_type_param2 = switchStr(functions[i].parameter2);
-		
+
 		// If the first parameter is not a register, print an error message
 		if (strcmp(functions[i].parameter1, "") != 0 && isRegister(functions[i].parameter1, registers_used) == 3){
 			
@@ -477,8 +481,9 @@ void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used){
 			exit(1);
 		}
 
+
 		// If the name is not a function call, print an error message
-		if (str_type_name != 4){
+		if (str_type_name != 5){
 			unsigned int pos = getPosition(functions, functions[i].name, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].name);
@@ -487,19 +492,25 @@ void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used){
 		}
 
 		// If the parameter1 is not a register or number, print an error message
-		if (str_type_param1 != 2 && str_type_param1 != 3 && str_type_param1 != 4 && str_type_param1 != 0){
+		if (str_type_param1 != 2 && str_type_param1 != 3 && str_type_param1 != 5 && str_type_param1 != 0 && str_type_param1 != 4){
 			printf("Syntax error at line %d: %s is not a register or number at parameter1\n", functions[i].line, functions[i].parameter1);
 			exit(1);
 		}
 
 		// If the parameter2 is not a register or number, print an error message
-		if (str_type_param2 != 2 && str_type_param2 != 3 && str_type_param2 != 0){
+		if (str_type_param2 != 2 && str_type_param2 != 3 && str_type_param2 != 0 && str_type_param2 != 4){
 			printf("Syntax error at line %d: %s is not a register or number at parameter2\n", functions[i].line, functions[i].parameter2);
 			exit(1);
 		}
 
+		if (str_type_param1 == 4 || str_type_param2 == 4){
+			printf("Syntax error at line %d: %s shouldn't be negative\n", functions[i].line, functions[i].parameter1);
+			printf("A register can only be a positive integer\n");
+			exit(1);
+		}
+
 		// If the instruction is a function call, check if the parameters are correct
-		if (str_type_param1 == 4){
+		if (str_type_param1 == 5){
 			unsigned int pos = getPosition(functions, functions[i].parameter1, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter1);
@@ -508,7 +519,7 @@ void checkSyntax(func_t *functions, unsigned int size, used_t *registers_used){
 		}
 
 		// If the instruction is a function call, check if the parameters are correct
-		if (str_type_param2 == 4){
+		if (str_type_param2 == 5){
 			unsigned int pos = getPosition(functions, functions[i].parameter2, size);
 			if (pos == -1){
 				printf("Syntax error at line %d: %s is not a function call\n", functions[i].line, functions[i].parameter2);

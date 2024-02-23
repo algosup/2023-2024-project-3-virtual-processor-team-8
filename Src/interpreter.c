@@ -21,7 +21,7 @@ void goThrough(const char* file, reg_t registers){
 
 	// Define the virtual memory
 	VMemory Vmemory[MAX_VMEMORY];
-  
+
 	// Define the current line
 	int input = 0;
 
@@ -360,7 +360,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Setting the value at the address of %s to %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function prf
-		executePRF(func->parameter1, func->parameter2, regs, registers_used, Vmemory);
+		executePRF(func->parameter1, func->parameter2, regs, registers_used, Vmemory, func->line);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -377,7 +377,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Setting the value of %s to the value at the address of %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function prt
-		executePRT(func->parameter1, func->parameter2, regs, registers_used, Vmemory);
+		executePRT(func->parameter1, func->parameter2, regs, registers_used, Vmemory, func->line);
 
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
 		printf("============================================================\n");
@@ -1277,7 +1277,7 @@ unsigned int executeCMP(char *parameter1, char *parameter2, reg_t *registers, us
 
 }
 
-void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]){
+void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[], int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1285,18 +1285,32 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	// Prepare the address given by the value of the parameter 1
 	int address = getRegisterValue(registers, parameter1);
 
+	if (getRegisterValue(registers, parameter2) < 0 || getRegisterValue(registers, parameter2) > 256){
+		printf("\e[1;1H\e[2J");
+		printf("Error: Address out of range at line %d\n", line);
+		printf("The address shouldn't be over %d\n", MAX_VMEMORY);
+		exit(1);
+	}
+
 	// Change the value, given by the parameter 2, of the memory at the address given by the parameter 1
 	Vmemory[address].vaddress = getRegisterValue(registers, parameter2);
 
 }
 
-void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[]){
+void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, VMemory Vmemory[], int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
 
 	// Prepare the address given by the value of the parameter 2
 	int address = getRegisterValue(registers, parameter2);
+
+	if (address < 0 || address > 256){
+		printf("\e[1;1H\e[2J");
+		printf("Error: Address out of range at line %d\n", line);
+		printf("The address shouldn't be over %d\n", MAX_VMEMORY);
+		exit(1);
+	}
 
 	// Get the value of the second parameter
 	unsigned int value_2 = Vmemory[address].vaddress;
