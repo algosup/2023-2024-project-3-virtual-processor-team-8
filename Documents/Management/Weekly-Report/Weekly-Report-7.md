@@ -4,9 +4,17 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 13h00
 
 ### Project summary
+
+Unplanned exam on Monday, our effective project time was significantly impacted, requiring careful resource allocation to ensure minimal disruption to our progress.
+
+A minor team conflict emerged concerning a code-related decision, specifically regarding the usage of square brackets ([]). This pertains to the mov, prt, and prf instructions. We have time to develop both version on two different branches to see which one will be the more efficient.
+
+Team member absences occurred, necessitating a recap to ensure everyone is on the same page and updated on recent developments.
+  
+The deadline for the code. The team succeeded to deliver the [code](link) on time.
 
 ## Project Key parameters
 
@@ -41,23 +49,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status | Comments                                  |
+| --------- | ------ | ----------------------------------------- |
+| Scope     | On     | All Ok                                    |
+| Schedule  | On     | No delays                                 |
+| Risks     | On     | Team mates absence                        |
+| Issues    | On     | Minor team conflict about code decisions  |
+| Quality   | On     | All Ok                                    |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                                                                                      | Owner              | Status   |
+| ----------- | ------------------------------------------------------------------------------------------------ | ------------------ | -------- |
+| Risk 1      | Absence of some teammates due to illnes                                                          | Laurent Bouquin    | On going |
+| Issue 1     | Minor team conflict about code decision: using [] or not with the mov, prt and prf instructions | Hollande Laura-Lee | Closed   |
 
 ## Project Schedule
 
@@ -100,15 +105,22 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 </details>
 
+This KPIs refers to the [cumulative KPIs](https://docs.google.com/spreadsheets/d/1_-OPSj577hdU58cxgzBR1Y8urz92UQi0AUktgfbjqTI/edit?usp=sharing) of this project.
+
 ![KPIs Week 7](img/kpi7.png)
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action                    | Note                     | Owner                            | Status   | End Date   |
+| ------------------------- | ------------------------ | -------------------------------- | -------- | ---------- |
+| Project presentation      | Prepare the presentation | Team 8                           | To do    | 03/01/2024 |
+| Merge the project         |                          | Pierre Gorin, Laura-Lee Hollande | To do    | 02/29/2024 |
+| Create the slides         |                          | Ian Laurent, Laura-Lee Hollande  | To do    | 02/29/2024 |
+| Closure meeting           |                          | Laura-Lee Hollande               | To do    | 03/06/2024 |
+| Continue to test the code |                          | Laurent Bouquin, Evan Uhring     | On going | 02/29/2024 |
+| Writting the user manual  |                          | Manech Laguens, Victor Leroy     | On going | 02/29/2024 |
+| Testing the slides        |                          | Laurent Bouquin, Evan Uhring     | To do    | 03/01/2024 |
+| Code explanation          |                          | Manech Laguens, Victor Leroy     | To do    | 02/28/2024 |
 
 ---
 
