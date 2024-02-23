@@ -26,41 +26,227 @@ Here is a list of all the instructions and registers available. It is important 
 #### Arithmetic
 
 - `ADD` : Add the value of the second operand to the first one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 2 ; ra is now equal to 2
+		end ; End the program
+	```
 - `SUB` : Subtract the value of the second operand from the first one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 27 ; ra is now equal to 27
+		sub ra, 2  ; ra is now equal to 25
+		end ; End the program
+	```
 - `MUL` : Multiply the value of the first operand by the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 3 ; ra is now equal to 3
+		mul ra, 2 ; ra is now equal to 6
+		end ; End the program
+	```
 - `DIV` : Divide the value of the first operand by the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 10 ; ra is now equal to 10
+		div ra, 2 ; ra is now equal to 5
+		end ; End the program
+	```
 
 #### Logic
 
 - `AND` : Perform a bitwise AND operation on the two operands
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 18 ; ra is now equal to 18
+		and ra, 14 ; ra is now equal to 2
+		end ; End the program
+	```
 - `OR` : Perform a bitwise OR operation on the two operands
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		or ra, 96 ; ra is now equal to 120
+		end ; End the program
+	```
 - `XOR` : Perform a bitwise XOR operation on the two operands
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		xor ra, 94 ; ra is now equal to 70
+		end ; End the program
+	```
 - `NOT` : Perform a bitwise NOT operation on the first operand
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 90 ; ra is now equal to 90
+		not ra ; ra is now equal to 165
+		end ; End the program
+	```
 - `CMP` : Compare the two operands and set the zero flag if they are equal
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		cmp ra, 24 ; The equal state is now true & ra is still equal to 24
+		end ; End the program
+	```
 
 #### Data transfer
 
 - `MOV` : Move the value of the second operand into the first one
+	```assembly
+		; By default, the value of ra is 0
+		mov ra, 42 ; ra is now equal to 42
+		mov rb, ra ; rb is now equal to 42
+		end ; End the program
+	```
 - `CALL` : Execute the function call and return the line to jump to
+	```assembly
+		; By default, the value of ra is 0
+		mov ra, 10 ; ra is now equal to 10
+
+		call multiply ; Call the function multiply and return the line to jump to
+
+		multiply: ; Label the current line as multiply
+
+			; By default, the value of rb is 0
+			mov rb, 2 ; Set the value of rb to 2
+
+			mul ra, rb ; Multiply the value of ra by rb
+
+			ret ; Return to the line to jump to
+
+		end ; End the program
+	```
 
 #### Control flow
 
 - `JMP` : Jump to the specified line
+	```assembly
+		; By default, the value of ra is 0
+		mov ra, 10 ; ra is now equal to 10
+
+		jmp finish ; Jump to the line labeled finish
+
+		; By default, the value of rb is 0
+		mov rb, 2 ; Set the value of rb to 2
+
+		mul ra, rb ; Multiply the value of ra by rb
+
+		finish: ; Label the current line as finish
+
+		; ra is still equal to 10 & rb is still equal to 0 as the jump was executed before their modification
+
+		end ; End the program
+	```
 - `JE` : Jump to the specified line if the two operands are equal
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 24 ; The equal state is now true & ra is still equal to 24
+		
+		je finish ; Jump to the line labeled finish if the two values are equal
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	```
 - `JNE` : Jump to the specified line if the two operands are not equal
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 78 ; The equal state is now false & ra is still equal to 24
+
+		jne finish ; Jump to the line labeled finish if the two values are not equal
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	```
+
 - `JG` : Jump to the specified line if the first operand is greater than the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 4 ; The greater state is now true & ra is still equal to 24
+
+		jg finish ; Jump to the line labeled finish if the first value is greater than the second one
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	
+	```
 - `JGE` : Jump to the specified line if the first operand is greater than or equal to the second one
-- `JL` : Jump to the specified line if the first operand is less than the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 24 ; The greater state is now true & the equal state is also set to true & ra is still equal to 24
+
+		jge finish ; Jump to the line labeled finish if the first value is greater than the second one or if they are equal
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	
+	```
+- `JL` : Jump to the specified line if the first operand is lower than the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 74 ; The lower state is now false & ra is still equal to 24
+
+		jl finish ; Jump to the line labeled finish if the first value is lower than the second one
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	
+	```
 - `JLE` : Jump to the specified line if the first operand is less than or equal to the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		cmp ra, 24 ; The lower state is now true & the equal state is also set to true & ra is still equal to 24
+
+		jle finish ; Jump to the line labeled finish if the first value is lower than the second one or if they are equal
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	
+	```
 
 #### Pointers
 
 - `PRT` : Set the value of the first operand to the address of the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		prt rc, ra ; Set the value at the address of rc to the value of ra
+
+		end ; End the program
+	```
 - `PRF` : Set the value of the first operand to the value at the address of the second one
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		prf rc, ra ; Set the value of rc to the value at the address of ra
+
+		end ; End the program
+	```
 
 ### Registers
 
-There are 4 general-purpose registers available, named `ra`, `rb`, `rc` and `rd`.
+There are 26 general-purpose registers available, named `ra`, `rb`, `rc` ... `ry`, `rz`.
 
 ## Syntax snippet
 
