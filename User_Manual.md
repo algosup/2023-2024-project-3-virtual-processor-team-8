@@ -107,6 +107,8 @@ Here is a list of all the instructions and registers available. It is important 
 
 		call multiply ; Call the function multiply and return the line to jump to
 
+		jmp finish ; Jump to the line labeled finish
+
 		multiply: ; Label the current line as multiply
 
 			; By default, the value of rb is 0
@@ -115,6 +117,8 @@ Here is a list of all the instructions and registers available. It is important 
 			mul ra, rb ; Multiply the value of ra by rb
 
 			ret ; Return to the line to jump to
+
+		finish: ; Label the current line as finish
 
 		end ; End the program
 	```
