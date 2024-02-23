@@ -68,7 +68,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
-## KPIs
+## Key Performance Indicator[^3]
 
 <details>
 
@@ -84,7 +84,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **Test case:** Number of test that passed.
    - **No review:** No review was initiated.
    - **Review:** The documentation has been reviewved.
-   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues are closed.
+   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues[^4] are closed.
 
 3. **Language KPIs:**
    - **0%:** Nothing done.
@@ -92,14 +92,17 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **70%:** Difined.
    - **100%:** Validated by the group.
 
-4. **Parser KPIs:**
+4. **Parser & Interpreter KPIs:**
    - **Not started:** We have not started working on the feature.
    - **On going:** We have started working on the feature.
    - **Pushed:** The feature is done and push in the ```dev branch```, ready to be tested.
    - **Pushed and tested:** The feature is tested, ready to be merged.
    - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+   - **Instrustions:** Number of instructions that worked and was tested.
 
 </details>
+
+This KPIs refers to the [cumulative KPIs](https://docs.google.com/spreadsheets/d/1_-OPSj577hdU58cxgzBR1Y8urz92UQi0AUktgfbjqTI/edit?usp=sharing) of this project.
 
 ![KPIs Week 5](img/kpi5.png)
 
@@ -114,5 +117,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 [^1]: Risk is any unexpected event that can affect your project — for better or for worse. Risk can affect anything: people, processes, technology, and resources. [...] Risks are events that might happen, and you may not be able to tell when.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
-[^2]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
-*source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
+[^3]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+*source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*
+[^4]: GitHub issue is a tool to track ideas, feedback, tasks, or bugs for work on GitHub.
+*source : [Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)*
