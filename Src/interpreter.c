@@ -1001,6 +1001,11 @@ unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, us
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2, registers_used);
 
+	if ((getRegisterValue(registers, parameter1) - getRegisterValue(registers, parameter2)) < 0){
+		printf("Error: Cannot subtract a larger number from a smaller number\n");
+		exit(1);
+	}
+
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
 
