@@ -65,30 +65,46 @@ There are 4 general-purpose registers available, named `ra`, `rb`, `rc` and `rd`
 ## Syntax snippet
 
 ```assembly
-mov ra, [rc]
-prf ra, rb
-mov rb, 0
-cmp rb, 0
-jmp rel
-ess:
-	mov rd, 178
-	add rd, 2
-	div rd, 2
-	ret
-nd:
-	cmp ra, 0
-	je tes
-rel:
-	add rb, 1
-	mul rb, 8
-	cmp rb, 2
-	je nd
-	call ess
-tes:
-	add rc, 1 ; test
-	mul rc, 178
-	; here is another test
-	prt rd, ra
-end
+mov ra, 64				; Set the value of ra to 64
+
+mov rb, 2				; Set the value of rb to 2
+
+prt rc, ra				; Set the value of rc to the address of ra
+
+prf re, rc				; Set the value of re to the value at the address of reduce
+
+mul ra, rb				; Multiply the value of ra by rb
+
+
+main:					; Label the current line as main
+
+    mov rd, ra			; Set the value of rd to the value of ra
+
+
+    reduce:				; Label the current line as reduce
+
+        sub rd, 1		; Subtract 1 from the value of rd
+
+        cmp rd, 100		; Compare the value of rd to 100
+
+        jne reduce		; Jump to the line labeled reduce if the two values are not equal
+
+    call multiply		; Call the function multiply and return the line to jump to
+
+    jmp finish			; Jump to the line labeled finish
+
+
+multiply:				; Label the current line as multiply
+
+    mov rc, 3			; Set the value of rc to 3
+
+    mul rd, rc			; Multiply the value of rd by the value of reduce
+
+    ret					; Return to the line to jump to
+
+
+finish:					; Label the current line as finish
+
+    end					; End the program
 ```
     
