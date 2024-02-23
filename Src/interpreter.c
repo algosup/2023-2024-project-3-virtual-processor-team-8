@@ -965,6 +965,17 @@ unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, us
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2, registers_used);
 
+	// Get the result of the operation
+	int result = getRegisterValue(registers, parameter1) + getRegisterValue(registers, parameter2);
+
+	// Check if the result is negative
+	if (result < 0){
+
+		// Print an error message
+		printf("Error: The result of an operation can't be a negative number\n");
+		exit(1);
+	}
+
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
@@ -1001,8 +1012,14 @@ unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, us
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2, registers_used);
 
-	if ((getRegisterValue(registers, parameter1) - getRegisterValue(registers, parameter2)) < 0){
-		printf("Error: Cannot subtract a larger number from a smaller number\n");
+	// Get the result of the operation
+	int result = getRegisterValue(registers, parameter1) - getRegisterValue(registers, parameter2);
+
+	// Check if the result is negative
+	if (result < 0){
+
+		// Print an error message
+		printf("Error: The result of an operation can't be a negative number\n");
 		exit(1);
 	}
 
@@ -1041,6 +1058,18 @@ unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, us
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2, registers_used);
 
+	
+	// Get the result of the operation
+	int result = getRegisterValue(registers, parameter1) * getRegisterValue(registers, parameter2);
+
+	// Check if the result is negative
+	if (result < 0){
+
+		// Print an error message
+		printf("Error: The result of an operation can't be a negative number\n");
+		exit(1);
+	}
+
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
@@ -1076,6 +1105,17 @@ unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, us
 
 	// Check if the second parameter is a register
 	int isRegister2 = isRegister(parameter2, registers_used);
+
+	// Get the result of the operation
+	int result = getRegisterValue(registers, parameter1) / getRegisterValue(registers, parameter2);
+
+	// Check if the result is negative
+	if (result < 0){
+
+		// Print an error message
+		printf("Error: The result of an operation can't be a negative number\n");
+		exit(1);
+	}
 
 	// If the second parameter is not a register
 	if (isRegister2 == 0){
