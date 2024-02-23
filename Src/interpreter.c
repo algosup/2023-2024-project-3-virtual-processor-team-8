@@ -972,6 +972,7 @@ unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, us
 	if (result < 0){
 
 		// Print an error message
+		printf("\e[1;1H\e[2J");
 		printf("Error: The result of an operation can't be a negative number\n");
 		exit(1);
 	}
@@ -1019,6 +1020,7 @@ unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, us
 	if (result < 0){
 
 		// Print an error message
+		printf("\e[1;1H\e[2J");
 		printf("Error: The result of an operation can't be a negative number\n");
 		exit(1);
 	}
@@ -1066,6 +1068,7 @@ unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, us
 	if (result < 0){
 
 		// Print an error message
+		printf("\e[1;1H\e[2J");
 		printf("Error: The result of an operation can't be a negative number\n");
 		exit(1);
 	}
@@ -1113,6 +1116,7 @@ unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, us
 	if (result < 0){
 
 		// Print an error message
+		printf("\e[1;1H\e[2J");
 		printf("Error: The result of an operation can't be a negative number\n");
 		exit(1);
 	}
