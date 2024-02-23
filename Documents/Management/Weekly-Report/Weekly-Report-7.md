@@ -14,7 +14,7 @@ A minor team conflict emerged concerning a code-related decision, specifically r
 
 Team member absences occurred, necessitating a recap to ensure everyone is on the same page and updated on recent developments.
   
-The deadline for the code. The team succeeded to deliver the [code](link) on time.
+The deadline for the code. The team succeeded to deliver the [code](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/tree/v1.0.0) on time.
 
 ## Project Key parameters
 
