@@ -78,27 +78,27 @@ mul ra, rb				; Multiply the value of ra by rb
 
 main:					; Label the current line as main
 
-    mov rd, ra			; Set the value of rd to the value of ra
+    mov rd, ra				; Set the value of rd to the value of ra
 
 
     reduce:				; Label the current line as reduce
 
-        sub rd, 1		; Subtract 1 from the value of rd
+        sub rd, 1			; Subtract 1 from the value of rd
 
-        cmp rd, 100		; Compare the value of rd to 100
+        cmp rd, 100			; Compare the value of rd to 100
 
-        jne reduce		; Jump to the line labeled reduce if the two values are not equal
+        jne reduce			; Jump to the line labeled reduce if the two values are not equal
 
-    call multiply		; Call the function multiply and return the line to jump to
+    call multiply			; Call the function multiply and return the line to jump to
 
-    jmp finish			; Jump to the line labeled finish
+    jmp finish				; Jump to the line labeled finish
 
 
 multiply:				; Label the current line as multiply
 
-    mov rc, 3			; Set the value of rc to 3
+    mov rc, 3				; Set the value of rc to 3
 
-    mul rd, rc			; Multiply the value of rd by the value of reduce
+    mul rd, rc				; Multiply the value of rd by the value of reduce
 
     ret					; Return to the line to jump to
 
