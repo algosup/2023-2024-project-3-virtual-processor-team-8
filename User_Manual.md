@@ -39,6 +39,22 @@ If there is no error, the terminal window will display the result of the program
 ## Output
 
 The virtual processor will display the result of the program in the terminal window. If the program ends without any error, the terminal window will display the value of the registers used in the program at the end of the terminal.
+This assembly program,
+```asm
+mov ra, 50
+mov rb, 2
+mul ra, rb
+mov rd, ra
+call multiply
+jmp finish
+multiply:
+	mov rc, 3
+	mul rd, rc
+	ret
+finish:
+end
+```
+will display the following result:
 ```shell
 ============================================================
 Setting ra to 50
