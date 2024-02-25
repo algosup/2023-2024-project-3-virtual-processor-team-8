@@ -2,18 +2,78 @@
 
 ## Installation
 
-1. GitHub
-You will find all the files needed to run the virtual processor in our [GitHub repository](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8)
+#### 1. GitHub
+You will find all the files needed to run the virtual processor in our [release history](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/releases).
 
-2. Installation pack
+#### 2. Installation pack
+Once you are the releases page, download the latest version of the virtual processor (.zip or .tar.gz) and extract it to the location of your choice.
 
-## cmd file
+### Windows users
+
+To run the virtual processor, you will need to install the latest version of [MinGW](https://sourceforge.net/projects/mingw/), and [configure the path to the bin folder in the environment variables](https://techdecodetutorials.com/how-to-install-mingw-c-c-compiler-in-windows-11/).
+
+### MacOs users
 
 ![WIP]
 
-## Path to the file .asm
+## Launch the virtual processor
 
-![WIP]
+### Windows users
+
+To launch the virtual processor, open the folder where you extracted the files and double-click on the `Virtual_Processor.cmd` file.
+That will launch a terminal window and the virtual processor will be ready to use.
+The terminal window will ask you if you want to enter the path to the file you want to execute. You will need to answer `y` to enter the path of your file at least once and the next time you can refuse to enter the path by answering `n` to the question.
+In case of a syntax error, the terminal window will display the error message and the line where the error was found (e.g. `Syntax error at line 8: lrf is not an instruction`).
+If there is no error, the terminal window will display the result of the program.
+
+
+### MacOs users
+
+To launch the virtual processor, open the folder where you extracted the files and double-click on the `Virtual_Processor.sh` file.
+That will launch a terminal window and the virtual processor will be ready to use.
+The terminal window will ask you to enter the path to the file you want to execute.
+In case of a syntax error, the terminal window will display the error message and the line where the error was found (e.g. `Syntax error at line 8: lrf is not an instruction`).
+If there is no error, the terminal window will display the result of the program.
+
+
+## Output
+
+The virtual processor will display the result of the program in the terminal window. If the program ends without any error, the terminal window will display the value of the registers used in the program at the end of the terminal.
+```shell
+============================================================
+Setting ra to 50
+ra is now equal to 50
+============================================================
+Setting rb to 2
+rb is now equal to 2
+============================================================
+Multiplying ra by rb
+ra is now equal to 100
+============================================================
+Setting rd to ra
+rd is now equal to 100
+============================================================
+Calling multiply
+============================================================
+Setting rc to 3
+rc is now equal to 3
+============================================================
+Multiplying rd by rc
+rd is now equal to 300
+============================================================
+Returning to the line after the call
+============================================================
+Jumping to finish
+============================================================
+Ending the program
+============================================================
+ra: 100
+rb: 2
+rc: 3
+rd: 300
+```
+
+
 
 ## Syntax description
 
