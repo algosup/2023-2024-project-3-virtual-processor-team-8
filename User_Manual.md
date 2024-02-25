@@ -79,7 +79,18 @@ rd: 300
 
 Our virtual processor uses a custom assembly language, largely inspired by the original one. 
 
-Here is a list of all the instructions and registers available. It is important to note that the syntax is case-sensitive. 
+Here is a list of all the instructions and registers available. It is important to note that the syntax is case-sensitive (all the instructions are in lowercase). 
+
+### Registers and memory
+
+There are 26 general-purpose registers available, named `ra`, `rb`, `rc` ... `ry`, `rz`.
+
+The memory is also accessible through special instructions, `prt` and `prf`, which can be used in the range of a variable named `MAX_VMEMORY` (default value is 256) located in the `interpreter.h` file at line 4.
+To change the value of the memory, you will need to change the value of the variable.
+```c
+#define MAX_VMEMORY 256
+```
+
 
 ### Instructions
 
@@ -308,9 +319,6 @@ Here is a list of all the instructions and registers available. It is important 
 		end ; End the program
 	```
 
-### Registers
-
-There are 26 general-purpose registers available, named `ra`, `rb`, `rc` ... `ry`, `rz`.
 
 ## Syntax snippet
 
