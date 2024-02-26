@@ -6,7 +6,7 @@
 You will find all the files needed to run the virtual processor in our [release history](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/releases).
 
 #### 2. Installation pack
-Once you are the releases page, download the latest version of the virtual processor (.zip or .tar.gz) and extract it to the location of your choice.
+Once you have the release pack, download the latest version of the virtual processor (.zip or .tar.gz) and extract it to your local driver choosing the location of the file.
 
 ### Windows users
 
@@ -14,7 +14,7 @@ To run the virtual processor, you will need to install the latest version of [Mi
 
 ### MacOs users
 
-To run the virtual processor, you will need to install the latest version of GCC. You can do so by running the following command in your terminal:
+To run the virtual processor, you will need to install the latest version of GCC compilor. You can do so by running the following command in your terminal:
 ```shell
 brew install gcc
 ```
@@ -24,7 +24,7 @@ brew install gcc
 
 To launch the virtual processor, open the folder where you extracted the files and double-click on the `Virtual_Processor.cmd` file.
 That will launch a terminal window and the virtual processor will be ready to use.
-The terminal window will ask you if you want to enter the path to the file you want to execute. You will need to answer `y` to enter the path of your file at least once and the next time you can refuse to enter the path by answering `n` to the question.
+The terminal window will ask you if you want to enter the path to the file you want to execute. You will need to answer `y` to enter the path of your file at least once and the next time you can refuse to enter the path by answering `n` to the question which will run the previously added path.
 In case of a syntax error, the terminal window will display the error message and the line where the error was found (e.g. `Syntax error at line 8: lrf is not an instruction`).
 If there is no error, the terminal window will display the result of the program.
 
