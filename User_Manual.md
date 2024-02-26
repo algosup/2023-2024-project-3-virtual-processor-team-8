@@ -6,7 +6,7 @@
 You will find all the files needed to run the virtual processor in our [release history](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/releases).
 
 #### 2. Installation pack
-Once you have the release pack, download the latest version of the virtual processor (.zip or .tar.gz) and extract it to your local driver choosing the location of the file.
+Once you are on the releases page, download the latest version of the virtual processor (.zip or .tar.gz) and extract it to your local driver choosing the location of the file.
 
 ### Windows users
 
@@ -14,7 +14,7 @@ To run the virtual processor, you will need to install the latest version of [Mi
 
 ### MacOs users
 
-To run the virtual processor, you will need to install the latest version of GCC compilor. You can do so by running the following command in your terminal:
+To run the virtual processor, you will need to install the latest version of GCC compiler. You can do so by running the following command in your terminal:
 ```shell
 brew install gcc
 ```
@@ -117,28 +117,50 @@ To change the value of the memory, you will need to change the value of the vari
 - `ADD` : Add the value of the second operand to the first one
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 2 ; ra is now equal to 2
+		
 		end ; End the program
 	```
 - `SUB` : Subtract the value of the second operand from the first one
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 27 ; ra is now equal to 27
+		
 		sub ra, 2  ; ra is now equal to 25
+		
 		end ; End the program
 	```
 - `MUL` : Multiply the value of the first operand by the second one
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 3 ; ra is now equal to 3
+		
 		mul ra, 2 ; ra is now equal to 6
+		
 		end ; End the program
 	```
 - `DIV` : Divide the value of the first operand by the second one
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 10 ; ra is now equal to 10
+		
 		div ra, 2 ; ra is now equal to 5
+		
+		end ; End the program
+	```
+- `SQR` : Set the first operand to the square root of the second one
+	```assembly
+		; By default, the value of ra is 0
+		
+		add ra, 25 ; ra is now equal to 25
+		
+		
+		sqr ra ; ra is now equal to 5
+		
 		end ; End the program
 	```
 
@@ -147,36 +169,51 @@ To change the value of the memory, you will need to change the value of the vari
 - `AND` : Perform a bitwise AND operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 18 ; ra is now equal to 18
+		
 		and ra, 14 ; ra is now equal to 2
+		
 		end ; End the program
 	```
 - `OR` : Perform a bitwise OR operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 24 ; ra is now equal to 24
+		
 		or ra, 96 ; ra is now equal to 120
+		
 		end ; End the program
 	```
 - `XOR` : Perform a bitwise XOR operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 24 ; ra is now equal to 24
+		
 		xor ra, 94 ; ra is now equal to 70
+		
 		end ; End the program
 	```
 - `NOT` : Perform a bitwise NOT operation on the first operand
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 90 ; ra is now equal to 90
+		
 		not ra ; ra is now equal to 165
+		
 		end ; End the program
 	```
 - `CMP` : Compare the two operands and set the zero flag if they are equal
 	```assembly
 		; By default, the value of ra is 0
+		
 		add ra, 24 ; ra is now equal to 24
+		
 		cmp ra, 24 ; The equal state is now true & ra is still equal to 24
+		
 		end ; End the program
 	```
 
@@ -314,6 +351,35 @@ To change the value of the memory, you will need to change the value of the vari
 
 		end ; End the program
 	
+	```
+- `RET` : Return to the line jumped from
+	```assembly
+		; By default, the value of ra is 0
+		mov ra, 10 ; ra is now equal to 10
+
+		call multiply ; Call the function multiply and return the line to jump to
+
+		jmp finish ; Jump to the line labeled finish
+
+		multiply: ; Label the current line as multiply
+
+		; By default, the value of rb is 0
+		mov rb, 2 ; Set the value of rb to 2
+
+		mul ra, rb ; Multiply the value of ra by rb
+
+		ret ; Return to the line where the call was executed
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	```
+- `END` : End the program
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 24 ; ra is now equal to 24
+		
+		end ; End the program
 	```
 
 #### Pointers
