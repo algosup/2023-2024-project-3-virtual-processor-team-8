@@ -117,7 +117,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `ADD` : Add the value of the second operand to the first one
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 2 ; ra is now equal to 2
 		
 		end ; End the program
@@ -125,7 +124,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `SUB` : Subtract the value of the second operand from the first one
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 27 ; ra is now equal to 27
 		
 		sub ra, 2  ; ra is now equal to 25
@@ -135,7 +133,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `MUL` : Multiply the value of the first operand by the second one
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 3 ; ra is now equal to 3
 		
 		mul ra, 2 ; ra is now equal to 6
@@ -145,7 +142,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `DIV` : Divide the value of the first operand by the second one
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 10 ; ra is now equal to 10
 		
 		div ra, 2 ; ra is now equal to 5
@@ -155,7 +151,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `SQR` : Set the first operand to the square root of the second one
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 25 ; ra is now equal to 25
 		
 		sqr ra ; ra is now equal to 5
@@ -168,7 +163,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `AND` : Perform a bitwise AND operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 18 ; ra is now equal to 18
 		
 		and ra, 14 ; ra is now equal to 2
@@ -178,7 +172,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `OR` : Perform a bitwise OR operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 24 ; ra is now equal to 24
 		
 		or ra, 96 ; ra is now equal to 120
@@ -188,7 +181,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `XOR` : Perform a bitwise XOR operation on the two operands
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 24 ; ra is now equal to 24
 		
 		xor ra, 94 ; ra is now equal to 70
@@ -198,7 +190,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `NOT` : Perform a bitwise NOT operation on the first operand
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 90 ; ra is now equal to 90
 		
 		not ra ; ra is now equal to 165
@@ -208,7 +199,6 @@ To change the value of the memory, you will need to change the value of the vari
 - `CMP` : Compare the two operands and set the zero flag if they are equal
 	```assembly
 		; By default, the value of ra is 0
-		
 		add ra, 24 ; ra is now equal to 24
 		
 		cmp ra, 24 ; The equal state is now true & ra is still equal to 24
@@ -222,7 +212,9 @@ To change the value of the memory, you will need to change the value of the vari
 	```assembly
 		; By default, the value of ra is 0
 		mov ra, 42 ; ra is now equal to 42
+		
 		mov rb, ra ; rb is now equal to 42
+		
 		end ; End the program
 	```
 - `CALL` : Execute the function call and return the line to jump to
