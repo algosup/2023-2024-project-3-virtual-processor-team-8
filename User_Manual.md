@@ -158,7 +158,6 @@ To change the value of the memory, you will need to change the value of the vari
 		
 		add ra, 25 ; ra is now equal to 25
 		
-		
 		sqr ra ; ra is now equal to 5
 		
 		end ; End the program
@@ -227,6 +226,28 @@ To change the value of the memory, you will need to change the value of the vari
 		end ; End the program
 	```
 - `CALL` : Execute the function call and return the line to jump to
+	```assembly
+		; By default, the value of ra is 0
+		mov ra, 10 ; ra is now equal to 10
+
+		call multiply ; Call the function multiply and return the line to jump to
+
+		jmp finish ; Jump to the line labeled finish
+
+		multiply: ; Label the current line as multiply
+
+			; By default, the value of rb is 0
+			mov rb, 2 ; Set the value of rb to 2
+
+			mul ra, rb ; Multiply the value of ra by rb
+
+			ret ; Return to the line to jump to
+
+		finish: ; Label the current line as finish
+
+		end ; End the program
+	```
+- `RET` : Return to the line jumped from
 	```assembly
 		; By default, the value of ra is 0
 		mov ra, 10 ; ra is now equal to 10
@@ -351,28 +372,6 @@ To change the value of the memory, you will need to change the value of the vari
 
 		end ; End the program
 	
-	```
-- `RET` : Return to the line jumped from
-	```assembly
-		; By default, the value of ra is 0
-		mov ra, 10 ; ra is now equal to 10
-
-		call multiply ; Call the function multiply and return the line to jump to
-
-		jmp finish ; Jump to the line labeled finish
-
-		multiply: ; Label the current line as multiply
-
-		; By default, the value of rb is 0
-		mov rb, 2 ; Set the value of rb to 2
-
-		mul ra, rb ; Multiply the value of ra by rb
-
-		ret ; Return to the line where the call was executed
-
-		finish: ; Label the current line as finish
-
-		end ; End the program
 	```
 - `END` : End the program
 	```assembly
