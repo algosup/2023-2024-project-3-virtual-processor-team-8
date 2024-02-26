@@ -14,8 +14,10 @@ To run the virtual processor, you will need to install the latest version of [Mi
 
 ### MacOs users
 
-![WIP]
-
+To run the virtual processor, you will need to install the latest version of GCC. You can do so by running the following command in your terminal:
+```shell
+brew install gcc
+```
 ## Launch the virtual processor
 
 ### Windows users
