@@ -9,7 +9,7 @@ The goal of this project is to develop a virtual processor along with an interpr
 
 [**Technical Specification:**](Documents/Specs/Technical-Specifications.md) Describing the operation of the C program interpreter and its functionalities.
 
-[**User Manual:**](Documents/Specs/Manual.pdf) Providing instructions for using the virtual processor and the interpreter.
+[**User Manual:**](./User_Manual.md) Providing instructions for using the virtual processor and the interpreter.
 
 [**Test Plan:**](Documents/Specs/Test-Plan.md) Outlining the testing strategy and the unit tests to be performed.
 
