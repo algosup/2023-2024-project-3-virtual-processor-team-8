@@ -13,6 +13,7 @@ int main(){
 	// Define the file path
 	char* line = getLine(getFile("./path.txt"), 1);
 	line[strlen(line)-1] = '\0';
+	printf("%s\n", line);
 	const char* file = line;
 
 	// Go through the array of structures and execute the corresponding function
