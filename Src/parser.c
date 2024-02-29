@@ -47,7 +47,7 @@ void *getFile(const char* path){
 		int line = 0;
 
 		// Allocate memory for the line content
-		char *lineContent = (char *)malloc(100 * sizeof(char));
+		char *lineContent = (char *)malloc(200 * sizeof(char));
 
 		// Set the first character of the line content to null to make the line content an empty string
 		lineContent[0] = '\0';
@@ -63,7 +63,7 @@ void *getFile(const char* path){
 				if (lineContent[0] != '\0' && lineContent != NULL){
 
 					// Allocate memory for the line
-					lines[line] = (char *)malloc(100 * sizeof(char));
+					lines[line] = (char *)malloc(200 * sizeof(char));
 
 					// Add the line content to the array of lines
 					strncat(lineContent, &ch, 1);
@@ -77,7 +77,7 @@ void *getFile(const char* path){
 				}
 				else {
 					// Allocate memory for the line
-					lines[line] = (char *)malloc(5 * sizeof(char));
+					lines[line] = (char *)malloc(100 * sizeof(char));
 
 					// Add the line content to the array of lines
 					strncat(lineContent, &ch, 1);
@@ -120,12 +120,13 @@ void *getFile(const char* path){
 			// Add the line content to the array of lines
 			sprintf(lines[line], lineContent);
 		}
+		free(lineContent);
 	}
-
-	return lines;
 
 	// Close the file
 	fclose(fp);
+
+	return lines;
 }
 
 unsigned int getSize(const char* path){
@@ -288,6 +289,8 @@ void *getStructs(char **lines, unsigned int size){
 
 		// Set the line parameter of the structure
 		str[0] = '\0';
+
+		free(func);
 	}
 
 	// Return the array of structures
@@ -368,6 +371,9 @@ unsigned int switchStr(char *str){
 	else if (strcmp(str, "div") == 0){
 		return 1;
 	}
+	else if (strcmp(str, "mod") == 0){
+		return 1;
+	}
 	else if (strcmp(str, "sqr") == 0){
 		return 1;
 	}
@@ -390,9 +396,6 @@ unsigned int switchStr(char *str){
 
 	// If string is a register, return 2
 	else if (str[0] == 'r' && strspn(str, "abcdefghijklmnopqrstuvwxyz") == 2 && strlen(str) == 2){
-		return 2;
-	}
-	else if (str[0] == '['){
 		return 2;
 	}
 
@@ -555,11 +558,6 @@ int isRegister(char *parameter, used_t *registers_used){
 
 		// Return 1 if the parameter is a register
 		return 1;
-	}
-	else if (parameter[0] == '['){
-
-		// Return 2 if the parameter is an address
-		return 2;
 	}
 	else if (isANumber(parameter) == 1){
 
