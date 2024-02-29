@@ -4,9 +4,17 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 9h15
 
 ### Project summary
+
+The team held its regular meeting to discuss on the following tasks and share the information with the teammates who were missing the previous week.
+
+We also held a code presentation and organize a code review to discuss about the code.
+
+The deadline for the test plan. The team succeeded to deliver the [test plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/main/Documents/Specs/Test-Plan.md) on time.
+
+We managed some files name issues and updated the gitignore.
 
 ## Project Key parameters
 
@@ -41,23 +49,20 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status | Comments       |
+| --------- | ------ | -------------- |
+| Scope     | On     | All Ok         |
+| Schedule  | On     | No delays      |
+| Risks     | /      | No major risk  |
+| Issues    | /      | No major issue |
+| Quality   | On     | All Ok         |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner                           | Status |
+| ----------- | --------------------------------------- | ------------------------------- | ------ |
+| Risk 1      | Absence of some teammates due to illnes | Laura-Lee Hollande, Evan Uhring | Closed |
+| Issue 1     | file name problem src/Src               | Laurent Bouquin                 | Closed |
 
 ## Project Schedule
 
@@ -67,7 +72,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 
 ```The current week is highlighted in red and the weeks are based on the real time weeks number.```
 
-## KPIs
+## Key Performance Indicator[^3]
 
 <details>
 
@@ -83,7 +88,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **Test case:** Number of test that passed.
    - **No review:** No review was initiated.
    - **Review:** The documentation has been reviewved.
-   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues are closed.
+   - **Review and fix:** The documentation has been reviewved and all the GitHub Issues[^4] are closed.
 
 3. **Language KPIs:**
    - **0%:** Nothing done.
@@ -91,24 +96,28 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
    - **70%:** Difined.
    - **100%:** Validated by the group.
 
-4. **Parser KPIs:**
+4. **Parser & Interpreter KPIs:**
    - **Not started:** We have not started working on the feature.
    - **On going:** We have started working on the feature.
    - **Pushed:** The feature is done and push in the ```dev branch```, ready to be tested.
    - **Pushed and tested:** The feature is tested, ready to be merged.
    - **Implemented:** The feature has been coded, pushed in the ```dev branch```, tested and merged in the main branch with no conflict.
+   - **Instrustions:** Number of instructions that worked and was tested.
 
 </details>
+
+This KPIs refers to the [cumulative KPIs](https://docs.google.com/spreadsheets/d/1_-OPSj577hdU58cxgzBR1Y8urz92UQi0AUktgfbjqTI/edit?usp=sharing) of this project.
 
 ![KPIs Week 6](img/kpi6.png)
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action                                        | Note                         | Owner                                                      | Status | End Date |
+| --------------------------------------------- | ---------------------------- | ---------------------------------------------------------- | ------ | -------- |
+| Writing the usage instructions                | Need to be done and reviewed | Ian Laurent, Pierre Gorin, Evan Uhring                     | To do  | 02/23/24 |
+| Iniate some test of our code with other teams |                              | Laurent Bouquin                                            | To do  | 02/23/24 |
+| Finish the last instructions and test         |                              | Victor Leroy, Manech Laguens, Laurent Bouquin, Evan Uhring | Doing  | 02/23/24 |
+| Merge our work in the main branch             |                              | Pierre Gorin, Laura-Lee Hollande                           | To do  | 02/23/24 |
 
 ---
 
@@ -116,3 +125,7 @@ This schedule refers to the [Gantt Chart](https://github.com/algosup/2023-2024-p
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
 [^2]: Issues are things you know you’ll have to deal with, and may even have an idea of when they’ll occur.
 *source : [Wrike](https://www.wrike.com/project-management-guide/faq/what-is-risk-in-project-management/)*
+[^3]: A quantifiable measure of performance over time for a specific objective. KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+*source : [Qlik](https://www.qlik.com/us/kpi#:~:text=KPI%20stands%20for%20key%20performance,the%20organization%20make%20better%20decisions.)*
+[^4]: GitHub issue is a tool to track ideas, feedback, tasks, or bugs for work on GitHub.
+*source : [Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)*
