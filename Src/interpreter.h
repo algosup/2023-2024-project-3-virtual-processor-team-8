@@ -137,23 +137,23 @@ unsigned int getRegisterValue(reg_t *regs, char *regist);
 
 
 // Make an addition between the two parameters
-unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line);
 
 
 // Make a subtraction between the two parameters
-unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line);
 
 
 // Make a multiplication between the two parameters
-unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line);
 
 
 // Make a division between the two parameters
-unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line);
 
 
 // Make a division between the two parameters
-unsigned int executeMOD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used);
+unsigned int executeMOD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line);
 
 
 // Make a square root of the second parameter and set the value to the first

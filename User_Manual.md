@@ -157,6 +157,16 @@ To change the value of the memory, you will need to change the value of the vari
 		
 		end ; End the program
 	```
+- `MOD` : Set the first operand to the modulo of the division of the two operands
+	```assembly
+		; By default, the value of ra is 0
+		add ra, 25 ; ra is now equal to 25
+		mov rb, 3 ; rb is now equal to 3
+		
+		mod ra, rb ; ra is now equal to 1
+		
+		end ; End the program
+	```
 
 #### Logic
 

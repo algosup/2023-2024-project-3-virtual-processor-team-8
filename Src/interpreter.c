@@ -58,7 +58,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Adding %s to %s\n", func->parameter2, func->parameter1);
 
 		// Execute the function add
-		executeADD(func->parameter1, func->parameter2, regs, registers_used);
+		executeADD(func->parameter1, func->parameter2, regs, registers_used, i);
 
 		updateUsedregister(registers_used, func-> parameter1);
 		updateUsedregister(registers_used, func-> parameter2);
@@ -78,7 +78,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Subtracting %s from %s\n", func->parameter2, func->parameter1);
 
 		// Execute the function sub
-		executeSUB(func->parameter1, func->parameter2, regs, registers_used);
+		executeSUB(func->parameter1, func->parameter2, regs, registers_used, i);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -95,7 +95,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Multiplying %s by %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function mul
-		executeMUL(func->parameter1, func->parameter2, regs, registers_used);
+		executeMUL(func->parameter1, func->parameter2, regs, registers_used, i);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -112,7 +112,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Dividing %s by %s\n", func->parameter1, func->parameter2);
 
 		// Execute the function div
-		executeDIV(func->parameter1, func->parameter2, regs, registers_used);
+		executeDIV(func->parameter1, func->parameter2, regs, registers_used, i);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -129,7 +129,7 @@ unsigned int redirectToFunction(func_t *func, reg_t *regs, int i, state_t *state
 		printf("Getting the Modulo of \"%s / %s\"\n", func->parameter1, func->parameter2);
 
 		// Execute the function div
-		executeMOD(func->parameter1, func->parameter2, regs, registers_used);
+		executeMOD(func->parameter1, func->parameter2, regs, registers_used, i);
 
 		// Print the value of the register
 		printf("%s is now equal to %d\n", func->parameter1, getRegisterValue(regs, func->parameter1));
@@ -520,7 +520,7 @@ unsigned int executeJMP(char *parameter, const char* file){
 	func_t *fs = getStructs(getFile(file), getSize(file));
 
 	// Get the position of the function to jump to
-	unsigned int position = getPosition(fs, parameter, getSize(file));
+	int position = getPosition(fs, parameter, getSize(file));
 
 	if (position == -1){
 		printf("\e[1;1H\e[2J");
@@ -546,7 +546,7 @@ unsigned int executeCALL(char *parameter1, int line, call_t *call, const char* f
 
 
 	// Get the position of the function to jump to
-	unsigned int position = getPosition(fs, parameter1, getSize(file));
+	int position = getPosition(fs, parameter1, getSize(file));
 
 	if (position == -1){
 		printf("\e[1;1H\e[2J");
@@ -986,7 +986,7 @@ unsigned int getRegisterValue(reg_t *regs, char *regist){
 	}
 }
 
-unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1002,7 +1002,7 @@ unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Print an error message
 		printf("\e[1;1H\e[2J");
-		printf("Error: The result of an operation can't be a negative number\n");
+		printf("Error at line %d: The result of an operation can't be a negative number\n", line);
 		exit(1);
 	}
 
@@ -1034,7 +1034,7 @@ unsigned int executeADD(char *parameter1, char *parameter2, reg_t *registers, us
 	}
 }
 
-unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1050,7 +1050,7 @@ unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Print an error message
 		printf("\e[1;1H\e[2J");
-		printf("Error: The result of an operation can't be a negative number\n");
+		printf("Error at line %d: The result of an operation can't be a negative number\n", line);
 		exit(1);
 	}
 
@@ -1081,7 +1081,7 @@ unsigned int executeSUB(char *parameter1, char *parameter2, reg_t *registers, us
 	}
 }
 
-unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1098,7 +1098,7 @@ unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Print an error message
 		printf("\e[1;1H\e[2J");
-		printf("Error: The result of an operation can't be a negative number\n");
+		printf("Error at line %d: The result of an operation can't be a negative number\n", line);
 		exit(1);
 	}
 
@@ -1130,7 +1130,13 @@ unsigned int executeMUL(char *parameter1, char *parameter2, reg_t *registers, us
 	}
 }
 
-unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line){
+
+	if (getRegisterValue(registers, parameter2) == 0){
+		printf("\e[1;1H\e[2J");
+		printf("Error at line %d: Division by zero is impossible\n", line);
+		exit(1);
+	}
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1146,7 +1152,7 @@ unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Print an error message
 		printf("\e[1;1H\e[2J");
-		printf("Error: The result of an operation can't be a negative number\n");
+		printf("Error at line %d: The result of an operation can't be a negative number\n", line);
 		exit(1);
 	}
 
@@ -1177,7 +1183,7 @@ unsigned int executeDIV(char *parameter1, char *parameter2, reg_t *registers, us
 	}
 }
 
-unsigned int executeMOD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used){
+unsigned int executeMOD(char *parameter1, char *parameter2, reg_t *registers, used_t *registers_used, int line){
 
 	// Check if the first parameter is a register
 	int isRegister1 = isRegister(parameter1, registers_used);
@@ -1193,7 +1199,7 @@ unsigned int executeMOD(char *parameter1, char *parameter2, reg_t *registers, us
 
 		// Print an error message
 		printf("\e[1;1H\e[2J");
-		printf("Error: The result of an operation can't be a negative number\n");
+		printf("Error at line %d: The result of an operation can't be a negative number\n", line);
 		exit(1);
 	}
 
@@ -1410,7 +1416,7 @@ void executePRT(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	// Prepare the address given by the value of the parameter 1
 	int address = getRegisterValue(registers, parameter1);
 
-	if (getRegisterValue(registers, parameter1) < 0 || getRegisterValue(registers, parameter1) > 256){
+	if (getRegisterValue(registers, parameter1) < 0 || getRegisterValue(registers, parameter1) > MAX_VMEMORY){
 		printf("\e[1;1H\e[2J");
 		printf("Error: Address out of range at line %d\n", line);
 		printf("The address shouldn't be over %d\n", MAX_VMEMORY);
@@ -1430,7 +1436,7 @@ void executePRF(char *parameter1, char *parameter2, reg_t *registers, used_t *re
 	// Prepare the address given by the value of the parameter 2
 	int address = getRegisterValue(registers, parameter2);
 
-	if (address < 0 || address > 256){
+	if (address < 0 || address > MAX_VMEMORY){
 		printf("\e[1;1H\e[2J");
 		printf("Error: Address out of range at line %d\n", line);
 		printf("The address shouldn't be over %d\n", MAX_VMEMORY);
