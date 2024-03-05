@@ -4,9 +4,17 @@
 
 - **Project Name:** Virtual Processor
 - **Project Manager:** Laura-Lee Hollande
-- **Project time (hours):** 00h00
+- **Project time (hours):** 13h00
 
 ### Project summary
+
+Completed the [user manual](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-8/blob/v1.0.1/User_Manual.md) to ensure comprehensive guidance for end-users.
+
+Release the final version of the code.
+
+Successfully delivered the oral presentation, covering project objectives, methodologies, and outcomes.
+
+We have planned a closure meeting for 03/06/2024.
 
 ## Project Key parameters
 
@@ -41,23 +49,19 @@
 
 </details>
 
-| Component | Status | Comments |
-| --------- | ------ | -------- |
-| Scope     |        |          |
-| Schedule  |        |          |
-| Risks     |        |          |
-| Issues    |        |          |
-| Quality   |        |          |
+| Component | Status | Comments           |
+| --------- | ------ | ------------------ |
+| Scope     | On     | All Ok             |
+| Schedule  | On     | No delays          |
+| Risks     | On     | Team mates absence |
+| Issues    | /      | No major issues    |
+| Quality   | On     | All Ok             |
 
 ## Project Risks and Issues (Top 5)
 
-| Risk/Issues | Description | Owner | Status |
-| ----------- | ----------- | ----- | ------ |
-| Risk 1      |             |       |        |
-| Risk 2      |             |       |        |
-| Risk 3      |             |       |        |
-| Risk 4      |             |       |        |
-| Risk 5      |             |       |        |
+| Risk/Issues | Description                             | Owner           | Status |
+| ----------- | --------------------------------------- | --------------- | ------ |
+| Risk 1      | Absence of some teammates due to illnes | Laurent Bouquin | Close  |
 
 ## Project Schedule
 
@@ -106,11 +110,9 @@ This KPIs refers to the [cumulative KPIs](https://docs.google.com/spreadsheets/d
 
 ## Next week Action Plan
 
-| Action | Note | Owner | Status | End Date |
-| ------ | ---- | ----- | ------ | -------- |
-|        |      |       |        |          |
-|        |      |       |        |          |
-|        |      |       |        |          |
+| Action          | Note | Owner              | Status | End Date   |
+| --------------- | ---- | ------------------ | ------ | ---------- |
+| Closure meeting |      | Laura-Lee Hollande | To do  | 03/06/2024 |
 
 ---
 
